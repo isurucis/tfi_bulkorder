@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>quickproducttable</name>
+    <displayName><![CDATA[Quick Product Table]]></displayName>
+    <version><![CDATA[1.2.0]]></version>
+    <description><![CDATA[list your products in a fully searchable and sortable table view for shopping.]]></description>
+    <author><![CDATA[FMM Modules]]></author>
+    <tab><![CDATA[front_office_features]]></tab>
+	<confirmUninstall><![CDATA[Are You Sure?]]></confirmUninstall>
+    <is_configurable>1</is_configurable>
+    <need_instance>1</need_instance>
+</module>
