@@ -379,7 +379,8 @@ text-align: center;
 }
 
 .div_table_checkbox {
-    width: 40px; padding:8px 7px;
+    width: 40px;
+    padding:0px 2px;
     float: left;
 }
 .div_table_sku {
@@ -424,8 +425,8 @@ text-align: center;
 }
 
 .countries_flags {
-    padding: 3px;
-    border: solid 1px #666666;
+    padding: 1px;
+    border: solid 1px #cacaca;
 }
 
 
@@ -533,6 +534,9 @@ text-align: center;
           position: relative;
           padding-left: 50% !important;
         }
+
+
+
         .table-responsive-full td:hover {
           background-color: #eee;
           color: #000;
