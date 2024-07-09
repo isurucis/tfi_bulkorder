@@ -42,24 +42,27 @@
 
 #fmm_table_filter{
     float: left;
-
-text-align: left;
+    text-align: left;
+    width: 100%;
 }
 
 #fmm_table{
 	width:100%
 }
 
+#fmm_table_filter label {
+    width: 99%;
+}
+
 #fmm_table_filter input {
   border-radius: 5px;
   background: #f5f5f5;
+    color: #7a7a7a;
 
-color: #7a7a7a;
+    border: 1px solid rgba(0,0,0,.25);
 
-border: 1px solid rgba(0,0,0,.25);
-
-padding: .5rem 1rem;
-width: 100%;
+    padding: .5rem 1rem;
+    width: 100%;
 }
 
 #select_fmm{
@@ -375,9 +378,6 @@ text-align: center;
     margin-bottom: 10px;
 }
 
-#fmm_table_filter 
-
-
 .div_table_checkbox {
     width: 40px; padding:8px 7px;
     float: left;
@@ -385,6 +385,14 @@ text-align: center;
 .div_table_sku {
     float: left;
 }
+
+
+
+#fmm_table_filter label i {
+    padding-top: 10px;
+    margin-left: -41px !important;
+}
+
 
 #fmm_table_filter label input {
     border-radius: 0.4rem;
