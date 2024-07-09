@@ -34,38 +34,57 @@
 {if $in_ary == true}
 <h1 class="quickhead csvhead">{$head_name_{$id_lang}|escape:'htmlall':'UTF-8'}</h1>
 <div class="box-border-bottom col-lg-10">
-    <div class="col-lg-1 col-xs-12 top_buttons">
+    <!-- div class="col-lg-1 col-xs-12 top_buttons">
         <p style="padding-top: 8px;font-weight: bolder;">{l s='Filters:' mod='quickproducttable'}</p>
-    </div>
+    </div -->
+
+    
+    {if isset($catTree)}
+        <div class=" top_buttons">
+            <select  name="select_fmm_cat" id="select_fmm_cat">
+                {foreach from=$catTree['children'] item=tree}
+                    <option value="{$tree['id']|escape:'htmlall':'UTF-8'}">{$tree['name']|escape:'htmlall':'UTF-8'}</option>
+                    {foreach from=$tree['children'] item=tree2}
+                        <option value="{$tree2['id']|escape:'htmlall':'UTF-8'}">&emsp;&emsp;{$tree2['name']|escape:'htmlall':'UTF-8'}</option>
+                        {foreach from=$tree2['children'] item=tree3}
+                            <option value="{$tree3['id']|escape:'htmlall':'UTF-8'}">&emsp;&emsp;&emsp;&emsp;{$tree3['name']|escape:'htmlall':'UTF-8'}</option>
+                        {/foreach}
+                    {/foreach}
+                {/foreach}
+            </select>
+        </div>
+    {/if}
+    
+
     {if $new_enable == 1}
-        <div class="col-lg-2 col-xs-12 top_buttons" >
+        <div class=" top_buttons" >
             <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=new">{l s='New Products' mod='quickproducttable'}</a>
         </div>
     {/if}
     {if $best_enable == 1}
-        <div class="col-lg-2 col-xs-12 top_buttons" >
+        <div class=" top_buttons" >
             <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=best">{l s='Best Sales' mod='quickproducttable'}</a>
         </div>
     {/if}
     {if $all_enable == 1}
-        <div class="col-lg-2 col-xs-12 top_buttons">
+        <div class=" top_buttons">
             <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=all">{l s='All Products' mod='quickproducttable'}</a>
         </div>
     {/if}
     {if $sale_enable == 1}
-        <div class="col-lg-2 col-xs-12 top_buttons">
+        <div class=" top_buttons">
             <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=sale">{l s='Prices Drop' mod='quickproducttable'}</a>
         </div>
     {/if}
 
     {if $advance_enable == 1}
-        <div class="col-lg-3 col-xs-12 top_buttons">
+        <div class=" top_buttons">
             <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=advance">{l s='Advance Search' mod='quickproducttable'}</a>
         </div>
     {/if}
 
     {if $csv_enable == 1}
-        <div class="col-lg-2 col-xs-12 top_buttons">
+        <div class=" top_buttons">
             <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=csv">{l s='Add In Bulk' mod='quickproducttable'}</a>
         </div>
     {/if}
@@ -74,7 +93,7 @@
 
 
 
-<div class="col-lg-12" style="margin-bottom: 21px;">
+<!-- div class="col-lg-12" style="margin-bottom: 21px;">
     <label style="display: flex;" for="cars">{l s='Filter By Category' mod='quickproducttable'}</label>
 
     {if isset($catTree)}
@@ -90,7 +109,7 @@
         {/foreach}
     </select>
     {/if}
-</div>
+</div -->
 
 <input type="hidden" name="ajax_url" id="ajax_url" value="{$ajax_url|escape:'htmlall':'UTF-8'}">
 <table id="fmm_table" class="display nowrap table-responsive-full">
