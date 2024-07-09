@@ -378,6 +378,42 @@ text-align: center;
 #fmm_table_filter 
 
 
+.div_table_checkbox {
+    width: 40px; padding:8px 7px;
+    float: left;
+}
+.div_table_sku {
+    float: left;
+}
+
+#fmm_table_filter label input {
+    border-radius: 0.4rem;
+    border-width: 1px;
+    color: #212529;
+    height: 2.875rem;
+    line-height: 2.875rem;
+    padding: 0 4.375rem 0 1.875rem;
+
+
+    background-clip: padding-box;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+      border-top-width: 1px;
+      border-right-width: 1px;
+      border-bottom-width: 1px;
+      border-left-width: 1px;
+    /*border-radius: 0.4rem;
+    color: #495057;*/
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    /*height: calc(1.5em + 1rem + 2px);
+    line-height: 1.5;
+    padding: 0.5rem 1rem;*/
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    width: 100%;
+
+}
 
 
 

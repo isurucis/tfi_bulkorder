@@ -132,8 +132,12 @@
         <tbody id="fmm_table_body">
           {foreach from=$all_products item=product name=product}
             <tr>
-                <td data-label="No">{$product.reference|escape:'htmlall':'UTF-8'}</td>
-                <td data-label="Name & info">
+                <td data-label="No">
+                    <div class="div_table_checkbox"><input type="checkbox"  id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}"></div>
+                    <div class="div_table_sku">{$product.reference|escape:'htmlall':'UTF-8'}</div>
+                    <div style="clear: both;"></div>
+                </td>
+                <td data-label="Name and Info">
                     <a href="{$product.link|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}</a>
                     <div>
                     {assign var="group_count" value=0}
@@ -224,7 +228,7 @@
                 <td data-label="Select">
                     <input type="hidden" name="group" id="group_{$product.id_product|escape:'htmlall':'UTF-8'}" value="{$group_count|escape:'htmlall':'UTF-8'}">
                     <button class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" onclick="fmmAddCart({$product.id_product|escape:'htmlall':'UTF-8'}, {$group_count|escape:'htmlall':'UTF-8'});" >{l s='🧺' mod='quickproducttable'}</button>
-                    <input type="checkbox"  id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}">
+                    
                 </td>
             </tr>
             {/foreach}
