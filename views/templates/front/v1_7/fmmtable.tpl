@@ -41,7 +41,7 @@
     
     {if isset($catTree)}
         <div class=" top_buttons">
-            <select  name="select_fmm_cat" id="select_fmm_cat">
+            <select  name="select_fmm_cat" id="select_fmm_cat" class="custom-select ">
                 {foreach from=$catTree['children'] item=tree}
                     <option value="{$tree['id']|escape:'htmlall':'UTF-8'}">{$tree['name']|escape:'htmlall':'UTF-8'}</option>
                     {foreach from=$tree['children'] item=tree2}
