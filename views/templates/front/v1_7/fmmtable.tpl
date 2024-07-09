@@ -33,7 +33,7 @@
 
 {if $in_ary == true}
 <h1 class="quickhead csvhead">{$head_name_{$id_lang}|escape:'htmlall':'UTF-8'}</h1>
-<div class="box-border-bottom col-lg-10">
+<div class="box-border-bottom col-lg-12">
     <!-- div class="col-lg-1 col-xs-12 top_buttons">
         <p style="padding-top: 8px;font-weight: bolder;">{l s='Filters:' mod='quickproducttable'}</p>
     </div -->
