@@ -542,10 +542,10 @@ table.dataTable {
           display: block;
         }
 
-        .table-responsive-full td::before {
+        /*.table-responsive-full td::before {
             font-size: .8rem;
             font-style: italic;
-        }
+        }*/
 
         .table-responsive-full td {
           background-color: #fff;
@@ -576,12 +576,13 @@ table.dataTable {
           content: attr(data-label);
           display: inline-block;
           color: hsl(0, 0%, 60%);
-          font-size: 14px;
+          font-size: 12px;
           font-weight: normal;
           margin-left: -100%;
-          text-transform: uppercase;
-          width: 100%;
+          text-transform: capitalize;
+          width: 60%;
           white-space: nowrap;
+          font-style: italic;
         }
       }
       @media (max-width: 360px) {
