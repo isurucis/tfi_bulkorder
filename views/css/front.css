@@ -423,7 +423,10 @@ text-align: center;
 
 }
 
-
+.countries_flags {
+    padding: 3px;
+    border: solid 1px #666666;
+}
 
 
 
@@ -528,7 +531,7 @@ text-align: center;
           background-color: #fff;
           border-top: none;
           position: relative;
-          padding-left: 50%;
+          padding-left: 50% !important;
         }
         .table-responsive-full td:hover {
           background-color: #eee;

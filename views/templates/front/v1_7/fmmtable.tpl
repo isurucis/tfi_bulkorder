@@ -32,7 +32,7 @@
 <input type="hidden" name="product_type" id="product_type" value="{$product_type|escape:'htmlall':'UTF-8'}">
 
 {if $in_ary == true}
-<h1 class="quickhead csvhead">{$head_name_{$id_lang}}</h1>
+<h1 class="quickhead csvhead">{$head_name_{$id_lang}|escape:'htmlall':'UTF-8'}</h1>
 <div class="box-border-bottom col-lg-12">
     <!-- div class="col-lg-1 col-xs-12 top_buttons">
         <p style="padding-top: 8px;font-weight: bolder;">{l s='Filters:' mod='quickproducttable'}</p>
@@ -115,7 +115,7 @@
 <table id="fmm_table" class="display nowrap table-responsive-full">
         <thead>
             <tr>
-                <th>{l s='ID' mod='quickproducttable'}</th>
+                <th><input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"><p style="padding-left: 22px;">{l s='SKU' mod='quickproducttable'}</th>
                 <th>{l s='Name' mod='quickproducttable'}</th>
                 
                 <th>{l s='Size' mod='quickproducttable'}</th>
@@ -126,13 +126,15 @@
 
                 <th>{l s='Price' mod='quickproducttable'}</th>
                 <th>{l s='Quantity' mod='quickproducttable'}</th>
-                <th>{l s='Action ' mod='quickproducttable'}<span style="font-size: smaller;display: ruby;color: #8e9293;"><input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"><p style="padding-left: 22px;">{l s="Select all" mod='quickproducttable'}</p></span></th>
+                <th>{l s='Action ' mod='quickproducttable'}</th>
+
+                <!-- th>{l s='Action ' mod='quickproducttable'}<span style="font-size: smaller;display: ruby;color: #8e9293;"><input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"><p style="padding-left: 22px;">{l s="Select all" mod='quickproducttable'}</p></span></th -->
             </tr>
         </thead>
         <tbody id="fmm_table_body">
           {foreach from=$all_products item=product name=product}
             <tr>
-                <td data-label="No">
+                <td data-label="SKU">
                     <div>
                         <div class="div_table_checkbox"><input type="checkbox"  id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}"></div>
                         <div class="div_table_sku">{$product.reference|escape:'htmlall':'UTF-8'}</div>
@@ -164,13 +166,13 @@
                     </span>
                     {/if}
                     {if $feature.id_feature == 5}
-                    <img src="https://flagcdn.com/{$feature.value|escape:'htmlall':'UTF-8'}.svg" width="30">
+                    <img class="countries_flags" src="https://flagcdn.com/{$feature.value|escape:'htmlall':'UTF-8'}.svg" width="30">
                     {/if}
                     {foreachelse}
                     {/foreach}
                 </td>
                 
-                <td data-label="Bag per Box">
+                <td data-label="Size">
                 {foreach from=$product.features item=feature name=features}
                     {if $feature.id_feature == 4}
                     <span>
@@ -182,7 +184,7 @@
                 </td>
                 
                 
-                <td data-label="Qty per Bag">
+                <td data-label="Bag per Box">
                 {foreach from=$product.features item=feature name=features}
                     {if $feature.id_feature == 6}
                     <span>
@@ -193,7 +195,7 @@
                 {/foreach}
                 </td>
 
-                <td data-label="Qty per Box">
+                <td data-label="Qty per Bag">
                 {foreach from=$product.features item=feature name=features}
                     {if $feature.id_feature == 7}
                     <span>
@@ -204,7 +206,7 @@
                 {/foreach}
                 </td>
 
-                <td data-label="Price">
+                <td data-label="Qty per Box">
                 {foreach from=$product.features item=feature name=features}
                     {if $feature.id_feature == 8}
                     <span>
@@ -215,9 +217,9 @@
                 {/foreach}
                 </td>
 
-                <td data-label="Quantity">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span></td>
+                <td data-label="Price">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span></td>
                 
-                <td data-label="Action">
+                <td data-label="Quantity">
                     <div class="col-lg-2">
                         <div class="number" id="number">
                         <span class="minus">-</span>
@@ -227,7 +229,7 @@
                     </div>
                 </td>
 
-                <td data-label="Select">
+                <td data-label="Add to Cart">
                     <input type="hidden" name="group" id="group_{$product.id_product|escape:'htmlall':'UTF-8'}" value="{$group_count|escape:'htmlall':'UTF-8'}">
                     <button class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" onclick="fmmAddCart({$product.id_product|escape:'htmlall':'UTF-8'}, {$group_count|escape:'htmlall':'UTF-8'});" >{l s='🧺' mod='quickproducttable'}</button>
                     
@@ -237,7 +239,7 @@
         </tbody>
         <tfoot>
             <tr>
-                <th>{l s='ID' mod='quickproducttable'}</th>
+                <th><input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs">{l s='SKU' mod='quickproducttable'}</th>
                 <th>{l s='Name' mod='quickproducttable'}</th>
                 
                 <th>{l s='Size' mod='quickproducttable'}</th>
@@ -248,7 +250,9 @@
 
                 <th>{l s='Price' mod='quickproducttable'}</th>
                 <th>{l s='Quantity' mod='quickproducttable'}</th>
-                <th>{l s='Action ' mod='quickproducttable'}<span style="font-size: smaller;display: ruby;color: #8e9293;"><input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"><p style="padding-left: 22px;">{l s="Select all" mod='quickproducttable'}</p></span></th>
+                <th>{l s='Action ' mod='quickproducttable'}</th>
+
+                <!-- th>{l s='Action ' mod='quickproducttable'}<span style="font-size: smaller;display: ruby;color: #8e9293;"><input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"><p style="padding-left: 22px;">{l s="Select all" mod='quickproducttable'}</p></span></th -->
             </tr>
         </tfoot>
     </table>
