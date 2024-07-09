@@ -430,6 +430,19 @@ text-align: center;
 }
 
 
+table.dataTable {
+    border-collapse: none !important;
+}
+
+
+
+
+
+
+
+
+
+
 
 
     /* Tables */
@@ -528,6 +541,12 @@ text-align: center;
         .table-responsive-full td {
           display: block;
         }
+
+        .table-responsive-full td::before {
+            font-size: .8rem;
+            font-style: italic;
+        }
+
         .table-responsive-full td {
           background-color: #fff;
           border-top: none;
