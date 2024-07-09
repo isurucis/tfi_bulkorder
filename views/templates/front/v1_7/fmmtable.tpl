@@ -36,40 +36,41 @@
 <div class="border col-lg-10">
     <div class="col-lg-1 col-xs-12 top_buttons">
         <p style="padding-top: 8px;font-weight: bolder;">{l s='Filters:' mod='quickproducttable'}</p>
-        
     </div>
     {if $new_enable == 1}
-    <div class="col-lg-2 col-xs-12 top_buttons" >
-        <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=new">{l s='New Products' mod='quickproducttable'}</a>
-    </div>
+        <div class="col-lg-2 col-xs-12 top_buttons" >
+            <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=new">{l s='New Products' mod='quickproducttable'}</a>
+        </div>
     {/if}
     {if $best_enable == 1}
-    <div class="col-lg-2 col-xs-12 top_buttons" >
-        <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=best">{l s='Best Sales' mod='quickproducttable'}</a>
-    </div>
+        <div class="col-lg-2 col-xs-12 top_buttons" >
+            <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=best">{l s='Best Sales' mod='quickproducttable'}</a>
+        </div>
     {/if}
     {if $all_enable == 1}
-    <div class="col-lg-2 col-xs-12 top_buttons">
-        <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=all">{l s='All Products' mod='quickproducttable'}</a>
-    </div>
+        <div class="col-lg-2 col-xs-12 top_buttons">
+            <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=all">{l s='All Products' mod='quickproducttable'}</a>
+        </div>
     {/if}
     {if $sale_enable == 1}
-    <div class="col-lg-2 col-xs-12 top_buttons">
-        <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=sale">{l s='Prices Drop' mod='quickproducttable'}</a>
-    </div>
+        <div class="col-lg-2 col-xs-12 top_buttons">
+            <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=sale">{l s='Prices Drop' mod='quickproducttable'}</a>
+        </div>
     {/if}
 
     {if $advance_enable == 1}
-    <div class="col-lg-3 col-xs-12 top_buttons">
-        <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=advance">{l s='Advance Search' mod='quickproducttable'}</a>
-    </div>
+        <div class="col-lg-3 col-xs-12 top_buttons">
+            <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=advance">{l s='Advance Search' mod='quickproducttable'}</a>
+        </div>
+    {/if}
+
+    {if $csv_enable == 1}
+        <div class="col-lg-2 col-xs-12 top_buttons">
+            <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=csv">{l s='Add In Bulk' mod='quickproducttable'}</a>
+        </div>
     {/if}
 </div>
-{if $csv_enable == 1}
-<div class="col-lg-2 col-xs-12 top_buttons">
-    <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=csv">{l s='Add In Bulk' mod='quickproducttable'}</a>
-</div>
-{/if}
+
 
 
 <div class="col-lg-12" style="margin-bottom: 21px;">
@@ -91,7 +92,7 @@
 </div>
 
 <input type="hidden" name="ajax_url" id="ajax_url" value="{$ajax_url|escape:'htmlall':'UTF-8'}">
-<table id="fmm_table" class="display nowrap">
+<table id="fmm_table" class="display nowrap table-responsive-full">
         <thead>
             <tr>
                 <th>{l s='ID' mod='quickproducttable'}</th>
@@ -111,8 +112,8 @@
         <tbody id="fmm_table_body">
           {foreach from=$all_products item=product name=product}
             <tr>
-                <td>{$product.reference|escape:'htmlall':'UTF-8'}</td>
-                <td>
+                <td data-label="No">{$product.reference|escape:'htmlall':'UTF-8'}</td>
+                <td data-label="Name & info">
                     <a href="{$product.link|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}</a>
                     <div>
                     {assign var="group_count" value=0}
@@ -143,7 +144,7 @@
                     {/foreach}
                 </td>
                 
-                <td>
+                <td data-label="Bag per Box">
                 {foreach from=$product.features item=feature name=features}
                     {if $feature.id_feature == 4}
                     <span>
@@ -155,7 +156,7 @@
                 </td>
                 
                 
-                <td>
+                <td data-label="Qty per Bag">
                 {foreach from=$product.features item=feature name=features}
                     {if $feature.id_feature == 6}
                     <span>
@@ -165,7 +166,8 @@
                 {foreachelse}
                 {/foreach}
                 </td>
-                <td>
+
+                <td data-label="Qty per Box">
                 {foreach from=$product.features item=feature name=features}
                     {if $feature.id_feature == 7}
                     <span>
@@ -175,7 +177,8 @@
                 {foreachelse}
                 {/foreach}
                 </td>
-                <td>
+
+                <td data-label="Price">
                 {foreach from=$product.features item=feature name=features}
                     {if $feature.id_feature == 8}
                     <span>
@@ -186,8 +189,9 @@
                 {/foreach}
                 </td>
 
-                <td>{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span></td>
-                <td>
+                <td data-label="Quantity">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span></td>
+                
+                <td data-label="Action">
                     <div class="col-lg-2">
                         <div class="number" id="number">
                         <span class="minus">-</span>
@@ -196,7 +200,8 @@
                         </div>
                     </div>
                 </td>
-                <td>
+
+                <td data-label="Select">
                     <input type="hidden" name="group" id="group_{$product.id_product|escape:'htmlall':'UTF-8'}" value="{$group_count|escape:'htmlall':'UTF-8'}">
                     <button class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" onclick="fmmAddCart({$product.id_product|escape:'htmlall':'UTF-8'}, {$group_count|escape:'htmlall':'UTF-8'});" >{l s='🧺' mod='quickproducttable'}</button>
                     <input type="checkbox"  id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}">
