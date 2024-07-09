@@ -33,7 +33,7 @@
 
 {if $in_ary == true}
 <h1 class="quickhead csvhead">{$head_name_{$id_lang}|escape:'htmlall':'UTF-8'}</h1>
-<div class="border col-lg-10">
+<div class="box-border-bottom col-lg-10">
     <div class="col-lg-1 col-xs-12 top_buttons">
         <p style="padding-top: 8px;font-weight: bolder;">{l s='Filters:' mod='quickproducttable'}</p>
     </div>
@@ -69,12 +69,13 @@
             <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=csv">{l s='Add In Bulk' mod='quickproducttable'}</a>
         </div>
     {/if}
+    <div style="clear: both;"></div>
 </div>
 
 
 
 <div class="col-lg-12" style="margin-bottom: 21px;">
- <label style="display: flex;" for="cars">{l s='Filter By Category' mod='quickproducttable'}</label>
+    <label style="display: flex;" for="cars">{l s='Filter By Category' mod='quickproducttable'}</label>
 
     {if isset($catTree)}
     <select  name="select_fmm_cat" id="select_fmm_cat">

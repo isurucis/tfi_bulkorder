@@ -30,6 +30,7 @@
 	text-align: center;
 	margin-bottom: 15px;
     margin-top: 15px;
+    float: left;
 }
 
 .top_buttons a{
@@ -372,6 +373,14 @@ text-align: center;
 .srcicon{
     margin-left: -25px;
 }
+
+.box-border-bottom {
+    border-bottom: solid 1px #333333;
+}
+
+
+
+
 
 
 
