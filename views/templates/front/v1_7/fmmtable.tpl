@@ -33,68 +33,47 @@
 
 {if $in_ary == true}
 <h1 class="quickhead csvhead">{$head_name_{$id_lang}|escape:'htmlall':'UTF-8'}</h1>
-<div class="box-border-bottom col-lg-12">
-    <!-- div class="col-lg-1 col-xs-12 top_buttons">
+<div class="border col-lg-10">
+    <div class="col-lg-1 col-xs-12 top_buttons">
         <p style="padding-top: 8px;font-weight: bolder;">{l s='Filters:' mod='quickproducttable'}</p>
-    </div -->
-
-    
-    {if isset($catTree)}
-        <div class=" top_buttons">
-            <select  name="select_fmm_cat" id="select_fmm_cat" class="custom-select ">
-                {foreach from=$catTree['children'] item=tree}
-                    <option value="{$tree['id']|escape:'htmlall':'UTF-8'}">{$tree['name']|escape:'htmlall':'UTF-8'}</option>
-                    {foreach from=$tree['children'] item=tree2}
-                        <option value="{$tree2['id']|escape:'htmlall':'UTF-8'}">&emsp;&emsp;{$tree2['name']|escape:'htmlall':'UTF-8'}</option>
-                        {foreach from=$tree2['children'] item=tree3}
-                            <option value="{$tree3['id']|escape:'htmlall':'UTF-8'}">&emsp;&emsp;&emsp;&emsp;{$tree3['name']|escape:'htmlall':'UTF-8'}</option>
-                        {/foreach}
-                    {/foreach}
-                {/foreach}
-            </select>
-        </div>
-    {/if}
-    
-
+        
+    </div>
     {if $new_enable == 1}
-        <div class=" top_buttons" >
-            <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=new">{l s='New Products' mod='quickproducttable'}</a>
-        </div>
+    <div class="col-lg-2 col-xs-12 top_buttons" >
+        <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=new">{l s='New Products' mod='quickproducttable'}</a>
+    </div>
     {/if}
     {if $best_enable == 1}
-        <div class=" top_buttons" >
-            <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=best">{l s='Best Sales' mod='quickproducttable'}</a>
-        </div>
+    <div class="col-lg-2 col-xs-12 top_buttons" >
+        <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=best">{l s='Best Sales' mod='quickproducttable'}</a>
+    </div>
     {/if}
     {if $all_enable == 1}
-        <div class=" top_buttons">
-            <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=all">{l s='All Products' mod='quickproducttable'}</a>
-        </div>
+    <div class="col-lg-2 col-xs-12 top_buttons">
+        <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=all">{l s='All Products' mod='quickproducttable'}</a>
+    </div>
     {/if}
     {if $sale_enable == 1}
-        <div class=" top_buttons">
-            <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=sale">{l s='Prices Drop' mod='quickproducttable'}</a>
-        </div>
+    <div class="col-lg-2 col-xs-12 top_buttons">
+        <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=sale">{l s='Prices Drop' mod='quickproducttable'}</a>
+    </div>
     {/if}
 
     {if $advance_enable == 1}
-        <div class=" top_buttons">
-            <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=advance">{l s='Advance Search' mod='quickproducttable'}</a>
-        </div>
+    <div class="col-lg-3 col-xs-12 top_buttons">
+        <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=advance">{l s='Advance Search' mod='quickproducttable'}</a>
+    </div>
     {/if}
-
-    {if $csv_enable == 1}
-        <div class=" top_buttons">
-            <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=csv">{l s='Add In Bulk' mod='quickproducttable'}</a>
-        </div>
-    {/if}
-    <div style="clear: both;"></div>
 </div>
+{if $csv_enable == 1}
+<div class="col-lg-2 col-xs-12 top_buttons">
+    <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=csv">{l s='Add In Bulk' mod='quickproducttable'}</a>
+</div>
+{/if}
 
 
-
-<!-- div class="col-lg-12" style="margin-bottom: 21px;">
-    <label style="display: flex;" for="cars">{l s='Filter By Category' mod='quickproducttable'}</label>
+<div class="col-lg-12" style="margin-bottom: 21px;">
+ <label style="display: flex;" for="cars">{l s='Filter By Category' mod='quickproducttable'}</label>
 
     {if isset($catTree)}
     <select  name="select_fmm_cat" id="select_fmm_cat">
@@ -109,13 +88,13 @@
         {/foreach}
     </select>
     {/if}
-</div -->
+</div>
 
 <input type="hidden" name="ajax_url" id="ajax_url" value="{$ajax_url|escape:'htmlall':'UTF-8'}">
-<table id="fmm_table" class="display nowrap table-responsive-full">
+<table id="fmm_table" class="display nowrap">
         <thead>
             <tr>
-                <th><input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"><p style="padding-left: 22px;">{l s='SKU' mod='quickproducttable'}</th>
+                <th>{l s='ID' mod='quickproducttable'}</th>
                 <th>{l s='Name' mod='quickproducttable'}</th>
                 
                 <th>{l s='Size' mod='quickproducttable'}</th>
@@ -126,22 +105,14 @@
 
                 <th>{l s='Price' mod='quickproducttable'}</th>
                 <th>{l s='Quantity' mod='quickproducttable'}</th>
-                <th>{l s='Action ' mod='quickproducttable'}</th>
-
-                <!-- th>{l s='Action ' mod='quickproducttable'}<span style="font-size: smaller;display: ruby;color: #8e9293;"><input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"><p style="padding-left: 22px;">{l s="Select all" mod='quickproducttable'}</p></span></th -->
+                <th>{l s='Action ' mod='quickproducttable'}<span style="font-size: smaller;display: ruby;color: #8e9293;"><input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"><p style="padding-left: 22px;">{l s="Select all" mod='quickproducttable'}</p></span></th>
             </tr>
         </thead>
         <tbody id="fmm_table_body">
           {foreach from=$all_products item=product name=product}
             <tr>
-                <td data-label="SKU">
-                    <div>
-                        <div class="div_table_checkbox"><input type="checkbox"  id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}"></div>
-                        <div class="div_table_sku">{$product.reference|escape:'htmlall':'UTF-8'}</div>
-                        <div style="clear: both;"></div>
-                    </div>
-                </td>
-                <td data-label="Name and Info">
+                <td>{$product.reference|escape:'htmlall':'UTF-8'}</td>
+                <td>
                     <a href="{$product.link|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}</a>
                     <div>
                     {assign var="group_count" value=0}
@@ -166,13 +137,13 @@
                     </span>
                     {/if}
                     {if $feature.id_feature == 5}
-                    <img class="countries_flags" src="https://flagcdn.com/{$feature.value|escape:'htmlall':'UTF-8'}.svg" width="30">
+                    <img src="https://flagcdn.com/{$feature.value|escape:'htmlall':'UTF-8'}.svg" width="30">
                     {/if}
                     {foreachelse}
                     {/foreach}
                 </td>
                 
-                <td data-label="Size">
+                <td>
                 {foreach from=$product.features item=feature name=features}
                     {if $feature.id_feature == 4}
                     <span>
@@ -184,7 +155,7 @@
                 </td>
                 
                 
-                <td data-label="Bag per Box">
+                <td>
                 {foreach from=$product.features item=feature name=features}
                     {if $feature.id_feature == 6}
                     <span>
@@ -194,8 +165,7 @@
                 {foreachelse}
                 {/foreach}
                 </td>
-
-                <td data-label="Qty per Bag">
+                <td>
                 {foreach from=$product.features item=feature name=features}
                     {if $feature.id_feature == 7}
                     <span>
@@ -205,8 +175,7 @@
                 {foreachelse}
                 {/foreach}
                 </td>
-
-                <td data-label="Qty per Box">
+                <td>
                 {foreach from=$product.features item=feature name=features}
                     {if $feature.id_feature == 8}
                     <span>
@@ -217,9 +186,8 @@
                 {/foreach}
                 </td>
 
-                <td data-label="Price">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span></td>
-                
-                <td data-label="Quantity">
+                <td>{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span></td>
+                <td>
                     <div class="col-lg-2">
                         <div class="number" id="number">
                         <span class="minus">-</span>
@@ -228,18 +196,17 @@
                         </div>
                     </div>
                 </td>
-
-                <td data-label="Add to Cart">
+                <td>
                     <input type="hidden" name="group" id="group_{$product.id_product|escape:'htmlall':'UTF-8'}" value="{$group_count|escape:'htmlall':'UTF-8'}">
                     <button class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" onclick="fmmAddCart({$product.id_product|escape:'htmlall':'UTF-8'}, {$group_count|escape:'htmlall':'UTF-8'});" >{l s='🧺' mod='quickproducttable'}</button>
-                    
+                    <input type="checkbox"  id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}">
                 </td>
             </tr>
             {/foreach}
         </tbody>
         <tfoot>
             <tr>
-                <th><input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs">{l s='SKU' mod='quickproducttable'}</th>
+                <th>{l s='ID' mod='quickproducttable'}</th>
                 <th>{l s='Name' mod='quickproducttable'}</th>
                 
                 <th>{l s='Size' mod='quickproducttable'}</th>
@@ -250,9 +217,7 @@
 
                 <th>{l s='Price' mod='quickproducttable'}</th>
                 <th>{l s='Quantity' mod='quickproducttable'}</th>
-                <th>{l s='Action ' mod='quickproducttable'}</th>
-
-                <!-- th>{l s='Action ' mod='quickproducttable'}<span style="font-size: smaller;display: ruby;color: #8e9293;"><input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"><p style="padding-left: 22px;">{l s="Select all" mod='quickproducttable'}</p></span></th -->
+                <th>{l s='Action ' mod='quickproducttable'}<span style="font-size: smaller;display: ruby;color: #8e9293;"><input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"><p style="padding-left: 22px;">{l s="Select all" mod='quickproducttable'}</p></span></th>
             </tr>
         </tfoot>
     </table>
