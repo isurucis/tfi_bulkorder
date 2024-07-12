@@ -26,11 +26,46 @@
 * to avoid any conflicts with others containers.
 */
 
+@media screen and (max-width: 600px) {
+  .top_buttons {
+    text-align: center;
+    margin-bottom: 5px;
+      margin-top: 5px;
+      float: left;
+      width: 100%;
+      padding-right: 5px;
+  }
+
+  .top_buttons_right {
+    text-align: center;
+    margin-bottom: 5px;
+      margin-top: 5px;
+      float: right;
+      width: 100%;
+      padding-right: 5px;
+  }
+  
+  .top_buttons a{
+      font-weight: 400;
+      font-size: 12px;
+      width: 100%;
+  }
+}
+
 .top_buttons {
 	text-align: center;
 	margin-bottom: 5px;
     margin-top: 5px;
     float: left;
+    width: auto;
+    padding-right: 5px;
+}
+
+.top_buttons_right {
+	text-align: center;
+	margin-bottom: 5px;
+    margin-top: 5px;
+    float: right;
     width: auto;
     padding-right: 5px;
 }
