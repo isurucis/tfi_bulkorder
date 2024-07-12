@@ -66,7 +66,14 @@
 
  $('#fmm_table').on('click', 'span.minus', function(e){
     var $input = $(this).parent().find('input');
-                var count = parseInt($input.val()) - 1;
+                var minValue = parseInt($input.attr('min'));
+                //console.log(minValue);
+                if(minValue<1){
+                  i=1
+                }else{
+                  i=minValue
+                }
+                var count = parseInt($input.val()) - i;
                 count = count < 1 ? 1 : count;
                 $input.val(count);
                 $input.change();
@@ -77,7 +84,7 @@ $('#fmm_table').on('click', 'span.plus', function(e){
     var $input = $(this).parent().find('input');
                //var minValue = parseInt(input.getAttribute('min'));
                var minValue = parseInt($input.attr('min'));
-               console.log(minValue);
+               //console.log(minValue);
                if(minValue<1){
                  i=1
                }else{
