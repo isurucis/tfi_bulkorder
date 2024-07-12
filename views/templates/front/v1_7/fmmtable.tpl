@@ -88,6 +88,13 @@
             <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=csv">{l s='Add In Bulk' mod='quickproducttable'}</a>
         </div>
     {/if}
+
+    <div class=" top_buttons_right" >
+        <a class="btn btn-primary" href="{$cart_url|escape:'htmlall':'UTF-8'}?action=show">{l s='View Cart' mod='quickproducttable'}</a>
+    </div>
+    <div class=" top_buttons_right" >
+        <button class="btn btn-primary" onclick="fmmAddAllCart();" >{l s='Add To Cart' mod='quickproducttable'}</button>
+    </div>
     <div style="clear: both;"></div>
 </div>
 
@@ -97,7 +104,7 @@
 <table id="fmm_table" class="display nowrap table-responsive-full">
         <thead>
             <tr>
-                <th>{l s='ID' mod='quickproducttable'}<span style="font-size: smaller;display: ruby;color: #8e9293;"><input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"><p style="padding-left: 22px;">{l s="Select all" mod='quickproducttable'}</p></span></th>
+                <th>{l s='ID' mod='quickproducttable'}</th>
                 <th>{l s='Name' mod='quickproducttable'}</th>
                 
                 <th>{l s='Size' mod='quickproducttable'}</th>
@@ -108,7 +115,7 @@
 
                 <th>{l s='Price' mod='quickproducttable'}</th>
                 <th>{l s='Quantity' mod='quickproducttable'}</th>
-                <th>{l s='Action ' mod='quickproducttable'}</th>
+                <th>{l s='Action ' mod='quickproducttable'}<span style="font-size: smaller;display: ruby;color: #8e9293;"><input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"><p style="padding-left: 22px;">{l s="Select all" mod='quickproducttable'}</p></span></th>
             </tr>
         </thead>
         <tbody id="fmm_table_body">
@@ -207,7 +214,7 @@
                 
                 <td data-label="Add to Cart">
                     <input type="hidden" name="group" id="group_{$product.id_product|escape:'htmlall':'UTF-8'}" value="{$group_count|escape:'htmlall':'UTF-8'}">
-                    <button class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" onclick="fmmAddCart({$product.id_product|escape:'htmlall':'UTF-8'}, {$group_count|escape:'htmlall':'UTF-8'});" >{l s='🧺' mod='quickproducttable'}</button>
+                    <!-- button class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" onclick="fmmAddCart({$product.id_product|escape:'htmlall':'UTF-8'}, {$group_count|escape:'htmlall':'UTF-8'});" >{l s='🧺' mod='quickproducttable'}</button -->
                     <input type="checkbox"  id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}">
                 </td>
             </tr>
@@ -239,8 +246,8 @@
 
 
 <div class="col-lg-12 col-xs-12 top_buttons" >
-    <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$cart_url|escape:'htmlall':'UTF-8'}?action=show">{l s='View Cart' mod='quickproducttable'}</a>
-    <button class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" onclick="fmmAddAllCart();" >{l s='Add Selected To Cart' mod='quickproducttable'}</button>
+    <a class="btn btn-primary" href="{$cart_url|escape:'htmlall':'UTF-8'}?action=show">{l s='View Cart' mod='quickproducttable'}</a>
+    <button class="btn btn-primary" onclick="fmmAddAllCart();" >{l s='Add To Cart' mod='quickproducttable'}</button>
 </div>
 
     {if $ajax_load}
