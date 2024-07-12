@@ -74,7 +74,7 @@
                   i=minValue
                 }
                 var count = parseInt($input.val()) - i;
-                count = count < 1 ? 1 : count;
+                count = count < i ? i : count;
                 $input.val(count);
                 $input.change();
                 return false;
