@@ -75,7 +75,7 @@
 
 $('#fmm_table').on('click', 'span.plus', function(e){
     var $input = $(this).parent().find('input');
-                $input.val(parseInt($input.val()) + 1);
+                $input.val(parseInt($input.val()) + $input.min());
                 $input.change();
                 return false;
 });
