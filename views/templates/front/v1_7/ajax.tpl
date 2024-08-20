@@ -25,8 +25,7 @@
 
 {foreach from=$all_products item=product name=product}
             <tr>
-                <td>{$product.id_product|escape:'htmlall':'UTF-8'}</td>
-                <td><a href="{$product.link|escape:'htmlall':'UTF-8'}"> <img src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}"></a> </td>
+                <td>{$product.reference|escape:'htmlall':'UTF-8'}</td>
                 <td>
                     <a href="{$product.link|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}</a>
                     <div>
@@ -45,20 +44,84 @@
                         
                     {/foreach}
                     </div>
+                    {foreach from=$product.features item=feature name=features}
+                    {if $feature.id_feature == 3}
+                    <span>
+                    {$feature.value|escape:'htmlall':'UTF-8'}
+                    </span>
+                    {/if}
+                    {if $feature.id_feature ==9}
+                    <span>
+                    {$feature.value|escape:'htmlall':'UTF-8'}
+                    </span>
+                    {/if}
+                    {foreachelse}
+                    {/foreach}
                 </td>
-                <td>{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span></td>
-                <td>
+                
+                <td data-label="Size">
+                {foreach from=$product.features item=feature name=features}
+                    {if $feature.id_feature == 4}
+                    <span>
+                    {$feature.value|escape:'htmlall':'UTF-8'}
+                    </span>
+                    {/if}
+                {foreachelse}
+                {/foreach}
+                </td>
+                
+                
+                <td data-label="Bag per Box">
+                {foreach from=$product.features item=feature name=features}
+                    {if $feature.id_feature == 6}
+                    <span>
+                    {$feature.value|escape:'htmlall':'UTF-8'}
+                    </span>
+                    {/if}
+                {foreachelse}
+                {/foreach}
+                </td>
+
+                <td data-label="Qty per Bag">
+                {foreach from=$product.features item=feature name=features}
+                    {if $feature.id_feature == 7}
+                    <span>
+                    {$feature.value|escape:'htmlall':'UTF-8'}
+                    </span>
+                    {/if}
+                {foreachelse}
+                {/foreach}
+                </td>
+
+                <td data-label="Qty per Box">
+                {foreach from=$product.features item=feature name=features}
+                    {if $feature.id_feature == 8}
+                    <span>
+                    {$feature.value|escape:'htmlall':'UTF-8'}
+                    </span>
+                    {/if}
+                {foreachelse}
+                {/foreach}
+                </td>
+
+                <td data-label="Price">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span></td>
+                
+                <td data-label="Quantity">
                     <div class="col-lg-2">
                         <div class="number" id="number">
                         <span class="minus">-</span>
-                        <input class="qty_id" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text" value="1"/>
+                        <input class="qty_id" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
+                        value="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
+                        min="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
+                         />
                         <span class="plus">+</span>
                         </div>
                     </div>
                 </td>
-                <td>
+                
+                <td data-label="Add to Cart">
                     <input type="hidden" name="group" id="group_{$product.id_product|escape:'htmlall':'UTF-8'}" value="{$group_count|escape:'htmlall':'UTF-8'}">
-                    <button class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" onclick="fmmAddCart({$product.id_product|escape:'htmlall':'UTF-8'}, {$group_count|escape:'htmlall':'UTF-8'});" >{l s='Add To Cart' mod='quickproducttable'}</button>
+                    {*<button class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" onclick="fmmAddCart({$product.id_product|escape:'htmlall':'UTF-8'}, {$group_count|escape:'htmlall':'UTF-8'});" >{l s='🧺' mod='quickproducttable'}</button>*}
                     <input type="checkbox"  id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}">
                 </td>
             </tr>
