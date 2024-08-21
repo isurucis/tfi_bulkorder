@@ -154,14 +154,15 @@ width: 80px !important;
         }
 
         .qty_id{
-            height:30px;
-      width: 25px;
+            /* height:30px; */
+      width: 47px;
       text-align: center;
       font-size: 12px;
             border:1px solid #ddd;
             border-radius:4px;
       display: inline-block;
       vertical-align: middle;
+      padding: .5rem .1rem;
   }
 
 
