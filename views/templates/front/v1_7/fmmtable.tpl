@@ -206,12 +206,12 @@
                 <td data-label="Quantity">
                     <div class="col-lg-2">
                         <div class="number" id="number">
-                        <span class="minus">-</span>
-                        <input class="qty_id" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
+                        <span class="btn minus">-</span>
+                        <input class="qty_id form-control input-qty" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
                         value="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
                         min="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
                          />
-                        <span class="plus">+</span>
+                        <span class="btn plus">+</span>
                         </div>
                     </div>
                 </td>
