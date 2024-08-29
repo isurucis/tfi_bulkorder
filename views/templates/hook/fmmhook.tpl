@@ -25,7 +25,7 @@
 
 
 <div class="clearfix hidden-sm-down customhook block-categories quick-product-order" style="text-align: center;">
-  <div class="quick-product-order-box">
+  <div class="card quick-product-order-box">
     <h6 class="text-uppercase quick-product-order-title">{l s='Quick Product Order' mod='quickproducttable'}</h6>
     <div class="quick-product-order-description"></div>
     <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?id_category={$id_category}">{l s='Quick Order' mod='quickproducttable'}</a>
