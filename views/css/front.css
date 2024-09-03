@@ -100,6 +100,12 @@
     width: 100%;
 }
 
+.quickorder_item_image {
+  width: 50px;
+}
+
+
+
 #select_fmm{
 width: 80px !important;
     margin-top: 5px;
@@ -831,4 +837,9 @@ table.dataTable tbody td {
   color: #2b2b2b;
   font-size: .7rem;
   font-weight: 500;
+}
+
+
+#fmm_table_body td img {
+  width: 50px;
 }
