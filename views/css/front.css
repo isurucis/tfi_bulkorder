@@ -790,10 +790,25 @@ table.dataTable {
 
 
 .grid_td_column1 { padding: 5px 6px !important;}
-.grid_td_column2 { padding: 5px 6px !important;}
+.grid_td_column2 { padding: 5px 6px !important;
+  font-family: 'Roboto';
+  font-size: .8rem;
+  font-weight: 500;
+  text-align: right;
+}
 .grid_td_column3 { padding: 5px 6px !important;}
-.grid_td_column4 { padding: 5px 6px !important;}
-.grid_td_column5 { padding: 5px 6px !important;}
+.grid_td_column4 { padding: 5px 6px !important;
+  font-family: 'Roboto';
+  font-size: .8rem;
+  font-weight: 500;
+  text-align: right;
+}
+.grid_td_column5 { padding: 5px 6px !important;
+  font-family: 'Roboto';
+  font-size: .8rem;
+  font-weight: 500;
+  text-align: right;
+}
 .grid_td_column6 { padding: 5px 6px !important;}
 .grid_td_column7 { padding: 5px 6px !important;}
 
