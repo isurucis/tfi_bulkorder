@@ -786,7 +786,7 @@ table.dataTable {
 .grid_th_column4 { width: 70px !important; padding: 5px 6px !important;}
 .grid_th_column5 { width: 100px !important; padding: 5px 6px !important;}
 .grid_th_column6 { width: 120px !important; padding: 5px 6px !important;}
-.grid_th_column7 { width: 70px !important; padding: 5px 6px !important;}
+.grid_th_column7 { width: 70px !important; padding: 5px 6px !important; margin-top: 15px;}
 
 
 .grid_td_column1 { padding: 5px 6px !important;}
@@ -794,14 +794,14 @@ table.dataTable {
   font-family: 'Roboto';
   font-size: .8rem;
   font-weight: 500;
-  text-align: right;
+  text-align: center;
 }
 .grid_td_column3 { padding: 5px 6px !important;}
 .grid_td_column4 { padding: 5px 6px !important;
   font-family: 'Roboto';
   font-size: .8rem;
   font-weight: 500;
-  text-align: right;
+  text-align: center;
 }
 .grid_td_column5 { padding: 5px 6px !important;
   font-family: 'Roboto';
@@ -828,6 +828,7 @@ table.dataTable tbody td {
   font-family: 'Roboto';
   font-size: 1rem;
   font-weight: 500;
+  text-align: left;
 }
 
 
@@ -866,6 +867,7 @@ table.dataTable tbody td {
   font-size: .7rem;
   font-weight: 500;
   float: left;
+  text-align: left;
 }
 
 
@@ -877,6 +879,8 @@ table.dataTable tbody td {
 }
 
 .dataTable-highlight {
-  background-color: #cedfd6 !important;
+  background-color: #b6dbc7 !important
+  
 }
+
 
