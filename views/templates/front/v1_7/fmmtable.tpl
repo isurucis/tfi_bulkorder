@@ -127,10 +127,19 @@
                 <td><div class="grid_td_column2">{$product.reference|escape:'htmlall':'UTF-8'}</div></td>
                 <td>
                     <div class="grid_td_column3">
+                        <div class="quickorder_itemname">
+                            <a href="{$product.link|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}</a>
+                        </div>
                         <div>
-                            <div class="quickorder_itemname">
-                                <a href="{$product.link|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}</a>
+                            <div class="quickorder_scientificname">
+                                {foreach from=$product.features item=feature name=features}
+                                    {if $feature.id_feature == 3}
+                                        {$feature.value|escape:'htmlall':'UTF-8'}
+                                    {/if}
+                                {foreachelse}
+                                {/foreach}
                             </div>
+
                             <div class="quickorder_country">
                                 {foreach from=$product.features item=feature name=features}
                                     {if $feature.id_feature ==9}
@@ -161,14 +170,7 @@
                             {/foreach}
                         </div>
 
-                        {foreach from=$product.features item=feature name=features}
-                            {if $feature.id_feature == 3}
-                            <div class="quickorder_scientificname">
-                            {$feature.value|escape:'htmlall':'UTF-8'}
-                            </div>
-                            {/if}
-                        {foreachelse}
-                        {/foreach}
+                        
                     </div>
                 </td>
                 

@@ -823,7 +823,7 @@ table.dataTable tbody td {
   background-color: #54b57c;
   color: #FFFFFF;
   width: auto;
-  border-radius: 0px 0px 0px 50px;
+  border-radius: 50px 0px 0px 0px;
   font-style: normal;
   font-size: .7rem;
   font-weight: 500;
