@@ -117,7 +117,7 @@
 
                 <th><div class='grid_th_column5'>{l s='Price' mod='quickproducttable'}</div></th>
                 <th><div class='grid_th_column6'>{l s='Quantity' mod='quickproducttable'}</div></th>
-                <th><div class='grid_th_column7'>{l s='' mod='quickproducttable'}<span style="font-size: smaller;display: ruby;color: #8e9293;"><input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"><p style="padding-left: 22px;">{l s="All" mod='quickproducttable'}</p></span></div></th>
+                <th><div class='grid_th_column7'>{l s='' mod='quickproducttable'}<input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"></div></th>
             </tr>
         </thead>
         <tbody id="fmm_table_body">
@@ -273,7 +273,7 @@
 
                 <th><div class='grid_th_column5'>{l s='Price' mod='quickproducttable'}</div></th>
                 <th><div class='grid_th_column6'>{l s='Quantity' mod='quickproducttable'}</div></th>
-                <th><div class='grid_th_column7'>{l s='' mod='quickproducttable'}<span style="font-size: smaller;display: ruby;color: #8e9293;"><input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"><p style="padding-left: 22px;">{l s="All" mod='quickproducttable'}</p></span></div></th>
+                <th><div class='grid_th_column7'>{l s='' mod='quickproducttable'}<input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"></div></th>
             </tr>
         </tfoot>
     </table>
