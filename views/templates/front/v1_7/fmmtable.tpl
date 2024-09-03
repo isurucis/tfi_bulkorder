@@ -119,7 +119,7 @@
                 <th class='grid_th_column6'><div>{l s='Quantity' mod='quickproducttable'}</div></th>
                 <th class='grid_th_column7'><div>{l s='' mod='quickproducttable'}
                     <div class="form-group-checkbox">
-                        <input type="checkbox" id="chkal" name="fmm_check" class="fmm_check" data-toggle="toggle">
+                        <input type="checkbox" id="chkal" name="fmm_check" class="fmm_check" data-toggle="toggle"  data-size="xs">
                     </div>
                 </th>
             </tr>
@@ -281,7 +281,7 @@
                 <th class='grid_th_column6'><div>{l s='Quantity' mod='quickproducttable'}</div></th>
                 <th class='grid_th_column7'><div>{l s='' mod='quickproducttable'}
                     <div class="form-group-checkbox">
-                        <input type="checkbox" id="chkal" name="fmm_check" class="fmm_check" data-toggle="toggle">
+                        <input type="checkbox" id="chkal" name="fmm_check" class="fmm_check" data-toggle="toggle"  data-size="xs">
                     </div>
                 </th>
             </tr>
