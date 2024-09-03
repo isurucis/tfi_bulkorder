@@ -810,7 +810,7 @@ table.dataTable {
   text-align: right;
 }
 .grid_td_column6 { padding: 5px 6px !important;}
-.grid_td_column7 { padding: 5px 6px !important;}
+.grid_td_column7 { margin-top: 15px; /* padding: 5px 6px !important; */}
 
 
 
@@ -873,8 +873,10 @@ table.dataTable thead th,
 table.dataTable tbody td {
   padding: 0px !important;
   width: auto !important;
+  text-align: center !important;
 }
 
 .dataTable-highlight {
-  background-color: #cedfd6;
+  background-color: #cedfd6 !important;
 }
+
