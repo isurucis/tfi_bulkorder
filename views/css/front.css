@@ -780,13 +780,13 @@ table.dataTable {
   transform: rotate(45deg);
 }
 
-.grid_th_column1 { width: 100px !important; padding: 5px 6px !important;}
-.grid_th_column2 { width: 100px !important; padding: 5px 6px !important;}
-.grid_th_column3 { width: 200px !important; padding: 5px 6px !important;}
-.grid_th_column4 { width: 80px !important; padding: 5px 6px !important;}
+.grid_th_column1 { width: 60px !important; padding: 5px 6px !important;}
+.grid_th_column2 { width: 60px !important; padding: 5px 6px !important;}
+.grid_th_column3 { padding: 5px 6px !important;}
+.grid_th_column4 { width: 70px !important; padding: 5px 6px !important;}
 .grid_th_column5 { width: 100px !important; padding: 5px 6px !important;}
-.grid_th_column6 { width: 100px !important; padding: 5px 6px !important;}
-.grid_th_column7 { width: 100px !important; padding: 5px 6px !important;}
+.grid_th_column6 { width: 120px !important; padding: 5px 6px !important;}
+.grid_th_column7 { width: 70px !important; padding: 5px 6px !important;}
 
 
 .grid_td_column1 { padding: 5px 6px !important;}
@@ -840,6 +840,7 @@ table.dataTable tbody td {
 }
 
 
-#fmm_table_body td img {
-  width: 50px;
+
+table.dataTable tbody td {
+  padding: 0px !important;
 }
