@@ -791,7 +791,7 @@ table.dataTable {
 
 .grid_td_column1 { padding: 5px 6px !important;}
 .grid_td_column2 { padding: 5px 6px !important;}
-.grid_td_column3 { padding: 0px 0px !important;}
+.grid_td_column3 { padding: 5px 6px !important;}
 .grid_td_column4 { padding: 5px 6px !important;}
 .grid_td_column5 { padding: 5px 6px !important;}
 .grid_td_column6 { padding: 5px 6px !important;}
@@ -813,17 +813,29 @@ table.dataTable tbody td {
   font-family: 'Roboto';
   font-size: 1rem;
   font-weight: 500;
-  float: left;
 }
 
 
 
 .quickorder_country {
-  padding: 5px 10px 5px 10px;
+  /*padding: 5px 10px 5px 10px;
   background-color: #54b57c;
   color: #FFFFFF;
   width: auto;
   border-radius: 50px 0px 0px 0px;
+  font-style: normal;
+  font-size: .7rem;
+  font-weight: 500;
+  float: right;
+  text-align: right;
+  */
+
+
+  padding: 3px 5px 3px 5px;
+  background-color: #cbeed9;
+  color: #242424;
+  width: auto;
+  border-radius: 6px 6px 6px 6px;
   font-style: normal;
   font-size: .7rem;
   font-weight: 500;
@@ -838,6 +850,7 @@ table.dataTable tbody td {
   color: #2b2b2b;
   font-size: .7rem;
   font-weight: 500;
+  float: left;
 }
 
 
