@@ -105,19 +105,19 @@
 <table id="fmm_table" class="display nowrap table-responsive-full">
         <thead>
             <tr>
-                <th><div class='grid_th_column1'>{l s='Image' mod='quickproducttable'}</div></th>
-                <th><div class='grid_th_column2'>{l s='ID' mod='quickproducttable'}</div></th>
-                <th><div class='grid_th_column3'>{l s='Name' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column1'><div>{l s='Image' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column2'><div>{l s='ID' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column3'><div>{l s='Name' mod='quickproducttable'}</div></th>
                 
-                <th><div class='grid_th_column4'>{l s='Size' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column4'><div>{l s='Size' mod='quickproducttable'}</div></th>
                 
-                <th><div class='grid_th_column4'>{l s='Bag/ Box' mod='quickproducttable'}</div></th>
-                <th><div class='grid_th_column4'>{l s='Qty/ Bag' mod='quickproducttable'}</div></th>
-                <th><div class='grid_th_column4'>{l s='Qty/ Box' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column4'><div>{l s='Bag/ Box' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column4'><div>{l s='Qty/ Bag' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column4'><div>{l s='Qty/ Box' mod='quickproducttable'}</div></th>
 
-                <th><div class='grid_th_column5'>{l s='Price' mod='quickproducttable'}</div></th>
-                <th><div class='grid_th_column6'>{l s='Quantity' mod='quickproducttable'}</div></th>
-                <th><div class='grid_th_column7'>{l s='' mod='quickproducttable'}<input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"></div></th>
+                <th class='grid_th_column5'><div>{l s='Price' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column6'><div>{l s='Quantity' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column7'><div>{l s='' mod='quickproducttable'}<input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"></div></th>
             </tr>
         </thead>
         <tbody id="fmm_table_body">
@@ -261,19 +261,19 @@
         </tbody>
         <tfoot>
             <tr>
-                <th><div class='grid_th_column1'>{l s='Image' mod='quickproducttable'}</div></th>
-                <th><div class='grid_th_column2'>{l s='ID' mod='quickproducttable'}</div></th>
-                <th><div class='grid_th_column3'>{l s='Name' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column1'><div>{l s='Image' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column2'><div>{l s='ID' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column3'><div>{l s='Name' mod='quickproducttable'}</div></th>
                 
-                <th><div class='grid_th_column4'>{l s='Size' mod='quickproducttable'}</div></th>
-                
-                <th><div class='grid_th_column4'>{l s='Bag/Box' mod='quickproducttable'}</div></th>
-                <th><div class='grid_th_column4'>{l s='Qty/Bag' mod='quickproducttable'}</div></th>
-                <th><div class='grid_th_column4'>{l s='Qty/Box' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column4'><div>{l s='Size' mod='quickproducttable'}</div></th>
+             
+                <th class='grid_th_column4'><div>{l s='Bag/Box' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column4'><div>{l s='Qty/Bag' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column4'><div>{l s='Qty/Box' mod='quickproducttable'}</div></th>
 
-                <th><div class='grid_th_column5'>{l s='Price' mod='quickproducttable'}</div></th>
-                <th><div class='grid_th_column6'>{l s='Quantity' mod='quickproducttable'}</div></th>
-                <th><div class='grid_th_column7'>{l s='' mod='quickproducttable'}<input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"></div></th>
+                <th class='grid_th_column5'><div>{l s='Price' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column6'><div>{l s='Quantity' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column7'><div>{l s='' mod='quickproducttable'}<input type="checkbox" data-toggle="toggle" id="chkal" data-size="xs"></div></th>
             </tr>
         </tfoot>
     </table>
