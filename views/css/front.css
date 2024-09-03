@@ -819,15 +819,16 @@ table.dataTable tbody td {
 
 
 .quickorder_country {
-  padding: 5px 5px 5px 10px;
+  padding: 5px 10px 5px 10px;
   background-color: #54b57c;
   color: #FFFFFF;
-  width: 125px;
+  width: auto;
   border-radius: 0px 0px 0px 50px;
   font-style: normal;
   font-size: .7rem;
   font-weight: 500;
   float: right;
+  text-align: right;
 }
 
 
@@ -840,7 +841,7 @@ table.dataTable tbody td {
 }
 
 
-
+table.dataTable thead th, 
 table.dataTable tbody td {
   padding: 0px !important;
 }
