@@ -120,6 +120,7 @@
                 <th class='grid_th_column7'><div>{l s='' mod='quickproducttable'}
                     <div class="form-group-checkbox">
                         <input type="checkbox" id="chkal" name="fmm_check" class="fmm_check" data-toggle="toggle"  data-size="xs">
+                        <label for="chkal">&nbsp;</label>
                     </div>
                 </th>
             </tr>
@@ -282,6 +283,7 @@
                 <th class='grid_th_column7'><div>{l s='' mod='quickproducttable'}
                     <div class="form-group-checkbox">
                         <input type="checkbox" id="chkal" name="fmm_check" class="fmm_check" data-toggle="toggle"  data-size="xs">
+                        <label for="chkal">&nbsp;</label>
                     </div>
                 </th>
             </tr>
