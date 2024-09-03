@@ -368,11 +368,13 @@
             });
         });
 
-        $(function() {
-            $('td:last-child input').change(function() {
-                $(this).closest('tr').toggleClass("dataTable-highlight", this.checked);
+        //$(function() {
+            //$('td:last-child input').change(function() {
+            $('td:last-child input').on('change', function() {
+                alert("Hello");
+                //$(this).closest('tr').toggleClass("dataTable-highlight", this.checked);
             });
-        });
+        //});
     </script>
 {/if}
 {/block}
