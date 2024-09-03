@@ -346,27 +346,33 @@
     {/if}
 
     <script type="text/javascript">
-          $('#select_fmm_cat').on('change', function() {
-      var id_category = this.value;
-      var ajax_url = $("#ajax_url").val();
-      var product_type = $("#product_type").val();
-        $.ajax({
-            type: 'POST',
-            url: ajax_url,
-            data: {
-                id_category: id_category ,ajax:1,product_type:product_type, action: 'productChangeCategory'
-            },
-            success: function(response){
-                if (response != 2) {
-                    $('#fmm_table_body').html('');
-                    $('#fmm_table_body').append(response);
-                    $("#fmm_table_paginate").hide();
-                } else {                               
-                 $("#loader").hide();
-             }
-         }
-     });
-    }); 
+        $('#select_fmm_cat').on('change', function() {
+            var id_category = this.value;
+            var ajax_url = $("#ajax_url").val();
+            var product_type = $("#product_type").val();
+            $.ajax({
+                type: 'POST',
+                url: ajax_url,
+                data: {
+                    id_category: id_category ,ajax:1,product_type:product_type, action: 'productChangeCategory'
+                },
+                success: function(response){
+                    if (response != 2) {
+                        $('#fmm_table_body').html('');
+                        $('#fmm_table_body').append(response);
+                        $("#fmm_table_paginate").hide();
+                    } else {                               
+                    $("#loader").hide();
+                }
+            }
+            });
+        });
+
+        $(function() {
+            $('td:last-child input').change(function() {
+                $(this).closest('tr').toggleClass("dataTable-highlight", this.checked);
+            });
+        });
     </script>
 {/if}
 {/block}

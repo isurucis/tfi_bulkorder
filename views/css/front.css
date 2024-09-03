@@ -874,3 +874,7 @@ table.dataTable tbody td {
   padding: 0px !important;
   width: auto !important;
 }
+
+.dataTable-highlight{
+  background-color: #cedfd6;
+}
