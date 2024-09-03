@@ -120,7 +120,7 @@
                 <th class='grid_th_column7'><div>{l s='' mod='quickproducttable'}
                     <div class="form-group-checkbox">
                         <input type="checkbox" id="chkal" name="fmm_check" class="fmm_check" data-toggle="toggle"  data-size="xs">
-                        <label for="chkal">&nbsp;</label>
+                        <label for="chkal" class="selection-button-checkbox">&nbsp;</label>
                     </div>
                 </th>
             </tr>
@@ -259,7 +259,7 @@
 
                         <div class="form-group-checkbox">
                             <input type="checkbox" id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}">
-                            <label for="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}">&nbsp;</label>
+                            <label for="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" class="selection-button-checkbox">&nbsp;</label>
                         </div>
                     </div>
                 </td>
@@ -283,7 +283,7 @@
                 <th class='grid_th_column7'><div>{l s='' mod='quickproducttable'}
                     <div class="form-group-checkbox">
                         <input type="checkbox" id="chkal" name="fmm_check" class="fmm_check" data-toggle="toggle"  data-size="xs">
-                        <label for="chkal">&nbsp;</label>
+                        <label for="chkal" class="selection-button-checkbox">&nbsp;</label>
                     </div>
                 </th>
             </tr>
@@ -370,11 +370,43 @@
 
         //$(function() {
             //$('td:last-child input').change(function() {
-            $('td:last-child input').on('change', function() {
+            /*$('td:last-child input').on('change', function() {
                 console.log("Hello");
                 $(this).closest('tr').toggleClass("dataTable-highlight", this.checked);
-            });
+            });*/
         //});
+
+
+
+            $("input[type=checkbox]").click(function () {
+                if ($(this).closest("tr").hasClass("head")) return;
+                if ($(this).is(":checked")) {
+                    $(this).closest("tr").addClass("dataTable-highlight");
+                    $(this).closest(".selection-button-checkbox").addClass('selected');
+                } else {
+                    $(this).closest("tr").removeClass("dataTable-highlight");
+                    $(this).closest(".selection-button-checkbox").removeClass('selected');
+                }
+            });
+            $("#toggleAll").click(function () {
+                if ($(this).hasClass("all-selected")) {
+                    $(this).removeClass("all-selected");
+                    $("input[type=checkbox]").each(function () {
+                        $(this).closest(".selection-button-checkbox").removeClass('selected');
+                        $(this).closest("tr").removeClass("dataTable-highlight");
+                        $(this).attr("checked", false);
+                    })
+                } else {
+                    $(this).addClass("all-selected");
+                    $("input[type=checkbox]").each(function () {
+                        $(this).closest(".selection-button-checkbox").addClass('selected');
+                        if ($(this).attr("id") != "toggleAll") $(this).closest("tr").addClass("dataTable-highlight");
+                        $(this).attr("checked", true);
+                    })
+                }
+            });
+
+
     </script>
 {/if}
 {/block}
