@@ -371,8 +371,8 @@
         //$(function() {
             //$('td:last-child input').change(function() {
             $('td:last-child input').on('change', function() {
-                alert("Hello");
-                //$(this).closest('tr').toggleClass("dataTable-highlight", this.checked);
+                console.log("Hello");
+                $(this).closest('tr').toggleClass("dataTable-highlight", this.checked);
             });
         //});
     </script>
