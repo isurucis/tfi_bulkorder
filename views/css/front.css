@@ -786,7 +786,7 @@ table.dataTable {
 .grid_th_column4 { width: 70px !important; padding: 5px 6px !important;}
 .grid_th_column5 { width: 100px !important; padding: 5px 6px !important;}
 .grid_th_column6 { width: 120px !important; padding: 5px 6px !important;}
-.grid_th_column7 { width: 70px !important; padding: 5px 6px !important; margin-top: 15px;}
+.grid_th_column7 { width: 70px !important; padding: 5px 6px !important; margin-top: 15px !important;}
 
 
 .grid_td_column1 { padding: 5px 6px !important;}

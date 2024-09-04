@@ -388,7 +388,7 @@
                     $(this).closest(".selection-button-checkbox").removeClass('selected');
                 }
             });
-            $("#toggleAll").click(function () {
+            $("#chkal").click(function () {
                 if ($(this).hasClass("all-selected")) {
                     $(this).removeClass("all-selected");
                     $("input[type=checkbox]").each(function () {
@@ -400,7 +400,7 @@
                     $(this).addClass("all-selected");
                     $("input[type=checkbox]").each(function () {
                         $(this).closest(".selection-button-checkbox").addClass('selected');
-                        if ($(this).attr("id") != "toggleAll") $(this).closest("tr").addClass("dataTable-highlight");
+                        if ($(this).attr("id") != "chkal") $(this).closest("tr").addClass("dataTable-highlight");
                         $(this).attr("checked", true);
                     })
                 }
