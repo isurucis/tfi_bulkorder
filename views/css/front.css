@@ -104,7 +104,7 @@
 }
 
 #fmm_table_filter label {
-    width: 99%;
+    width: 40%;
 }
 
 #fmm_table_filter input {
@@ -532,6 +532,7 @@ table.dataTable {
       table thead tr {
         border-bottom: 3px solid #0085a6;
         color: #000;
+        background-color: #0085a6;
       }
       table tfoot tr {
         border-top: 3px solid #0085a6;
@@ -894,3 +895,6 @@ table.dataTable tbody td {
 }
 
 
+.dataTables_wrapper .dataTables_filter input {
+  margin-left: 0px !important;
+}
