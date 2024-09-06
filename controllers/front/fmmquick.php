@@ -505,7 +505,8 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         if ($order_by == 'id_product' ||
             $order_by == 'price' ||
             $order_by == 'date_add' ||
-            $order_by == 'date_upd') {
+            $order_by == 'date_upd' ||
+            $order_by == 'id_category_default') {
             $order_by_prefix = 'p';
         } elseif ($order_by == 'name') {
             $order_by_prefix = 'pl';
