@@ -82,16 +82,16 @@
 <div class="clearfix"></div>
 
 <script type="text/javascript">
-$(document).ready(function(){
-   //$('#currentFormTab').val('general');
-   displayFmmTab('settings');
-})
-function displayFmmTab(tab)
-{
-    $('.private_tab').hide();
-    $('.private_tab_page').removeClass('selected');
-    $('#quickproducttable_' + tab).show();
-    $('#quickproducttable_link_' + tab).addClass('selected');
-    $('#currentFormTab').val(tab);
-}
+    $(document).ready(function(){
+    //$('#currentFormTab').val('general');
+    displayFmmTab('settings');
+    })
+    function displayFmmTab(tab)
+    {
+        $('.private_tab').hide();
+        $('.private_tab_page').removeClass('selected');
+        $('#quickproducttable_' + tab).show();
+        $('#quickproducttable_link_' + tab).addClass('selected');
+        $('#currentFormTab').val(tab);
+    }
 </script>

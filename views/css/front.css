@@ -79,9 +79,18 @@
     padding-right: 5px;
 }
 
-.top_buttons a{
-    font-weight: 400;
-    font-size: 12px;
+.top_buttons_right a {
+  font-family: 'Roboto';
+  font-size: 1rem;
+  color: #000000;
+  font-weight: 500;
+}
+
+.top_buttons a {
+  font-family: 'Roboto';
+  font-size: 1rem;
+  color: #000000;
+  font-weight: 500;
 }
 
 #fmm_table_filter{
@@ -116,7 +125,7 @@
 
 
 #select_fmm{
-width: 80px !important;
+    width: 80px !important;
     margin-top: 5px;
     border-radius: 3px;
 
@@ -150,7 +159,7 @@ width: 80px !important;
     box-sizing: border-box;
 }
 
-        .minus, .plus{
+  .minus, .plus{
       color: #020202 !important;
       border: none !important;
       background-color: #dbf0e4 !important;
