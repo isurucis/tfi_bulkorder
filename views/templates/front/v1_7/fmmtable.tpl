@@ -105,8 +105,8 @@
 <table id="fmm_table" class="display nowrap table-responsive-full">
         <thead>
             <tr>
-                <th class='grid_th_column1'><div>{l s='Image' mod='quickproducttable'}</div></th>
-                <th class='grid_th_column2'><div>{l s='ID' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column1'><div>{l s='' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column2'><div>{l s='SKU' mod='quickproducttable'}</div></th>
                 <th class='grid_th_column3'><div>{l s='Name' mod='quickproducttable'}</div></th>
                 
                 <th class='grid_th_column4'><div>{l s='Size' mod='quickproducttable'}</div></th>
@@ -241,7 +241,7 @@
                 <td data-label="Quantity">
                     <div class="col-lg-2 grid_td_column6">
                         <div class="number" id="number">
-                        <span class="btn minus">-</span>
+                        <span class="btn minus">−</span>
                         <input class="qty_id form-control input-qty" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
                         value="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
                         min="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
@@ -268,8 +268,8 @@
         </tbody>
         <tfoot>
             <tr>
-                <th class='grid_th_column1'><div>{l s='Image' mod='quickproducttable'}</div></th>
-                <th class='grid_th_column2'><div>{l s='ID' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column1'><div>{l s='' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column2'><div>{l s='SKU' mod='quickproducttable'}</div></th>
                 <th class='grid_th_column3'><div>{l s='Name' mod='quickproducttable'}</div></th>
                 
                 <th class='grid_th_column4'><div>{l s='Size' mod='quickproducttable'}</div></th>
@@ -292,7 +292,7 @@
     {if $ajax_load}
     <input type="hidden" id="pageno" value="1">
     <span style="text-align: center;display: flow-root;">
-    <img id="loader" src="{$base_url}modules/quickproducttable/views/img/loading.svg">
+        <img id="loader" src="{$base_url}modules/quickproducttable/views/img/loading.svg">
     </span>
     {/if}
 
@@ -305,38 +305,38 @@
     {if $ajax_load}
     <script type="text/javascript">
                 
-                $('#loader').on('inview', function(event, isInView) {
+        $('#loader').on('inview', function(event, isInView) {
 
-                    if (isInView) {
-                        var lastItem = $('#fmm_table_body tr').length;
-                        var ajax_url = $("#ajax_url").val();
-                        var noofrow = $("#noofrow").val();
-                        var product_type = $("#product_type").val();
-                        var old_page = $("#page_no").val();
-                        if (!old_page) {
-                            old_page = 1;
+            if (isInView) {
+                var lastItem = $('#fmm_table_body tr').length;
+                var ajax_url = $("#ajax_url").val();
+                var noofrow = $("#noofrow").val();
+                var product_type = $("#product_type").val();
+                var old_page = $("#page_no").val();
+                if (!old_page) {
+                    old_page = 1;
+                }
+                $.ajax({
+                    type: 'POST',
+                    url: ajax_url,
+                    data: {
+                        lastItem: lastItem ,ajax:1,noofrow:noofrow, product_type:product_type, old_page:old_page, action: 'productChangeLength'
+                    },
+                    success: function(response){
+                        if (response != 2) {
+                            var b = 1;
+                            var new_page = parseInt(old_page, 10) + parseInt(b, 10);
+                            $('#fmm_table_body').append(response);
+                            $('#page_no').val(new_page);
+                        } else {                     
+                            $("#loader").hide();
                         }
-                        $.ajax({
-                            type: 'POST',
-                            url: ajax_url,
-                            data: {
-                                lastItem: lastItem ,ajax:1,noofrow:noofrow, product_type:product_type, old_page:old_page, action: 'productChangeLength'
-                            },
-                            success: function(response){
-                                if (response != 2) {
-                                    var b = 1;
-                                    var new_page = parseInt(old_page, 10) + parseInt(b, 10);
-                                    $('#fmm_table_body').append(response);
-                                    $('#page_no').val(new_page);
-                                } else {                     
-                                   $("#loader").hide();
-                                }
-                            }
-
-                        });
-
                     }
+
                 });
+
+            }
+        });
     </script>
     <style type="text/css">
         .btn-primary {
@@ -376,36 +376,33 @@
             });*/
         //});
 
-
-
-            $("input[type=checkbox]").click(function () {
-                if ($(this).closest("tr").hasClass("head")) return;
-                if ($(this).is(":checked")) {
-                    $(this).closest("tr").addClass("dataTable-highlight");
-                    $(this).closest(".selection-button-checkbox").addClass('selected');
-                } else {
-                    $(this).closest("tr").removeClass("dataTable-highlight");
+        $("input[type=checkbox]").click(function () {
+            if ($(this).closest("tr").hasClass("head")) return;
+            if ($(this).is(":checked")) {
+                $(this).closest("tr").addClass("dataTable-highlight");
+                $(this).closest(".selection-button-checkbox").addClass('selected');
+            } else {
+                $(this).closest("tr").removeClass("dataTable-highlight");
+                $(this).closest(".selection-button-checkbox").removeClass('selected');
+            }
+        });
+        $("#chkal").click(function () {
+            if ($(this).hasClass("all-selected")) {
+                $(this).removeClass("all-selected");
+                $("input[type=checkbox]").each(function () {
                     $(this).closest(".selection-button-checkbox").removeClass('selected');
-                }
-            });
-            $("#chkal").click(function () {
-                if ($(this).hasClass("all-selected")) {
-                    $(this).removeClass("all-selected");
-                    $("input[type=checkbox]").each(function () {
-                        $(this).closest(".selection-button-checkbox").removeClass('selected');
-                        $(this).closest("tr").removeClass("dataTable-highlight");
-                        $(this).attr("checked", false);
-                    })
-                } else {
-                    $(this).addClass("all-selected");
-                    $("input[type=checkbox]").each(function () {
-                        $(this).closest(".selection-button-checkbox").addClass('selected');
-                        if ($(this).attr("id") != "chkal") $(this).closest("tr").addClass("dataTable-highlight");
-                        $(this).attr("checked", true);
-                    })
-                }
-            });
-
+                    $(this).closest("tr").removeClass("dataTable-highlight");
+                    $(this).attr("checked", false);
+                })
+            } else {
+                $(this).addClass("all-selected");
+                $("input[type=checkbox]").each(function () {
+                    $(this).closest(".selection-button-checkbox").addClass('selected');
+                    if ($(this).attr("id") != "chkal") $(this).closest("tr").addClass("dataTable-highlight");
+                    $(this).attr("checked", true);
+                })
+            }
+        });
 
     </script>
 {/if}

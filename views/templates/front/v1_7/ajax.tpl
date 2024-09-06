@@ -23,7 +23,7 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 
-{foreach from=$all_products item=product name=product}
+        {foreach from=$all_products item=product name=product}
             <tr>
                 <td><a href="{$product.link|escape:'htmlall':'UTF-8'}"> <img src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}"></a> </td>
                 <td>{$product.reference|escape:'htmlall':'UTF-8'}</td>
@@ -110,7 +110,7 @@
                 <td data-label="Quantity">
                     <div class="col-lg-2">
                         <div class="number" id="number">
-                        <span class="btn minus">-</span>
+                        <span class="btn minus">−</span>
                         <input class="qty_id form-control input-qty" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
                         value="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
                         min="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
@@ -126,4 +126,4 @@
                     <input type="checkbox"  id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}">
                 </td>
             </tr>
-            {/foreach}
+        {/foreach}
