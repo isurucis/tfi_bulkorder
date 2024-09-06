@@ -126,7 +126,7 @@
             </tr>
         </thead>
         <tbody id="fmm_table_body">
-          {foreach from=$all_products item=product name=product}
+          {foreach from=$all_products123 item=product name=product}
             <!-- tr>
                 <td colspan="10">{$product.group_name|escape:'htmlall':'UTF-8'}</td>
             </tr -->
