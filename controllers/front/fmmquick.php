@@ -132,7 +132,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         $order_url = $this->context->link->getPageLink('order', true, null);
         $this->context->smarty->assign('order_url', $order_url);
 
-        $this->context->smarty->assign('all_products', $all_products);
+        $this->context->smarty->assign('all_products123', $all_products);
         $base_url = Tools::getHttpHost(true) . __PS_BASE_URI__;
         
         $this->context->smarty->assign('base_url', $base_url);
