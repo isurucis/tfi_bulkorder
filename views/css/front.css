@@ -532,14 +532,16 @@ table.dataTable {
       table thead tr {
         border-bottom: 3px solid #0085a6;
         color: #000;
-        background-color: #0085a6;
+        background-color: #92c4a6;
       }
       table tfoot tr {
         border-top: 3px solid #0085a6;
+        color: #000;
+        background-color: #92c4a6;
       }
       table thead th,
       table tfoot th {
-        background-color: #fff;
+        /*background-color: #fff;*/
         color: #000;
         font-size: 1em;
         line-height: 1.8;
@@ -747,7 +749,8 @@ table.dataTable {
 
 .form-group-checkbox {
   display: block;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  margin-top: 15px;
 }
 
 .form-group-checkbox input {
