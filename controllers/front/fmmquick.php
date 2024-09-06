@@ -63,7 +63,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         $page_number = 0;
         $nb_products = null;
         $count = false;
-        $order_by = 'id_category'; //'id_product';
+        $order_by = 'id_category_default'; //'id_product';
         $order_way = 'ASC';
         $start_no = 0;
         $limit = '18446744073709551615';
