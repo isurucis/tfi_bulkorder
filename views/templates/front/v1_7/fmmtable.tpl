@@ -45,9 +45,9 @@
                 {foreach from=$catTree['children'] item=tree}
                     <option value="{$tree['id']|escape:'htmlall':'UTF-8'}">{$tree['name']|escape:'htmlall':'UTF-8'}</option>
                     {foreach from=$tree['children'] item=tree2}
-                        <option value="{$tree2['id']|escape:'htmlall':'UTF-8'}">&emsp;&emsp;{$tree2['name']|escape:'htmlall':'UTF-8'}</option>
+                        <option value="{$tree2['id']|escape:'htmlall':'UTF-8'}">{$tree['name']|escape:'htmlall':'UTF-8'}&emsp;‣&emsp;{$tree2['name']|escape:'htmlall':'UTF-8'}</option>
                         {foreach from=$tree2['children'] item=tree3}
-                            <option value="{$tree3['id']|escape:'htmlall':'UTF-8'}">&emsp;&emsp;&emsp;&emsp;{$tree3['name']|escape:'htmlall':'UTF-8'}</option>
+                            <option value="{$tree3['id']|escape:'htmlall':'UTF-8'}">{$tree['name']|escape:'htmlall':'UTF-8'}&emsp;‣&emsp;{$tree2['name']|escape:'htmlall':'UTF-8'}&emsp;‣&emsp;&emsp;{$tree3['name']|escape:'htmlall':'UTF-8'}</option>
                         {/foreach}
                     {/foreach}
                 {/foreach}
