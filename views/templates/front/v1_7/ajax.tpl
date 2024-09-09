@@ -25,90 +25,118 @@
 
         {foreach from=$all_products item=product name=product}
             <tr>
-                <td><a href="{$product.link|escape:'htmlall':'UTF-8'}"> <img src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}"></a> </td>
-                <td>{$product.reference|escape:'htmlall':'UTF-8'}</td>
+                <td><div class="grid_td_column1"><a href="{$product.link|escape:'htmlall':'UTF-8'}"> <img class="quickorder_item_image" src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}"></a></div></td>
+                <td><div class="grid_td_column2">{$product.reference|escape:'htmlall':'UTF-8'}</div></td>
                 <td>
-                    <a href="{$product.link|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}</a>
-                    <div>
-                    {assign var="group_count" value=0}
-                    {foreach from=$product.options item=options name=options}
-                        {$options.name|escape:'htmlall':'UTF-8'}
-                        {assign var="group_count" value={$group_count|escape:'htmlall':'UTF-8'}+1}
-                        
-                        <select id="select_fmm" onchange="changeAttr({$product.id_product|escape:'htmlall':'UTF-8'}, {$group_count|escape:'htmlall':'UTF-8'})" class="fmm_option_{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}">
-                            {foreach from=$options.values item=values name=values}
+                    <div class="grid_td_column3">
+                        <div class="quickorder_itemname">
+                            <a href="{$product.link|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}</a>
+                        </div>
+                        <div>
+                            <div class="quickorder_scientificname">
+                                {foreach from=$product.features item=feature name=features}
+                                    {if $feature.id_feature == 3}
+                                        {$feature.value|escape:'htmlall':'UTF-8'}
+                                    {/if}
+                                {foreachelse}
+                                {/foreach}
+                            </div>
 
-                                <option value="{$values.id|escape:'htmlall':'UTF-8'}">{$values.value|escape:'htmlall':'UTF-8'}</option>
+                            <div class="quickorder_country">
+                                {foreach from=$product.features item=feature name=features}
+                                    {if $feature.id_feature ==9}
+                                    <div class="quickorder_country11">
+                                    {$feature.value|escape:'htmlall':'UTF-8'}
+                                    </div>
+                                    {/if}
+                                {foreachelse}
+                                {/foreach}
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
 
+                        <div>
+                            {assign var="group_count" value=0}
+                            {foreach from=$product.options item=options name=options}
+                                {$options.name|escape:'htmlall':'UTF-8'}
+                                {assign var="group_count" value={$group_count|escape:'htmlall':'UTF-8'}+1}
+                                
+                                <select id="select_fmm" onchange="changeAttr({$product.id_product|escape:'htmlall':'UTF-8'}, {$group_count|escape:'htmlall':'UTF-8'})" class="fmm_option_{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}">
+                                    {foreach from=$options.values item=values name=values}
+
+                                        <option value="{$values.id|escape:'htmlall':'UTF-8'}">{$values.value|escape:'htmlall':'UTF-8'}</option>
+
+                                    {/foreach}
+                                </select> 
+                                
                             {/foreach}
-                        </select> 
-                        
-                    {/foreach}
+                        </div>
                     </div>
-                    {foreach from=$product.features item=feature name=features}
-                    {if $feature.id_feature == 3}
-                    <span>
-                    {$feature.value|escape:'htmlall':'UTF-8'}
-                    </span>
-                    {/if}
-                    {if $feature.id_feature ==9}
-                    <span>
-                    {$feature.value|escape:'htmlall':'UTF-8'}
-                    </span>
-                    {/if}
-                    {foreachelse}
-                    {/foreach}
                 </td>
                 
                 <td data-label="Size">
-                {foreach from=$product.features item=feature name=features}
-                    {if $feature.id_feature == 4}
-                    <span>
-                    {$feature.value|escape:'htmlall':'UTF-8'}
-                    </span>
-                    {/if}
-                {foreachelse}
-                {/foreach}
+                    <div class="grid_td_column4">
+                        {foreach from=$product.features item=feature name=features}
+                            {if $feature.id_feature == 4}
+                            <span>
+                            {$feature.value|escape:'htmlall':'UTF-8'}
+                            </span>
+                            {/if}
+                        {foreachelse}
+                        {/foreach}
+                    </div>
                 </td>
                 
                 
                 <td data-label="Bag per Box">
-                {foreach from=$product.features item=feature name=features}
-                    {if $feature.id_feature == 6}
-                    <span>
-                    {$feature.value|escape:'htmlall':'UTF-8'}
-                    </span>
-                    {/if}
-                {foreachelse}
-                {/foreach}
+                    <div class="grid_td_column4">
+                        {foreach from=$product.features item=feature name=features}
+                            {if $feature.id_feature == 6}
+                            <span>
+                            {$feature.value|escape:'htmlall':'UTF-8'}
+                            </span>
+                            {/if}
+                        {foreachelse}
+                        {/foreach}
+                    </div>
                 </td>
 
+
+
                 <td data-label="Qty per Bag">
-                {foreach from=$product.features item=feature name=features}
-                    {if $feature.id_feature == 7}
-                    <span>
-                    {$feature.value|escape:'htmlall':'UTF-8'}
-                    </span>
-                    {/if}
-                {foreachelse}
-                {/foreach}
+                    <div class="grid_td_column4">
+                        {foreach from=$product.features item=feature name=features}
+                            {if $feature.id_feature == 7}
+                            <span>
+                            {$feature.value|escape:'htmlall':'UTF-8'}
+                            </span>
+                            {/if}
+                        {foreachelse}
+                        {/foreach}
+                    </div>
                 </td>
 
                 <td data-label="Qty per Box">
-                {foreach from=$product.features item=feature name=features}
-                    {if $feature.id_feature == 8}
-                    <span>
-                    {$feature.value|escape:'htmlall':'UTF-8'}
-                    </span>
-                    {/if}
-                {foreachelse}
-                {/foreach}
+                    <div class="grid_td_column4">
+                        {foreach from=$product.features item=feature name=features}
+                            {if $feature.id_feature == 8}
+                            <span>
+                            {$feature.value|escape:'htmlall':'UTF-8'}
+                            </span>
+                            {/if}
+                        {foreachelse}
+                        {/foreach}
+                    </div>
                 </td>
 
-                <td data-label="Price">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span></td>
+                <td data-label="Price">
+                    <div class="grid_td_column5">
+                        {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span>
+                    </div>
+                </td>
                 
                 <td data-label="Quantity">
-                    <div class="col-lg-2">
+                    <div class="col-lg-2 grid_td_column6">
                         <div class="number" id="number">
                         <span class="btn minus">−</span>
                         <input class="qty_id form-control input-qty" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
@@ -121,9 +149,16 @@
                 </td>
                 
                 <td data-label="Add to Cart">
-                    <input type="hidden" name="group" id="group_{$product.id_product|escape:'htmlall':'UTF-8'}" value="{$group_count|escape:'htmlall':'UTF-8'}">
-                    {*<button class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" onclick="fmmAddCart({$product.id_product|escape:'htmlall':'UTF-8'}, {$group_count|escape:'htmlall':'UTF-8'});" >{l s='🧺' mod='quickproducttable'}</button>*}
-                    <input type="checkbox"  id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}">
+                    <div class="grid_td_column7">
+                        <input type="hidden" name="group" id="group_{$product.id_product|escape:'htmlall':'UTF-8'}" value="{$group_count|escape:'htmlall':'UTF-8'}">
+                        {*<button class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" onclick="fmmAddCart({$product.id_product|escape:'htmlall':'UTF-8'}, {$group_count|escape:'htmlall':'UTF-8'});" >{l s='🧺' mod='quickproducttable'}</button>*}
+                        {*<input type="checkbox"  id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}">*}
+
+                        <div class="form-group-checkbox">
+                            <input type="checkbox" id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}">
+                            <label for="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" class="selection-button-checkbox">&nbsp;</label>
+                        </div>
+                    </div>
                 </td>
             </tr>
         {/foreach}
