@@ -128,7 +128,9 @@
         <tbody id="fmm_table_body">
         
           {foreach from=$all_products item=product name=product}
-            <div>Grouping Div</div>
+            <tr>
+                <td colspan="10"><div class="grid_td_column_group">{$product.category|escape:'htmlall':'UTF-8'} |  {$product.category_name|escape:'htmlall':'UTF-8'}</div></td>
+            </tr>
             <tr>
                 <td><div class="grid_td_column1"><a href="{$product.link|escape:'htmlall':'UTF-8'}"> <img class="quickorder_item_image" src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}"></a></div></td>
                 <td><div class="grid_td_column2">{$product.reference|escape:'htmlall':'UTF-8'}</div></td>
