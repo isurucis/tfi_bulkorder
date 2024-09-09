@@ -63,7 +63,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         $page_number = 0;
         $nb_products = null;
         $count = false;
-        $order_by = 'id_product';  //'id_category_default'; //'id_product';
+        $order_by = 'id_category_default';  //'id_category_default'; //'id_product';
         $order_way = 'ASC';
         $start_no = 0;
         $limit = '18446744073709551615';
@@ -519,7 +519,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
             $order_by = $order_by[1];
         }
 
-        /*
+        
         $sql = 'SELECT p.*, product_shop.*, pl.* , m.`name` AS manufacturer_name, s.`name` AS supplier_name
                 FROM `' . _DB_PREFIX_ . 'product` p
                 ' . Shop::addSqlAssociation('product', 'p') . '
@@ -536,9 +536,9 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
                 ORDER BY ' . (isset($order_by_prefix) ? pSQL($order_by_prefix) . '.' : '') .
         '`' . pSQL($order_by) . '` ' . pSQL($order_way) . ', '.pSQL(' pl.`name` ASC ') .
             ($limit > 0 ? ' LIMIT ' . (int) $start . ',' . (int) $limit : '');
-        */
-
         
+
+        /*
         $sql = 'SELECT p.*, product_shop.*, pl.* , m.`name` AS manufacturer_name, s.`name` AS supplier_name
                 FROM `' . _DB_PREFIX_ . 'product` p
                 ' . Shop::addSqlAssociation('product', 'p') . '
@@ -555,7 +555,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
                 ORDER BY ' . (isset($order_by_prefix) ? pSQL($order_by_prefix) . '.' : '') .
         '`' . pSQL($order_by) . '` ' . pSQL($order_way) .
             ($limit > 0 ? ' LIMIT ' . (int) $start . ',' . (int) $limit : '');
-        
+        */
 
 
 
