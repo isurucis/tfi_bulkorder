@@ -126,9 +126,9 @@
             </tr>
         </thead>
         <tbody id="fmm_table_body">
-            {assign var="mcat" value="" }
+        
           {foreach from=$all_products123 item=product name=product}
-            <tr><!-- {$product.category|escape:'htmlall':'UTF-8'} |  -->
+            <tr>
                 <td colspan="10"><div class="grid_td_column_group">{$product.category|escape:'htmlall':'UTF-8'} |  {$product.category_name|escape:'htmlall':'UTF-8'}</div></td>
             </tr>
             <tr>
