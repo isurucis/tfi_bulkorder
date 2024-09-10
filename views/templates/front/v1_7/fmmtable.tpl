@@ -432,6 +432,7 @@
         $('.pdp_open_popup').on('click', function(event) {
             event.preventDefault();
             var pdp_url = $(this).attr("pdp_url"); //get form action url
+            console.log("pdp_url : "+pdp_url);
             $.fancybox.open({
                 closeClick: false, // prevents closing when clicking INSIDE fancybox 
                 href: pdp_url,
