@@ -351,7 +351,7 @@
         let checkedItems = JSON.parse(localStorage.getItem('checkedItems')) || [];
 
         function toggleLocalStorage(itemId, checked) {
-            alert("test");
+            //alert("test");
           const existingIndex = checkedItems.indexOf(itemId);
     
           if (checked && existingIndex === -1) {
@@ -443,11 +443,13 @@
             
             // Loop through each checkbox and check it if the condition is true
             checkboxes.forEach(function(checkbox) {
-                if (condition) {
+                alert(checkbox.value)
+                checkbox.checked = checkedItems.includes(checkbox.value)
+                /*if (condition) {
                     checkbox.checked = true;  // Check the checkbox
                 } else {
                     checkbox.checked = false; // Uncheck the checkbox if needed
-                }
+                }*/
             });
         }
         
