@@ -457,10 +457,6 @@
                 return false;
             */
 
-
-
-
-            
             $.fancybox.open({
                 closeClick: false, // prevents closing when clicking INSIDE fancybox 
                 href: this.href,
@@ -482,7 +478,7 @@
                     }
                 }
             });
-            */
+            
         });
 
     </script>
