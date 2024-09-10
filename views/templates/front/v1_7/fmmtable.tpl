@@ -434,7 +434,7 @@
             var pdp_url = $(this).attr("pdp_url"); //get form action url
             console.log("pdp_url : "+pdp_url);
             
-            
+            /*
                 $.fancybox({
                     'padding'       : 0,
                     'autoScale'     : false,
@@ -455,15 +455,15 @@
                 });
 
                 return false;
-          
+            */
 
 
 
 
-            /*
+            
             $.fancybox.open({
                 closeClick: false, // prevents closing when clicking INSIDE fancybox 
-                href: pdp_url,
+                href: this.href,
                 type: "ajax",
                 openEffect: 'none',
                 closeEffect: 'none',
