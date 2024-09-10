@@ -134,7 +134,7 @@
                     <!-- div class="grid_td_column1" style="display: none;"><a href="{$product.link|escape:'htmlall':'UTF-8'}"> <img class="quickorder_item_image" src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}"></a></div -->
                     
                     <div class="grid_td_column1">
-                        <a class="read-b2b-imagepopup" href="#b2b_img_pop_{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" class="thickbox" title="{l s='Image of the B2B Item' mod='b2bitem'}" rel="nofollow"><img class="quickorder_item_image" src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}"></a>
+                        <a class="read-b2b-imagepopup" href="#b2b_img_pop_{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" class="thickbox" title="{l s='{$product.name|escape:'htmlall':'UTF-8'}' mod='b2bitem'}" rel="nofollow"><img class="quickorder_item_image" src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}"></a>
                     </div>
                     <div style="display:none;">
                         <div id="b2b_img_pop_{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}">
@@ -145,9 +145,13 @@
                 <td><div class="grid_td_column2">{$product.reference|escape:'htmlall':'UTF-8'}</div></td>
                 <td>
                     <div class="grid_td_column3">
-                        <div class="quickorder_itemname">
+                        <!-- div class="quickorder_itemname">
                             <a href="{$product.link|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}</a>
-                        </div>
+                        </div -->
+
+                        <div class="quickorder_itemname pdp_open_popup" pdp_url="{$product.link|escape:'htmlall':'UTF-8'}" title="{$product.name|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}</div>
+                        
+
                         <div>
                             <div class="quickorder_scientificname">
                                 {foreach from=$product.features item=feature name=features}
@@ -417,6 +421,33 @@
                     $(this).attr("checked", true);
                 })
             }
+        });
+        
+
+        $('.pdp_open_popup').on('click', function(event) {
+            event.preventDefault();
+            var pdp_url = $(this).attr("pdp_url"); //get form action url
+            $.fancybox.open({
+                closeClick: false, // prevents closing when clicking INSIDE fancybox 
+                href: pdp_url,
+                type: "ajax",
+                openEffect: 'none',
+                closeEffect: 'none',
+                autoSize: false,
+                width: "40%",
+                height: "auto",
+                helpers: {
+                    overlay: { closeClick: false } // prevents closing when clicking OUTSIDE fancybox 
+                },
+                ajax: {
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        ajax: true,
+                        action: 'openPrefixesDialog',
+                    }
+                }
+            });
         });
 
     </script>
