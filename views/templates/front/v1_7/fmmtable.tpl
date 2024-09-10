@@ -43,7 +43,7 @@
         <div class=" top_buttons">
             <select  name="select_fmm_cat" id="select_fmm_cat" class="custom-select ">
                 {foreach from=$catTree['children'] item=tree}
-                    <option value="{$tree['id']|escape:'htmlall':'UTF-8'}">{$tree['name']|escape:'htmlall':'UTF-8'}</option>
+                    <option value="{$tree['id']|escape:'htmlall':'UTF-8'}">{$tree['name']|escape:'htmlall':'UTF-8'}{" (Select a Family)"|escape:'htmlall':'UTF-8'}</option>
                     {foreach from=$tree['children'] item=tree2}
                         <option value="{$tree2['id']|escape:'htmlall':'UTF-8'}">{$tree['name']|escape:'htmlall':'UTF-8'}&emsp;‣&emsp;{$tree2['name']|escape:'htmlall':'UTF-8'}</option>
                         {foreach from=$tree2['children'] item=tree3}
@@ -68,13 +68,13 @@
     {/if}
     {if $best_enable == 1}
         <div class=" top_buttons" >
-            <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=best">{l s='Best Sales' mod='quickproducttable'}</a>
+            <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=best">{l s='Best Sellers' mod='quickproducttable'}</a>
         </div>
     {/if}
     
     {if $sale_enable == 1}
         <div class=" top_buttons">
-            <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=sale">{l s='Prices Drop' mod='quickproducttable'}</a>
+            <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=sale">{l s='Specials' mod='quickproducttable'}</a>
         </div>
     {/if}
 
@@ -86,13 +86,10 @@
 
     {if $csv_enable == 1}
         <div class=" top_buttons">
-            <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=csv">{l s='Add In Bulk' mod='quickproducttable'}</a>
+            <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=csv">{l s='Upload your List' mod='quickproducttable'}</a>
         </div>
     {/if}
 
-    <div class=" top_buttons_right" >
-    <button class="btn btn-primary" id="clear-button" onclick="fmmClear();">Clear</button>
-    </div>
     <div class=" top_buttons_right" >
         <a class="btn btn-primary" href="{$cart_url|escape:'htmlall':'UTF-8'}?action=show">{l s='View Cart' mod='quickproducttable'}</a>
     </div>
@@ -120,11 +117,11 @@
 
                 <th class='grid_th_column5'><div>{l s='Price' mod='quickproducttable'}</div></th>
                 <th class='grid_th_column6'><div>{l s='Quantity' mod='quickproducttable'}</div></th>
-                <th class='grid_th_column7'><!--<div>{l s='' mod='quickproducttable'}
+                <th class='grid_th_column7'><div>{l s='' mod='quickproducttable'}
                     <div class="form-group-checkbox">
                         <input type="checkbox" id="chkal" name="fmm_check" class="fmm_check" data-toggle="toggle"  data-size="xs">
                         <label for="chkal" class="selection-button-checkbox">&nbsp;</label>
-                    </div>-->
+                    </div>
                 </th>
             </tr>
         </thead>
@@ -286,10 +283,10 @@
                 <th class='grid_th_column5'><div>{l s='Price' mod='quickproducttable'}</div></th>
                 <th class='grid_th_column6'><div>{l s='Quantity' mod='quickproducttable'}</div></th>
                 <th class='grid_th_column7'><div>{l s='' mod='quickproducttable'}
-                    <!--<div class="form-group-checkbox">
+                    <div class="form-group-checkbox">
                         <input type="checkbox" id="chkal" name="fmm_check" class="fmm_check" data-toggle="toggle"  data-size="xs">
                         <label for="chkal" class="selection-button-checkbox">&nbsp;</label>
-                    </div>-->
+                    </div>
                 </th>
             </tr>
         </tfoot>
@@ -351,35 +348,6 @@
     {/if}
 
     <script type="text/javascript">
-        let checkedItems = JSON.parse(localStorage.getItem('checkedItems')) || [];
-
-        function fmmClear(){
-            checkedItems = [];
-            localStorage.removeItem('checkedItems');
-            var checkboxes = document.querySelectorAll('.fmm_check');
-
-            checkboxes.forEach(function(checkbox) {
-                checkbox.checked = false;
-                var closestTr = checkbox.closest('tr');
-                if (closestTr) {
-                    closestTr.classList.remove('dataTable-highlight');  // Remove class when unchecked
-                }
-            });
-        }
-
-        function toggleLocalStorage(itemId, checked) {
-            //alert("test");
-          const existingIndex = checkedItems.indexOf(itemId);
-    
-          if (checked && existingIndex === -1) {
-            checkedItems.push(itemId);
-          } else if (!checked && existingIndex !== -1) {
-            checkedItems.splice(existingIndex, 1);
-          }
-    
-          localStorage.setItem('checkedItems', JSON.stringify(checkedItems));
-        }
-
         $('#select_fmm_cat').on('change', function() {
             var id_category = this.value;
             var ajax_url = $("#ajax_url").val();
@@ -419,7 +387,6 @@
                 $(this).closest("tr").removeClass("dataTable-highlight");
                 $(this).closest(".selection-button-checkbox").removeClass('selected');
             }
-            toggleLocalStorage($(this).val(), $(this).is(":checked"));
         });
         $("#chkal").click(function () {
             if ($(this).hasClass("all-selected")) {
@@ -438,22 +405,6 @@
                 })
             }
         });
-
-        function checkCheckboxes(condition) {
-            var checkboxes = document.querySelectorAll('.fmm_check');
-
-            checkboxes.forEach(function(checkbox) {
-                checkbox.checked = checkedItems.includes(checkbox.value);
-                var closestTr = checkbox.closest('tr');
-                if (closestTr) {
-                    if (checkbox.checked) {
-                        closestTr.classList.add('dataTable-highlight');  // Add class when checked
-                    }
-                }
-            });
-        }
-        
-        checkCheckboxes(true);  // This will check all checkboxes
 
     </script>
 {/if}
