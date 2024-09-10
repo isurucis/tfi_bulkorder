@@ -135,7 +135,7 @@
                         <a class="read-b2b-imagepopup" 
                         href="#b2b_img_pop_{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" 
                         class="thickbox" 
-                        title="{l s='{$product.name|escape:'htmlall':'UTF-8'}' mod='b2bitem'}" 
+                        title="{l s='{$product.name}' mod='b2bitem'}" 
                         rel="nofollow"><img class="quickorder_item_image" src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}"></a>
                     </div>
                     <div style="display:none;">
