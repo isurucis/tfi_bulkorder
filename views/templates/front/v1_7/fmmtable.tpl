@@ -130,7 +130,18 @@
           {foreach from=$all_products item=product name=product}
 
             <tr>
-                <td><div class="grid_td_column1"><a href="{$product.link|escape:'htmlall':'UTF-8'}"> <img class="quickorder_item_image" src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}"></a></div></td>
+                <td>
+                    <!-- div class="grid_td_column1" style="display: none;"><a href="{$product.link|escape:'htmlall':'UTF-8'}"> <img class="quickorder_item_image" src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}"></a></div -->
+                    
+                    <div class="grid_td_column1">
+                        <a class="read-b2b-conditions" href="#b2b_img_pop_{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" class="thickbox" title="{l s='Image of the B2B Item' mod='b2bitem'}" rel="nofollow"><img class="quickorder_item_image" src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}"></a>
+                    </div>
+                    <div style="display:none;">
+                        <div id="b2b_img_pop_{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}">
+                            {include file="{$product.cover_image_url|escape:'htmlall':'UTF-8'}"}
+                        </div>
+                    </div>
+                </td>
                 <td><div class="grid_td_column2">{$product.reference|escape:'htmlall':'UTF-8'}</div></td>
                 <td>
                     <div class="grid_td_column3">
