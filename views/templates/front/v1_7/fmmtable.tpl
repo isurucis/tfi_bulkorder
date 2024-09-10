@@ -131,10 +131,12 @@
 
             <tr>
                 <td>
-                    <!-- div class="grid_td_column1" style="display: none;"><a href="{$product.link|escape:'htmlall':'UTF-8'}"> <img class="quickorder_item_image" src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}"></a></div -->
-                    
                     <div class="grid_td_column1">
-                        <a class="read-b2b-imagepopup" href="#b2b_img_pop_{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" class="thickbox" title="{l s='{$product.name|escape:'htmlall':'UTF-8'}' mod='b2bitem'}" rel="nofollow"><img class="quickorder_item_image" src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}"></a>
+                        <a class="read-b2b-imagepopup" 
+                        href="#b2b_img_pop_{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" 
+                        class="thickbox" 
+                        title="{l s='{$product.name|escape:'htmlall':'UTF-8'}' mod='b2bitem'}" 
+                        rel="nofollow"><img class="quickorder_item_image" src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}"></a>
                     </div>
                     <div style="display:none;">
                         <div id="b2b_img_pop_{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}">
@@ -149,7 +151,10 @@
                             <a href="{$product.link|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}</a>
                         </div -->
 
-                        <div class="quickorder_itemname pdp_open_popup" pdp_url="{$product.link|escape:'htmlall':'UTF-8'}" title="{$product.name|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}</div>
+                        <div 
+                        class="quickorder_itemname pdp_open_popup" 
+                        pdp_url="{$product.link|escape:'htmlall':'UTF-8'}" 
+                        title="{$product.name|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}</div>
                         
 
                         <div>
