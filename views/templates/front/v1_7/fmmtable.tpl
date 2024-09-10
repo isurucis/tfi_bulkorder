@@ -348,6 +348,19 @@
     {/if}
 
     <script type="text/javascript">
+
+        function toggleLocalStorage(itemId, checked) {
+          const existingIndex = checkedItems.indexOf(itemId);
+    
+          if (checked && existingIndex === -1) {
+            checkedItems.push(itemId);
+          } else if (!checked && existingIndex !== -1) {
+            checkedItems.splice(existingIndex, 1);
+          }
+    
+          localStorage.setItem('checkedItems', JSON.stringify(checkedItems));
+        }
+
         $('#select_fmm_cat').on('change', function() {
             var id_category = this.value;
             var ajax_url = $("#ajax_url").val();
@@ -387,6 +400,7 @@
                 $(this).closest("tr").removeClass("dataTable-highlight");
                 $(this).closest(".selection-button-checkbox").removeClass('selected');
             }
+            toggleLocalStorage($(this).val(), $(this).is(":checked"));
         });
         $("#chkal").click(function () {
             if ($(this).hasClass("all-selected")) {
