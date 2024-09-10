@@ -348,8 +348,10 @@
     {/if}
 
     <script type="text/javascript">
+        let checkedItems = JSON.parse(localStorage.getItem('checkedItems')) || [];
 
         function toggleLocalStorage(itemId, checked) {
+            alert("test");
           const existingIndex = checkedItems.indexOf(itemId);
     
           if (checked && existingIndex === -1) {
