@@ -237,6 +237,9 @@
                 <td data-label="Price">
                     <div class="grid_td_column5">
                         {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span>
+                        {if $product.has_discount}
+                          <span class="ml-2 price price--regular">{$product.regular_price}</span>
+                        {/if}
                     </div>
                 </td>
                 
