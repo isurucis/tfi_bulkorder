@@ -238,7 +238,7 @@
                     <div class="grid_td_column5">
                         {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span>
                         
-                        {var_dump($product);}
+                        {var_dump($product)}
                     </div>
                 </td>
                 
