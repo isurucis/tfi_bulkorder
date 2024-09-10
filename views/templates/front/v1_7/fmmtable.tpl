@@ -359,10 +359,10 @@
             var checkboxes = document.querySelectorAll('.fmm_check');
 
             checkboxes.forEach(function(checkbox) {
-              checkbox.checked = false;
+                checkbox.checked = false;
                 var closestTr = checkbox.closest('tr');
                 if (closestTr) {
-                    closestTr.classList.remove('highlight');  // Remove class when unchecked
+                    closestTr.classList.remove('dataTable-highlight');  // Remove class when unchecked
                 }
             });
         }
