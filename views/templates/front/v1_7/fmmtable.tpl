@@ -385,21 +385,6 @@
             });
         });
 
-        /*window.onload = function() {
-            
-            if (checkedItems) {
-                let productIds = storedProducts.split(',');
-        
-                let checkboxes = document.querySelectorAll('.fmm_check');
-                checkboxes.forEach(function(checkbox) {
-                    let productId = checkbox.value;
-                    if (productIds.includes(productId)) {
-                        checkbox.checked = true;
-                    }
-                });
-            }
-        };*/
-
         //$(function() {
             //$('td:last-child input').change(function() {
             /*$('td:last-child input').on('change', function() {
@@ -438,23 +423,13 @@
         });
 
         function checkCheckboxes(condition) {
-            // Select all checkboxes with the class 'fmm_check'
             var checkboxes = document.querySelectorAll('.fmm_check');
-            
-            // Loop through each checkbox and check it if the condition is true
+
             checkboxes.forEach(function(checkbox) {
-                alert(checkbox.value)
                 checkbox.checked = checkedItems.includes(checkbox.value)
-                /*if (condition) {
-                    checkbox.checked = true;  // Check the checkbox
-                } else {
-                    checkbox.checked = false; // Uncheck the checkbox if needed
-                }*/
             });
         }
         
-        // Example usage:
-        // Call this function when needed and pass true or false based on the condition
         checkCheckboxes(true);  // This will check all checkboxes
 
     </script>
