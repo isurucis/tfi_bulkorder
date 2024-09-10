@@ -385,7 +385,7 @@
             });
         });
 
-        window.onload = function() {
+        /*window.onload = function() {
             
             if (checkedItems) {
                 let productIds = storedProducts.split(',');
@@ -398,7 +398,7 @@
                     }
                 });
             }
-        };
+        };*/
 
         //$(function() {
             //$('td:last-child input').change(function() {
@@ -436,6 +436,24 @@
                 })
             }
         });
+
+        function checkCheckboxes(condition) {
+            // Select all checkboxes with the class 'fmm_check'
+            var checkboxes = document.querySelectorAll('.fmm_check');
+            
+            // Loop through each checkbox and check it if the condition is true
+            checkboxes.forEach(function(checkbox) {
+                if (condition) {
+                    checkbox.checked = true;  // Check the checkbox
+                } else {
+                    checkbox.checked = false; // Uncheck the checkbox if needed
+                }
+            });
+        }
+        
+        // Example usage:
+        // Call this function when needed and pass true or false based on the condition
+        checkCheckboxes(true);  // This will check all checkboxes
 
     </script>
 {/if}
