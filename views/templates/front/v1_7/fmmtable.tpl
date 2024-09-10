@@ -426,7 +426,15 @@
             var checkboxes = document.querySelectorAll('.fmm_check');
 
             checkboxes.forEach(function(checkbox) {
-                checkbox.checked = checkedItems.includes(checkbox.value)
+                checkbox.checked = checkedItems.includes(checkbox.value);
+                var closestTr = checkbox.closest('tr');
+                if (closestTr) {
+                    if (checkbox.checked) {
+                        closestTr.classList.add('highlight');  // Add class when checked
+                    } else {
+                        closestTr.classList.remove('highlight');  // Remove class when unchecked
+                    }
+                }
             });
         }
         
