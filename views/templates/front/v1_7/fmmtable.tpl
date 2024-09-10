@@ -428,34 +428,11 @@
             }
         });
         
-
+    /*
         $('.pdp_open_popup').on('click', function(event) {
             event.preventDefault();
             var pdp_url = $(this).attr("pdp_url"); //get form action url
             console.log("pdp_url : "+pdp_url);
-            
-            /*
-                $.fancybox({
-                    'padding'       : 0,
-                    'autoScale'     : false,
-                    'transitionIn'  : 'none',
-                    'titleShow'     : false,
-                    'showCloseButton': true,
-                    'titlePosition' : 'inside',
-                    'transitionOut' : 'none',
-                    'title'         : '',
-                    'width'         : 640,
-                    'height'        : 385,
-                    'href'          : this.href,
-                    'type'          : 'iframe',
-                    'helpers'     : { 
-                        'overlay' : {'closeClick': false}
-                    }
-
-                });
-
-                return false;
-            */
 
             $.fancybox.open({
                 closeClick: false, // prevents closing when clicking INSIDE fancybox 
@@ -480,7 +457,7 @@
             });
             
         });
-
+    */
     </script>
 {/if}
 {/block}
