@@ -138,7 +138,7 @@
                     </div>
                     <div style="display:none;">
                         <div id="b2b_img_pop_{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}">
-                            {include file="{$product.cover_image_url|escape:'htmlall':'UTF-8'}"}
+                            <img src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}" >
                         </div>
                     </div>
                 </td>
