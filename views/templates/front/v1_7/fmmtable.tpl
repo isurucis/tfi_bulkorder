@@ -93,7 +93,6 @@
     <div class=" top_buttons_right" >
     <button class="btn btn-primary" id="clear-button" onclick="fmmClear();">Clear</button>
     </div>
-
     <div class=" top_buttons_right" >
         <a class="btn btn-primary" href="{$cart_url|escape:'htmlall':'UTF-8'}?action=show">{l s='View Cart' mod='quickproducttable'}</a>
     </div>
@@ -361,6 +360,10 @@
 
             checkboxes.forEach(function(checkbox) {
               checkbox.checked = false;
+                var closestTr = checkbox.closest('tr');
+                if (closestTr) {
+                    closestTr.classList.remove('highlight');  // Remove class when unchecked
+                }
             });
         }
 
