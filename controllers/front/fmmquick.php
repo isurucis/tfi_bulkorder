@@ -218,6 +218,10 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
             $this->context->controller->addCSS($this->path . '/views/css/rowReorder.dataTables.min.css');
             $this->context->controller->addCSS($this->path . '/views/css/responsive.dataTables.min.css');
             $this->context->controller->addCSS($this->path . '/views/css/jquery.dataTables.min.css');
+
+            $this->addjQueryPlugin([
+                'fancybox',
+            ]);
         }
     }
 
