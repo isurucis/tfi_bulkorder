@@ -430,9 +430,7 @@
                 var closestTr = checkbox.closest('tr');
                 if (closestTr) {
                     if (checkbox.checked) {
-                        closestTr.classList.add('highlight');  // Add class when checked
-                    } else {
-                        closestTr.classList.remove('highlight');  // Remove class when unchecked
+                        closestTr.classList.add('dataTable-highlight');  // Add class when checked
                     }
                 }
             });
