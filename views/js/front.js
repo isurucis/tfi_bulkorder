@@ -299,6 +299,7 @@ function changeAttr(id, group) {
 $('div.dataTables_filter input').addClass('form-control');
 $( document ).ready(function() {
     $('#fmm_table').DataTable({
+
         rowReorder: {
             selector: 'td:nth-child(2)'
         },
@@ -310,4 +311,9 @@ $( document ).ready(function() {
     // $("#fmm_table_paginate").hide();
     var content = '<i class="material-icons srcicon" tabindex="0" role="button">search</i>';
     $("#fmm_table_filter").append(content); 
+
+
+    $('.read-b2b-imagepopup').fancybox({
+        'hideOnContentClick': false
+    });
 });
