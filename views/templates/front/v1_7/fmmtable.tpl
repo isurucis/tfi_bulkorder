@@ -151,10 +151,10 @@
                             <a href="{$product.link|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}</a>
                         </div -->
 
-                        <div 
-                        class="quickorder_itemname pdp_open_popup" 
+                        <div class="quickorder_itemname">
+                        <a href="{$product.link|escape:'htmlall':'UTF-8'}" class="pdp_open_popup" 
                         pdp_url="{$product.link|escape:'htmlall':'UTF-8'}" 
-                        title="{$product.name|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}</div>
+                        title="{$product.name|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}</a></div>
                         
 
                         <div>
@@ -435,7 +435,7 @@
             console.log("pdp_url : "+pdp_url);
             $.fancybox.open({
                 closeClick: false, // prevents closing when clicking INSIDE fancybox 
-                href: pdp_url,
+                href: {pdp_url},
                 type: "ajax",
                 openEffect: 'none',
                 closeEffect: 'none',
