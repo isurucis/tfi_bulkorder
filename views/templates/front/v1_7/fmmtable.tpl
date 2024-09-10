@@ -385,6 +385,21 @@
             });
         });
 
+        window.onload = function() {
+            
+            if (checkedItems) {
+                let productIds = storedProducts.split(',');
+        
+                let checkboxes = document.querySelectorAll('.fmm_check');
+                checkboxes.forEach(function(checkbox) {
+                    let productId = checkbox.value;
+                    if (productIds.includes(productId)) {
+                        checkbox.checked = true;
+                    }
+                });
+            }
+        };
+
         //$(function() {
             //$('td:last-child input').change(function() {
             /*$('td:last-child input').on('change', function() {
