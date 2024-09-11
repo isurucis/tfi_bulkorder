@@ -255,7 +255,7 @@
                 <td data-label="Price">
                     <div class="grid_td_column5">
                         {if $product.reduction > 0}
-                            <div class="ml-2 price price--regular" style="float: left;">{$product.price_without_reduction}</div>
+                            <div class="ml-2 price price--regular" style="float: left;">WAS&nbsp;{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2}</span></div>
                             <div class="ml-2 price price--discounted" style="float: left;">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span></div>
                             <div style="clear: both;"></div>
                         {else}
@@ -268,13 +268,14 @@
                 <td data-label="Quantity">
                     <div class="col-lg-2 grid_td_column6">
                         <div class="number" id="number">
-                        <span class="btn minus-bulkorder">−</span>
-                        <input class="qty_id-bulkorder form-control input-qty" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
-                        value="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
-                        min="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
-                         />
-                        <span class="btn plus-bulkorder">+</span>
+                            <span class="btn minus-bulkorder">−</span>
+                            <input class="qty_id-bulkorder form-control input-qty" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
+                            value="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
+                            min="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
+                            />
+                            <span class="btn plus-bulkorder">+</span>
                         </div>
+                        <div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}"></div>
                     </div>
                 </td>
                 

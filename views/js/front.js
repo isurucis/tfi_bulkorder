@@ -315,7 +315,7 @@ $( document ).ready(function() {
                     $(rows)
                         .eq(i)
                         .before(
-                            '<tr class="group"><td><div class="grid_td_column_group">&nbsp;</div></td><td><div class="grid_td_column_group">&nbsp;</div></td><td colspan="8">' +
+                            '<tr class="group"><td colspan="10">' +
                                 group +
                                 '</td></tr>'
                         );
@@ -346,6 +346,14 @@ $( document ).ready(function() {
 
 
 /*
+.before(
+                            '<tr class="group"><td><div class="grid_td_column_group">&nbsp;</div></td><td><div class="grid_td_column_group">&nbsp;</div></td><td colspan="8">' +
+                                group +
+                                '</td></tr>'
+                        );
+
+
+
 var groupColumn = 3;
 var table = $('#fmm_table').DataTable({
     columnDefs: [{ visible: false, targets: groupColumn }],
