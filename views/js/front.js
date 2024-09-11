@@ -64,7 +64,7 @@
             }
  }
 
- $('#fmm_table').on('click', 'span.minus', function(e){
+ $('#fmm_table').on('click', 'span.minus-bulkorder', function(e){
     var $input = $(this).parent().find('input');
                 var minValue = parseInt($input.attr('min'));
                 //console.log(minValue);
@@ -80,7 +80,7 @@
                 return false;
 });
 
-$('#fmm_table').on('click', 'span.plus', function(e){
+$('#fmm_table').on('click', 'span.plus-bulkorder', function(e){
     var $input = $(this).parent().find('input');
                //var minValue = parseInt(input.getAttribute('min'));
                var minValue = parseInt($input.attr('min'));
@@ -315,7 +315,7 @@ $( document ).ready(function() {
                     $(rows)
                         .eq(i)
                         .before(
-                            '<tr class="group"><td>&nbsp;</td><td>&nbsp;</td><td colspan="8">' +
+                            '<tr class="group"><td><div class="grid_td_column_group">&nbsp;</div></td><td><div class="grid_td_column_group">&nbsp;</div></td><td colspan="8">' +
                                 group +
                                 '</td></tr>'
                         );

@@ -25,13 +25,24 @@
 
         {foreach from=$all_products item=product name=product}
             <tr>
-                <td><div class="grid_td_column1"><a href="{$product.link|escape:'htmlall':'UTF-8'}"> <img class="quickorder_item_image" src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}"></a></div></td>
+                <td>
+                    <div class="grid_td_column1">
+                        <img class="quickorder_item_image" src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}">
+                    </div>
+                </td>
                 <td><div class="grid_td_column2">{$product.reference|escape:'htmlall':'UTF-8'}</div></td>
                 <td>
                     <div class="grid_td_column3">
-                        <div class="quickorder_itemname">
+                        <!-- div class="quickorder_itemname">
                             <a href="{$product.link|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}</a>
-                        </div>
+                        </div -->
+
+                        <div class="quickorder_itemname">
+                        <a href="{$product.link|escape:'htmlall':'UTF-8'}" class="pdp_open_popup" 
+                        pdp_url="{$product.link|escape:'htmlall':'UTF-8'}" 
+                        title="{$product.name|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}</a></div>
+                        
+
                         <div>
                             <div class="quickorder_scientificname">
                                 {foreach from=$product.features item=feature name=features}
@@ -71,9 +82,13 @@
                                 
                             {/foreach}
                         </div>
+
+                        
                     </div>
                 </td>
                 
+                <td><div class="grid_td_column_group">{$product.category_name|escape:'htmlall':'UTF-8'}</div></td>
+
                 <td data-label="Size">
                     <div class="grid_td_column4">
                         {foreach from=$product.features item=feature name=features}
@@ -100,8 +115,6 @@
                         {/foreach}
                     </div>
                 </td>
-
-
 
                 <td data-label="Qty per Bag">
                     <div class="grid_td_column4">
@@ -131,19 +144,26 @@
 
                 <td data-label="Price">
                     <div class="grid_td_column5">
-                        {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span>
+                        {if $product.reduction > 0}
+                            <div class="ml-2 price price--regular" style="float: left;">{$product.price_without_reduction}</div>
+                            <div class="ml-2 price price--discounted" style="float: left;">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span></div>
+                            <div style="clear: both;"></div>
+                        {elseif}
+                            {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span>
+                        {/if}
+                        
                     </div>
                 </td>
                 
                 <td data-label="Quantity">
                     <div class="col-lg-2 grid_td_column6">
                         <div class="number" id="number">
-                        <span class="btn minus">−</span>
-                        <input class="qty_id form-control input-qty" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
+                        <span class="btn minus-bulkorder">−</span>
+                        <input class="qty_id-bulkorder form-control input-qty" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
                         value="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
                         min="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
                          />
-                        <span class="btn plus">+</span>
+                        <span class="btn plus-bulkorder">+</span>
                         </div>
                     </div>
                 </td>

@@ -867,6 +867,7 @@ grid_td_column_group { padding: 8px !important; background-color: #cbeed9; color
   font-weight: 600;
   text-transform: uppercase;
   border-bottom: solid 2px #5ba87a;
+  text-align: left;
 }
 
 /*table.dataTable tbody th {
@@ -881,7 +882,7 @@ table.dataTable tbody td {
   color: #2b2b2b;
   text-decoration: none;
   font-family: 'Roboto';
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 500;
   text-align: left;
 }
@@ -889,26 +890,13 @@ table.dataTable tbody td {
 
 
 .quickorder_country {
-  /*padding: 5px 10px 5px 10px;
-  background-color: #54b57c;
-  color: #FFFFFF;
-  width: auto;
-  border-radius: 50px 0px 0px 0px;
-  font-style: normal;
-  font-size: .7rem;
-  font-weight: 500;
-  float: right;
-  text-align: right;
-  */
-
-
   padding: 3px 5px 3px 5px;
   background-color: #cbeed9;
   color: #242424;
   width: auto;
   border-radius: 6px 6px 6px 6px;
   font-style: normal;
-  font-size: .7rem;
+  font-size: .9rem;
   font-weight: 500;
   float: right;
   text-align: right;
@@ -937,10 +925,13 @@ table.dataTable thead th {
 }
 
 table.dataTable tbody td {
-  padding: 0px !important;
+  padding: 8px !important;
   width: auto !important;
   text-align: center !important;
   font-family: 'Roboto';
+  font-size: .9rem;
+  font-weight: 600;
+  color: #1d402b;
 }
 
 .dataTable-highlight {
@@ -960,4 +951,19 @@ tr.group:hover {
 :root.dark tr.group,
 :root.dark tr.group:hover {
     background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
+.price--regular {
+  font-family: 'Roboto';
+  font-size: .7rem;
+  color: #999;
+}
+
+.price--discounted {
+  font-family: 'Roboto';
+  font-size: .9rem;
+  color: #000;
+  padding: 3px;
+  background-color: #ff0000;
+  border-radius: 6px;
 }
