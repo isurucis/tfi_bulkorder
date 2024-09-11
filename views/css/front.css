@@ -166,8 +166,18 @@
       font-weight: bold !important;
       font-size: 1.3rem !important;
       padding: 3px 10px !important;
-      font-family: Roboto;
-        }
+      font-family: 'Roboto';
+  }
+
+  .minus-bulkorder, .plus-bulkorder{
+    color: #020202 !important;
+    border: solid 1px #b0c8ba !important;
+    background-color: #dbf0e4 !important;
+    font-weight: bold !important;
+    font-size: 1.3rem !important;
+    padding: 3px 10px !important;
+    font-family: 'Roboto';
+}
 
   .qty_id{
       font-weight: bold;
@@ -179,6 +189,19 @@
       display: inline-block;
       vertical-align: middle;
       padding: .5rem .1rem;
+  }
+
+  .qty_id-bulkorder{
+    width: 47px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    border:solid 1px #67c28d;
+    border-radius:4px;
+    display: inline-block;
+    vertical-align: middle;
+    padding: .5rem .1rem;
+    color: #39935f;
   }
 
 
@@ -563,13 +586,20 @@ table.dataTable {
         padding: 10px 14px;
         position: relative;
         vertical-align: middle;
+        border-left: solid 1px #000000;
+        border-bottom: solid 1px #000000;
       }
       caption {
         font-size: 1.111em;
         font-weight: 300;
         padding: 10px 0;
       }
-  
+
+      table td:last-child {
+        border-right: solid 1px #000000;
+      }
+
+
       @media (max-width: 1024px) {
         table {
           font-size: 0.944444em;
@@ -779,6 +809,7 @@ table.dataTable {
   vertical-align: middle;
   cursor: pointer;
   margin-right: 5px;
+  background-color: #ffffff;
 }
 
 .form-group-checkbox input:checked + label:after {
@@ -829,7 +860,14 @@ grid_td_column_group { padding: 8px !important; background-color: #cbeed9; color
 .grid_td_column6 { padding: 5px 6px !important;}
 .grid_td_column7 { margin-top: 15px; /* padding: 5px 6px !important; */}
 
-
+.grid_td_column_group {
+  padding: 5px 6px !important;
+  font-family: 'Roboto';
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: solid 2px #5ba87a;
+}
 
 /*table.dataTable tbody th {
   padding: 5px 6px !important;
@@ -888,16 +926,25 @@ table.dataTable tbody td {
 }
 
 
-table.dataTable thead th, 
+table.dataTable thead th {
+  padding: 8px !important;
+  width: auto !important;
+  text-align: center !important;
+  font-family: 'Roboto';
+  font-size: .9rem;
+  font-weight: 600;
+  color: #1d402b;
+}
+
 table.dataTable tbody td {
   padding: 0px !important;
   width: auto !important;
   text-align: center !important;
+  font-family: 'Roboto';
 }
 
 .dataTable-highlight {
-  background-color: #b6dbc7 !important
-  
+  background-color: #c6ddd0 !important;
 }
 
 
@@ -907,7 +954,7 @@ table.dataTable tbody td {
 
 tr.group,
 tr.group:hover {
-    background-color: rgba(0, 0, 0, 0.1) !important;
+    background-color: #d8e8e0 !important;
 }
  
 :root.dark tr.group,

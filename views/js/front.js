@@ -315,7 +315,7 @@ $( document ).ready(function() {
                     $(rows)
                         .eq(i)
                         .before(
-                            '<tr class="group"><td colspan="10">' +
+                            '<tr class="group"><td>&nbsp;</td><td>&nbsp;</td><td colspan="8">' +
                                 group +
                                 '</td></tr>'
                         );
@@ -330,7 +330,9 @@ $( document ).ready(function() {
       "lengthChange": false,
       "info":     false,
       responsive: true,
-      "pageLength": noofrow
+      "pageLength": noofrow,
+      orderCellsTop: true,
+      fixedHeader: true
     });
     // $("#fmm_table_paginate").hide();
     var content = '<i class="material-icons srcicon" tabindex="0" role="button">search</i>';
