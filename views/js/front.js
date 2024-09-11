@@ -315,8 +315,8 @@ function changeAttr(id, group) {
 $('div.dataTables_filter input').addClass('form-control');
 $( document ).ready(function() {
     var groupColumn = 3;
+    console.log("Event : DataTable - fmm_table, is called");
     $('#fmm_table').DataTable({
-      console.log("Event : DataTable - fmm_table, is called");
       columnDefs: [{ visible: false, targets: groupColumn }],
       order: [[groupColumn, 'asc']],
       displayLength: 25,
