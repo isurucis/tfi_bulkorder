@@ -111,6 +111,8 @@
                 <th class='grid_th_column1'><div>{l s='' mod='quickproducttable'}</div></th>
                 <th class='grid_th_column2'><div>{l s='SKU' mod='quickproducttable'}</div></th>
                 <th class='grid_th_column3'><div>{l s='Name' mod='quickproducttable'}</div></th>
+
+                <th class='grid_th_column3'><div>{l s='Family' mod='quickproducttable'}</div></th>
                 
                 <th class='grid_th_column4'><div>{l s='Size' mod='quickproducttable'}</div></th>
                 
@@ -119,7 +121,7 @@
                 <th class='grid_th_column4'><div>{l s='Qty/ Box' mod='quickproducttable'}</div></th>
 
                 <th class='grid_th_column5'><div>{l s='Price' mod='quickproducttable'}</div></th>
-                <th class='grid_th_column6'><div>{l s='Quantity' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column6'><div>{l s='Qty (In Cases)' mod='quickproducttable'}</div></th>
                 <th class='grid_th_column7'><!--<div>{l s='' mod='quickproducttable'}
                     <div class="form-group-checkbox">
                         <input type="checkbox" id="chkal" name="fmm_check" class="fmm_check" data-toggle="toggle"  data-size="xs">
@@ -204,6 +206,8 @@
                     </div>
                 </td>
                 
+                <td><div class="grid_td_column3">{$product.category|escape:'htmlall':'UTF-8'} | {$product.category_name|escape:'htmlall':'UTF-8'}</div></td>
+
                 <td data-label="Size">
                     <div class="grid_td_column4">
                         {foreach from=$product.features item=feature name=features}
@@ -299,6 +303,8 @@
                 <th class='grid_th_column1'><div>{l s='' mod='quickproducttable'}</div></th>
                 <th class='grid_th_column2'><div>{l s='SKU' mod='quickproducttable'}</div></th>
                 <th class='grid_th_column3'><div>{l s='Name' mod='quickproducttable'}</div></th>
+
+                <th class='grid_th_column3'><div>{l s='Family' mod='quickproducttable'}</div></th>
                 
                 <th class='grid_th_column4'><div>{l s='Size' mod='quickproducttable'}</div></th>
              
@@ -307,7 +313,7 @@
                 <th class='grid_th_column4'><div>{l s='Qty/Box' mod='quickproducttable'}</div></th>
 
                 <th class='grid_th_column5'><div>{l s='Price' mod='quickproducttable'}</div></th>
-                <th class='grid_th_column6'><div>{l s='Quantity' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column6'><div>{l s='Qty (In Cases)' mod='quickproducttable'}</div></th>
                 <th class='grid_th_column7'><div>{l s='' mod='quickproducttable'}
                     <!--<div class="form-group-checkbox">
                         <input type="checkbox" id="chkal" name="fmm_check" class="fmm_check" data-toggle="toggle"  data-size="xs">
