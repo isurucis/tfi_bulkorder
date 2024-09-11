@@ -27,6 +27,7 @@
 */
 
  function fmmAddAllCart(){
+  console.log("function : fmmAddAllCart, is called");
             var coun = 0;
             $.each($("input[name='fmm_check']:checked"), function(){
                 var id_product = $(this).val();
@@ -65,6 +66,7 @@
  }
 
  $('#fmm_table').on('click', 'span.minus-bulkorder', function(e){
+    console.log("Event : minus, is called");
     var $input = $(this).parent().find('input');
                 var minValue = parseInt($input.attr('min'));
                 //console.log(minValue);
@@ -81,6 +83,7 @@
 });
 
 $('#fmm_table').on('click', 'span.plus-bulkorder', function(e){
+  console.log("Event : plus, is called");
     var $input = $(this).parent().find('input');
                //var minValue = parseInt(input.getAttribute('min'));
                var minValue = parseInt($input.attr('min'));
@@ -97,6 +100,7 @@ $('#fmm_table').on('click', 'span.plus-bulkorder', function(e){
 });
 
   function fmmAddCart(id, group){
+    console.log("Function : fmmAddCart, is called");
         var id_product = id;
         var ajax_url = $("#ajax_url").val();
         var qty = $("#quantity_"+id).val();
@@ -142,6 +146,7 @@ $('#fmm_table').on('click', 'span.plus-bulkorder', function(e){
 
 
 function getRelProducts(e) {
+  console.log("Function : getRelProducts, is called");
   var cat = [];
   $('input.tree:checkbox:checked').each(function () {
       cat.push($(this).val());
@@ -177,6 +182,7 @@ function getRelProducts(e) {
 }
 
 function relSelectThis(id, ipa, name, img, price) {
+  console.log("Function : relSelectThis, is called");
   if (ipa === undefined) {
     ipa = 0;
   }
@@ -189,12 +195,15 @@ function relSelectThis(id, ipa, name, img, price) {
 }
 
 function relClearData() {
+  console.log("Function : relClearData, is called");
     $('#rel_holder').html('');
 }
 function relDropThis(e) {
+  console.log("Function : relDropThis, is called");
     $(e).parent().parent().parent().remove();
 }
 function relAddThis(id_product,id_attr) {
+  console.log("Function : relAddThis (id_product, id_attr), is called");
     var qty = $("#qty_"+id_product).val();
     var isint = $.isNumeric(qty);
     if (qty <= 0 || isint != true) {
@@ -221,6 +230,7 @@ function relAddThis(id_product,id_attr) {
 }
 
 function textareaClick() {
+  console.log("Function : textareaClick, is called");
     var ajax_url = $("#ajax_url").val();
     var texta = $("#csv_sku").val();
     $.ajax({
@@ -244,6 +254,7 @@ function textareaClick() {
 
 
 $('#chkal').on( 'change', function() {
+  console.log("Event : chkal, is called");
     if($(this).prop("checked") == true){
         $('input:checkbox').prop('checked',true);
     }else{
@@ -251,6 +262,7 @@ $('#chkal').on( 'change', function() {
     }
   });
 $('#chkal2').on( 'change', function() {
+  console.log("Event : chkal2, is called");
     if($(this).prop("checked") == true){
         $('input:checkbox').prop('checked',true);
     }else{
@@ -259,6 +271,9 @@ $('#chkal2').on( 'change', function() {
   });
 
 function changeAttr(id, group) {
+  console.log("Function : chkal2, is called");
+
+
         var id_product = id;
         var ajax_url = $("#ajax_url").val();
         var error = 0;
@@ -288,6 +303,7 @@ function changeAttr(id, group) {
 }
 
  $('#cal').on( 'change', function() {
+  console.log("Event : cal, is called");
     if($(this).prop("checked") == true){
         $('input:checkbox').prop('checked',true);
     }else{
@@ -300,6 +316,7 @@ $('div.dataTables_filter input').addClass('form-control');
 $( document ).ready(function() {
     var groupColumn = 3;
     $('#fmm_table').DataTable({
+      console.log("Event : DataTable - fmm_table, is called");
       columnDefs: [{ visible: false, targets: groupColumn }],
       order: [[groupColumn, 'asc']],
       displayLength: 25,

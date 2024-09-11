@@ -834,8 +834,9 @@ table.dataTable {
 .grid_th_column7 { width: 70px !important; padding: 5px 6px !important; margin-top: 15px !important;}
 
 
-
+/*
 grid_td_column_group { padding: 8px !important; background-color: #cbeed9; color: #000000; font-family: 'Roboto'; font-size: .9rem; font-weight: bold; }
+*/
 
 .grid_td_column1 { padding: 5px 6px !important;}
 .grid_td_column2 { padding: 5px 6px !important;
@@ -861,7 +862,7 @@ grid_td_column_group { padding: 8px !important; background-color: #cbeed9; color
 .grid_td_column7 { margin-top: 15px; /* padding: 5px 6px !important; */}
 
 .grid_td_column_group {
-  padding: 5px 6px !important;
+  padding: 5px 6px 5px 155px !important;
   font-family: 'Roboto';
   font-size: 1rem;
   font-weight: 600;
@@ -873,10 +874,10 @@ grid_td_column_group { padding: 8px !important; background-color: #cbeed9; color
 /*table.dataTable tbody th {
   padding: 5px 6px !important;
 }
-
+*/
 table.dataTable tbody td {
-  padding: 5px 6px !important;
-}*/
+  padding: 0px !important;
+}
 
 .quickorder_itemname {
   color: #2b2b2b;
@@ -953,7 +954,7 @@ tr.group:hover {
     background-color: rgba(0, 0, 0, 0.75) !important;
 }
 
-.price--regular {
+.price--regular2 {
   font-family: 'Roboto';
   font-size: .9rem;
   color: #b30000;
@@ -979,4 +980,6 @@ tr.group:hover {
   background-color: #cbeed9;
   border-radius: 6px;
   display: block;
+  width: 100%;
+  margin-top: 2px;
 }
