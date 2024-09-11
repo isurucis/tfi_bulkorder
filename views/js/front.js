@@ -298,15 +298,39 @@ function changeAttr(id, group) {
 
 $('div.dataTables_filter input').addClass('form-control');
 $( document ).ready(function() {
+    var groupColumn = 3;
     $('#fmm_table').DataTable({
-
-        rowReorder: {
-            selector: 'td:nth-child(2)'
-        },
-        "lengthChange": false,
-        "info":     false,
-        responsive: true,
-        "pageLength": noofrow
+      columnDefs: [{ visible: false, targets: groupColumn }],
+      order: [[groupColumn, 'asc']],
+      displayLength: 25,
+      drawCallback: function (settings) {
+        var api = this.api();
+        var rows = api.rows({ page: 'current' }).nodes();
+        var last = null;
+ 
+        api.column(groupColumn, { page: 'current' })
+            .data()
+            .each(function (group, i) {
+                if (last !== group) {
+                    $(rows)
+                        .eq(i)
+                        .before(
+                            '<tr class="group"><td colspan="10">' +
+                                group +
+                                '</td></tr>'
+                        );
+ 
+                    last = group;
+                }
+            });
+      },
+      rowReorder: {
+          selector: 'td:nth-child(2)'
+      },
+      "lengthChange": false,
+      "info":     false,
+      responsive: true,
+      "pageLength": noofrow
     });
     // $("#fmm_table_paginate").hide();
     var content = '<i class="material-icons srcicon" tabindex="0" role="button">search</i>';
@@ -317,3 +341,63 @@ $( document ).ready(function() {
         'hideOnContentClick': false
     });
 });
+
+
+/*
+var groupColumn = 3;
+var table = $('#fmm_table').DataTable({
+    columnDefs: [{ visible: false, targets: groupColumn }],
+    order: [[groupColumn, 'asc']],
+    displayLength: 25,
+    drawCallback: function (settings) {
+        var api = this.api();
+        var rows = api.rows({ page: 'current' }).nodes();
+        var last = null;
+ 
+        api.column(groupColumn, { page: 'current' })
+            .data()
+            .each(function (group, i) {
+                if (last !== group) {
+                    $(rows)
+                        .eq(i)
+                        .before(
+                            '<tr class="group"><td colspan="5">' +
+                                group +
+                                '</td></tr>'
+                        );
+ 
+                    last = group;
+                }
+            });
+    }
+});
+*/
+
+
+
+
+
+
+
+/*
+$( document ).ready(function() {
+  $('#fmm_table').DataTable({
+
+      rowReorder: {
+          selector: 'td:nth-child(2)'
+      },
+      "lengthChange": false,
+      "info":     false,
+      responsive: true,
+      "pageLength": noofrow
+  });
+  // $("#fmm_table_paginate").hide();
+  var content = '<i class="material-icons srcicon" tabindex="0" role="button">search</i>';
+  $("#fmm_table_filter").append(content); 
+
+
+  $('.read-b2b-imagepopup').fancybox({
+      'hideOnContentClick': false
+  });
+});
+*/

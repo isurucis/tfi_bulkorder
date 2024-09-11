@@ -904,3 +904,13 @@ table.dataTable tbody td {
 .dataTables_wrapper .dataTables_filter input {
   margin-left: 0px !important;
 }
+
+tr.group,
+tr.group:hover {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}
+ 
+:root.dark tr.group,
+:root.dark tr.group:hover {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+}
