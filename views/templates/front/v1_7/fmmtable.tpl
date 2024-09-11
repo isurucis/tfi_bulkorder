@@ -258,7 +258,7 @@
                             <div class="ml-2 price price--regular" style="float: left;">{$product.price_without_reduction}</div>
                             <div class="ml-2 price price--discounted" style="float: left;">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span></div>
                             <div style="clear: both;"></div>
-                        {elseif}
+                        {else}
                             {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span>
                         {/if}
                         
