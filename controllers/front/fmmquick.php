@@ -26,7 +26,6 @@
 require_once _PS_MODULE_DIR_ . 'quickproducttable/lib/ProductService.php';
 require_once _PS_MODULE_DIR_ . 'quickproducttable/lib/CSVReader.php';
 require_once _PS_MODULE_DIR_ . 'quickproducttable/lib/Csv.php';
-use PrestaShop\PrestaShop\Core\Product\ProductRepository;
 
 class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontController
 {
@@ -102,10 +101,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
                 $order_by,
                 $order_way
             );*/
-            $productRepository = new ProductRepository(); // Adjust as needed
-
-            // Instantiate the ProductService class
-            $productService = new ProductService($productRepository);
+            
             $all_products = ProductService::getNewProducts(
                 $id_language,
                 $page_number,
