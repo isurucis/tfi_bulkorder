@@ -42,6 +42,7 @@
     {if isset($catTree)}
         <div class=" top_buttons">
             <select  name="select_fmm_cat" id="select_fmm_cat" class="custom-select ">
+                <option value="0" selected="selected">{" (Select a Family)"|escape:'htmlall':'UTF-8'}</option>
                 {foreach from=$catTree['children'] item=tree}
                     <option value="{$tree['id']|escape:'htmlall':'UTF-8'}">{$tree['name']|escape:'htmlall':'UTF-8'}{" (Select a Family)"|escape:'htmlall':'UTF-8'}</option>
                     {foreach from=$tree['children'] item=tree2}
@@ -419,7 +420,50 @@
                         $('#fmm_table_body').append(response);
                         $("#fmm_table_paginate").hide();
                     } else {                               
-                    $("#loader").hide();
+                        $("#loader").hide();
+                    }
+                },
+                complete: function(response) {
+                    var groupColumn = 3;
+                    console.log("Event : DataTable - fmm_table, is called");
+                    $('#fmm_table').DataTable({
+                    columnDefs: [{ visible: false, targets: groupColumn }],
+                    order: [[groupColumn, 'asc']],
+                    displayLength: 25,
+                    drawCallback: function (settings) {
+                        var api = this.api();
+                        var rows = api.rows({ page: 'current' }).nodes();
+                        var last = null;
+                
+                        api.column(groupColumn, { page: 'current' })
+                            .data()
+                            .each(function (group, i) {
+                                if (last !== group) {
+                                    $(rows)
+                                        .eq(i)
+                                        .before(
+                                            '<tr class="group"><td colspan="10">' +
+                                                group +
+                                                '</td></tr>'
+                                        );
+                
+                                    last = group;
+                                }
+                            });
+                    },
+                    rowReorder: {
+                        selector: 'td:nth-child(2)'
+                    },
+                    "lengthChange": false,
+                    "info":     false,
+                    responsive: true,
+                    "pageLength": noofrow,
+                    orderCellsTop: true,
+                    fixedHeader: true
+                    });
+                    // $("#fmm_table_paginate").hide();
+                    var content = '<i class="material-icons srcicon" tabindex="0" role="button">search</i>';
+                    $("#fmm_table_filter").append(content); 
                 }
             }
             });
