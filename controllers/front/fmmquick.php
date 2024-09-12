@@ -23,7 +23,7 @@
  *  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  *  International Registered Trademark & Property of PrestaShop SA
  */
-
+require_once _PS_MODULE_DIR_ . 'quickproducttable/lib/ProductService.php';
 require_once _PS_MODULE_DIR_ . 'quickproducttable/lib/CSVReader.php';
 require_once _PS_MODULE_DIR_ . 'quickproducttable/lib/Csv.php';
 class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontController
