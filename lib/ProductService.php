@@ -1,3 +1,4 @@
+<?php
 use PrestaShop\PrestaShop\Core\Domain\Product\QueryResult\ProductCard;
 use PrestaShop\PrestaShop\Core\Product\ProductRepository;
 
