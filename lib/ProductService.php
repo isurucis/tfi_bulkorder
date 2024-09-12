@@ -4,16 +4,16 @@ use PrestaShop\PrestaShop\Core\Product\ProductRepository;
 
 class ProductService
 {
-    private $productRepository;
+    private static $productRepository;
 
     public function __construct(ProductRepository $productRepository)
     {
-        $this->productRepository = $productRepository;
+        self::$productRepository = $productRepository;
     }
 
-    public function getNewProducts($id_language, $page_number, $nb_products, $order_by, $order_way)
+    public static function getNewProducts($id_language, $page_number, $nb_products, $order_by, $order_way)
     {
-        $queryBuilder = $this->productRepository->createQueryBuilder('p');
+        $queryBuilder = self::$productRepository->createQueryBuilder('p');
         
         // Filter by new products (within a certain date range)
         $queryBuilder->where('p.date_add > :recentDate')
