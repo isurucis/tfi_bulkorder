@@ -92,7 +92,15 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
             );
             $all_products = $this->getExtraFields($all_products);
         } elseif ($product_type == 'new') {
-            $all_products = Product::getNewProducts(
+            /*$all_products = Product::getNewProducts(
+                $id_language,
+                $page_number,
+                $nb_products,
+                $count,
+                $order_by,
+                $order_way
+            );*/
+            $all_products = ProductService::getNewProducts(
                 $id_language,
                 $page_number,
                 $nb_products,
