@@ -422,8 +422,8 @@
                     } else {                               
                         $("#loader").hide();
                     }
-                },
-                complete: function(response) {
+                }, complete: functtion(response) {
+
                     var groupColumn = 3;
                     console.log("Event : DataTable - fmm_table, is called");
                     $('#fmm_table').DataTable({
@@ -464,8 +464,10 @@
                     // $("#fmm_table_paginate").hide();
                     var content = '<i class="material-icons srcicon" tabindex="0" role="button">search</i>';
                     $("#fmm_table_filter").append(content); 
+
+
                 }
-            }
+            
             });
         });
 
