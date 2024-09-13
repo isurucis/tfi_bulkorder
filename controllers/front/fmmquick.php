@@ -101,16 +101,22 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
                 $order_by,
                 $order_way
             );*/
+            // Instantiate ProductService with the necessary ProductRepository dependency
+            $productRepository = new ProductRepository(); // Make sure this is correctly instantiated
+            $productService = new ProductService($productRepository);
             
-            $all_products = ProductService::getNewProducts(
+            // Now call the method through the object instance
+            $newProducts = $productService->getNewProducts($id_language, $page_number, $nb_products, $order_by, $order_way);
+
+            /*$all_products = ProductService::getNewProducts(
                 $id_language,
                 $page_number,
                 $nb_products,
                 $count,
                 $order_by,
                 $order_way
-            );
-            $all_products = $this->getExtraFieldsNew($all_products);
+            );*/
+            $all_products = $this->getExtraFieldsNew($newProducts);
         } elseif ($product_type == 'sale') {
             $all_products = Product::getPricesDrop(
                 $id_language,
