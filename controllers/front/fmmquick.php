@@ -27,7 +27,7 @@ require_once _PS_MODULE_DIR_ . 'quickproducttable/lib/ProductService.php';
 require_once _PS_MODULE_DIR_ . 'quickproducttable/lib/CSVReader.php';
 require_once _PS_MODULE_DIR_ . 'quickproducttable/lib/Csv.php';
 
-use PrestaShop\PrestaShop\Core\Product\ProductRepository;
+use PrestaShop\PrestaShop\Adapter\SymfonyContainer;
 
 class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontController
 {
@@ -104,11 +104,12 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
                 $order_way
             );*/
             // Instantiate ProductService with the necessary ProductRepository dependency
-            $productRepository = new ProductRepository(); // Make sure this is correctly instantiated
-            $productService = new ProductService($productRepository);
+            $productService = new ProductService(SymfonyContainer::getInstance()->get('prestashop.core.query_bus'));
+            $newProducts = $productService->getNewProducts($page_number, $nb_products, $order_by, $order_way);
+
             
             // Now call the method through the object instance
-            $newProducts = $productService->getNewProducts($id_language, $page_number, $nb_products, $order_by, $order_way);
+            //$newProducts = $productService->getNewProducts($id_language, $page_number, $nb_products, $order_by, $order_way);
 
             /*$all_products = ProductService::getNewProducts(
                 $id_language,
