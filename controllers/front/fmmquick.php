@@ -27,7 +27,7 @@ require_once _PS_MODULE_DIR_ . 'quickproducttable/lib/ProductService.php';
 require_once _PS_MODULE_DIR_ . 'quickproducttable/lib/CSVReader.php';
 require_once _PS_MODULE_DIR_ . 'quickproducttable/lib/Csv.php';
 
-use PrestaShop\PrestaShop\Adapter\Product\ProductRepository;
+use PrestaShop\PrestaShop\Core\Product\ProductRepository;
 
 class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontController
 {
