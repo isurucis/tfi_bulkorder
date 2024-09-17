@@ -95,17 +95,18 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
             );
             $all_products = $this->getExtraFields($all_products);
         } elseif ($product_type == 'new') {
-            /*$all_products = Product::getNewProducts(
+            $all_products = Product::getNewProducts(
                 $id_language,
                 $page_number,
                 $nb_products,
                 $count,
                 $order_by,
                 $order_way
-            );*/
+            );
+            re
             // Instantiate ProductService with the necessary ProductRepository dependency
-            $productService = new ProductService(SymfonyContainer::getInstance()->get('prestashop.core.query_bus'));
-            $newProducts = $productService->getNewProducts($page_number, $nb_products, $order_by, $order_way);
+            //$productService = new ProductService(SymfonyContainer::getInstance()->get('prestashop.core.query_bus'));
+            //$newProducts = $productService->getNewProducts($page_number, $nb_products, $order_by, $order_way);
 
             
             // Now call the method through the object instance
