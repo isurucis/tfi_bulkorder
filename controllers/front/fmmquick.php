@@ -26,6 +26,7 @@
 require_once _PS_MODULE_DIR_ . 'quickproducttable/lib/ProductService.php';
 require_once _PS_MODULE_DIR_ . 'quickproducttable/lib/CSVReader.php';
 require_once _PS_MODULE_DIR_ . 'quickproducttable/lib/Csv.php';
+require_once(_PS_ROOT_DIR_ . '/classes/Language.php');
 
 use PrestaShop\PrestaShop\Adapter\SymfonyContainer;
 
@@ -62,7 +63,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
             $this->quickcsv();
             return 0;
         }
-        $id_language = $this->context->language->id;
+        $id_language = 1;
         $page_number = 0;
         $nb_products = null;
         $count = false;
