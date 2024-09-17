@@ -95,6 +95,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
             );
             $all_products = $this->getExtraFields($all_products);
         } elseif ($product_type == 'new') {
+            //OG
             $all_products = Product::getNewProducts(
                 $id_language,
                 $page_number,
@@ -103,7 +104,8 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
                 $order_by,
                 $order_way
             );
-            re
+            $all_products = $this->getExtraFieldsNew($all_products);
+            
             // Instantiate ProductService with the necessary ProductRepository dependency
             //$productService = new ProductService(SymfonyContainer::getInstance()->get('prestashop.core.query_bus'));
             //$newProducts = $productService->getNewProducts($page_number, $nb_products, $order_by, $order_way);
@@ -120,7 +122,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
                 $order_by,
                 $order_way
             );*/
-            $all_products = $this->getExtraFieldsNew($newProducts);
+            //$all_products = $this->getExtraFieldsNew($newProducts);
         } elseif ($product_type == 'sale') {
             $all_products = Product::getPricesDrop(
                 $id_language,
