@@ -23,11 +23,9 @@
  *  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  *  International Registered Trademark & Property of PrestaShop SA
  */
-require_once _PS_MODULE_DIR_ . 'quickproducttable/lib/ProductService.php';
 require_once _PS_MODULE_DIR_ . 'quickproducttable/lib/CSVReader.php';
 require_once _PS_MODULE_DIR_ . 'quickproducttable/lib/Csv.php';
 
-use PrestaShop\PrestaShop\Adapter\SymfonyContainer;
 
 class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontController
 {
@@ -95,7 +93,6 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
             );
             $all_products = $this->getExtraFields($all_products);
         } elseif ($product_type == 'new') {
-            //OG
             $all_products = Product::getNewProducts(
                 $id_language,
                 $page_number,
@@ -105,24 +102,6 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
                 $order_way
             );
             $all_products = $this->getExtraFieldsNew($all_products);
-            
-            // Instantiate ProductService with the necessary ProductRepository dependency
-            //$productService = new ProductService(SymfonyContainer::getInstance()->get('prestashop.core.query_bus'));
-            //$newProducts = $productService->getNewProducts($page_number, $nb_products, $order_by, $order_way);
-
-            
-            // Now call the method through the object instance
-            //$newProducts = $productService->getNewProducts($id_language, $page_number, $nb_products, $order_by, $order_way);
-
-            /*$all_products = ProductService::getNewProducts(
-                $id_language,
-                $page_number,
-                $nb_products,
-                $count,
-                $order_by,
-                $order_way
-            );*/
-            //$all_products = $this->getExtraFieldsNew($newProducts);
         } elseif ($product_type == 'sale') {
             $all_products = Product::getPricesDrop(
                 $id_language,
