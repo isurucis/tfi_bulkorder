@@ -344,6 +344,9 @@ $( document ).ready(function() {
       rowReorder: {
           selector: 'td:nth-child(2)'
       },
+      rowGroup: {
+        dataSrc: 'group'
+      },
       "lengthChange": false,
       "info":     false,
       responsive: true,
