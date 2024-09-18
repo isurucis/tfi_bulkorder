@@ -188,7 +188,12 @@
 
     <script>
         $(document).ready(function() {
-            console.log(" I am called from the Ajax template page");
+            console.log(" I am called from the Ajax template page 1");
+            $('#fmm_table').DataTable({ 
+                "destroy": true, //use for reinitialize datatable
+            });
+            console.log(" I am called from the Ajax template page 2");
             $('#fmm_table').DataTable();
+            console.log(" I am called from the Ajax template page 3");
         });
     </script>
