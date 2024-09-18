@@ -440,12 +440,14 @@ $( document ).ready(function() {
           },
           success: function(response){
             if (response != 2) {
+              
+                fmmDataTable.clear();
                 $('#fmm_table_body').html('');
                 $('#fmm_table_body').append(response);
                 $("#fmm_table_paginate").hide();
 
-                fmmDataTable.clear();
-                fmmDataTable.add(response).draw();
+                //fmmDataTable.clear();
+                //fmmDataTable.add(response).draw();
                 //fmmDataTable.destroy();
                 //fmmDataTable = "";
 
