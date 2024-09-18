@@ -356,10 +356,11 @@ $( document ).ready(function() {
       },
       "lengthChange": false,
       "info":     false,
-      responsive: true,
+      "responsive": true,
       "pageLength": noofrow,
-      orderCellsTop: true,
-      fixedHeader: true
+      "orderCellsTop": true,
+      "fixedHeader": true,
+      "serverSide": true,
     });
 
 
@@ -440,7 +441,7 @@ $( document ).ready(function() {
           },
           success: function(response){
             if (response != 2) {
-              
+
                 fmmDataTable.clear();
                 $('#fmm_table_body').html('');
                 $('#fmm_table_body').append(response);
