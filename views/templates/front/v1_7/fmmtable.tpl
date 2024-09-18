@@ -310,8 +310,8 @@
 
                 <th class='grid_th_column5'><div>{l s='Price' mod='quickproducttable'}</div></th>
                 <th class='grid_th_column6'><div>{l s='Qty (In Cases)' mod='quickproducttable'}</div></th>
-                <th class='grid_th_column7'><div>{l s='' mod='quickproducttable'}
-                    <!--<div class="form-group-checkbox">
+                <th class='grid_th_column7'><!--div>{l s='' mod='quickproducttable'}
+                    <<div class="form-group-checkbox">
                         <input type="checkbox" id="chkal" name="fmm_check" class="fmm_check" data-toggle="toggle"  data-size="xs">
                         <label for="chkal" class="selection-button-checkbox">&nbsp;</label>
                     </div>-->
@@ -405,6 +405,9 @@
     
           localStorage.setItem('checkedItems', JSON.stringify(checkedItems));
         }
+
+        
+        /*
         $('#select_fmm_cat').on('change', function() {
             var id_category = this.value;
             var ajax_url = $("#ajax_url").val();
@@ -439,6 +442,7 @@
             
             });
         });
+        */
 
         //$(function() {
             //$('td:last-child input').change(function() {

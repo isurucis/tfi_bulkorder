@@ -319,6 +319,7 @@ $('div.dataTables_filter input').addClass('form-control');
 $( document ).ready(function() {
   //dataTableInit(3);
     var fmmDataTable = "";
+
     var groupColumn = 3;
     console.log("Event : DataTable - fmm_table, is called");
 
@@ -360,6 +361,8 @@ $( document ).ready(function() {
       orderCellsTop: true,
       fixedHeader: true
     });
+
+
     // $("#fmm_table_paginate").hide();
     var content = '<i class="material-icons srcicon" tabindex="0" role="button">search</i>';
     $("#fmm_table_filter").append(content); 
@@ -420,6 +423,46 @@ $( document ).ready(function() {
           'hideOnContentClick': false
       });
     }
+
+    //.............................................................
+    $('#select_fmm_cat').on('change', function() {
+      var id_category = this.value;
+      var ajax_url = $("#ajax_url").val();
+      var product_type = $("#product_type").val();
+      console.log("id_category : "+id_category+"\n ajax_url : "+ajax_url+"\n product_type : "+product_type+"\n action : productChangeCategory");
+      
+      $.ajax({
+          type: 'POST',
+          url: ajax_url,
+          data: {
+              id_category: id_category ,ajax:1,product_type:product_type, action: 'productChangeCategory'
+          },
+          success: function(response){
+            if (response != 2) {
+                $('#fmm_table_body').html('');
+                $('#fmm_table_body').append(response);
+                $("#fmm_table_paginate").hide();
+                
+                
+                fmmDataTable.destroy();
+                fmmDataTable = "";
+
+                //$('#fmm_table').DataTable({ 
+                //    "destroy": true, //use for reinitialize datatable
+                //});
+
+            } else {                               
+                $("#loader").hide();
+            }
+          }, 
+          complete: function() {
+              dataTableInit(3);
+          }
+      
+      });
+    });
+    //.............................................................
+
 
 
 });
