@@ -356,11 +356,11 @@ $( document ).ready(function() {
       },
       "lengthChange": false,
       "info":     false,
-      "responsive": true,
+      responsive: true,
       "pageLength": noofrow,
-      "orderCellsTop": true,
-      "fixedHeader": true,
-      "serverSide": true,
+      orderCellsTop: true,
+      fixedHeader: true,
+      "serverSide": true
     });
 
 
