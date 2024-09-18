@@ -425,12 +425,12 @@
                         $('#fmm_table_body').append(response);
                         $("#fmm_table_paginate").hide();
                         
-                        $('#fmm_table').destroy();
+                        //$('#fmm_table').destroy();
                         //fmmDataTable.destroy();
 
-                        //$('#fmm_table').DataTable({ 
-                        //    "destroy": true, //use for reinitialize datatable
-                        //});
+                        $('#fmm_table').DataTable({ 
+                            "destroy": true, //use for reinitialize datatable
+                        });
 
                     } else {                               
                         $("#loader").hide();
