@@ -431,7 +431,7 @@ $( document ).ready(function() {
       var ajax_url = $("#ajax_url").val();
       var product_type = $("#product_type").val();
       console.log("id_category : "+id_category+"\n ajax_url : "+ajax_url+"\n product_type : "+product_type+"\n action : productChangeCategory");
-      
+      var fmmDataTable = $('#fmm_table').DataTable();
       $.ajax({
           type: 'POST',
           url: ajax_url,
@@ -443,8 +443,10 @@ $( document ).ready(function() {
                 $('#fmm_table_body').html('');
                 $('#fmm_table_body').append(response);
                 $("#fmm_table_paginate").hide();
-                
-                fmmDataTable.destroy();
+
+                fmmDataTable.clear();
+                fmmDataTable.add(response).draw();
+                //fmmDataTable.destroy();
                 //fmmDataTable = "";
 
                 //$('#fmm_table').DataTable({ 
@@ -456,7 +458,7 @@ $( document ).ready(function() {
             }
           }, 
           complete: function() {
-            //dataTableInit(3);
+            dataTableInit(3);
           }
       
       });
