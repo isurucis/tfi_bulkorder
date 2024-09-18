@@ -185,3 +185,9 @@
                 </td>
             </tr>
         {/foreach}
+
+    <script>
+        $(document).ready(function() {
+            $('#fmm_table').DataTable();
+        });
+    </script>
