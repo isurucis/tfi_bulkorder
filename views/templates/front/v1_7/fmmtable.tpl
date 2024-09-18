@@ -424,9 +424,9 @@
                         
                         
 
-                        //$('#fmm_table').DataTable({ 
-                        //    "destroy": true, //use for reinitialize datatable
-                        //});
+                        $('#fmm_table').DataTable({ 
+                            "destroy": true, //use for reinitialize datatable
+                        });
 
                     } else {                               
                         $("#loader").hide();
