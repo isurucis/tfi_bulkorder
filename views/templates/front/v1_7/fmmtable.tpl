@@ -425,8 +425,8 @@
                         $('#fmm_table_body').append(response);
                         $("#fmm_table_paginate").hide();
                         
-                        
-                        fmmDataTable.destroy();
+                        $('#fmm_table').destroy();
+                        //fmmDataTable.destroy();
 
                         //$('#fmm_table').DataTable({ 
                         //    "destroy": true, //use for reinitialize datatable

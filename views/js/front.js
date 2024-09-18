@@ -65,7 +65,7 @@
             }
  }
 
- $('#fmm_table').on('click', 'span.minus-bulkorder', function(e){
+$('#fmm_table').on('click', 'span.minus-bulkorder', function(e){
     console.log("Event : minus, is called");
     var $input = $(this).parent().find('input');
                 var minValue = parseInt($input.attr('min'));
@@ -142,7 +142,7 @@ $('#fmm_table').on('click', 'span.plus-bulkorder', function(e){
                 } 
             });
         }
-    }
+  }
 
 
 function getRelProducts(e) {
@@ -318,12 +318,12 @@ $('div.dataTables_filter input').addClass('form-control');
 
 $( document ).ready(function() {
   //dataTableInit(3);
-    var fmmDataTable = "";
+    //var fmmDataTable = "";
 
     var groupColumn = 3;
     console.log("Event : DataTable - fmm_table, is called");
 
-    fmmDataTable = $('#fmm_table').DataTable({
+    var fmmDataTable = $('#fmm_table').DataTable({
       columnDefs: [{ visible: false, targets: groupColumn }],
       order: [[groupColumn, 'asc']],
       displayLength: 25,
@@ -352,7 +352,7 @@ $( document ).ready(function() {
           selector: 'td:nth-child(2)'
       },
       rowGroup: {
-        dataSrc: 'group'
+        dataSrc: groupColumn
       },
       "lengthChange": false,
       "info":     false,
