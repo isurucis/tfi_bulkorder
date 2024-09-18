@@ -360,7 +360,7 @@ $( document ).ready(function() {
       "pageLength": noofrow,
       orderCellsTop: true,
       fixedHeader: true,
-      "serverSide": true
+      "serverSide": false
     });
 
 
