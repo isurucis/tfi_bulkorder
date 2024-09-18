@@ -449,7 +449,7 @@ $( document ).ready(function() {
                 $('#fmm_table_body').append(response);
                 $("#fmm_table_paginate").hide();
                 
-                fmmDataTable = $('#fmm_table').DataTable();
+                //fmmDataTable = $('#fmm_table').DataTable();
                 //fmmDataTable.clear();
                 //fmmDataTable.add(response).draw();
                 //fmmDataTable.destroy();
