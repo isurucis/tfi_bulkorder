@@ -25,6 +25,9 @@
 
         {foreach from=$all_products item=product name=product}
             <tr>
+                <td colspan="10"><div class="grid_td_column_group">{$product.category_name|escape:'htmlall':'UTF-8'}</div></td>
+            </tr>
+            <tr>
                 <td>
                     <div class="grid_td_column1">
                         <img class="quickorder_item_image" src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}">
