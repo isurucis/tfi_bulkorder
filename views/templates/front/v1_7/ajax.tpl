@@ -187,8 +187,8 @@
         {/foreach}
 
     <script>
-        $(document).ready(function() {
-            console.log(" I am called from the Ajax template page");
-            $('#fmm_table').DataTable();
-        });
+        //$(document).ready(function() {
+        //    console.log(" I am called from the Ajax template page");
+        //    $('#fmm_table').DataTable();
+        //});
     </script>
