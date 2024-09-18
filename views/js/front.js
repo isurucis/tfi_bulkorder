@@ -432,7 +432,7 @@ $( document ).ready(function() {
       var ajax_url = $("#ajax_url").val();
       var product_type = $("#product_type").val();
       console.log("id_category : "+id_category+"\n ajax_url : "+ajax_url+"\n product_type : "+product_type+"\n action : productChangeCategory");
-      //var fmmDataTable = $('#fmm_table').DataTable();
+      var fmmDataTable = $('#fmm_table').DataTable();
       
       fmmDataTable.clear();
       $.ajax({
