@@ -408,6 +408,7 @@
             var id_category = this.value;
             var ajax_url = $("#ajax_url").val();
             var product_type = $("#product_type").val();
+            console.log("id_category : "+id_category+"\n ajax_url : "+ajax_url+"\n product_type : "+product_type+"\n action : productChangeCategory");
             $.ajax({
                 type: 'POST',
                 url: ajax_url,
