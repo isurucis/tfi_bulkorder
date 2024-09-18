@@ -423,17 +423,18 @@
                         $("#fmm_table_paginate").hide();
                         
                         
+                        fmmDataTable.destroy();
 
-                        $('#fmm_table').DataTable({ 
-                            "destroy": true, //use for reinitialize datatable
-                        });
+                        //$('#fmm_table').DataTable({ 
+                        //    "destroy": true, //use for reinitialize datatable
+                        //});
 
                     } else {                               
                         $("#loader").hide();
                     }
                 }, 
                 complete: function() {
-                    dataTableInit(3);
+                    //dataTableInit(3);
                 }
             
             });

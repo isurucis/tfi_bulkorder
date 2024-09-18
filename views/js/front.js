@@ -366,11 +366,11 @@ function dataTableInit(groupColumn) {
 }
 
 $( document ).ready(function() {
-  dataTableInit(3);
-  /*
+  //dataTableInit(3);
+  
     var groupColumn = 3;
     console.log("Event : DataTable - fmm_table, is called");
-    $('#fmm_table').DataTable({
+    var fmmDataTable = $('#fmm_table').DataTable({
       columnDefs: [{ visible: false, targets: groupColumn }],
       order: [[groupColumn, 'asc']],
       displayLength: 25,
@@ -416,7 +416,7 @@ $( document ).ready(function() {
     $('.read-b2b-imagepopup').fancybox({
         'hideOnContentClick': false
     });
-  */
+  
 });
 
 
