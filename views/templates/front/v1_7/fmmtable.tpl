@@ -407,7 +407,7 @@
         }
 
 
-        
+        /*
         $('#select_fmm_cat').on('change', function() {
             var id_category = this.value;
             var ajax_url = $("#ajax_url").val();
@@ -441,7 +441,7 @@
                 }
             });
         });
-        
+        */
 
         //$(function() {
             //$('td:last-child input').change(function() {
