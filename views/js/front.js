@@ -435,6 +435,9 @@ $( document ).ready(function() {
       //var fmmDataTable = $('#fmm_table').DataTable();
       
       //fmmDataTable.clear();
+      var fmmDataTable = $('#fmm_table').DataTable();
+      fmmDataTable.destroy();
+
       $.ajax({
           type: 'POST',
           url: ajax_url,
@@ -443,13 +446,16 @@ $( document ).ready(function() {
           },
           success: function(response){
             if (response != 2) {
-              
+
+                //$('#fmm_table_body').html('');
+                //$('#fmm_table_body').append(response);
+                //$("#fmm_table_paginate").hide();
+
+
+                $("#fmm_table body").append(response);
+
                 
-                $('#fmm_table_body').html('');
-                $('#fmm_table_body').append(response);
-                $("#fmm_table_paginate").hide();
                 
-                var fmmDataTable = $('#fmm_table').DataTable();
                 //fmmDataTable.clear();
                 //fmmDataTable.add(response).draw();
                 //fmmDataTable.destroy();
@@ -464,7 +470,8 @@ $( document ).ready(function() {
             }
           }, 
           complete: function() {
-            dataTableInit(3);
+            //dataTableInit(3);
+            var fmmDataTable = $('#fmm_table').DataTable();
           }
       
       });
