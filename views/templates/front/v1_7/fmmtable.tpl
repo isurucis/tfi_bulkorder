@@ -358,6 +358,11 @@
                             var new_page = parseInt(old_page, 10) + parseInt(b, 10);
                             $('#fmm_table_body').append(response);
                             $('#page_no').val(new_page);
+
+                            $('#fmm_table_body').DataTable({ 
+                                "destroy": true, //use for reinitialize datatable
+                            });
+
                         } else {                     
                             $("#loader").hide();
                         }
