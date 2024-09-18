@@ -359,7 +359,7 @@
                             $('#fmm_table_body').append(response);
                             $('#page_no').val(new_page);
 
-                            $('#fmm_table_body').DataTable({ 
+                            $('#fmm_table').DataTable({ 
                                 "destroy": true, //use for reinitialize datatable
                             });
 
