@@ -477,8 +477,7 @@ $( document ).ready(function() {
 
                 $(fmmDataTableId + " tbody").append(response);
 
-                //3rd reCreate Datatable object
-                fmmDataTable= $(fmmDataTableId).DataTable();
+                
                 
                 //fmmDataTable.clear();
                 //fmmDataTable.add(response).draw();
@@ -493,6 +492,9 @@ $( document ).ready(function() {
                 console.log("Data NOT Available");
                 $("#loader").hide();
             }
+
+            //3rd reCreate Datatable object
+            fmmDataTable = $(fmmDataTableId).DataTable();
           }, 
           complete: function() {
             //dataTableInit(3);
