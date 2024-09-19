@@ -468,7 +468,7 @@ $( document ).ready(function() {
                 //$("#fmm_table_paginate").hide();
 
 
-                $("#fmm_table body").append(response);
+                $(fmmDataTableId + " tbody").append(response);
 
                 
                 
