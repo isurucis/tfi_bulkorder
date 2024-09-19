@@ -22,9 +22,9 @@
 *  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-        {$familyin = "" }
+        {assign $familyin = "" }
         {foreach from=$all_products item=product name=product}
-            {if familyin == "" }
+            {if $familyin == "" }
                 <tr>
                     <td colspan="10"><div class="grid_td_column_group">{$product.category_name|escape:'htmlall':'UTF-8'}</div></td>
                 </tr>
