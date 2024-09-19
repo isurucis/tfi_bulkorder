@@ -455,7 +455,7 @@ $( document ).ready(function() {
 
             //2nd empty html
             $(fmmDataTableId + " tbody").empty();
-            //$(fmmDataTableId + " thead").empty();
+            $(fmmDataTableId + " thead").empty();
 
             //3rd reCreate Datatable object
             fmmDataTable= $(fmmDataTableId).DataTable();
@@ -463,7 +463,7 @@ $( document ).ready(function() {
           success: function(response){
             console.log(response);
 
-            $(fmmDataTableId + " tbody").append(response);
+            //$(fmmDataTableId + " tbody").append(response);
             if (response != 2) {
 
                 //$('#fmm_table_body').html('');
@@ -471,7 +471,7 @@ $( document ).ready(function() {
                 //$("#fmm_table_paginate").hide();
 
 
-                //$(fmmDataTableId + " tbody").append(response);
+                $(fmmDataTableId + " tbody").append(response);
 
                 
                 
