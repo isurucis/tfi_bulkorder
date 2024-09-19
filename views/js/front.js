@@ -447,11 +447,7 @@ $( document ).ready(function() {
               id_category: id_category ,ajax:1,product_type:product_type, action: 'productChangeCategory'
           },
           beforeSend: function() {
-            // clear first
-            if(fmmDataTable!=null){
-              fmmDataTable.clear();
-              fmmDataTable.destroy();
-            }
+            
 
             //2nd empty html
             //$(fmmDataTableId + " tbody").empty();
@@ -461,7 +457,12 @@ $( document ).ready(function() {
           },
           success: function(response){
             console.log(response);
-
+            
+            // clear first
+            if(fmmDataTable!=null){
+              fmmDataTable.clear();
+              fmmDataTable.destroy();
+            }
             //$(fmmDataTableId + " tbody").append(response);
             //if (response != 2) {
 
