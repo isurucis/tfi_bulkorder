@@ -462,8 +462,9 @@ $( document ).ready(function() {
             if(fmmDataTable!=null){
               //fmmDataTable.clear();
               //fmmDataTable.destroy();
-              $(fmmDataTableId + " tbody").clear();
-              $(fmmDataTableId + " tbody").destroy();
+              //$(fmmDataTableId + " tbody").clear();
+              //$(fmmDataTableId + " tbody").destroy();
+              $(fmmDataTableId + " tbody").html('');
 
             }
             //$(fmmDataTableId + " tbody").append(response);
