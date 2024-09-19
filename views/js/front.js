@@ -461,7 +461,7 @@ $( document ).ready(function() {
             // clear first
             if(fmmDataTable!=null){
               fmmDataTable.clear();
-              fmmDataTable.destroy();
+              //fmmDataTable.destroy();
             }
             //$(fmmDataTableId + " tbody").append(response);
             if (response != 2) {
