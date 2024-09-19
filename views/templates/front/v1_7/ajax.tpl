@@ -22,11 +22,24 @@
 *  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-
+        {assign var=familyin value=""}
         {foreach from=$all_products item=product name=product}
-            <tr>
+            {if familyin eq "" }
+                { assign var=familyin value=$product.category_name }
+                <tr>
+                    <td colspan="10"><div class="grid_td_column_group">{$product.category_name|escape:'htmlall':'UTF-8'}</div></td>
+                </tr>
+            { else }
+                {if familyin ne $product.category_name }
+                    <tr>
+                        <td colspan="10"><div class="grid_td_column_group">{$product.category_name|escape:'htmlall':'UTF-8'}</div></td>
+                    </tr>
+                {/if}
+            {/if}
+
+            <!-- tr>
                 <td colspan="10"><div class="grid_td_column_group">{$product.category_name|escape:'htmlall':'UTF-8'}</div></td>
-            </tr>
+            </tr -->
             <tr>
                 <td>
                     <div class="grid_td_column1">
