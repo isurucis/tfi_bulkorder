@@ -460,8 +460,11 @@ $( document ).ready(function() {
 
             // clear first
             if(fmmDataTable!=null){
-              fmmDataTable.clear();
+              //fmmDataTable.clear();
               //fmmDataTable.destroy();
+              $(fmmDataTableId + " tbody").clear();
+              $(fmmDataTableId + " tbody").destroy();
+
             }
             //$(fmmDataTableId + " tbody").append(response);
             if (response != 2) {
