@@ -454,8 +454,8 @@ $( document ).ready(function() {
             }
 
             //2nd empty html
-            $(fmmDataTableId + " tbody").empty();
-            $(fmmDataTableId + " thead").empty();
+            //$(fmmDataTableId + " tbody").empty();
+            //$(fmmDataTableId + " thead").empty();
 
             //3rd reCreate Datatable object
             fmmDataTable= $(fmmDataTableId).DataTable();
@@ -464,7 +464,7 @@ $( document ).ready(function() {
             console.log(response);
 
             //$(fmmDataTableId + " tbody").append(response);
-            if (response != 2) {
+            //if (response != 2) {
 
                 //$('#fmm_table_body').html('');
                 //$('#fmm_table_body').append(response);
@@ -484,9 +484,9 @@ $( document ).ready(function() {
                 //    "destroy": true, //use for reinitialize datatable
                 //});
 
-            } else {                               
-                $("#loader").hide();
-            }
+            //} else {                               
+            //    $("#loader").hide();
+            //}
           }, 
           complete: function() {
             //dataTableInit(3);
