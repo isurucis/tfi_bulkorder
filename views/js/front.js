@@ -435,15 +435,30 @@ $( document ).ready(function() {
       //var fmmDataTable = $('#fmm_table').DataTable();
       
       //fmmDataTable.clear();
-      fmmDataTable.destroy();
-      var fmmDataTable = $('#fmm_table').DataTable();
+      //fmmDataTable.destroy();
+      //var fmmDataTable = $('#fmm_table').DataTable();
       
+      var fmmDataTableId = '#fmm_table';
 
       $.ajax({
           type: 'POST',
           url: ajax_url,
           data: {
               id_category: id_category ,ajax:1,product_type:product_type, action: 'productChangeCategory'
+          },
+          beforeSend: function() {
+            // clear first
+            if(fmmDataTable!=null){
+              fmmDataTable.clear();
+              fmmDataTable.destroy();
+            }
+
+            //2nd empty html
+            $(fmmDataTableId + " tbody").empty();
+            //$(fmmDataTableId + " thead").empty();
+
+            //3rd reCreate Datatable object
+            fmmDataTable= $(fmmDataTableId).DataTable();
           },
           success: function(response){
             if (response != 2) {
@@ -472,7 +487,7 @@ $( document ).ready(function() {
           }, 
           complete: function() {
             //dataTableInit(3);
-            var fmmDataTable = $('#fmm_table').DataTable();
+            //var fmmDataTable = $('#fmm_table').DataTable();
           }
       
       });
