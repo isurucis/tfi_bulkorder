@@ -435,8 +435,9 @@ $( document ).ready(function() {
       //var fmmDataTable = $('#fmm_table').DataTable();
       
       //fmmDataTable.clear();
-      var fmmDataTable = $('#fmm_table').DataTable();
       fmmDataTable.destroy();
+      var fmmDataTable = $('#fmm_table').DataTable();
+      
 
       $.ajax({
           type: 'POST',
