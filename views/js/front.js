@@ -370,9 +370,17 @@ $( document ).ready(function() {
       orderCellsTop: true,
       fixedHeader: true,
       "serverSide": false,
-      dom: "<'row'<'col-sm-4'p><'col-sm-4'f><'col-sm-4 topinbuttons'>>" +
+      dom: "<'row'<'col-sm-5'<'pull-left'p><'col-sm-4'f><'col-sm-3 <'pull-right topinbuttons'>>" +
       "<'row'<'col-sm-12'tr>>" +
-      "<'row'<'col-sm-4'p><'col-sm-4'><'col-sm-4 botinbuttons'>>",
+      "<'row'<'col-sm-5'<'pull-left'p><'col-sm-4'><'col-sm-3 <'pull-right botinbuttons'>>",
+      language: {
+        paginate: {
+            first: '&gt;&gt;',
+            last: '&lt;&lt;',
+            next: '&lt;',
+            previous: '&gt;'
+        }
+      }
       /*layout: {
         topStart: {
           buttons: ['copy', 'excel', 'pdf', 'colvis']
@@ -381,6 +389,8 @@ $( document ).ready(function() {
       /*dom: "<'row'<'col-sm-3'l><'col-sm-3'f><'col-sm-6'p>>" +
       "<'row'<'col-sm-12'tr>>" +
       "<'row'<'col-sm-5'i><'col-sm-7'p>>",*/
+
+      
     });
 
 

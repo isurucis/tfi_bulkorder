@@ -94,12 +94,12 @@
     <div class=" top_buttons_right" >
     <button class="btn btn-primary" id="clear-button" onclick="fmmClear();">Clear</button>
     </div>
-    <div class=" top_buttons_right" >
+    <!-- div class=" top_buttons_right" >
         <a class="btn btn-primary" href="{$cart_url|escape:'htmlall':'UTF-8'}?action=show">{l s='View Cart' mod='quickproducttable'}</a>
     </div>
     <div class=" top_buttons_right" >
         <button class="btn btn-primary" onclick="fmmAddAllCart();" >{l s='Add To Cart' mod='quickproducttable'}</button>
-    </div>
+    </div -->
     <div style="clear: both;"></div>
 </div>
 
@@ -327,10 +327,10 @@
     {/if}
 
 
-    <div class="col-lg-12 col-xs-12 top_buttons" >
+    <!-- div class="col-lg-12 col-xs-12 top_buttons" >
         <a class="btn btn-primary" href="{$cart_url|escape:'htmlall':'UTF-8'}?action=show">{l s='View Cart' mod='quickproducttable'}</a>
         <button class="btn btn-primary" onclick="fmmAddAllCart();" >{l s='Add To Cart' mod='quickproducttable'}</button>
-    </div>
+    </div -->
 
     {if $ajax_load}
     <script type="text/javascript">
