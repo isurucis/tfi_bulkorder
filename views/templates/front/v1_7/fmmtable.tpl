@@ -104,7 +104,7 @@
 </div>
 
 
-
+<input type="hidden" id="cart_url" value="{$cart_url|escape:'htmlall':'UTF-8'}?action=show">
 <input type="hidden" name="ajax_url" id="ajax_url" value="{$ajax_url|escape:'htmlall':'UTF-8'}">
 <table id="fmm_table" class="display nowrap table-responsive-full">
         <thead>
@@ -321,7 +321,6 @@
     </table>
     {if $ajax_load}
     <input type="hidden" id="pageno" value="1">
-    <input type="text" id="cart_url" value="{$cart_url|escape:'htmlall':'UTF-8'}?action=show">
     <span style="text-align: center;display: flow-root;">
         <img id="loader" src="{$base_url}modules/quickproducttable/views/img/loading.svg">
     </span>
