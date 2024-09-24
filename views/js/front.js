@@ -64,6 +64,17 @@
                $.simplyToast('warning', 'You need to select products first');
             }
  }
+ // Update the case value based on quantity input
+function updateCaseValue(qtyInput) {
+  let minValue = parseInt(qtyInput.attr('min'));
+  let quantityValue = parseInt(qtyInput.val());
+  let numberOfCases = Math.floor(quantityValue / minValue); // Calculate number of cases
+  let priceBoxCalc = $('#price_box_calc_' + qtyInput.attr('id').split('_')[1]);
+
+  // Update the case value in the UI
+  priceBoxCalc.text(numberOfCases + ' Case' + (numberOfCases > 1 ? 's' : ''));
+}
+
 // Handle minus button click
 $('#fmm_table').on('click', 'span.minus-bulkorder', function(e) {
   console.log("Event: minus, is called");
