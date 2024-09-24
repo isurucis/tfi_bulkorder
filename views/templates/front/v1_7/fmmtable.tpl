@@ -496,6 +496,7 @@
                     var qtyInput = closestTr.querySelector('.input-qty');
                     if (qtyInput) {
                         qtyInput.value = itemData.qty;
+                        updateCaseValue($(qtyInput));
                     }
                 }
             });
