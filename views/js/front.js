@@ -370,10 +370,16 @@ $( document ).ready(function() {
       orderCellsTop: true,
       fixedHeader: true,
       "serverSide": false,
-      dom: "<'row'<'col-sm-5'<'pull-left'p>><'col-sm-4'f><'col-sm-3 <'pull-right topinbuttons'>>" +
-      "<'row'<'col-sm-12'tr>>" +
-      "<'row'<'col-sm-5'<'pull-left'p>><'col-sm-4'><'col-sm-3 <'pull-right botinbuttons'>>",
-      /*language: {
+      dom: "<'row'<'col-sm-5'<'pull-left'p>><'col-sm-4'f>><'col-sm-3 <'pull-right topinbuttons'>>" +
+          "<'row'<'col-sm-12'tr>>" +
+          "<'row'<'col-sm-5'<'pull-left'p>><'col-sm-4'>><'col-sm-3 <'pull-right botinbuttons'>>",
+
+/*
+      "<'row'<'col-sm-6'<'pull-left'l><'pull-left'f>><'col-sm-6'>>" +
+"<'row'<'col-sm-12'tr>>" +
+"<'row'<'col-sm-5'i><'col-sm-7'p>>"
+
+      language: {
         paginate: {
             first: '&gt;&gt;',
             last: '&lt;&lt;',
