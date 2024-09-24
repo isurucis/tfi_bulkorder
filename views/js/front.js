@@ -370,9 +370,9 @@ $( document ).ready(function() {
       orderCellsTop: true,
       fixedHeader: true,
       "serverSide": false,
-      dom: "<'row'<'col-sm-4'p><'col-sm-4'f><'col-sm-4 #topinbuttons'>>" +
+      dom: "<'row'<'col-sm-4'p><'col-sm-4'f><'col-sm-4 topinbuttons'>>" +
       "<'row'<'col-sm-12'tr>>" +
-      "<'row'<'col-sm-4'p><'col-sm-4'><'col-sm-4 #botinbuttons'>>",
+      "<'row'<'col-sm-4'p><'col-sm-4'><'col-sm-4 botinbuttons'>>",
       /*layout: {
         topStart: {
           buttons: ['copy', 'excel', 'pdf', 'colvis']
@@ -387,6 +387,14 @@ $( document ).ready(function() {
     // $("#fmm_table_paginate").hide();
     var content = '<i class="material-icons srcicon" tabindex="0" role="button">search</i>';
     $("#fmm_table_filter").append(content); 
+
+   
+    var topbotinbuttons = '<div class="col-lg-12 col-xs-12 top_buttons" >\
+                          <a class="btn btn-primary" href="'+$("#cart_url").val()+'">View Cart</a>\
+                          <button class="btn btn-primary" onclick="fmmAddAllCart();" >Add To Cart</button>\
+                          </div>'
+    $(".topinbuttons").append(topbotinbuttons);
+    $(".botinbuttons").append(topbotinbuttons);
 
 
     $('.read-b2b-imagepopup').fancybox({
