@@ -64,39 +64,48 @@
                $.simplyToast('warning', 'You need to select products first');
             }
  }
-
-$('#fmm_table').on('click', 'span.minus-bulkorder', function(e){
-    console.log("Event : minus, is called");
-    var $input = $(this).parent().find('input');
-                var minValue = parseInt($input.attr('min'));
-                //console.log(minValue);
-                if(minValue<1){
-                  i=1
-                }else{
-                  i=minValue
-                }
-                var count = parseInt($input.val()) - i;
-                count = count < i ? i : count;
-                $input.val(count);
-                $input.change();
-                return false;
+// Handle minus button click
+$('#fmm_table').on('click', 'span.minus-bulkorder', function(e) {
+  console.log("Event: minus, is called");
+  var $input = $(this).parent().find('input');
+  var minValue = parseInt($input.attr('min'));
+  var i = minValue < 1 ? 1 : minValue;
+  
+  var count = parseInt($input.val()) - i;
+  count = count < i ? i : count; // Ensure count is not less than minValue
+  $input.val(count);
+  $input.change(); // Trigger change event to update case value
+  updateCaseValue($input); // Update case value after changing quantity
+  return false;
 });
 
-$('#fmm_table').on('click', 'span.plus-bulkorder', function(e){
-  console.log("Event : plus, is called");
-    var $input = $(this).parent().find('input');
-               //var minValue = parseInt(input.getAttribute('min'));
-               var minValue = parseInt($input.attr('min'));
-               //console.log(minValue);
-               if(minValue<1){
-                 i=1
-               }else{
-                 i=minValue
-               }
- 
-                $input.val(parseInt($input.val()) + i);
-                $input.change();
-                return false;
+// Handle plus button click
+$('#fmm_table').on('click', 'span.plus-bulkorder', function(e) {
+  console.log("Event: plus, is called");
+  var $input = $(this).parent().find('input');
+  var minValue = parseInt($input.attr('min'));
+  var i = minValue < 1 ? 1 : minValue;
+
+  $input.val(parseInt($input.val()) + i);
+  $input.change(); // Trigger change event to update case value
+  updateCaseValue($input); // Update case value after changing quantity
+  return false;
+});
+
+// Update the case value based on quantity input
+function updateCaseValue(qtyInput) {
+  let minValue = parseInt(qtyInput.attr('min'));
+  let quantityValue = parseInt(qtyInput.val());
+  let numberOfCases = Math.floor(quantityValue / minValue); // Calculate number of cases
+  let priceBoxCalc = $('#price_box_calc_' + qtyInput.attr('id').split('_')[1]);
+
+  // Update the case value in the UI
+  priceBoxCalc.text(numberOfCases + ' Case' + (numberOfCases > 1 ? 's' : ''));
+}
+
+// Trigger the update when the quantity input changes manually
+$('#fmm_table').on('change', 'input.qty_id-bulkorder', function() {
+  updateCaseValue($(this)); // Call updateCaseValue on change
 });
 
   function fmmAddCart(id, group){

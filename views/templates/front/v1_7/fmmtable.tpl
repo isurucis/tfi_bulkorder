@@ -436,7 +436,7 @@
 
             toggleLocalStorage($(this).val(), $(this).is(":checked"), qtyValue);
         });
-
+        /*
         document.querySelectorAll('.input-qty').forEach(function(qtyInput) {
             // Add an event listener to handle changes in the quantity input
             qtyInput.addEventListener('input', function() {
@@ -459,7 +459,7 @@
                 }
             });
         });
-        
+        */
         // Handle "Select All" button click event
         $("#chkal").click(function () {
             if ($(this).hasClass("all-selected")) {
