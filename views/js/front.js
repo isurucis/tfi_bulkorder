@@ -370,9 +370,17 @@ $( document ).ready(function() {
       orderCellsTop: true,
       fixedHeader: true,
       "serverSide": false,
-      dom: "<'row'<'col-sm-3'l><'col-sm-3'f><'col-sm-6'p>>" +
+      dom: "<'row'<'col-sm-4'p><'col-sm-4'f><'col-sm-4' #topinbuttons>>" +
       "<'row'<'col-sm-12'tr>>" +
-      "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+      "<'row'<'col-sm-4'p><'col-sm-4'><'col-sm-4' #botinbuttons>>",
+      /*layout: {
+        topStart: {
+          buttons: ['copy', 'excel', 'pdf', 'colvis']
+        }
+      }*/
+      /*dom: "<'row'<'col-sm-3'l><'col-sm-3'f><'col-sm-6'p>>" +
+      "<'row'<'col-sm-12'tr>>" +
+      "<'row'<'col-sm-5'i><'col-sm-7'p>>",*/
     });
 
 
