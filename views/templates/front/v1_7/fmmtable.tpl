@@ -479,6 +479,17 @@
             }
         });
 
+        // Update the case value based on quantity input
+        function updateCaseValue(qtyInput) {
+        let minValue = parseInt(qtyInput.attr('min'));
+        let quantityValue = parseInt(qtyInput.val());
+        let numberOfCases = Math.floor(quantityValue / minValue); // Calculate number of cases
+        let priceBoxCalc = $('#price_box_calc_' + qtyInput.attr('id').split('_')[1]);
+
+        // Update the case value in the UI
+        priceBoxCalc.text(numberOfCases + ' Case' + (numberOfCases > 1 ? 's' : ''));
+        }
+
         // Function to check checkboxes and set quantity values based on localStorage data
         function checkCheckboxes() {
             var checkboxes = document.querySelectorAll('.fmm_check');
