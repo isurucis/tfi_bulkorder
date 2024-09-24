@@ -370,9 +370,9 @@ $( document ).ready(function() {
       orderCellsTop: true,
       fixedHeader: true,
       "serverSide": false,
-      dom: "<'row'<'col-sm-4'p><'col-sm-4'f><'col-sm-4' #topinbuttons>>" +
+      dom: "<'row'<'col-sm-4'p><'col-sm-4'f><'col-sm-4 #topinbuttons'>>" +
       "<'row'<'col-sm-12'tr>>" +
-      "<'row'<'col-sm-4'p><'col-sm-4'><'col-sm-4' #botinbuttons>>",
+      "<'row'<'col-sm-4'p><'col-sm-4'><'col-sm-4 #botinbuttons'>>",
       /*layout: {
         topStart: {
           buttons: ['copy', 'excel', 'pdf', 'colvis']
