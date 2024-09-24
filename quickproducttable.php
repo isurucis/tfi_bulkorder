@@ -587,7 +587,7 @@ class Quickproducttable extends Module
             $this->context->controller->addJS($this->_path . '/views/js/front.js');
             $this->context->controller->addJS($this->_path . '/views/js/popupscript.js');
             $this->context->controller->addCSS($this->_path . '/views/css/front.css');
-            //$this->context->controller->addCSS('https://cdn.datatables.net/buttons/3.1.2/css/buttons.bootstrap.css');
+            $this->context->controller->addCSS('https://cdn.datatables.net/buttons/3.1.2/css/buttons.bootstrap.css');
         }
     }
 
