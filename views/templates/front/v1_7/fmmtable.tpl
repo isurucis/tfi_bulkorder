@@ -437,6 +437,28 @@
             toggleLocalStorage($(this).val(), $(this).is(":checked"), qtyValue);
         });
 
+        document.querySelectorAll('.input-qty').forEach(function(qtyInput) {
+            // Add an event listener to handle changes in the quantity input
+            qtyInput.addEventListener('input', function() {
+                // Get the quantity value
+                let qtyValue = parseInt(qtyInput.value, 10);
+                
+                // Get the minimum value (from the min attribute or default to 1 if not set)
+                let minValue = parseInt(qtyInput.getAttribute('min'), 10) || 1;
+        
+                // Calculate the number of cases
+                let numberOfCases = qtyValue / minValue;
+        
+                // Get the corresponding price_box_calc div based on the input's id
+                let priceBoxCalc = document.querySelector(`#price_box_calc_${qtyInput.id.split('_')[1]}`);
+                
+                if (priceBoxCalc) {
+                    // Update the price_box_calc div with the calculated number of cases
+                    priceBoxCalc.innerText = `${numberOfCases} Case${numberOfCases > 1 ? 's' : ''}`;
+                }
+            });
+        });
+        
         // Handle "Select All" button click event
         $("#chkal").click(function () {
             if ($(this).hasClass("all-selected")) {
