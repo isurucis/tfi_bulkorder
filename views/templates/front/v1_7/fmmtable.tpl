@@ -454,7 +454,8 @@
                 
                 if (priceBoxCalc) {
                     // Update the price_box_calc div with the calculated number of cases
-                    priceBoxCalc.innerText = `${numberOfCases} Case${numberOfCases > 1 ? 's' : ''}`;
+                    priceBoxCalc.innerText = numberOfCases + ' Case' + (numberOfCases > 1 ? 's' : '');
+
                 }
             });
         });
