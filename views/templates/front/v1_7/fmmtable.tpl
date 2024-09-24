@@ -321,7 +321,7 @@
     </table>
     {if $ajax_load}
     <input type="hidden" id="pageno" value="1">
-    <input type="hidden" id="cart_url" value="{$cart_url|escape:'htmlall':'UTF-8'}?action=show">
+    <input type="text" id="cart_url" value="{$cart_url|escape:'htmlall':'UTF-8'}?action=show">
     <span style="text-align: center;display: flow-root;">
         <img id="loader" src="{$base_url}modules/quickproducttable/views/img/loading.svg">
     </span>
