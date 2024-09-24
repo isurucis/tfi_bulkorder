@@ -450,7 +450,7 @@
                 let numberOfCases = qtyValue / minValue;
         
                 // Get the corresponding price_box_calc div based on the input's id
-                let priceBoxCalc = document.querySelector(`#price_box_calc_${qtyInput.id.split('_')[1]}`);
+                let priceBoxCalc = document.querySelector('#price_box_calc_' + qtyInput.id.split('_')[1]);
                 
                 if (priceBoxCalc) {
                     // Update the price_box_calc div with the calculated number of cases
