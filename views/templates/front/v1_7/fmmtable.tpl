@@ -377,82 +377,55 @@
     {/if}
 
     <script type="text/javascript">
+        // Initialize checkedItems array from localStorage or an empty array
         let checkedItems = JSON.parse(localStorage.getItem('checkedItems')) || [];
 
-        function fmmClear(){
+        // Function to clear all selections and quantity values
+        function fmmClear() {
             checkedItems = [];
             localStorage.removeItem('checkedItems');
             var checkboxes = document.querySelectorAll('.fmm_check');
-
+            
             checkboxes.forEach(function(checkbox) {
                 checkbox.checked = false;
                 var closestTr = checkbox.closest('tr');
                 if (closestTr) {
-                    closestTr.classList.remove('dataTable-highlight');  // Remove class when unchecked
+                    closestTr.classList.remove('dataTable-highlight');
                 }
+            });
+
+            // Clear all quantity input fields
+            var qtyInputs = document.querySelectorAll('.input-qty');
+            qtyInputs.forEach(function(input) {
+                input.value = '';  // Clear the value
             });
         }
 
-        function toggleLocalStorage(itemId, checked) {
-            //alert("test");
-          const existingIndex = checkedItems.indexOf(itemId);
-    
-          if (checked && existingIndex === -1) {
-            checkedItems.push(itemId);
-          } else if (!checked && existingIndex !== -1) {
-            checkedItems.splice(existingIndex, 1);
-          }
-    
-          localStorage.setItem('checkedItems', JSON.stringify(checkedItems));
+        // Function to update localStorage with both checkbox and quantity
+        function toggleLocalStorage(itemId, checked, qty) {
+            const existingIndex = checkedItems.findIndex(item => item.id === itemId);
+
+            if (checked && existingIndex === -1) {
+                // Add new item with checkbox state and quantity
+                checkedItems.push({ id: itemId, qty: qty });
+            } else if (!checked && existingIndex !== -1) {
+                // Remove item if unchecked
+                checkedItems.splice(existingIndex, 1);
+            } else if (checked && existingIndex !== -1) {
+                // Update quantity if item is already in the list
+                checkedItems[existingIndex].qty = qty;
+            }
+
+            localStorage.setItem('checkedItems', JSON.stringify(checkedItems));
         }
 
-
-        /*
-        $('#select_fmm_cat').on('change', function() {
-            var id_category = this.value;
-            var ajax_url = $("#ajax_url").val();
-            var product_type = $("#product_type").val();
-            console.log("id_category : "+id_category+"\n ajax_url : "+ajax_url+"\n product_type : "+product_type+"\n action : productChangeCategory");
-            $.ajax({
-                type: 'POST',
-                url: ajax_url,
-                data: {
-                    id_category: id_category ,ajax:1,product_type:product_type, action: 'productChangeCategory'
-                },
-                success: function(response){
-                    if (response != 2) {
-                        $('#fmm_table_body').html('');
-                        $('#fmm_table_body').append(response);
-                        $("#fmm_table_paginate").hide();
-                        
-                        //$('#fmm_table').destroy();
-                        //fmmDataTable.destroy();
-
-                        $('#fmm_table').DataTable({ 
-                            "destroy": true, //use for reinitialize datatable
-                        });
-
-                    } else {                               
-                        $("#loader").hide();
-                    }
-                }, 
-                complete: function() {
-                    //dataTableInit(3);
-                }
-            });
-        });
-        */
-
-        //$(function() {
-            //$('td:last-child input').change(function() {
-            /*$('td:last-child input').on('change', function() {
-                console.log("Hello");
-                $(this).closest('tr').toggleClass("dataTable-highlight", this.checked);
-            });*/
-        //});
-
+        // Handle checkbox click events
         $("input[type=checkbox]").click(function () {
             if ($(this).closest("tr").hasClass("head")) return;
+
+            var qtyInput = $(this).closest('tr').find('.input-qty');
+            var qtyValue = qtyInput.val();  // Get the quantity value
+
             if ($(this).is(":checked")) {
                 $(this).closest("tr").addClass("dataTable-highlight");
                 $(this).closest(".selection-button-checkbox").addClass('selected');
@@ -460,8 +433,11 @@
                 $(this).closest("tr").removeClass("dataTable-highlight");
                 $(this).closest(".selection-button-checkbox").removeClass('selected');
             }
-            toggleLocalStorage($(this).val(), $(this).is(":checked"));
+
+            toggleLocalStorage($(this).val(), $(this).is(":checked"), qtyValue);
         });
+
+        // Handle "Select All" button click event
         $("#chkal").click(function () {
             if ($(this).hasClass("all-selected")) {
                 $(this).removeClass("all-selected");
@@ -469,62 +445,42 @@
                     $(this).closest(".selection-button-checkbox").removeClass('selected');
                     $(this).closest("tr").removeClass("dataTable-highlight");
                     $(this).attr("checked", false);
-                })
+                });
             } else {
                 $(this).addClass("all-selected");
                 $("input[type=checkbox]").each(function () {
                     $(this).closest(".selection-button-checkbox").addClass('selected');
                     if ($(this).attr("id") != "chkal") $(this).closest("tr").addClass("dataTable-highlight");
                     $(this).attr("checked", true);
-                })
+                });
             }
         });
 
-        function checkCheckboxes(condition) {
+        // Function to check checkboxes and set quantity values based on localStorage data
+        function checkCheckboxes() {
             var checkboxes = document.querySelectorAll('.fmm_check');
 
             checkboxes.forEach(function(checkbox) {
-                checkbox.checked = checkedItems.includes(checkbox.value);
-                var closestTr = checkbox.closest('tr');
-                if (closestTr) {
-                    if (checkbox.checked) {
-                        closestTr.classList.add('dataTable-highlight');  // Add class when checked
+                const itemData = checkedItems.find(item => item.id === checkbox.value);
+                if (itemData) {
+                    checkbox.checked = true;
+                    var closestTr = checkbox.closest('tr');
+                    if (closestTr) {
+                        closestTr.classList.add('dataTable-highlight');
+                    }
+
+                    // Set the quantity value
+                    var qtyInput = closestTr.querySelector('.input-qty');
+                    if (qtyInput) {
+                        qtyInput.value = itemData.qty;
                     }
                 }
             });
         }
-        
-        checkCheckboxes(true);  // This will check all checkboxes
-    /*
-        $('.pdp_open_popup').on('click', function(event) {
-            event.preventDefault();
-            var pdp_url = $(this).attr("pdp_url"); //get form action url
-            console.log("pdp_url : "+pdp_url);
 
-            $.fancybox.open({
-                closeClick: false, // prevents closing when clicking INSIDE fancybox 
-                href: this.href,
-                type: "ajax",
-                openEffect: 'none',
-                closeEffect: 'none',
-                autoSize: false,
-                width: "40%",
-                height: "auto",
-                helpers: {
-                    overlay: { closeClick: false } // prevents closing when clicking OUTSIDE fancybox 
-                },
-                ajax: {
-                    type: "POST",
-                    dataType: "json",
-                    data: {
-                        ajax: true,
-                        action: 'openPrefixesDialog',
-                    }
-                }
-            });
-            
-        });
-    */
+        // Load checkboxes and quantities on page load
+        checkCheckboxes();
+
     </script>
 {/if}
 {/block}
