@@ -70,10 +70,10 @@ $('#fmm_table').on('click', 'span.minus-bulkorder', function(e) {
   var $input = $(this).parent().find('input');
   var minValue = parseInt($input.attr('min'));
   let boxqty = Math.floor((minValue*20)/4);
-  if($input.val()>=boxqty){
-    var i = boxqty;
-  }else{
+  if($input.val()<=boxqty){
     var i = minValue < 1 ? 1 : minValue;
+  }else{
+    var i = boxqty;
   }
   
   var count = parseInt($input.val()) - i;
