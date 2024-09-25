@@ -214,20 +214,18 @@
                     </td>
                     
                     
-                    <td data-label="Bag per Box">
+                    <td data-label="MOQ (Price)">
                         <div class="grid_td_column4">
-                            {foreach from=$product.features item=feature name=features}
-                                {if $feature.id_feature == 6}
-                                <span>
-                                {$feature.value|escape:'htmlall':'UTF-8'}
-                                </span>
-                                {/if}
-                            {foreachelse}
-                            {/foreach}
+                            {if $product.reduction > 0}
+                                <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2}</span></span></div>
+                                <div class="ml-2 price price--discounted" style="">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span></div>
+                            {else}
+                                {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span>
+                            {/if}
                         </div>
                     </td>
     
-                    <td data-label="Qty per Bag">
+                    <td data-label="Case Qty (Price)">
                         <div class="grid_td_column4">
                             {foreach from=$product.features item=feature name=features}
                                 {if $feature.id_feature == 7}
