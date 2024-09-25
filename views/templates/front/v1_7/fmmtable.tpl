@@ -121,8 +121,8 @@
                 <th class='grid_th_column4'><div>{l s='Case Qty (Price)' mod='quickproducttable'}</div></th>
 
 
-                <!--<th class='grid_th_column4'><div>{l s='Bag/ Box' mod='quickproducttable'}</div></th>
-                <th class='grid_th_column4'><div>{l s='Qty/ Bag' mod='quickproducttable'}</div></th>-->
+                <th class='grid_th_column4'><div>{l s='Bag/ Box' mod='quickproducttable'}</div></th>
+                <th class='grid_th_column4'><div>{l s='Qty/ Bag' mod='quickproducttable'}</div></th>
                 <th class='grid_th_column4'><div>{l s='Qty/ Box' mod='quickproducttable'}</div></th>
 
                 <!--<th class='grid_th_column5'><div>{l s='Price' mod='quickproducttable'}</div></th>-->
