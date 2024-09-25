@@ -281,9 +281,9 @@
                                 />
                                 <span class="btn plus-bulkorder">+</span>
                             </div>
-                            <span class="btn minus-bulkorder_case">−</span>
+                            
                             <div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}">1 Case</div>
-                            <span class="btn plus-bulkorder_case">+</span>
+                            
                         </div>
                     </td>
                     
@@ -491,7 +491,8 @@
             function updateCaseValue(qtyInput) {
             let minValue = parseInt(qtyInput.attr('min'));
             let quantityValue = parseInt(qtyInput.val());
-            let numberOfCases = Math.floor(quantityValue / minValue); // Calculate number of cases
+            //let numberOfCases = Math.floor(quantityValue / minValue); // Calculate number of cases
+            let numberOfCases = Math.floor(quantityValue / ((minValue*20)/4)); 
             let priceBoxCalc = $('#price_box_calc_' + qtyInput.attr('id').split('_')[1]);
     
             // Update the case value in the UI
