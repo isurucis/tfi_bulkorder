@@ -237,6 +237,11 @@
                                 {/if}
                             {foreachelse}
                             {/foreach}
+
+                            {foreach from=$product.quantity_discounts item='quantity_discount' name='quantity_discounts'}
+                            <strong>{$quantity_discount.quantity}</strong>
+                                
+                            {/foreach}
                         </div>
                     </td>
     
