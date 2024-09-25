@@ -113,7 +113,7 @@
                 <th class='grid_th_column2'><div>{l s='SKU' mod='quickproducttable'}</div></th>
                 <th class='grid_th_column3'><div>{l s='Name' mod='quickproducttable'}</div></th>
 
-                <!--<th class='grid_th_column3'><div>{l s='Family' mod='quickproducttable'}</div></th>-->
+                <th class='grid_th_column3'><div>{l s='Family' mod='quickproducttable'}</div></th>
                 
                 <th class='grid_th_column4'><div>{l s='Size' mod='quickproducttable'}</div></th>
                 
