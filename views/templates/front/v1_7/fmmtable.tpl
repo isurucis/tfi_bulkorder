@@ -491,8 +491,10 @@
             function updateCaseValue(qtyInput) {
             let minValue = parseInt(qtyInput.attr('min'));
             let quantityValue = parseInt(qtyInput.val());
+            let boxqty = Math.floor((minValue*20)/4);
+            Console.log(boxqty);
             //let numberOfCases = Math.floor(quantityValue / minValue); // Calculate number of cases
-            let numberOfCases = Math.floor(quantityValue / ((minValue*20)/4)); 
+            let numberOfCases = Math.floor(quantityValue / boxqty); 
             let priceBoxCalc = $('#price_box_calc_' + qtyInput.attr('id').split('_')[1]);
     
             // Update the case value in the UI
