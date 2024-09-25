@@ -237,11 +237,11 @@
                                 {/if}
                             {foreachelse}
                             {/foreach}
-                            {if $product.quantity_discounts}
-                                {foreach from=$product.quantity_discounts item='quantity_discount' name='quantity_discounts'}
-                                <strong>{$quantity_discount.quantity}</strong>
-                                    
-                                {/foreach}
+                            {if $product.reduction > 0}
+                                <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2}</span></span></div>
+                                <div class="ml-2 price price--discounted" style="">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span></div>
+                            {else}
+                                {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price*0.8|number_format:2}</span>
                             {/if}
                         </div>
                     </td>
