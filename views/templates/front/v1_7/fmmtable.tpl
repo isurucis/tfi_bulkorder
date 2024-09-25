@@ -230,9 +230,9 @@
                     <td data-label="Case Qty (Price)">
                         <div class="grid_td_column4">
                             {foreach from=$product.features item=feature name=features}
-                                {if $feature.id_feature == 7}
+                                {if $feature.id_feature == 8}
                                 <span>
-                                {$feature.value|escape:'htmlall':'UTF-8'}
+                                    {parseInt($feature.value)/4}
                                 </span>
                                 {/if}
                             {foreachelse}
