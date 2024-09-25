@@ -232,7 +232,7 @@
                             {foreach from=$product.features item=feature name=features}
                                 {if $feature.id_feature == 8}
                                 <span>
-                                    {parseInt($feature.value)/4}
+                                    {intval($feature.value)/4}
                                 </span>
                                 {/if}
                             {foreachelse}
