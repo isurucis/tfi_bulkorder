@@ -69,7 +69,12 @@ $('#fmm_table').on('click', 'span.minus-bulkorder', function(e) {
   console.log("Event: minus, is called");
   var $input = $(this).parent().find('input');
   var minValue = parseInt($input.attr('min'));
-  var i = minValue < 1 ? 1 : minValue;
+  let boxqty = Math.floor((minValue*20)/4);
+  if($input.val()>=boxqty){
+    var i = boxqty;
+  }else{
+    var i = minValue < 1 ? 1 : minValue;
+  }
   
   var count = parseInt($input.val()) - i;
   count = count < i ? i : count; // Ensure count is not less than minValue
@@ -84,7 +89,13 @@ $('#fmm_table').on('click', 'span.plus-bulkorder', function(e) {
   console.log("Event: plus, is called");
   var $input = $(this).parent().find('input');
   var minValue = parseInt($input.attr('min'));
-  var i = minValue < 1 ? 1 : minValue;
+  let boxqty = Math.floor((minValue*20)/4);
+  //var i = minValue < 1 ? 1 : minValue;
+  if($input.val()>=boxqty){
+    var i = boxqty;
+  }else{
+    var i = minValue < 1 ? 1 : minValue;
+  }
 
   $input.val(parseInt($input.val()) + i);
   $input.change(); // Trigger change event to update case value
