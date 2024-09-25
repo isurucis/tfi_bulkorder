@@ -117,15 +117,11 @@
                 
                 <th class='grid_th_column4'><div>{l s='Size' mod='quickproducttable'}</div></th>
                 
-                <th class='grid_th_column4'><div>{l s='MOQ (Price)' mod='quickproducttable'}</div></th>
-                <th class='grid_th_column4'><div>{l s='Case Qty (Price)' mod='quickproducttable'}</div></th>
-
-
                 <!--<th class='grid_th_column4'><div>{l s='Bag/ Box' mod='quickproducttable'}</div></th>
                 <th class='grid_th_column4'><div>{l s='Qty/ Bag' mod='quickproducttable'}</div></th>-->
                 <th class='grid_th_column4'><div>{l s='Qty/ Box' mod='quickproducttable'}</div></th>
 
-                <!--<th class='grid_th_column5'><div>{l s='Price' mod='quickproducttable'}</div></th>-->
+                <th class='grid_th_column5'><div>{l s='Price' mod='quickproducttable'}</div></th>
                 <th class='grid_th_column6'><div>{l s='Qty (In Cases)' mod='quickproducttable'}</div></th>
                 <th class='grid_th_column7'><!--<div>{l s='' mod='quickproducttable'}
                     <div class="form-group-checkbox">
@@ -217,19 +213,7 @@
                     </div>
                 </td>
                 
-                <td data-label="Bag per Box">
-                    <div class="grid_td_column4">
-                        
-                    </div>
-                </td>
-
-                <td data-label="Qty per Bag">
-                    <div class="grid_td_column4">
-                        
-                    </div>
-                </td>
-
-                <!--
+                
                 <td data-label="Bag per Box">
                     <div class="grid_td_column4">
                         {foreach from=$product.features item=feature name=features}
@@ -254,7 +238,7 @@
                         {foreachelse}
                         {/foreach}
                     </div>
-                </td>-->
+                </td>
 
                 <td data-label="Qty per Box">
                     <div class="grid_td_column4">
@@ -268,7 +252,7 @@
                         {/foreach}
                     </div>
                 </td>
-                <!--
+
                 <td data-label="Price">
                     <div class="grid_td_column5">
                         {if $product.reduction > 0}
@@ -279,7 +263,7 @@
                         {/if}
                         
                     </div>
-                </td>-->
+                </td>
                 
                 <td data-label="Quantity">
                     <div class="col-lg-2 grid_td_column6">
