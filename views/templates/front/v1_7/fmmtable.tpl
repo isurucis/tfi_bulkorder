@@ -281,7 +281,9 @@
                                 />
                                 <span class="btn plus-bulkorder">+</span>
                             </div>
+                            <span class="btn minus-bulkorder_case">−</span>
                             <div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}">1 Case</div>
+                            <span class="btn plus-bulkorder_case">+</span>
                         </div>
                     </td>
                     
