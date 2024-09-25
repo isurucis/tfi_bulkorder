@@ -24,18 +24,15 @@
 *}
         {assign "familyin" "" }
         {foreach from=$all_products item=product name=product}
-            {if $familyin eq ""}
+            {if $familyin != $product.category_name }
                 <tr>
                     <td colspan="10"><div class="grid_td_column_group">{$product.category_name|escape:'htmlall':'UTF-8'}</div></td>
                 </tr>
                 { assign "familyin" $product.category_name }
-            { else }
-                {if $familyin != $product.category_name }
-                    <tr>
-                        <td colspan="10"><div class="grid_td_column_group">{$product.category_name|escape:'htmlall':'UTF-8'}</div></td>
-                    </tr>
-                {/if}
             {/if}
+
+
+
 
             <!-- tr>
                 <td colspan="10"><div class="grid_td_column_group">{$product.category_name|escape:'htmlall':'UTF-8'}</div></td>
