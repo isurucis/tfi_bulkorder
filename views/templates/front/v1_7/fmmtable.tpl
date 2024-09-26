@@ -275,8 +275,9 @@
                     <td data-label="Quantity">
                         <div class="col-lg-2 grid_td_column6">
                             <div class="number" id="number">
-                                
+                                <label for="dewey">MOQ</label>
                                 <input type="radio" id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="moq" />
+                                <label for="dewey">Case</label>
                                 <input type="radio" id="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="case" />
                                 <span class="btn minus-bulkorder">−</span>
                                 <input class="qty_id-bulkorder form-control input-qty" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
