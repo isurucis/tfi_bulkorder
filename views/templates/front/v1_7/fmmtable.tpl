@@ -274,6 +274,7 @@
                     <td data-label="Quantity">
                         <div class="col-lg-2 grid_td_column6">
                             <div class="number" id="number">
+                                <input type="checkbox" checked data-toggle="toggle">
                                 <span class="btn minus-bulkorder">−</span>
                                 <input class="qty_id-bulkorder form-control input-qty" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
                                 value="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
