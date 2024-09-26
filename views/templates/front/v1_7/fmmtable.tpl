@@ -25,6 +25,8 @@
     
     {extends file=$layout}
     {block name='content'}
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <script src="{$jQuery_path|escape:'htmlall':'UTF-8'}"></script>
     <script src="{$inview|escape:'htmlall':'UTF-8'}"></script>
     <input type="hidden" id="noofrow" name="noofrow" value="{$noofrow|escape:'htmlall':'UTF-8'}">
