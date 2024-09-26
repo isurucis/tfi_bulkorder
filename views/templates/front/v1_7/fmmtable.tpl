@@ -276,8 +276,8 @@
                         <div class="col-lg-2 grid_td_column6">
                             <div class="number" id="number">
                                 
-                                <input type="radio" id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" value="moq" />
-                                <input type="radio" id="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" value="case" />
+                                <input type="radio" id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="moq" />
+                                <input type="radio" id="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="case" />
                                 <span class="btn minus-bulkorder">−</span>
                                 <input class="qty_id-bulkorder form-control input-qty" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
                                 value="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
