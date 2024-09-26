@@ -177,7 +177,7 @@
                             readonly="readonly"/>
                             <span class="btn plus-bulkorder">+</span>
                         </div>
-                        <div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}">1 Case</div>
+                        <div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}">0 Case</div>
                     </div>
                 </td>
                 
