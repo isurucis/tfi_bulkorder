@@ -131,11 +131,18 @@ $('#fmm_table').on('click', 'span.plus-bulkorder', function(e) {
 $('input[name^="qty_qty_"]').change(function() {
   // Get the name of the selected radio button
   var radioName = $(this).attr('name');  // e.g., qty_case_1
+  var $input = $('input[id="qty_qty_' + number + '"]');
   // Extract the number from the name
   var number = radioName.split('_')[2];  // Get the number part, e.g., '1'
+  var selection = $(this).val();
 
   // Call your function and pass the selected number
-  alert(number); // Pass the number and selected value
+  alert(selection); // Pass the number and selected value
+  if(selection=='moq'){
+    $input.val(9);
+  }else if(selection=='case'){
+    $input.val(45);
+  }
 });
 
 
