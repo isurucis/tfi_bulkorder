@@ -68,6 +68,8 @@
 $('#fmm_table').on('click', 'span.minus-bulkorder', function(e) {
   console.log("Event: minus, is called");
   var $input = $(this).parent().find('input');
+  var id = $input.attr('id')
+  var number = id.split("_")[1];
   var minValue = parseInt($input.attr('min'));
   let boxqty = Math.floor((minValue*20)/4);
   if($input.val()<=boxqty){
