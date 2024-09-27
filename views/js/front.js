@@ -75,10 +75,14 @@ $('#fmm_table').on('click', 'span.minus-bulkorder', function(e) {
   if($input.val()<=boxqty){
     var i = minValue < 1 ? 1 : minValue;
     $('input[name="qty_qty_' + number + '"][value="moq"]').prop('checked', true);
+    $('input[name="qty_case_' + number + '"]').prop('disabled', false);
+
     
   }else{
     var i = boxqty;
     $('input[name="qty_qty_' + number + '"][value="case"]').prop('checked', true);
+    $('input[name="qty_case_' + number + '"]').prop('disabled', true);
+
   }
   
   var count = parseInt($input.val()) - i;
@@ -103,12 +107,17 @@ $('#fmm_table').on('click', 'span.plus-bulkorder', function(e) {
   if($input.val()>=boxqty){
     var i = boxqty;
     $('input[name="qty_qty_' + number + '"][value="case"]').prop('checked', true);
+    $('input[name="qty_case_' + number + '"]').prop('disabled', true);
   }else{
     var i = minValue < 1 ? 1 : minValue;
     if($input.val()==(boxqty-minValue)){
       $('input[name="qty_qty_' + number + '"][value="case"]').prop('checked', true);
+      $('input[name="qty_case_' + number + '"]').prop('disabled', true);
+
     }else{
       $('input[name="qty_qty_' + number + '"][value="moq"]').prop('checked', true);
+      $('input[name="qty_case_' + number + '"]').prop('disabled', false);
+
     }
 
   }
