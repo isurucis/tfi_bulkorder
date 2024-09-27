@@ -90,7 +90,9 @@ $('#fmm_table').on('click', 'span.minus-bulkorder', function(e) {
 $('#fmm_table').on('click', 'span.plus-bulkorder', function(e) {
   console.log("Event: plus, is called");
   var $input = $(this).parent().find('input');
-  alert($input.attr('id'));
+  var id = $input.attr('id')
+  var number = id.split("_")[1];
+  alert(number);
   var minValue = parseInt($input.attr('min'));
   let boxqty = Math.floor((minValue*20)/4);
   //var i = minValue < 1 ? 1 : minValue;
