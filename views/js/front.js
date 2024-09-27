@@ -92,16 +92,17 @@ $('#fmm_table').on('click', 'span.plus-bulkorder', function(e) {
   var $input = $(this).parent().find('input');
   var id = $input.attr('id')
   var number = id.split("_")[1];
-  alert(number);
+  //alert(number);
   var minValue = parseInt($input.attr('min'));
   let boxqty = Math.floor((minValue*20)/4);
   //var i = minValue < 1 ? 1 : minValue;
   if($input.val()>=boxqty){
     var i = boxqty;
-    //$('input[name="qty_case_"][value="option2"]').prop('checked', true);
+    $('input[name="qty_qty_' + number + '"][value="case"]').prop('checked', true);
   }else{
     var i = minValue < 1 ? 1 : minValue;
-    //$('input[name="choice"][value="option2"]').prop('checked', true);
+    $('input[name="qty_qty_' + number + '"][value="moq"]').prop('checked', true);
+
   }
 
   $input.val(parseInt($input.val()) + i);
