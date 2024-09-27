@@ -437,29 +437,6 @@ $( document ).ready(function() {
           "<'row'<'col-sm-12'tr>>" +
           "<'row'<'col-sm-5'p><'col-sm-4'><'col-sm-3 botinbuttons'>>",
 
-/*
-      "<'row'<'col-sm-6'<'pull-left'l><'pull-left'f>><'col-sm-6'>>" +
-"<'row'<'col-sm-12'tr>>" +
-"<'row'<'col-sm-5'i><'col-sm-7'p>>"
-
-      language: {
-        paginate: {
-            first: '&gt;&gt;',
-            last: '&lt;&lt;',
-            next: '&lt;',
-            previous: '&gt;'
-        }
-      }*/
-      /*layout: {
-        topStart: {
-          buttons: ['copy', 'excel', 'pdf', 'colvis']
-        }
-      }*/
-      /*dom: "<'row'<'col-sm-3'l><'col-sm-3'f><'col-sm-6'p>>" +
-      "<'row'<'col-sm-12'tr>>" +
-      "<'row'<'col-sm-5'i><'col-sm-7'p>>",*/
-
-      
     });
 
 
@@ -617,71 +594,3 @@ $( document ).ready(function() {
 
 
 });
-
-
-/*
-.before(
-                            '<tr class="group"><td><div class="grid_td_column_group">&nbsp;</div></td><td><div class="grid_td_column_group">&nbsp;</div></td><td colspan="8">' +
-                                group +
-                                '</td></tr>'
-                        );
-
-
-
-var groupColumn = 3;
-var table = $('#fmm_table').DataTable({
-    columnDefs: [{ visible: false, targets: groupColumn }],
-    order: [[groupColumn, 'asc']],
-    displayLength: 25,
-    drawCallback: function (settings) {
-        var api = this.api();
-        var rows = api.rows({ page: 'current' }).nodes();
-        var last = null;
- 
-        api.column(groupColumn, { page: 'current' })
-            .data()
-            .each(function (group, i) {
-                if (last !== group) {
-                    $(rows)
-                        .eq(i)
-                        .before(
-                            '<tr class="group"><td colspan="5">' +
-                                group +
-                                '</td></tr>'
-                        );
- 
-                    last = group;
-                }
-            });
-    }
-});
-*/
-
-
-
-
-
-
-
-/*
-$( document ).ready(function() {
-  $('#fmm_table').DataTable({
-
-      rowReorder: {
-          selector: 'td:nth-child(2)'
-      },
-      "lengthChange": false,
-      "info":     false,
-      responsive: true,
-      "pageLength": noofrow
-  });
-  // $("#fmm_table_paginate").hide();
-  var content = '<i class="material-icons srcicon" tabindex="0" role="button">search</i>';
-  $("#fmm_table_filter").append(content); 
-
-
-  $('.read-b2b-imagepopup').fancybox({
-      'hideOnContentClick': false
-  });
-});
-*/
