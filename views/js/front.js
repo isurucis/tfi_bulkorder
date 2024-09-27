@@ -137,13 +137,20 @@ $('input[name^="qty_qty_"]').change(function() {
   var selection = $(this).val();
   var $input = $('input[id="quantity_' + number + '"]');
 
+  var minValue = parseInt($input.attr('min'));
+  let boxqty = Math.floor((minValue*20)/4);
   // Call your function and pass the selected number
-  alert($input.val()); // Pass the number and selected value
+  //alert(minValue); // Pass the number and selected value
   if(selection=='moq'){
-    $input.val(9);
+    if($input.val()>=boxqty){
+    $input.val(boxqty-minValue);
+    }
   }else if(selection=='case'){
-    $input.val(45);
+    if($input.val()<(boxqty)){
+    $input.val(boxqty);
+    }
   }
+  updateCaseValue($input);
 });
 
 
