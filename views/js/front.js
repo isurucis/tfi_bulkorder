@@ -75,13 +75,13 @@ $('#fmm_table').on('click', 'span.minus-bulkorder', function(e) {
   if($input.val()<=boxqty){
     var i = minValue < 1 ? 1 : minValue;
     $('input[name="qty_qty_' + number + '"][value="moq"]').prop('checked', true);
-    $('input[name="qty_case_' + number + '"]').prop('disabled', false);
+    
 
     
   }else{
     var i = boxqty;
     $('input[name="qty_qty_' + number + '"][value="case"]').prop('checked', true);
-    $('input[name="qty_case_' + number + '"]').prop('disabled', true);
+    
 
   }
   
@@ -127,6 +127,18 @@ $('#fmm_table').on('click', 'span.plus-bulkorder', function(e) {
   updateCaseValue($input); // Update case value after changing quantity
   return false;
 });
+
+$('input[name^="qty_case_"]').change(function() {
+  // Get the name of the selected radio button
+  var radioName = $(this).attr('name');  // e.g., qty_case_1
+  // Extract the number from the name
+  var number = radioName.split('_')[2];  // Get the number part, e.g., '1'
+
+  // Call your function and pass the selected number
+  alert(number, $(this).val()); // Pass the number and selected value
+});
+
+
 
 // Update the case value based on quantity input
 function updateCaseValue(qtyInput) {
