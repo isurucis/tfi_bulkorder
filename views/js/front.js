@@ -128,7 +128,8 @@ $('#fmm_table').on('click', 'span.plus-bulkorder', function(e) {
   return false;
 });
 
-$('input[name^="qty_qty_"]').change(function() {
+
+$('#fmm_table').on('change', 'input[name^="qty_qty_"]', function() {
   // Get the name of the selected radio button
   var radioName = $(this).attr('name');  // e.g., qty_case_1
   
