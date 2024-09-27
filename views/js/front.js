@@ -135,10 +135,10 @@ $('input[name^="qty_qty_"]').change(function() {
   // Extract the number from the name
   var number = radioName.split('_')[2];  // Get the number part, e.g., '1'
   var selection = $(this).val();
-  var $input = $('input[id="qty_qty_' + number + '"]');
-  
+  var $input = $('input[id="quantity_' + number + '"]');
+
   // Call your function and pass the selected number
-  alert(selection); // Pass the number and selected value
+  alert($input.val()); // Pass the number and selected value
   if(selection=='moq'){
     $input.val(9);
   }else if(selection=='case'){
