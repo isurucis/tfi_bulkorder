@@ -225,6 +225,8 @@
                             {else}
                                 {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span>
                             {/if}
+                            <label for="dewey">MOQ</label>
+                            <input type="radio" id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="moq" checked/>
                         </div>
                     </td>
     
@@ -244,6 +246,8 @@
                             {else}
                                 {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price*0.8|number_format:2}</span>
                             {/if}
+                            <label for="dewey">Case</label>
+                                <input type="radio" id="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="case" />
                         </div>
                     </td>
     
@@ -275,10 +279,6 @@
                     <td data-label="Quantity">
                         <div class="col-lg-2 grid_td_column6">
                             <div class="number" id="number">
-                                <!--<label for="dewey">MOQ</label>
-                                <input type="radio" id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="moq" checked/>
-                                <label for="dewey">Case</label>
-                                <input type="radio" id="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="case" />-->
                                 <span class="btn minus-bulkorder">−</span>
                                 <input class="qty_id-bulkorder form-control input-qty" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
                                 value="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
