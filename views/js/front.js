@@ -72,10 +72,11 @@ $('#fmm_table').on('click', 'span.minus-bulkorder', function(e) {
   let boxqty = Math.floor((minValue*20)/4);
   if($input.val()<=boxqty){
     var i = minValue < 1 ? 1 : minValue;
-    //$('input[name="choice"][value="option2"]').prop('checked', true);
+    $('input[name="qty_qty_' + number + '"][value="moq"]').prop('checked', true);
+    
   }else{
     var i = boxqty;
-    //$('input[name="choice"][value="option2"]').prop('checked', true);
+    $('input[name="qty_qty_' + number + '"][value="case"]').prop('checked', true);
   }
   
   var count = parseInt($input.val()) - i;
