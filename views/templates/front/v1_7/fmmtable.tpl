@@ -225,7 +225,6 @@
                             {else}
                                 {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span>
                             {/if}
-                            <label for="dewey">MOQ</label>
                             <input type="radio" id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="moq" checked/>
                         </div>
                     </td>
@@ -246,8 +245,7 @@
                             {else}
                                 {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price*0.8|number_format:2}</span>
                             {/if}
-                            <label for="dewey">Case</label>
-                                <input type="radio" id="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="case" />
+                            <input type="radio" id="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="case" />
                         </div>
                     </td>
     

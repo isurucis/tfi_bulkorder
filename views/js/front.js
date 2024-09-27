@@ -72,8 +72,10 @@ $('#fmm_table').on('click', 'span.minus-bulkorder', function(e) {
   let boxqty = Math.floor((minValue*20)/4);
   if($input.val()<=boxqty){
     var i = minValue < 1 ? 1 : minValue;
+    //$('input[name="choice"][value="option2"]').prop('checked', true);
   }else{
     var i = boxqty;
+    //$('input[name="choice"][value="option2"]').prop('checked', true);
   }
   
   var count = parseInt($input.val()) - i;
@@ -88,13 +90,16 @@ $('#fmm_table').on('click', 'span.minus-bulkorder', function(e) {
 $('#fmm_table').on('click', 'span.plus-bulkorder', function(e) {
   console.log("Event: plus, is called");
   var $input = $(this).parent().find('input');
+  alert($input.attr('id'));
   var minValue = parseInt($input.attr('min'));
   let boxqty = Math.floor((minValue*20)/4);
   //var i = minValue < 1 ? 1 : minValue;
   if($input.val()>=boxqty){
     var i = boxqty;
+    //$('input[name="qty_case_"][value="option2"]').prop('checked', true);
   }else{
     var i = minValue < 1 ? 1 : minValue;
+    //$('input[name="choice"][value="option2"]').prop('checked', true);
   }
 
   $input.val(parseInt($input.val()) + i);
