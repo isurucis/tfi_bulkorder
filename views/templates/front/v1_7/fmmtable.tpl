@@ -408,7 +408,7 @@
                 // Clear all quantity input fields
                 var qtyInputs = document.querySelectorAll('.input-qty');
                 qtyInputs.forEach(function(input) {
-                    input.value = '';  // Clear the value
+                    input.value = input.getAttribute('min');  // Clear the value
                 });
             }
     
