@@ -119,11 +119,11 @@
                     <th class='grid_th_column4'><div>{l s='Size' mod='quickproducttable'}</div></th>
                     
                     <th class='grid_th_column4'><div>MOQ<br />(Price)</div></th>
-                    <th class='grid_th_column4'><div>{l s='Case Qty (Price)' mod='quickproducttable'}</div></th>
-                    <th class='grid_th_column4'><div>{l s='Qty/ Box' mod='quickproducttable'}</div></th>
+                    <th class='grid_th_column4'><div>Qty<br />(Price)</div></th>
+                    <th class='grid_th_column4'><div>Qty/<br />Box</div></th>
     
                     <th class='grid_th_column5'><div>{l s='Price' mod='quickproducttable'}</div></th>
-                    <th class='grid_th_column6'><div>{l s='Qty (In Cases)' mod='quickproducttable'}</div></th>
+                    <th class='grid_th_column6'><div>Qty<br />(In Cases)</div></th>
                     <th class='grid_th_column7'><!--<div>{l s='' mod='quickproducttable'}
                         <div class="form-group-checkbox">
                             <input type="checkbox" id="chkal" name="fmm_check" class="fmm_check" data-toggle="toggle"  data-size="xs">
