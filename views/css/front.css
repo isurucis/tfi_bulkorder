@@ -987,3 +987,75 @@ tr.group:hover {
 .input-qty {
   height: 30px !important;
 }
+
+
+
+
+/*-----------------------------------------------------------------*/
+.moqs_cases1 {
+  --background: #67c28c;
+  display: flex;
+  max-width: 600px;
+}
+.moqs_cases1 > .moq_case_1 {
+  flex: 1;
+  display: flex; background-color: #a7eaa7;;
+  border-radius: 15px 0 0 15px;
+  cursor: pointer;
+}
+.moqs_cases1 > .moq_case_2 {
+  flex: 1;
+  display: flex; background-color: #a7eaa7;
+  border-radius: 0 15px 15px 0;
+  cursor: pointer;
+}
+
+
+.moqs_cases2 {
+  --background: #67c28c;
+  display: flex;
+  max-width: 600px;  
+}
+
+.moqs_cases2 > .moq_case_1 {
+  flex: 1;
+  display: flex; background-color: #a7eaa7;
+  border-radius: 15px 0 0 15px;
+  cursor: pointer;
+}
+.moqs_cases2 > .moq_case_2 {
+  flex: 1;
+  display: flex; background-color: #a7eaa7;
+  border-radius: 0 15px 15px 0;
+  cursor: pointer;
+}
+
+
+.moq_case_1 > .moq_case-input, .moq_case_2 > .moq_case-input {
+  width: 0;
+  height: 0;
+  margin: 0;
+  display: none;
+}
+
+.moq_case_1 > .moq_case-box, .moq_case_2 > .moq_case-box {
+  padding: .3rem;
+  width: 100%;
+  text-align: center;
+  transition: 0.5s;
+  font-size: .7rem;
+  font-family: Arial;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+.moq_case_1 > .moq_case-input:checked + .moq_case-box {
+  background: var(--background);
+  border-radius: 15px 0 0 15px;
+}
+
+.moq_case_2 > .moq_case-input:checked + .moq_case-box {
+  background: var(--background);
+  border-radius: 0 15px 15px 0;
+}
+/*-----------------------------------------------------------------*/

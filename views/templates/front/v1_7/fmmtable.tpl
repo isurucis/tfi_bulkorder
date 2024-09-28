@@ -216,6 +216,13 @@
                     
                     
                     <td data-label="MOQ (Price)">
+                        <div class="moqs_cases1">
+                            <label class="moq_case_1">
+                                <!-- input type="radio" name="moq_case-input-001" class="moq_case-input" checked="checked" -->
+                                <input type="radio" id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="moq" class="moq_case-input" checked="checked"/>
+                                <div class="moq_case-box">By MOQ</div>
+                            </label>
+                        </div>
                         <div class="grid_td_column4">
                             {if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}
                             -
@@ -225,11 +232,18 @@
                             {else}
                                 {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span>
                             {/if}
-                            <input type="radio" id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="moq" checked/>
+                            <!-- input type="radio" id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="moq" checked/ -->
                         </div>
                     </td>
     
                     <td data-label="Case Qty (Price)">
+                        <div class="moqs_cases2">
+                            <label class="moq_case_2">
+                                <!-- input type="radio" name="moq_case-input-001" class="moq_case-input" -->
+                                <input type="radio" id="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="case" class="moq_case-input" />
+                                <div class="moq_case-box">By CASE</div>
+                            </label>
+                        </div>
                         <div class="grid_td_column4">
                             {foreach from=$product.features item=feature name=features}
                                 {if $feature.id_feature == 8}
@@ -245,7 +259,7 @@
                             {else}
                                 {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price*0.8|number_format:2}</span>
                             {/if}
-                            <input type="radio" id="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="case" />
+                            <!-- input type="radio" id="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="case" / -->
                         </div>
                     </td>
     
