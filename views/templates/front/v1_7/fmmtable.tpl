@@ -562,8 +562,8 @@
                 qtyInputs.forEach(function(input) {
                     let now_qty         = input.value;
                     let row_id          = input.getAttribute('row_id');
-                    let moq_price       = parseInt(input.getAttribute('moq_price')) || 0;
-                    let case_price      = parseInt(input.getAttribute('case_price')) || 0;
+                    let moq_price       = parseInt(input.getAttribute('moq_price'), 10) || 0;
+                    let case_price      = parseInt(input.getAttribute('case_price'), 10) || 0;
                     let moq_case        = $("input[name='qty_qty_" + row_id + "']:checked").val();    // moq | case
 
                     console.log("now_qty : "+now_qty+"\nmoq_price : "+moq_price+"\ncase_price : "+case_price+"\nmoq_case : "+moq_case);
