@@ -119,7 +119,7 @@
                     <th class='grid_th_column4'><div>{l s='Size' mod='quickproducttable'}</div></th>
                     
                     <th class='grid_th_column4'><div>MOQ<br />(Price)</div></th>
-                    <th class='grid_th_column4'><div>Qty<br />(Price)</div></th>
+                    <th class='grid_th_column4'><div>Case Qty<br />(Price)</div></th>
                     <th class='grid_th_column4'><div>Qty/<br />Box</div></th>
     
                     <th class='grid_th_column5'><div>{l s='Price' mod='quickproducttable'}</div></th>
@@ -284,7 +284,7 @@
                             {else}
                                 {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span>
                             {/if}
-                            
+                            <div id="row_price_{$product.id_product|escape:'htmlall':'UTF-8'}" style="border: dotted 1px #333333;padding: 2px; display: block;"></div>
                         </div>
                     </td>
                     
@@ -295,6 +295,13 @@
                                 <input class="qty_id-bulkorder form-control input-qty" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
                                 value="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
                                 min="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
+                                moq_price="{$product.price|number_format:2}"
+                                {if $product.reduction > 0}
+                                    case_price="{$product.price|number_format:2}"
+                                {else}
+                                    case_price="{$product.price*0.8|number_format:2}"
+                                {/if}
+                                row_id="{$product.id_product|escape:'htmlall':'UTF-8'}"
                                 readonly="readonly"/>
                                 <span class="btn plus-bulkorder">+</span>
                             </div>
@@ -548,7 +555,24 @@
     
             // Load checkboxes and quantities on page load
             checkCheckboxes();
-    
+
+            function CalculateAmount() {
+                var qtyInputs = document.querySelectorAll('.input-qty');
+                var currencysign = "{$product.default_currency_sign|escape:'htmlall':'UTF-8'}";
+                qtyInputs.forEach(function(input) {
+                    let now_qty         = input.value;
+                    let row_id          = input.getAttribute('row_id');
+                    let moq_price       = parseInt(input.getAttribute('moq_price')) || 0;
+                    let case_price      = parseInt(input.getAttribute('case_price')) || 0;
+                    let moq_case        = $('input[name="qty_qty_"+row_id]:checked').val();    // moq | case
+
+                    console.log("now_qty : "+now_qty+"\nmoq_price : "+moq_price+"\ncase_price : "+case_price+"\nmoq_case : "+moq_case);
+                });
+            }
+            CalculateAmount();
+
+
+
         </script>
     {/if}
     {/block}
