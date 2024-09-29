@@ -170,7 +170,7 @@ function updateCaseValue(qtyInput) {
 // Trigger the update when the quantity input changes manually
 $('#fmm_table').on('change', 'input.qty_id-bulkorder', function() {
   updateCaseValue($(this)); // Call updateCaseValue on change
-  var itemid = $(this).attr('id');
+  var itemid = $(this).attr('row_id');
   calculateRowAmount(itemid);
 });
 
