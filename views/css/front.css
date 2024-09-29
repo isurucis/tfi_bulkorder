@@ -435,6 +435,13 @@ text-align: center;
 .quickhead{
     text-align: left;
     /*margin-bottom: 30px;*/
+    font-weight: 300;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1.2rem;
+    line-height: 30px;
+    text-overflow: ellipsis;
+    color: #154a93;
+    font-size: 1.8rem;
 }
 
 #chkal{
