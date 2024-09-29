@@ -600,6 +600,7 @@
                         console.log("group_count_val : "+group_count_val);
                         //if( $(this).closest("tr").$("input[type=checkbox]").is(":checked") ) {
                         if( $("#"+row_id+"_"+group_count_val).is(":checked")) {
+                            console.log("Check box :"+row_id+"_"+group_count_val);
                             $("#price_box_amount_"+row_id).removeClass('row_amount_disable');
                             $("#price_box_amount_"+row_id).addClass('row_amount_enable');
                         }
