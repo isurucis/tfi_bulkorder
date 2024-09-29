@@ -575,24 +575,38 @@
             // Load checkboxes and quantities on page load
             checkCheckboxes();
 
-            function CalculateAmount() {
+            function totalAmount() {
+
+            }
+
+            function calculateRowAmount(mode) {
                 var qtyInputs = document.querySelectorAll('.input-qty');
                 var currencysign = "{$product.default_currency_sign|escape:'htmlall':'UTF-8'}";
-                qtyInputs.forEach(function(input) {
-                    let row_amount      = "0.00";
-                    let now_qty         = input.value;
-                    let row_id          = input.getAttribute('row_id');
-                    let moq_price       = parseFloat(input.getAttribute('moq_price'), 10) || "0.00";
-                    let case_price      = parseFloat(input.getAttribute('case_price'), 10) || "0.00";
-                    let moq_case        = $("input[name='qty_qty_" + row_id + "']:checked").val();    // moq | case
+                if( mode == "0" ) {
+                    qtyInputs.forEach(function(input) {
+                        let row_amount      = "0.00";
+                        let now_qty         = input.value;
+                        let row_id          = input.getAttribute('row_id');
+                        let moq_price       = parseFloat(input.getAttribute('moq_price'), 10) || "0.00";
+                        let case_price      = parseFloat(input.getAttribute('case_price'), 10) || "0.00";
+                        let moq_case        = $("input[name='qty_qty_" + row_id + "']:checked").val();    // moq | case
 
-                    row_amount          = ( moq_case == "moq" ) ? parseFloat(parseFloat(moq_price)*now_qty, 10) || "0.00" : parseFloat(parseFloat(case_price)*now_qty, 10) || "0.00";
-                    console.log("now_qty : "+now_qty+"\nmoq_price : "+moq_price+"\ncase_price : "+case_price+"\nmoq_case : "+moq_case+"\nrow_amount : "+currencysign+row_amount);
+                        row_amount          = ( moq_case == "moq" ) ? parseFloat(parseFloat(moq_price)*now_qty, 10) || "0.00" : parseFloat(parseFloat(case_price)*now_qty, 10) || "0.00";
+                        console.log("now_qty : "+now_qty+"\nmoq_price : "+moq_price+"\ncase_price : "+case_price+"\nmoq_case : "+moq_case+"\nrow_amount : "+currencysign+row_amount);
 
-                    $("#price_box_amount_"+row_id).html(currencysign+row_amount);
-                });
+                        $("#price_box_amount_"+row_id).html(currencysign+parseFloat(row_amount,10));
+
+               
+                        if( $(this).closest(".fmm_check").is(":checked") ) {
+                            $("#price_box_amount_"+row_id).removeClass('row_amount_disable');
+                            $("#price_box_amount_"+row_id).addClass('row_amount_enable');
+                        }
+                    });
+                } else {
+                    console.log("mode : "+mode);
+                }
             }
-            CalculateAmount();
+            calculateRowAmount(0); // Default
 
 
 
