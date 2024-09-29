@@ -1005,12 +1005,31 @@ tr.group:hover {
   background-color: #ffffff !important;
 }
 
+.row_tbl_price_box_amount {
+  margin-bottom: 0px !important;
+  margin-top: 0px !important;
+  border: none !important;
+  background-color: none !important;
+}
+
+table.row_tbl_price_box_amount tbody tr {
+  border: none;
+  background-color: none;
+}
+
+table.row_tbl_price_box_amount tbody td {
+  border: none;
+  background-color: none;
+}
+
 .row_amount_enable {
-  padding: 2px; display: block; color: #2a313c; font-weight: 600; font-size: .9rem; font-style: normal;
+  padding: 2px; display: block; color: #2a313c; font-weight: 600; font-size: .9rem; font-style: normal; text-align: right;
+  width: 60px; font-family: Roboto;
 }
 
 .row_amount_disable {
-  padding: 2px; display: block; color: #919191; font-weight: 400; font-size: .9rem; font-style: italic;
+  padding: 2px; display: block; color: #919191; font-weight: 400; font-size: .9rem; font-style: italic; text-align: right;
+  width: 60px; font-family: Roboto;
 }
 
 

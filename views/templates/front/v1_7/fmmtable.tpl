@@ -306,7 +306,7 @@
                                 <span class="btn plus-bulkorder">+</span>
                             </div>
                             
-                            <table style="margin-bottom: 0px; margin-top: 0px; border: none; background-color: none;">
+                            <table class="row_tbl_price_box_amount" style="">
                                 <tr style="background-color: none; border: none;">
                                     <td style="border: none;"><div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}" >2 Cases</div></td>
                                     <td style="border: none;"><div class="price_box_amount row_amount_disable" id="price_box_amount_{$product.id_product|escape:'htmlall':'UTF-8'}" >{$product.default_currency_sign|escape:'htmlall':'UTF-8'}0.00</div></td>
