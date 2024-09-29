@@ -35,10 +35,10 @@
     {if $in_ary == true}
     <!-- h1 class="quickhead csvhead">{$head_name_{$id_lang}|escape:'htmlall':'UTF-8'}</h1 -->
     <div class="csvhead">
-        <h1 class="quickhead " style="float: left; width: 350px;">{$head_name_{$id_lang}|escape:'htmlall':'UTF-8'}</h1>
-        <div style="float: right; ">
+        <h1 class="col-sm-5 quickhead " style="text-align: left;">{$head_name_{$id_lang}|escape:'htmlall':'UTF-8'}</h1>
+        <div class="col-sm-7" style="text-align: right; ">
             {if isset($catTree)}
-                <select  name="select_fmm_cat" id="select_fmm_cat" class="custom-select ">
+                <select  name="select_fmm_cat" id="select_fmm_cat" class="custom-select " style="width: auto;">
                     <option value="0" selected="selected">{" (Select a Family)"|escape:'htmlall':'UTF-8'}</option>
                     {foreach from=$catTree['children'] item=tree}
                         <option value="{$tree['id']|escape:'htmlall':'UTF-8'}">{$tree['name']|escape:'htmlall':'UTF-8'}{" (Select a Family)"|escape:'htmlall':'UTF-8'}</option>
@@ -51,8 +51,8 @@
                     {/foreach}
                 </select>
             {/if}
-            <select  name="select_fmm_country" id="select_fmm_country" class="custom-select ">
-                <option value="0">All</option>
+            <select  name="select_fmm_country" id="select_fmm_country" class="custom-select " style="width: auto;">
+                <option value="0">All Country</option>
             </select>
         </div>
         <div style="clear: both;"></div>
@@ -119,12 +119,13 @@
         <div class=" top_buttons_right" >
         <button class="btn btn-primary" id="clear-button" onclick="fmmClear();">Clear</button>
         </div>
-        <!-- div class=" top_buttons_right" >
+
+        <div class=" top_buttons_right" >
             <a class="btn btn-primary" href="{$cart_url|escape:'htmlall':'UTF-8'}?action=show">{l s='View Cart' mod='quickproducttable'}</a>
         </div>
         <div class=" top_buttons_right" >
             <button class="btn btn-primary" onclick="fmmAddAllCart();" >{l s='Add To Cart' mod='quickproducttable'}</button>
-        </div -->
+        </div>
         <div style="clear: both;"></div>
     </div>
     

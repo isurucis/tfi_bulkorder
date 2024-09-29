@@ -940,6 +940,10 @@ table.dataTable tfoot td {
   background-color: #c6ddd0 !important;
 }
 
+.dataTables_wrapper .dataTables_paginate {
+  float: left !important;
+  text-align: left !important;
+}
 
 .dataTables_wrapper .dataTables_filter input {
   margin-left: 0px !important;
@@ -1031,6 +1035,17 @@ table.row_tbl_price_box_amount tbody td {
 .row_amount_disable {
   padding: 2px; display: block; color: #919191; font-weight: 400; font-size: .9rem; font-style: italic; text-align: right;
   width: 60px; font-family: Roboto;
+}
+
+.div_total_amount {
+  border-radius: 0.4rem;
+  color: #212529;
+  height: 2.875rem;
+  line-height: 2.875rem;
+  padding: 0 4.375rem 0 1.875rem;
+  background-clip: padding-box;
+  background-color: #c1ff6f;
+  border: 1px solid #ced4da;
 }
 
 

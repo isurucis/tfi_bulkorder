@@ -449,10 +449,11 @@ $( document ).ready(function() {
     $("#fmm_table_filter").append(content); 
 
    
-    var topbotinbuttons = '<div class="col-lg-12 col-xs-12 top_buttons" >\
+    /*var topbotinbuttons = '<div class="col-lg-12 col-xs-12 top_buttons" >\
                           <a class="btn btn-primary" href="'+$("#cart_url").val()+'">View Cart</a>\
                           <button class="btn btn-primary" onclick="fmmAddAllCart();" >Add To Cart</button>\
-                          </div>'
+                          </div>'*/
+    var topbotinbuttons = '<div class="col-lg-12 col-xs-12 top_buttons div_total_amount" id="div_total_amount" ></div>';
     $(".topinbuttons").append(topbotinbuttons);
     $(".botinbuttons").append(topbotinbuttons);
 
