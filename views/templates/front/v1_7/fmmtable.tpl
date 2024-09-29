@@ -31,7 +31,7 @@
     <input type="hidden" id="noofrow" name="noofrow" value="{$noofrow|escape:'htmlall':'UTF-8'}">
     <input type="hidden" id="page_no" name="page_no" value="2">
     <input type="hidden" name="product_type" id="product_type" value="{$product_type|escape:'htmlall':'UTF-8'}">
-    
+    <input type="hidden" name="def_currency" id="def_currency" value="$">
     {if $in_ary == true}
     <!-- h1 class="quickhead csvhead">{$head_name_{$id_lang}|escape:'htmlall':'UTF-8'}</h1 -->
     <div class="csvhead">
@@ -132,7 +132,6 @@
     
     <input type="hidden" id="cart_url" value="{$cart_url|escape:'htmlall':'UTF-8'}?action=show">
     <input type="hidden" name="ajax_url" id="ajax_url" value="{$ajax_url|escape:'htmlall':'UTF-8'}">
-    <input type="hidden" name="def_currency" id="def_currency" value="{$product.default_currency_sign|escape:'htmlall':'UTF-8'}">
     <table id="fmm_table" class="display nowrap table-responsive-full">
             <thead>
                 <tr>
@@ -160,8 +159,7 @@
             </thead>
             <tbody id="fmm_table_body">
             
-              {foreach from=$all_products item=product name=product}
-    
+                {foreach from=$all_products item=product name=product}
                 <tr class="row_tr_item_full">
                     <td>
                         <div class="grid_td_column1">
