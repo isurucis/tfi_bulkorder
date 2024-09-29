@@ -152,6 +152,7 @@ $('#fmm_table').on('change', 'input[name^="qty_qty_"]', function() {
     }
   }
   updateCaseValue($input);
+  calculateRowAmount(number); // update the row amount
 });
 
 

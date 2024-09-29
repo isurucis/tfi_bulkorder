@@ -219,7 +219,10 @@
                         <div class="moqs_cases1">
                             <label class="moq_case_1">
                                 <!-- input type="radio" name="moq_case-input-001" class="moq_case-input" checked="checked" -->
-                                <input type="radio" id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="moq" class="moq_case-input" checked="checked"/>
+                                <input type="radio" 
+                                id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" 
+                                name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" 
+                                value="moq" class="moq_case-input" checked="checked"/>
                                 <div class="moq_case-box">By MOQ</div>
                             </label>
                         </div>
@@ -240,7 +243,10 @@
                         <div class="moqs_cases2">
                             <label class="moq_case_2">
                                 <!-- input type="radio" name="moq_case-input-001" class="moq_case-input" -->
-                                <input type="radio" id="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="case" class="moq_case-input" />
+                                <input type="radio" 
+                                id="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" 
+                                name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" 
+                                value="case" class="moq_case-input" />
                                 <div class="moq_case-box">By CASE</div>
                             </label>
                         </div>
