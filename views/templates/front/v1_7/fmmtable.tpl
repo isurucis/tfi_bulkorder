@@ -594,7 +594,7 @@
                         row_amount          = ( moq_case == "moq" ) ? parseFloat(parseFloat(moq_price)*now_qty, 10) || "0.00" : parseFloat(parseFloat(case_price)*now_qty, 10) || "0.00";
                         //console.log("now_qty : "+now_qty+"\nmoq_price : "+moq_price+"\ncase_price : "+case_price+"\nmoq_case : "+moq_case+"\nrow_amount : "+currencysign+row_amount);
 
-                        $("#price_box_amount_"+row_id).html(currencysign+parseFloat(row_amount,10));
+                        $("#price_box_amount_"+row_id).html(currencysign+parseInt(row_amount,10));
 
                         let group_count_val = $("#group_"+row_id).val();
                         console.log("group_count_val : "+group_count_val);
@@ -603,6 +603,9 @@
                             console.log("Check box :"+row_id+"_"+group_count_val);
                             $("#price_box_amount_"+row_id).removeClass('row_amount_disable');
                             $("#price_box_amount_"+row_id).addClass('row_amount_enable');
+
+                            $("#quantity_"+row_id).removeClass('input-qty-disable');
+                            $("#quantity_"+row_id).addClass('input-qty-enable');
                         }
                     });
                 } else {
