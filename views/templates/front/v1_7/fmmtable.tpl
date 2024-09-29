@@ -292,7 +292,7 @@
                         <div class="col-lg-2 grid_td_column6">
                             <div class="number" id="number">
                                 <span class="btn minus-bulkorder">−</span>
-                                <input class="qty_id-bulkorder form-control input-qty" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
+                                <input class="qty_id-bulkorder form-control input-qty input-qty-disable" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
                                 value="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
                                 min="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
                                 moq_price="{$product.price|number_format:2}"
@@ -306,7 +306,13 @@
                                 <span class="btn plus-bulkorder">+</span>
                             </div>
                             
-                            <div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}">0 Case</div>
+                            <table style="margin-bottom: 0px; margin-top: 0px; border: none; background-color: none;">
+                                <tr style="background-color: none; border: none;">
+                                    <td style="border: none;"><div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}" >2 Cases</div></td>
+                                    <td style="border: none;"><div class="price_box_amount row_amount_disable" id="price_box_amount_{$product.id_product|escape:'htmlall':'UTF-8'}" >{$product.default_currency_sign|escape:'htmlall':'UTF-8'}0.00</div></td>
+                                </tr>
+                            </table>
+                            <!-- div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}">0 Case</div -->
                             
                         </div>
                     </td>
@@ -461,9 +467,19 @@
                 if ($(this).is(":checked")) {
                     $(this).closest("tr").addClass("dataTable-highlight");
                     $(this).closest(".selection-button-checkbox").addClass('selected');
+                    $(this).closest('tr').find('.input-qty').removeClass('input-qty-disable');
+                    $(this).closest('tr').find('.input-qty').addClass('input-qty-enable');
+
+                    $(this).closest('tr').find('.price_box_amount').removeClass('row_amount_disable');
+                    $(this).closest('tr').find('.price_box_amount').addClass('row_amount_enable');
                 } else {
                     $(this).closest("tr").removeClass("dataTable-highlight");
                     $(this).closest(".selection-button-checkbox").removeClass('selected');
+                    $(this).closest('tr').find('.input-qty').removeClass('input-qty-enable');
+                    $(this).closest('tr').find('.input-qty').addClass('input-qty-disable');
+
+                    $(this).closest('tr').find('.price_box_amount').removeClass('row_amount_enable');
+                    $(this).closest('tr').find('.price_box_amount').addClass('row_amount_disable');
                 }
     
                 toggleLocalStorage($(this).val(), $(this).is(":checked"), qtyValue);

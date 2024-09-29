@@ -194,14 +194,14 @@
   .qty_id-bulkorder{
     width: 47px;
     text-align: center;
-    font-size: 1rem;
-    font-weight: 600;
-    border:solid 1px #67c28d;
     border-radius:4px;
     display: inline-block;
     vertical-align: middle;
     padding: .5rem .1rem;
-    color: #39935f;
+    /*font-size: 1rem;
+    font-weight: 600;
+    border:solid 1px #67c28d;
+    color: #39935f;*/
   }
 
 
@@ -982,13 +982,36 @@ tr.group:hover {
   border-radius: 6px;
   margin-top: 2px;
   width: 110px;
+  text-align: center;
 }
 
 .input-qty {
   height: 30px !important;
 }
 
+.input-qty-disable {
+  font-size: 1rem;
+  font-weight: 400 !important;
+  border:solid 1px #aeaeae !important;
+  color: #aeaeae !important;
+  background-color: #e3e3e3 !important;
+}
 
+.input-qty-enable {
+  font-size: 1rem;
+  font-weight: 600 !important;
+  border:solid 1px #67c28d !important;
+  color: #39935f !important;
+  background-color: #ffffff !important;
+}
+
+.row_amount_enable {
+  padding: 2px; display: block; color: #2a313c; font-weight: 600; font-size: .9rem; font-style: normal;
+}
+
+.row_amount_disable {
+  padding: 2px; display: block; color: #919191; font-weight: 400; font-size: .9rem; font-style: italic;
+}
 
 
 /*-----------------------------------------------------------------*/
