@@ -36,7 +36,7 @@
     <!-- h1 class="quickhead csvhead">{$head_name_{$id_lang}|escape:'htmlall':'UTF-8'}</h1 -->
     <div class="csvhead">
         <h1 class="col-sm-4 quickhead " style="margin-bottom: 0px; padding-bottom: 0px; text-align: left; float: left;">{$head_name_{$id_lang}|escape:'htmlall':'UTF-8'}</h1>
-        <div class="col-sm-8" style="margin-bottom: 0px; padding-bottom: 0px; text-align: left; float: right;">
+        <div class="col-sm-8" style="margin-bottom: 0px; padding-bottom: 0px; text-align: right; float: right;">
             {if isset($catTree)}
                 <select  name="select_fmm_cat" id="select_fmm_cat" class="custom-select " style="width: auto;">
                     <option value="0" selected="selected">{" (Select a Family)"|escape:'htmlall':'UTF-8'}</option>
