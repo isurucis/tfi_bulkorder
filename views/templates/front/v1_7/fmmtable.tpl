@@ -136,7 +136,7 @@
             
               {foreach from=$all_products item=product name=product}
     
-                <tr>
+                <tr class="row_tr_item_full">
                     <td>
                         <div class="grid_td_column1">
                             <img class="quickorder_item_image" src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}">
@@ -484,6 +484,9 @@
     
                 toggleLocalStorage($(this).val(), $(this).is(":checked"), qtyValue);
             });
+
+            
+
             /*
             document.querySelectorAll('.input-qty').forEach(function(qtyInput) {
                 // Add an event listener to handle changes in the quantity input
@@ -576,13 +579,17 @@
                 var qtyInputs = document.querySelectorAll('.input-qty');
                 var currencysign = "{$product.default_currency_sign|escape:'htmlall':'UTF-8'}";
                 qtyInputs.forEach(function(input) {
+                    let row_amount      = "0.00";
                     let now_qty         = input.value;
                     let row_id          = input.getAttribute('row_id');
                     let moq_price       = parseFloat(input.getAttribute('moq_price'), 10) || "0.00";
                     let case_price      = parseFloat(input.getAttribute('case_price'), 10) || "0.00";
                     let moq_case        = $("input[name='qty_qty_" + row_id + "']:checked").val();    // moq | case
 
-                    console.log("now_qty : "+now_qty+"\nmoq_price : "+moq_price+"\ncase_price : "+case_price+"\nmoq_case : "+moq_case);
+                    row_amount          = ( moq_case == "moq" ) ? parseFloat(parseFloat(moq_price)*now_qty, 10) || "0.00" : parseFloat(parseFloat(case_price)*now_qty, 10) || "0.00";
+                    console.log("now_qty : "+now_qty+"\nmoq_price : "+moq_price+"\ncase_price : "+case_price+"\nmoq_case : "+moq_case+"\nrow_amount : "+currencysign+row_amount);
+
+                    $("#price_box_amount_"+row_id).html(currencysign+row_amount);
                 });
             }
             CalculateAmount();
