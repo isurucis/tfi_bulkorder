@@ -596,8 +596,9 @@
 
                         $("#price_box_amount_"+row_id).html(currencysign+parseFloat(row_amount,10));
 
-               
-                        if( $(this).closest("tr").$("input[type=checkbox]").is(":checked") ) {
+                        let group_count_val = $("#group_"+row_id).val();
+                        //if( $(this).closest("tr").$("input[type=checkbox]").is(":checked") ) {
+                        if( $("#"+row_id+"_"+group_count_val).is(":checked")) {
                             $("#price_box_amount_"+row_id).removeClass('row_amount_disable');
                             $("#price_box_amount_"+row_id).addClass('row_amount_enable');
                         }
