@@ -594,11 +594,10 @@
                         row_amount          = ( moq_case == "moq" ) ? parseFloat(parseFloat(moq_price)*now_qty, 10) || "0.00" : parseFloat(parseFloat(case_price)*now_qty, 10) || "0.00";
                         //console.log("now_qty : "+now_qty+"\nmoq_price : "+moq_price+"\ncase_price : "+case_price+"\nmoq_case : "+moq_case+"\nrow_amount : "+currencysign+row_amount);
 
-                        $("#price_box_amount_"+row_id).html(currencysign+parseInt(row_amount,10));
+                        $("#price_box_amount_"+row_id).html(currencysign+parseFloat(row_amount).toFixed(2));
 
                         let group_count_val = $("#group_"+row_id).val();
                         console.log("group_count_val : "+group_count_val);
-                        //if( $(this).closest("tr").$("input[type=checkbox]").is(":checked") ) {
                         if( $("#"+row_id+"_"+group_count_val).is(":checked")) {
                             console.log("Check box :"+row_id+"_"+group_count_val);
                             $("#price_box_amount_"+row_id).removeClass('row_amount_disable');
@@ -612,17 +611,17 @@
                     console.log("mode : "+mode);
 
                     let row_amount      = "0.00";
-                    let now_qty         = $("quantity_"+mode).value;
+                    let now_qty         = $("#"+mode).value;
                     let row_id          = mode; //mode.getAttribute('row_id');
-                    let moq_price       = parseFloat($("quantity_"+mode).attr('moq_price'), 10) || "0.00";          // parseFloat(mode.getAttribute('moq_price'), 10) || "0.00";
-                    let case_price      = parseFloat($("quantity_"+mode).attr('case_price'), 10) || "0.00";          // parseFloat(mode.getAttribute('case_price'), 10) || "0.00";
+                    let moq_price       = parseFloat($("#"+mode).attr('moq_price'), 10) || "0.00";          // parseFloat(mode.getAttribute('moq_price'), 10) || "0.00";
+                    let case_price      = parseFloat($("#"+mode).attr('case_price'), 10) || "0.00";          // parseFloat(mode.getAttribute('case_price'), 10) || "0.00";
                     let moq_case        = $("input[name='qty_qty_" + row_id + "']:checked").val();    // moq | case
 
                     row_amount          = ( moq_case == "moq" ) ? parseFloat(parseFloat(moq_price)*now_qty, 10) || "0.00" : parseFloat(parseFloat(case_price)*now_qty, 10) || "0.00";
                     console.log("now_qty : "+now_qty+"\nmoq_price : "+moq_price+"\ncase_price : "+case_price+"\nmoq_case : "+moq_case+"\nrow_amount : "+currencysign+row_amount);
 
 
-                    $("#price_box_amount_"+row_id).html(currencysign+parseFloat(row_amount,10));
+                    $("#price_box_amount_"+row_id).html(currencysign+parseFloat(row_amount).toFixed(2));
                 }
             }
             calculateRowAmount(0); // Default
