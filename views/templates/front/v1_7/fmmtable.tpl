@@ -307,7 +307,7 @@
                             </div>
                             
                             <table class="row_tbl_price_box_amount" style="">
-                                <tr style="background-color: none; border: none;">
+                                <tr style="background: none; border: none;">
                                     <td style="border: none;"><div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}" >2 Cases</div></td>
                                     <td style="border: none;"><div class="price_box_amount row_amount_disable" id="price_box_amount_{$product.id_product|escape:'htmlall':'UTF-8'}" >{$product.default_currency_sign|escape:'htmlall':'UTF-8'}0.00</div></td>
                                 </tr>
@@ -597,13 +597,26 @@
                         $("#price_box_amount_"+row_id).html(currencysign+parseFloat(row_amount,10));
 
                
-                        if( $(this).closest(".fmm_check").is(":checked") ) {
+                        if( $(this).closest("tr").$("input[type=checkbox]").is(":checked") ) {
                             $("#price_box_amount_"+row_id).removeClass('row_amount_disable');
                             $("#price_box_amount_"+row_id).addClass('row_amount_enable');
                         }
                     });
                 } else {
                     console.log("mode : "+mode);
+
+                    let row_amount      = "0.00";
+                    let now_qty         = mode.value;
+                    let row_id          = mode.getAttribute('row_id');
+                    let moq_price       = parseFloat(mode.getAttribute('moq_price'), 10) || "0.00";
+                    let case_price      = parseFloat(mode.getAttribute('case_price'), 10) || "0.00";
+                    let moq_case        = $("input[name='qty_qty_" + row_id + "']:checked").val();    // moq | case
+
+                    row_amount          = ( moq_case == "moq" ) ? parseFloat(parseFloat(moq_price)*now_qty, 10) || "0.00" : parseFloat(parseFloat(case_price)*now_qty, 10) || "0.00";
+                    console.log("now_qty : "+now_qty+"\nmoq_price : "+moq_price+"\ncase_price : "+case_price+"\nmoq_case : "+moq_case+"\nrow_amount : "+currencysign+row_amount);
+
+
+                    $("#price_box_amount_"+row_id).html(currencysign+parseFloat(row_amount,10));
                 }
             }
             calculateRowAmount(0); // Default
