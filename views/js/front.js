@@ -415,7 +415,7 @@ $( document ).ready(function() {
                     $(rows)
                         .eq(i)
                         .before(
-                            '<tr class="group"><td colspan="10">' +
+                            '<tr class="group"><td colspan="9">' +
                                 group +
                                 '</td></tr>'
                         );
@@ -481,7 +481,7 @@ $( document ).ready(function() {
                         $(rows)
                             .eq(i)
                             .before(
-                                '<tr class="group"><td colspan="10">' +
+                                '<tr class="group"><td colspan="9">' +
                                     group +
                                     '</td></tr>'
                             );

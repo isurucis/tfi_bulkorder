@@ -33,15 +33,11 @@
     <input type="hidden" name="product_type" id="product_type" value="{$product_type|escape:'htmlall':'UTF-8'}">
     
     {if $in_ary == true}
-    <h1 class="quickhead csvhead">{$head_name_{$id_lang}|escape:'htmlall':'UTF-8'}</h1>
-    <div class="box-border-bottom col-lg-12">
-        <!-- div class="col-lg-1 col-xs-12 top_buttons">
-            <p style="padding-top: 8px;font-weight: bolder;">{l s='Filters:' mod='quickproducttable'}</p>
-        </div -->
-    
-        
-        {if isset($catTree)}
-            <div class=" top_buttons">
+    <!-- h1 class="quickhead csvhead">{$head_name_{$id_lang}|escape:'htmlall':'UTF-8'}</h1 -->
+    <div class="csvhead">
+        <h1 class="quickhead " style="float: left; width: 350px;">{$head_name_{$id_lang}|escape:'htmlall':'UTF-8'}</h1>
+        <div style="float: right; ">
+            {if isset($catTree)}
                 <select  name="select_fmm_cat" id="select_fmm_cat" class="custom-select ">
                     <option value="0" selected="selected">{" (Select a Family)"|escape:'htmlall':'UTF-8'}</option>
                     {foreach from=$catTree['children'] item=tree}
@@ -54,7 +50,35 @@
                         {/foreach}
                     {/foreach}
                 </select>
-            </div>
+            {/if}
+            <select  name="select_fmm_country" id="select_fmm_country" class="custom-select ">
+                <option value="0">All</option>
+            </select>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+
+    <div class="box-border-bottom col-lg-12">
+        <!-- div class="col-lg-1 col-xs-12 top_buttons">
+            <p style="padding-top: 8px;font-weight: bolder;">{l s='Filters:' mod='quickproducttable'}</p>
+        </div -->
+    
+        
+        {if isset($catTree)}
+            <!-- div class=" top_buttons">
+                <select  name="select_fmm_cat" id="select_fmm_cat" class="custom-select ">
+                    <option value="0" selected="selected">{" (Select a Family)"|escape:'htmlall':'UTF-8'}</option>
+                    {foreach from=$catTree['children'] item=tree}
+                        <option value="{$tree['id']|escape:'htmlall':'UTF-8'}">{$tree['name']|escape:'htmlall':'UTF-8'}{" (Select a Family)"|escape:'htmlall':'UTF-8'}</option>
+                        {foreach from=$tree['children'] item=tree2}
+                            <option value="{$tree2['id']|escape:'htmlall':'UTF-8'}">{$tree['name']|escape:'htmlall':'UTF-8'}&emsp;‣&emsp;{$tree2['name']|escape:'htmlall':'UTF-8'}</option>
+                            {foreach from=$tree2['children'] item=tree3}
+                                <option value="{$tree3['id']|escape:'htmlall':'UTF-8'}">{$tree['name']|escape:'htmlall':'UTF-8'}&emsp;‣&emsp;{$tree2['name']|escape:'htmlall':'UTF-8'}&emsp;‣&emsp;&emsp;{$tree3['name']|escape:'htmlall':'UTF-8'}</option>
+                            {/foreach}
+                        {/foreach}
+                    {/foreach}
+                </select>
+            </div -->
         {/if}
         
     
@@ -122,7 +146,7 @@
                     <th class='grid_th_column4'><div>Case Qty<br />(Price)</div></th>
                     <th class='grid_th_column4'><div>Qty/<br />Box</div></th>
     
-                    <th class='grid_th_column5'><div>{l s='Price' mod='quickproducttable'}</div></th>
+                    <!-- th class='grid_th_column5'><div>{l s='Price' mod='quickproducttable'}</div></th -->
                     <th class='grid_th_column6'><div>Qty<br />(In Cases)</div></th>
                     <th class='grid_th_column7'><!--<div>{l s='' mod='quickproducttable'}
                         <div class="form-group-checkbox">
@@ -282,7 +306,7 @@
                         </div>
                     </td>
     
-                    <td data-label="Price">
+                    <!-- td data-label="Price">
                         <div class="grid_td_column5">
                             {if $product.reduction > 0}
                                 <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2}</span></span></div>
@@ -292,7 +316,7 @@
                             {/if}
                             <div id="row_price_{$product.id_product|escape:'htmlall':'UTF-8'}" style="border: dotted 1px #333333;padding: 2px; display: block;"></div>
                         </div>
-                    </td>
+                    </td -->
                     
                     <td data-label="Quantity">
                         <div class="col-lg-2 grid_td_column6">
@@ -352,7 +376,7 @@
                     <th class='grid_th_column4'><div>{l s='Case Qty (Price)' mod='quickproducttable'}</div></th>
                     <th class='grid_th_column4'><div>{l s='Qty/Box' mod='quickproducttable'}</div></th>
     
-                    <th class='grid_th_column5'><div>{l s='Price' mod='quickproducttable'}</div></th>
+                    <!-- th class='grid_th_column5'><div>{l s='Price' mod='quickproducttable'}</div></th -->
                     <th class='grid_th_column6'><div>{l s='Qty (In Cases)' mod='quickproducttable'}</div></th>
                     <th class='grid_th_column7'><!--div>{l s='' mod='quickproducttable'}
                         <<div class="form-group-checkbox">
