@@ -606,10 +606,10 @@
                     console.log("mode : "+mode);
 
                     let row_amount      = "0.00";
-                    let now_qty         = mode.value;
-                    let row_id          = mode.getAttribute('row_id');
-                    let moq_price       = parseFloat(mode.getAttribute('moq_price'), 10) || "0.00";
-                    let case_price      = parseFloat(mode.getAttribute('case_price'), 10) || "0.00";
+                    let now_qty         = $("quantity_"+mode).value;
+                    let row_id          = mode; //mode.getAttribute('row_id');
+                    let moq_price       = parseFloat($("quantity_"+mode).attr('moq_price'), 10) || "0.00";          // parseFloat(mode.getAttribute('moq_price'), 10) || "0.00";
+                    let case_price      = parseFloat($("quantity_"+mode).attr('case_price'), 10) || "0.00";          // parseFloat(mode.getAttribute('case_price'), 10) || "0.00";
                     let moq_case        = $("input[name='qty_qty_" + row_id + "']:checked").val();    // moq | case
 
                     row_amount          = ( moq_case == "moq" ) ? parseFloat(parseFloat(moq_price)*now_qty, 10) || "0.00" : parseFloat(parseFloat(case_price)*now_qty, 10) || "0.00";
