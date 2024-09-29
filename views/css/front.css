@@ -1131,3 +1131,21 @@ table.row_tbl_price_box_amount tbody td {
   border-radius: 0 15px 15px 0;
 }
 /*-----------------------------------------------------------------*/
+
+
+.debug-console {
+  border: dashed 1px #a4a446;
+  background-color: #ffffa4;
+  color: #404040;
+  position: fixed;
+  bottom: 0;
+  padding: 10px;
+  width: 200px;
+  border-radius: .4rem;
+  margin: 5px;
+  right: 0;
+  height: 100px;
+  overflow: auto;
+  font-family: Roboto;
+  font-size: .8rem;
+}

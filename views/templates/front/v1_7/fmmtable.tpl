@@ -158,7 +158,7 @@
                 </tr>
             </thead>
             <tbody id="fmm_table_body">
-                {assign var="total_val" value="14.00"}
+                {assign var="total_val" value="0.00"}
                 {foreach from=$all_products item=product name=product}
                 <tr class="row_tr_item_full">
                     <td>
@@ -387,7 +387,7 @@
                 </tr>
             </tfoot>
         </table>
-        <div style="border: solid 2px #333333; background-color: yellow; color: black;">{$total_val}</div>
+        <div class="debug-console" id="debug-console">{$total_val}</div>
         {if $ajax_load}
         <input type="hidden" id="pageno" value="1">
         <span style="text-align: center;display: flow-root;">
