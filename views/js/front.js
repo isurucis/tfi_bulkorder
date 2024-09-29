@@ -395,7 +395,7 @@ $('div.dataTables_filter input').addClass('form-control');
 $( document ).ready(function() {
   //dataTableInit(3);
     //var fmmDataTable = "";
-
+    var def_currency = $("#def_currency").val();
     var groupColumn = 3;
     console.log("Event : DataTable - fmm_table, is called");
 
@@ -453,7 +453,11 @@ $( document ).ready(function() {
                           <a class="btn btn-primary" href="'+$("#cart_url").val()+'">View Cart</a>\
                           <button class="btn btn-primary" onclick="fmmAddAllCart();" >Add To Cart</button>\
                           </div>'*/
-    var topbotinbuttons = '<div class="col-lg-12 col-xs-12 top_buttons div_total_amount" id="div_total_amount" ></div>';
+    var topbotinbuttons = '<div class="col-lg-12 col-xs-12 top_buttons div_total_amount" id="div_total_amount" >\
+                            <span>Total </span>\
+                            <span id="spn_total_amount_disp" class="spn_total_amount_disp">'+def_currency+'0.00</span>\
+                            <span> (+Shipping +Tax)</span>\
+                            </div>';
     $(".topinbuttons").append(topbotinbuttons);
     $(".botinbuttons").append(topbotinbuttons);
 

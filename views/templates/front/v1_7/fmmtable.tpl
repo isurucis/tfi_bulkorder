@@ -132,6 +132,7 @@
     
     <input type="hidden" id="cart_url" value="{$cart_url|escape:'htmlall':'UTF-8'}?action=show">
     <input type="hidden" name="ajax_url" id="ajax_url" value="{$ajax_url|escape:'htmlall':'UTF-8'}">
+    <input type="hidden" name="def_currency" id="def_currency" value="{$product.default_currency_sign|escape:'htmlall':'UTF-8'}">
     <table id="fmm_table" class="display nowrap table-responsive-full">
             <thead>
                 <tr>
@@ -607,7 +608,37 @@
             checkCheckboxes();
 
             function totalAmount() {
+                //spn_total_amount_disp
+                var total_amount = "0.00";
+                var qtyInputs = document.querySelectorAll('.input-qty');
+                var currencysign = "{$product.default_currency_sign|escape:'htmlall':'UTF-8'}";
+                qtyInputs.forEach(function(input) {
+                    let row_amount      = "0.00";
+                    let now_qty         = input.value;
+                    let row_id          = input.getAttribute('row_id');
+                    let moq_price       = parseFloat(input.getAttribute('moq_price'), 10) || "0.00";
+                    let case_price      = parseFloat(input.getAttribute('case_price'), 10) || "0.00";
+                    let moq_case        = $("input[name='qty_qty_" + row_id + "']:checked").val();    // moq | case
 
+                    row_amount          = ( moq_case == "moq" ) ? parseFloat(parseFloat(moq_price)*now_qty, 10) || "0.00" : parseFloat(parseFloat(case_price)*now_qty, 10) || "0.00";
+                    //console.log("11 now_qty : "+now_qty+"\nmoq_price : "+moq_price+"\ncase_price : "+case_price+"\nmoq_case : "+moq_case+"\nrow_amount : "+currencysign+row_amount);
+
+                    //$("#price_box_amount_"+row_id).html(currencysign+parseFloat(row_amount).toFixed(2));
+
+                    let group_count_val = $("#group_"+row_id).val();
+                    console.log("group_count_val : "+group_count_val);
+                    if( $("#"+row_id+"_"+group_count_val).is(":checked")) {
+                        total_amount = parseFloat(total_amount)+parseFloat(row_amount);
+                        //console.log("Check box :"+row_id+"_"+group_count_val);
+                        //$("#price_box_amount_"+row_id).removeClass('row_amount_disable');
+                        //$("#price_box_amount_"+row_id).addClass('row_amount_enable');
+
+                        //$("#quantity_"+row_id).removeClass('input-qty-disable');
+                        //$("#quantity_"+row_id).addClass('input-qty-enable');
+                    }
+                });
+
+                $("#spn_total_amount_disp").html(currencysign+parseFloat(total_amount).toFixed(2));
             }
 
             function calculateRowAmount(mode) {
@@ -623,7 +654,7 @@
                         let moq_case        = $("input[name='qty_qty_" + row_id + "']:checked").val();    // moq | case
 
                         row_amount          = ( moq_case == "moq" ) ? parseFloat(parseFloat(moq_price)*now_qty, 10) || "0.00" : parseFloat(parseFloat(case_price)*now_qty, 10) || "0.00";
-                        //console.log("now_qty : "+now_qty+"\nmoq_price : "+moq_price+"\ncase_price : "+case_price+"\nmoq_case : "+moq_case+"\nrow_amount : "+currencysign+row_amount);
+                        //console.log("11 now_qty : "+now_qty+"\nmoq_price : "+moq_price+"\ncase_price : "+case_price+"\nmoq_case : "+moq_case+"\nrow_amount : "+currencysign+row_amount);
 
                         $("#price_box_amount_"+row_id).html(currencysign+parseFloat(row_amount).toFixed(2));
 
@@ -654,6 +685,7 @@
 
                     $("#price_box_amount_"+row_id).html(currencysign+parseFloat(row_amount).toFixed(2));
                 }
+                totalAmount();  // Calculate the Total Amount
             }
             calculateRowAmount(0); // Default
 
