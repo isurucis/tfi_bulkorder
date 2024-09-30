@@ -475,7 +475,7 @@
             let checkedItems = JSON.parse(localStorage.getItem('checkedItems')) || [];
 
 
-            let array_str_sub = [{$array_str_sub}];
+            let array_str_sub = [{$array_str_sub|escape:'htmlall':'UTF-8'}];
     
             // Function to clear all selections and quantity values
             function fmmClear() {
