@@ -381,9 +381,8 @@
                     </tr>
                  
                     {*assign var=array_str_sub value=','|explode:'{$product.id_product|escape:'htmlall':'UTF-8'},$asgn_moq_qnty,$asgn_moq_price,$asgn_case_qnty,$asgn_case_price'*}
-                    {assign var=array_str_sub value=$array_str_sub|cat:"["|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:","|cat:$asgn_moq_qnty|cat:","|cat:$asgn_moq_price|cat:","|cat:$asgn_case_qnty|cat:","|cat:$asgn_case_price|cat:"], "}
-                    
-          
+                    {assign var=array_str_sub value=$array_str_sub|cat:"['"|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"', '"|cat:$asgn_moq_qnty|cat:"', '"|cat:$asgn_moq_price|cat:"', '"|cat:$asgn_case_qnty|cat:"', '"|cat:$asgn_case_price|cat:"'], "}
+
                 {/foreach}
             </tbody>
             <tfoot>
@@ -474,6 +473,9 @@
         <script type="text/javascript">
             // Initialize checkedItems array from localStorage or an empty array
             let checkedItems = JSON.parse(localStorage.getItem('checkedItems')) || [];
+
+
+            let array_str_sub = [{$array_str_sub}];
     
             // Function to clear all selections and quantity values
             function fmmClear() {
@@ -714,7 +716,7 @@
             }
             calculateRowAmount(0); // Default
 
-
+            console.log("array_str_sub length : "+array_str_sub.length);
 
         </script>
     {/if}
