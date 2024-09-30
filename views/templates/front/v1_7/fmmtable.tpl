@@ -261,19 +261,19 @@
                             <div class="grid_td_column4">
                                 {if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}
                                     {$product.product_attribute_minimal_quantity}
-                                    $asgn_moq_qnty = {$product.product_attribute_minimal_quantity}
+                                    {assign var=asgn_moq_qnty value={$product.product_attribute_minimal_quantity}}
                                 {else}
                                     {$product.minimal_quantity}
-                                    $asgn_moq_qnty = {$product.minimal_quantity}
+                                    {assign var=asgn_moq_qnty value={$product.minimal_quantity}}
                                 {/if}
                                 -
                                 {if $product.reduction > 0}
                                     <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2}</span></span></div>
                                     <div class="ml-2 price price--discounted" style="">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span></div>
-                                    $asgn_moq_price = {$product.price|number_format:2}
+                                    {assign var=asgn_moq_price value={$product.price|number_format:2}}
                                 {else}
                                     {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span>
-                                    $asgn_moq_price = {$product.price|number_format:2}
+                                    {assign var=asgn_moq_price value={$product.price|number_format:2}}
                                 {/if}
                                 <!-- input type="radio" id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="moq" checked/ -->
                             </div>
@@ -295,7 +295,7 @@
                                     {if $feature.id_feature == 8}
                                     <span>
                                         {intval($feature.value)/4}
-                                        $asgn_case_qnty = {intval($feature.value)/4}
+                                        {assign var=asgn_case_qnty value={intval($feature.value)/4}}
                                     </span>
                                     {/if}
                                 {foreachelse}
@@ -303,10 +303,10 @@
                                 {if $product.reduction > 0}
                                     <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2}</span></span></div>
                                     <div class="ml-2 price price--discounted" style="">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span></div>
-                                    $asgn_case_price = {$product.price|number_format:2}
+                                    {assign var=asgn_case_price value={$product.price|number_format:2}}
                                 {else}
                                     {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price*0.8|number_format:2}</span>
-                                    $asgn_case_price = {$product.price*0.8|number_format:2}
+                                    {assign var=asgn_case_price value={$product.price*0.8|number_format:2}}
                                 {/if}
                                 <!-- input type="radio" id="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="case" / -->
                             </div>
@@ -381,7 +381,7 @@
                     </tr>
                  
                     {*assign var=array_str_sub value=','|explode:'{$product.id_product|escape:'htmlall':'UTF-8'},$asgn_moq_qnty,$asgn_moq_price,$asgn_case_qnty,$asgn_case_price'*}
-                    {assign var=array_str_sub value=$array_str_sub|cat:"["|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:","|cat:$asgn_moq_qnty|cat:","|cat:$asgn_moq_price|cat:","|cat:$asgn_case_qnty|cat:","|cat:$asgn_case_price|cat:"]"}
+                    {assign var=array_str_sub value=$array_str_sub|cat:"["|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:","|cat:$asgn_moq_qnty|cat:","|cat:$asgn_moq_price|cat:","|cat:$asgn_case_qnty|cat:","|cat:$asgn_case_price|cat:"], "}
                     
           
                 {/foreach}
