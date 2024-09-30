@@ -1140,11 +1140,11 @@ table.row_tbl_price_box_amount tbody td {
   position: fixed;
   bottom: 0;
   padding: 10px;
-  width: 200px;
+  width: 600px;
   border-radius: .4rem;
   margin: 5px;
   right: 0;
-  height: 100px;
+  height: 200px;
   overflow: auto;
   font-family: Roboto;
   font-size: .8rem;
