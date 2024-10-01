@@ -482,7 +482,7 @@
             let checkedItems = JSON.parse(localStorage.getItem('checkedItems')) || [];
 
             
-            var array_str_sub = [$array_str_sub];
+            var array_str_sub = [{$array_str_sub|escape:'html'}];
           
 
 
