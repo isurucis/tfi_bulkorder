@@ -414,9 +414,9 @@
                 </tr>
             </tfoot>
         </table>
-        {assign var=array_str_test1 value="Ajanthan"}
-        {assign var=array_str_test2 value="Shanmugam"}
-        {$array_str_test1 = $array_str_test1|cat:" Mr "}
+        {*assign var=array_str_test1 value="Ajanthan"*}
+        {*assign var=array_str_test2 value="Shanmugam"*}
+        {*$array_str_test1 = $array_str_test1|cat:" Mr "*}
 
         <!-- div class="debug-console" id="debug-console">{$array_str_test1} {$array_str_test2}</div -->
         {if $ajax_load}
