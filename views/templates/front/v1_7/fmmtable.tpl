@@ -483,10 +483,13 @@
             let checkedItems = JSON.parse(localStorage.getItem('checkedItems')) || [];
 
             
-            let array_str_sub = "{$array_str_sub|escape:'html'}";
-            const array_str_sub = array_str_sub.split("||");
-            console.log("array_str_sub LENGTH : "+array_str_sub.length);
-
+            
+            
+            function stringArrayConvert() {
+                let array_str_sub = "{$array_str_sub|escape:'html'}";
+                const array_str_sub = array_str_sub.split("||");
+                console.log("array_str_sub LENGTH : "+array_str_sub.length);
+            }
 
             // Function to clear all selections and quantity values
             function fmmClear() {
@@ -726,8 +729,9 @@
                 //totalAmount();  // Calculate the Total Amount
             }
             calculateRowAmount(0); // Default
-
-            console.log("array_str_sub length : "+array_str_sub.length);
+            
+            stringArrayConvert();
+            //console.log("array_str_sub length : "+array_str_sub.length);
 
         </script>
     {/if}
