@@ -516,6 +516,7 @@
                 //console.log(">> moq_qnty : "+itemlist_all[adda].moq_qnty);
                 //console.log(">> moq_price : "+itemlist_all[adda].moq_price);
 
+                calculateTotalAmount();
             }
 
             // Function to clear all selections and quantity values
@@ -537,6 +538,8 @@
                 qtyInputs.forEach(function(input) {
                     input.value = input.getAttribute('min');  // Clear the value
                 });
+
+                calculateTotalAmount();
             }
     
             // Function to update localStorage with both checkbox and quantity
@@ -556,6 +559,7 @@
                 }
     
                 localStorage.setItem('checkedItems', JSON.stringify(checkedItems));
+                calculateTotalAmount();
             }
     
             // Handle checkbox click events
