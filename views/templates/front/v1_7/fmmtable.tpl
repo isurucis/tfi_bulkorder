@@ -418,7 +418,7 @@
             </tfoot>
         </table>
 
-        <div class="debug-console" id="debug-console">{$array_str_sub}</div>
+        <!-- div class="debug-console" id="debug-console">{*$array_str_sub*}</div -->
         
         {if $ajax_load}
         <input type="hidden" id="pageno" value="1">
