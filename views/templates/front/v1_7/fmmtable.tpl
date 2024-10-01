@@ -512,9 +512,9 @@
                     console.log("id : "+itemlist_all[bb].id+", moq_qty : "+itemlist_all[bb].moq_qnty+", moq_price : "+itemlist_all[bb].moq_price);
                 }
 
-                const adda = itemlist_all.findIndex(itemlist => itemlist.id === "720");
-                console.log(">> moq_qty : "+itemlist_all[adda].moq_qty);
-                console.log(">> moq_price : "+itemlist_all[adda].moq_qty);
+                const adda = itemlist_all.findIndex(itemlist => itemlist.id === "600");
+                console.log(">> moq_qnty : "+itemlist_all[adda].moq_qnty);
+                console.log(">> moq_price : "+itemlist_all[adda].moq_price);
             }
 
             // Function to clear all selections and quantity values
