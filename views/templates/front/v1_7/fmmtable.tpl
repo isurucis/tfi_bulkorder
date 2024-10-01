@@ -600,7 +600,7 @@
                 let priceBoxCalc = $('#price_box_calc_' + qtyInput.attr('id').split('_')[1]);
         
                 // Update the case value in the UI
-                priceBoxCalc.text(numberOfCases + ' Case' + (numberOfCases > 1 ? 's' : ''));
+                priceBoxCalc.text(numberOfCases + ' CaseB' + (numberOfCases > 1 ? 's' : ''));
                 if(numberOfCases>=1){
                     $('input[name="qty_qty_' + number + '"][value="case"]').prop('checked', true);
                 }
