@@ -699,10 +699,10 @@
                     console.log(">> case_price : "+itemlist_all[adda].case_price);
                     if( strg_by == "moq" ) {
                         itemsubprice = parseFloat(parseInt(strg_qty)*parseFloat(itemlist_all[adda].moq_price)).toFixed(2);
-                        total_amount = parseFloat(total_amount)+parseFloat(itemsubprice).toFixed(2);
+                        total_amount = parseFloat(parseFloat(total_amount)+parseFloat(itemsubprice)).toFixed(2);
                     } else {
                         itemsubprice = parseFloat(parseInt(strg_qty)*parseFloat(itemlist_all[adda].case_price)).toFixed(2);
-                        total_amount = parseFloat(total_amount)+parseFloat(itemsubprice).toFixed(2);
+                        total_amount = parseFloat(parseFloat(total_amount)+parseFloat(itemsubprice)).toFixed(2);
                     }
 
                     console.log("itemsubprice : "+itemsubprice);
