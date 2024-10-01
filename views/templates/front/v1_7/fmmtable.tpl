@@ -686,7 +686,7 @@
                 var currencysign = "{$product.default_currency_sign|escape:'htmlall':'UTF-8'}";
           
                 checkedItems.forEach(function(storeItem) {
-                    const adda = itemlist_all.findIndex(itemlist => itemlist.id === storeItem.id);
+                    const adda          = itemlist_all.findIndex(itemlist => itemlist.id === storeItem.id);
 
                     const strg_id       = storeItem.id;
                     const strg_qty      = storeItem.qty;
@@ -704,6 +704,9 @@
                         itemsubprice = parseFloat(parseInt(strg_qty)*parseFloat(itemlist_all[adda].case_price)).toFixed(2);
                         total_amount = parseFloat(total_amount)+parseFloat(itemsubprice).toFixed(2);
                     }
+
+                    console.log("itemsubprice : "+itemsubprice);
+                    console.log("total_amount : "+total_amount);
                 });
                 console.log("TOTAL AMOUNT : "+currencysign+parseFloat(total_amount).toFixed(2));
                 $("#spn_total_amount_disp").html(currencysign+parseFloat(total_amount).toFixed(2));
