@@ -488,7 +488,7 @@
             function stringArrayConvert() {
                 let array_str_sub = "{$array_str_sub|escape:'html'}";
                 const array_str_sub1 = array_str_sub.split("||");
-                //console.log("array_str_sub1 LENGTH : "+array_str_sub1.length);
+                console.log("array_str_sub1 LENGTH : "+array_str_sub1.length);
             }
 
             // Function to clear all selections and quantity values
