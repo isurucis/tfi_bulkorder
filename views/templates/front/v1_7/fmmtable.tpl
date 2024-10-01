@@ -380,12 +380,7 @@
                         </td>
                     </tr>
                  
-                    {*assign var=array_str_sub value=','|explode:'{$product.id_product|escape:'htmlall':'UTF-8'},$asgn_moq_qnty,$asgn_moq_price,$asgn_case_qnty,$asgn_case_price'*}
-                    {*assign var=array_str_sub value=$array_str_sub|cat:"['"|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"', '"|cat:$asgn_moq_qnty|cat:"', '"|cat:$asgn_moq_price|cat:"', '"|cat:$asgn_case_qnty|cat:"', '"|cat:$asgn_case_price|cat:"'], "*}
 
-                    {*assign var=array_str_sub value="["|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"], "*}
-
-                    {*assign var=array_str_sub value={$product.id_product|escape:'htmlall':'UTF-8'}*}
 
                 {/foreach}
             </tbody>
@@ -414,11 +409,6 @@
                 </tr>
             </tfoot>
         </table>
-        {*assign var=array_str_test1 value="Ajanthan"*}
-        {*assign var=array_str_test2 value="Shanmugam"*}
-        {*$array_str_test1 = $array_str_test1|cat:" Mr "*}
-
-        <!-- div class="debug-console" id="debug-console">{*$array_str_test1*} {*$array_str_test2*}</div -->
 
 
         
