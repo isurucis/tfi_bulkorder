@@ -383,7 +383,7 @@
                     {*assign var=array_str_sub value=','|explode:'{$product.id_product|escape:'htmlall':'UTF-8'},$asgn_moq_qnty,$asgn_moq_price,$asgn_case_qnty,$asgn_case_price'*}
                     {*assign var=array_str_sub value=$array_str_sub|cat:"['"|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"', '"|cat:$asgn_moq_qnty|cat:"', '"|cat:$asgn_moq_price|cat:"', '"|cat:$asgn_case_qnty|cat:"', '"|cat:$asgn_case_price|cat:"'], "*}
 
-                    {assign var=array_str_sub value=array_str_sub|cat:"['"|cat:"'], "}
+                    {assign var=array_str_sub value=$array_str_sub|cat:"['"|cat:"'], "}
 
                 {/foreach}
             </tbody>
