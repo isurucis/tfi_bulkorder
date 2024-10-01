@@ -685,20 +685,22 @@
                 var total_amount = "0.00";
                 var currencysign = "{$product.default_currency_sign|escape:'htmlall':'UTF-8'}";
           
-                checkedItems.forEach(function() {
-                    const strg_id       = checkedItems.id;
-                    const strg_qty      = checkedItems.qty;
-                    const strg_by       = checkedItems.by;
+                checkedItems.forEach(function(storeItem) {
+                    const adda = itemlist_all.findIndex(itemlist => itemlist.id === storeItem.id);
+
+                    const strg_id       = storeItem.id;
+                    const strg_qty      = storeItem.qty;
+                    const strg_by       = storeItem.by;
                     var itemsubprice    = "0.00";
                     console.log("ID : "+strg_id+", qty : "+strg_qty+", by : "+strg_by);
-                    
-                    const adda = itemlist_all.findIndex(itemlist => itemlist.id === strg_id);
                     console.log(">> moq_qnty : "+itemlist_all[adda].moq_qnty);
                     console.log(">> moq_price : "+itemlist_all[adda].moq_price);
-                    if( strg_by == "moq" ) {
-                        itemsubprice = parseFloat(parseInt(strg_qty)*parseFloat(itemlist_all[adda].moq_price)).toFixed(2);
-                        total_amount = parseFloat(total_amount)+parseFloat(itemsubprice).toFixed(2);
-                    }
+                    console.log(">> case_price : "+itemlist_all[adda].case_price);
+                    console.log(">> case_price : "+itemlist_all[adda].case_price);
+                    //if( strg_by == "moq" ) {
+                    //    itemsubprice = parseFloat(parseInt(strg_qty)*parseFloat(itemlist_all[adda].moq_price)).toFixed(2);
+                    //    total_amount = parseFloat(total_amount)+parseFloat(itemsubprice).toFixed(2);
+                    //}
                 });
 
                 $("#spn_total_amount_disp").html(currencysign+parseFloat(total_amount).toFixed(2));
