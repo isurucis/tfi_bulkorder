@@ -494,17 +494,24 @@
                         let itemeach_array = [];
                         let itemeach = array_str_sub1[a].split("|,");
                         if( parseInt(itemeach.length) > 0 ) {
-                            itemeach_array.push(itemeach[0]); // product-id
-                            itemeach_array.push(itemeach[1]); // moq_qnty
-                            itemeach_array.push(itemeach[2]); // moq_price
-                            itemeach_array.push(itemeach[3]); // case_qnty
-                            itemeach_array.push(itemeach[4]); // case_price
+                            itemeach_array = {
+                                id : itemeach[0],
+                                moq_qnty : itemeach[1],
+                                moq_price : itemeach[2],
+                                case_qnty : itemeach[3],
+                                case_price : itemeach[4]
+                            }
+                            itemlist_all.push(itemeach_array);
                         }
-                        itemlist_all.push(itemeach_array);
+                        
                     }
                 }
                 console.log("itemlist_all LEN : "+itemlist_all.length);
                 
+                for( var bb=0; bb < parseInt(itemlist_all.length); bb++ ) {
+                    console.log(itemlist_all[bb].id);
+                }
+
             }
 
             // Function to clear all selections and quantity values
@@ -534,14 +541,14 @@
     
                 if (checked && existingIndex === -1) {
                     // Add new item with checkbox state and quantity
-                    checkedItems.push({ id: itemId, qty: qty, moq_case:moq_case });
+                    checkedItems.push({ id: itemId, qty: qty, by:moq_case });
                 } else if (!checked && existingIndex !== -1) {
                     // Remove item if unchecked
                     checkedItems.splice(existingIndex, 1);
                 } else if (checked && existingIndex !== -1) {
                     // Update quantity if item is already in the list
                     checkedItems[existingIndex].qty = qty;
-                    checkedItems[existingIndex].moq_case = moq_case;
+                    checkedItems[existingIndex].by = moq_case;
                 }
     
                 localStorage.setItem('checkedItems', JSON.stringify(checkedItems));
@@ -669,6 +676,7 @@
             function calculateTotalAmount() {
                 var total_amount = "0.00";
                 var currencysign = "{$product.default_currency_sign|escape:'htmlall':'UTF-8'}";
+
             }
 
             function totalAmount_OLD() {
