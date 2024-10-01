@@ -483,8 +483,9 @@
             let checkedItems = JSON.parse(localStorage.getItem('checkedItems')) || [];
 
             
-            var array_str_sub = [{$array_str_sub|escape:'html'}];
-          
+            let array_str_sub = "{$array_str_sub|escape:'html'}";
+            const array_str_sub = array_str_sub.split("||");
+            console.log("array_str_sub LENGTH : "+array_str_sub.length);
 
 
             // Function to clear all selections and quantity values
