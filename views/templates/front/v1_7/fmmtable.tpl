@@ -509,9 +509,12 @@
                 console.log("itemlist_all LEN : "+itemlist_all.length);
                 
                 for( var bb=0; bb < parseInt(itemlist_all.length); bb++ ) {
-                    console.log(itemlist_all[bb].id);
+                    console.log("id : "+itemlist_all[bb].id+", moq_qty : "+itemlist_all[bb].moq_qnty+", moq_price : "+itemlist_all[bb].moq_price);
                 }
 
+                const adda = itemlist_all.findIndex(itemlist => itemlist.id === "720");
+                console.log(">> moq_qty : "+itemlist_all[adda].moq_qty);
+                console.log(">> moq_price : "+itemlist_all[adda].moq_qty);
             }
 
             // Function to clear all selections and quantity values
