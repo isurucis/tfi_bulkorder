@@ -389,8 +389,18 @@
                     {*$array_str_test1 = $array_str_test1|cat:" Mr "*}
                     {*$array_str_sub = $array_str_sub|cat:"['"|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"', '"|cat:$asgn_moq_qnty|cat:"', '"|cat:$asgn_moq_price|cat:"', '"|cat:$asgn_case_qnty|cat:"', '"|cat:$asgn_case_price|cat:"'], "*}
                     {*$array_str_sub = $array_str_sub|cat:"[\\'"|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"'], "*}
-                    {$array_str_sub = $array_str_sub|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"|,"|cat:$asgn_moq_qnty|cat:"||"}
-
+                    {*$array_str_sub = $array_str_sub|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"|,"|cat:$asgn_moq_qnty|cat:"||"*}
+                    {$array_str_sub = $array_str_sub
+                    |cat:{$product.id_product|escape:'htmlall':'UTF-8'}
+                    |cat:"|,"
+                    |cat:$asgn_moq_qnty
+                    |cat:"|,"
+                    |cat:$asgn_moq_price
+                    |cat:"|,"
+                    |cat:$asgn_case_qnty
+                    |cat:"|,"
+                    |cat:$asgn_case_price
+                    |cat:"||"}
                 {/foreach}
             </tbody>
             <tfoot>
@@ -494,14 +504,17 @@
                         let itemeach_array = [];
                         let itemeach = array_str_sub1[a].split("|,");
                         if( parseInt(itemeach.length) > 0 ) {
-                            itemeach_array.push(itemeach[0]);
-                            itemeach_array.push(itemeach[1]);
+                            itemeach_array.push(itemeach[0]); // product-id
+                            itemeach_array.push(itemeach[1]); // moq_qnty
+                            itemeach_array.push(itemeach[2]); // moq_price
+                            itemeach_array.push(itemeach[3]); // case_qnty
+                            itemeach_array.push(itemeach[4]); // case_price
                         }
                         itemlist_all.push(itemeach_array);
                     }
                 }
-
                 console.log("itemlist_all LEN : "+itemlist_all.length);
+                
             }
 
             // Function to clear all selections and quantity values
@@ -526,18 +539,19 @@
             }
     
             // Function to update localStorage with both checkbox and quantity
-            function toggleLocalStorage(itemId, checked, qty) {
+            function toggleLocalStorage(itemId, checked, qty, moq_case) {
                 const existingIndex = checkedItems.findIndex(item => item.id === itemId);
     
                 if (checked && existingIndex === -1) {
                     // Add new item with checkbox state and quantity
-                    checkedItems.push({ id: itemId, qty: qty });
+                    checkedItems.push({ id: itemId, qty: qty, moq_case:moq_case });
                 } else if (!checked && existingIndex !== -1) {
                     // Remove item if unchecked
                     checkedItems.splice(existingIndex, 1);
                 } else if (checked && existingIndex !== -1) {
                     // Update quantity if item is already in the list
                     checkedItems[existingIndex].qty = qty;
+                    checkedItems[existingIndex].moq_case = moq_case;
                 }
     
                 localStorage.setItem('checkedItems', JSON.stringify(checkedItems));
@@ -549,7 +563,8 @@
     
                 var qtyInput = $(this).closest('tr').find('.input-qty');
                 var qtyValue = qtyInput.val();  // Get the quantity value
-    
+                var moq_case = $("input[name='qty_qty_" + $(this).val() + "']:checked").val();    // moq | case
+
                 if ($(this).is(":checked")) {
                     $(this).closest("tr").addClass("dataTable-highlight");
                     $(this).closest(".selection-button-checkbox").addClass('selected');
@@ -568,7 +583,7 @@
                     $(this).closest('tr').find('.price_box_amount').addClass('row_amount_disable');
                 }
     
-                toggleLocalStorage($(this).val(), $(this).is(":checked"), qtyValue);
+                toggleLocalStorage($(this).val(), $(this).is(":checked"), qtyValue, moq_case);
             });
 
             
@@ -661,7 +676,12 @@
             // Load checkboxes and quantities on page load
             checkCheckboxes();
 
-            function totalAmount() {
+            function calculateTotalAmount() {
+                var total_amount = "0.00";
+                var currencysign = "{$product.default_currency_sign|escape:'htmlall':'UTF-8'}";
+            }
+
+            function totalAmount_OLD() {
                 //spn_total_amount_disp
                 var total_amount = "0.00";
                 var qtyInputs = document.querySelectorAll('.input-qty');
@@ -739,12 +759,11 @@
 
                     $("#price_box_amount_"+row_id).html(currencysign+parseFloat(row_amount).toFixed(2));
                 }
-                //totalAmount();  // Calculate the Total Amount
+                //totalAmount_OLD();  // Calculate the Total Amount
             }
             calculateRowAmount(0); // Default
             
-            stringArrayConvert();
-            //console.log("array_str_sub length : "+array_str_sub.length);
+            stringArrayConvert();   // convert the items list string into array chunks
 
         </script>
     {/if}
