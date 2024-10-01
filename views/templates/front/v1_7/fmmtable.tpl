@@ -385,7 +385,7 @@
 
                     {*assign var=array_str_sub value="["|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"], "*}
 
-                    {assign var=array_str_sub value={$product.id_product|escape:'htmlall':'UTF-8'}}
+                    {*assign var=array_str_sub value={$product.id_product|escape:'htmlall':'UTF-8'}*}
 
                 {/foreach}
             </tbody>
@@ -414,9 +414,10 @@
                 </tr>
             </tfoot>
         </table>
-        <!-- div class="debug-console" id="debug-console">{$array_str_sub}
-            
-        </div -->
+        {assign var=array_str_test1 value="Ajanthan"}
+        {assign var=array_str_test2 value="Shanmugam"}
+
+        <div class="debug-console" id="debug-console">{$array_str_test1} {$array_str_test2}</div>
         {if $ajax_load}
         <input type="hidden" id="pageno" value="1">
         <span style="text-align: center;display: flow-root;">
