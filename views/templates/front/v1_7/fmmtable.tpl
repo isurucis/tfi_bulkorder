@@ -357,7 +357,7 @@
                                 
                                 <table class="row_tbl_price_box_amount" style="">
                                     <tr style="background: none; border: none;">
-                                        <td style="border: none;"><div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}" >2 Cases</div></td>
+                                        <td style="border: none;"><div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}" >0 Cases</div></td>
                                         <td style="border: none;"><div class="price_box_amount row_amount_disable" id="price_box_amount_{$product.id_product|escape:'htmlall':'UTF-8'}" >{$product.default_currency_sign|escape:'htmlall':'UTF-8'}0.00</div></td>
                                     </tr>
                                 </table>
@@ -589,7 +589,7 @@
             });
     
             // Update the case value based on quantity input
-            function updateCaseValue(qtyInput) {
+            /*function updateCaseValue(qtyInput) {
                 let minValue = parseInt(qtyInput.attr('min'));
                 let quantityValue = parseInt(qtyInput.val());
                 let boxqty = Math.floor((minValue*20)/4);
@@ -600,11 +600,11 @@
                 let priceBoxCalc = $('#price_box_calc_' + qtyInput.attr('id').split('_')[1]);
         
                 // Update the case value in the UI
-                priceBoxCalc.text(numberOfCases + ' CaseB' + (numberOfCases > 1 ? 's' : ''));
+                priceBoxCalc.text(numberOfCases + ' Case' + (numberOfCases > 1 ? 's' : ''));
                 if(numberOfCases>=1){
                     $('input[name="qty_qty_' + number + '"][value="case"]').prop('checked', true);
                 }
-            }
+            }*/
     
             // Function to check checkboxes and set quantity values based on localStorage data
             function checkCheckboxes() {

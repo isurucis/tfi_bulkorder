@@ -165,7 +165,7 @@ function updateCaseValue(qtyInput) {
   let priceBoxCalc = $('#price_box_calc_' + qtyInput.attr('id').split('_')[1]);
 
   // Update the case value in the UI
-  priceBoxCalc.text(numberOfCases + ' CaseA' + (numberOfCases > 1 ? 's' : ''));
+  priceBoxCalc.text(numberOfCases + ' Case' + (numberOfCases > 1 ? 's' : ''));
 }
 
 // Trigger the update when the quantity input changes manually
