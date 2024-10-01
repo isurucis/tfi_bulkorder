@@ -589,7 +589,7 @@
             });
     
             // Update the case value based on quantity input
-            /*function updateCaseValue(qtyInput) {
+            function updateCaseValue(qtyInput) {
                 let minValue = parseInt(qtyInput.attr('min'));
                 let quantityValue = parseInt(qtyInput.val());
                 let boxqty = Math.floor((minValue*20)/4);
@@ -604,7 +604,7 @@
                 if(numberOfCases>=1){
                     $('input[name="qty_qty_' + number + '"][value="case"]').prop('checked', true);
                 }
-            }*/
+            }
     
             // Function to check checkboxes and set quantity values based on localStorage data
             function checkCheckboxes() {

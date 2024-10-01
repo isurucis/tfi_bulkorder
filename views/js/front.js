@@ -158,7 +158,7 @@ $('#fmm_table').on('change', 'input[name^="qty_qty_"]', function() {
 
 
 // Update the case value based on quantity input
-function updateCaseValue(qtyInput) {
+/*function updateCaseValue(qtyInput) {
   let minValue = parseInt(qtyInput.attr('min'));
   let quantityValue = parseInt(qtyInput.val());
   let numberOfCases = Math.floor(quantityValue / ((minValue*20)/4)); // Calculate number of cases
@@ -166,7 +166,7 @@ function updateCaseValue(qtyInput) {
 
   // Update the case value in the UI
   priceBoxCalc.text(numberOfCases + ' Case' + (numberOfCases > 1 ? 's' : ''));
-}
+}*/
 
 // Trigger the update when the quantity input changes manually
 $('#fmm_table').on('change', 'input.qty_id-bulkorder', function() {
