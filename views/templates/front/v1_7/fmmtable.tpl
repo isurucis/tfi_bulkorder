@@ -418,7 +418,10 @@
         {*assign var=array_str_test2 value="Shanmugam"*}
         {*$array_str_test1 = $array_str_test1|cat:" Mr "*}
 
-        <!-- div class="debug-console" id="debug-console">{$array_str_test1} {$array_str_test2}</div -->
+        <!-- div class="debug-console" id="debug-console">{*$array_str_test1*} {*$array_str_test2*}</div -->
+
+
+        
         {if $ajax_load}
         <input type="hidden" id="pageno" value="1">
         <span style="text-align: center;display: flow-root;">
