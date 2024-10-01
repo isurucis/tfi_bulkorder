@@ -695,12 +695,15 @@
                     console.log("ID : "+strg_id+", qty : "+strg_qty+", by : "+strg_by);
                     console.log(">> moq_qnty : "+itemlist_all[adda].moq_qnty);
                     console.log(">> moq_price : "+itemlist_all[adda].moq_price);
+                    console.log(">> case_price : "+itemlist_all[adda].case_qnty);
                     console.log(">> case_price : "+itemlist_all[adda].case_price);
-                    console.log(">> case_price : "+itemlist_all[adda].case_price);
-                    //if( strg_by == "moq" ) {
-                    //    itemsubprice = parseFloat(parseInt(strg_qty)*parseFloat(itemlist_all[adda].moq_price)).toFixed(2);
-                    //    total_amount = parseFloat(total_amount)+parseFloat(itemsubprice).toFixed(2);
-                    //}
+                    if( strg_by == "moq" ) {
+                        itemsubprice = parseFloat(parseInt(strg_qty)*parseFloat(itemlist_all[adda].moq_price)).toFixed(2);
+                        total_amount = parseFloat(total_amount)+parseFloat(itemsubprice).toFixed(2);
+                    } else {
+                        itemsubprice = parseFloat(parseInt(strg_qty)*parseFloat(itemlist_all[adda].case_price)).toFixed(2);
+                        total_amount = parseFloat(total_amount)+parseFloat(itemsubprice).toFixed(2);
+                    }
                 });
 
                 $("#spn_total_amount_disp").html(currencysign+parseFloat(total_amount).toFixed(2));
