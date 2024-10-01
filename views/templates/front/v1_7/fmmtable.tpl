@@ -705,7 +705,7 @@
                         total_amount = parseFloat(total_amount)+parseFloat(itemsubprice).toFixed(2);
                     }
                 });
-
+                console.log("TOTAL AMOUNT : "+currencysign+parseFloat(total_amount).toFixed(2));
                 $("#spn_total_amount_disp").html(currencysign+parseFloat(total_amount).toFixed(2));
             }
 
