@@ -389,7 +389,7 @@
                     {*$array_str_test1 = $array_str_test1|cat:" Mr "*}
                     {*$array_str_sub = $array_str_sub|cat:"['"|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"', '"|cat:$asgn_moq_qnty|cat:"', '"|cat:$asgn_moq_price|cat:"', '"|cat:$asgn_case_qnty|cat:"', '"|cat:$asgn_case_price|cat:"'], "*}
                     {*$array_str_sub = $array_str_sub|cat:"[\\'"|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"'], "*}
-                    {$array_str_sub = $array_str_sub|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"|, "|cat:$asgn_moq_qnty|cat:"||"}
+                    {$array_str_sub = $array_str_sub|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"|,"|cat:$asgn_moq_qnty|cat:"||"}
 
                 {/foreach}
             </tbody>
@@ -482,13 +482,26 @@
             // Initialize checkedItems array from localStorage or an empty array
             let checkedItems = JSON.parse(localStorage.getItem('checkedItems')) || [];
 
-            
+            let itemlist_all = [];
             
             
             function stringArrayConvert() {
                 let array_str_sub = "{$array_str_sub|escape:'html'}";
                 const array_str_sub1 = array_str_sub.split("||");
                 console.log("array_str_sub1 LENGTH : "+array_str_sub1.length);
+                if( parseInt(array_str_sub1.length) > 0 ) {
+                    for( var a=0; a < parseInt(array_str_sub1.length); a++ ) {
+                        let itemeach_array = [];
+                        let itemeach = array_str_sub1[a].split("|,");
+                        if( parseInt(itemeach.length) > 0 ) {
+                            itemeach_array.push(itemeach[0]);
+                            itemeach_array.push(itemeach[1]);
+                        }
+                        itemlist_all.push(itemeach_array);
+                    }
+                }
+
+                console.log("itemlist_all LEN : "+itemlist_all.length);
             }
 
             // Function to clear all selections and quantity values
