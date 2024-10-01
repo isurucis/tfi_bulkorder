@@ -481,9 +481,9 @@
             // Initialize checkedItems array from localStorage or an empty array
             let checkedItems = JSON.parse(localStorage.getItem('checkedItems')) || [];
 
-            {literal}
-            var array_str_sub = [{$array_str_sub|escape:'html'}];
-            {/literal}
+            
+            var array_str_sub = [$array_str_sub];
+          
 
 
             // Function to clear all selections and quantity values
