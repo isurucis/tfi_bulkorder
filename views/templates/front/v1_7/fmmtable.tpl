@@ -388,6 +388,7 @@
                     
                     {*$array_str_test1 = $array_str_test1|cat:" Mr "*}
                     {*$array_str_sub = $array_str_sub|cat:"['"|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"', '"|cat:$asgn_moq_qnty|cat:"', '"|cat:$asgn_moq_price|cat:"', '"|cat:$asgn_case_qnty|cat:"', '"|cat:$asgn_case_price|cat:"'], "*}
+                    {$array_str_sub = $array_str_sub|cat:"['"|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"'], "}
 
                 {/foreach}
             </tbody>
