@@ -486,7 +486,7 @@
             
             
             function stringArrayConvert() {
-                let array_str_sub = "{$array_str_sub|escape:'html'}";
+                /*let array_str_sub = "{*$array_str_sub|escape:'html'*}";
                 const array_str_sub1 = array_str_sub.split("||").pop();
                 console.log("A1 :"+array_str_sub1[0]);
                 console.log("A2 :"+array_str_sub1[parseInt(array_str_sub1.length)]);
@@ -509,6 +509,7 @@
                 }
                 console.log("Total item list : "+itemlist_all.length);
                 //calculateTotalAmount();
+                */
             }
 
             // Function to clear all selections and quantity values
@@ -535,12 +536,12 @@
             }
     
             // Function to update localStorage with both checkbox and quantity
-            function toggleLocalStorage(itemId, checked, qty, moq_case) {
+            function toggleLocalStorage(itemId, checked, qty, moq_case, itemprice) {
                 const existingIndex = checkedItems.findIndex(item => item.id === itemId);
     
                 if (checked && existingIndex === -1) {
                     // Add new item with checkbox state and quantity
-                    checkedItems.push({ id: itemId, qty: qty, by:moq_case });
+                    checkedItems.push({ id: itemId, qty: qty, by:moq_case, price:itemprice });
                 } else if (!checked && existingIndex !== -1) {
                     // Remove item if unchecked
                     checkedItems.splice(existingIndex, 1);
@@ -548,6 +549,7 @@
                     // Update quantity if item is already in the list
                     checkedItems[existingIndex].qty = qty;
                     checkedItems[existingIndex].by = moq_case;
+                    checkedItems[existingIndex].price = itemprice;
                 }
     
                 localStorage.setItem('checkedItems', JSON.stringify(checkedItems));
@@ -561,7 +563,9 @@
                 var qtyInput = $(this).closest('tr').find('.input-qty');
                 var qtyValue = qtyInput.val();  // Get the quantity value
                 var moq_case = $("input[name='qty_qty_" + $(this).val() + "']:checked").val();    // moq | case
-
+                var moq_price   = parseInt(qtyInput.getAttribute('moq_price'), 10) || "0.00";
+                var case_price  = parseInt(qtyInput.getAttribute('case_price'), 10) || "0.00";
+                var itemprice = (moq_case == "moq") ? moq_price : case_price;
                 if ($(this).is(":checked")) {
                     $(this).closest("tr").addClass("dataTable-highlight");
                     $(this).closest(".selection-button-checkbox").addClass('selected');
@@ -579,8 +583,8 @@
                     $(this).closest('tr').find('.price_box_amount').removeClass('row_amount_enable');
                     $(this).closest('tr').find('.price_box_amount').addClass('row_amount_disable');
                 }
-    
-                toggleLocalStorage($(this).val(), $(this).is(":checked"), qtyValue, moq_case);
+
+                toggleLocalStorage($(this).val(), $(this).is(":checked"), qtyValue, moq_case, itemprice);
             });
 
             
@@ -678,24 +682,29 @@
                 var currencysign = "{$product.default_currency_sign|escape:'htmlall':'UTF-8'}";
           
                 checkedItems.forEach(function(storeItem) {
-                    const adda          = itemlist_all.findIndex(itemlist => itemlist.id === storeItem.id);
+                    //const adda          = itemlist_all.findIndex(itemlist => itemlist.id === storeItem.id);
 
                     const strg_id       = storeItem.id;
                     const strg_qty      = storeItem.qty;
                     const strg_by       = storeItem.by;
+                    const strg_price    = storeItem.price;
+
                     var itemsubprice    = "0.00";
-                    console.log("ID : "+strg_id+", qty : "+strg_qty+", by : "+strg_by);
-                    console.log(">> moq_qnty : "+itemlist_all[adda].moq_qnty);
-                    console.log(">> moq_price : "+itemlist_all[adda].moq_price);
-                    console.log(">> case_price : "+itemlist_all[adda].case_qnty);
-                    console.log(">> case_price : "+itemlist_all[adda].case_price);
-                    if( strg_by == "moq" ) {
-                        itemsubprice = parseFloat(parseInt(strg_qty)*parseFloat(itemlist_all[adda].moq_price)).toFixed(2);
-                        total_amount = parseFloat(parseFloat(total_amount)+parseFloat(itemsubprice)).toFixed(2);
-                    } else {
-                        itemsubprice = parseFloat(parseInt(strg_qty)*parseFloat(itemlist_all[adda].case_price)).toFixed(2);
-                        total_amount = parseFloat(parseFloat(total_amount)+parseFloat(itemsubprice)).toFixed(2);
-                    }
+                    console.log("ID : "+strg_id+", qty : "+strg_qty+", by : "+strg_by+", price : "+strg_price);
+                    //console.log(">> moq_qnty : "+itemlist_all[adda].moq_qnty);
+                    //console.log(">> moq_price : "+itemlist_all[adda].moq_price);
+                    //console.log(">> case_price : "+itemlist_all[adda].case_qnty);
+                    //console.log(">> case_price : "+itemlist_all[adda].case_price);
+                    //if( strg_by == "moq" ) {
+                    //    itemsubprice = parseFloat(parseInt(strg_qty)*parseFloat(itemlist_all[adda].moq_price)).toFixed(2);
+                    //    total_amount = parseFloat(parseFloat(total_amount)+parseFloat(itemsubprice)).toFixed(2);
+                    //} else {
+                    //    itemsubprice = parseFloat(parseInt(strg_qty)*parseFloat(itemlist_all[adda].case_price)).toFixed(2);
+                    //    total_amount = parseFloat(parseFloat(total_amount)+parseFloat(itemsubprice)).toFixed(2);
+                    //}
+
+                    itemsubprice = parseFloat(parseInt(strg_qty)*parseFloat(strg_price)).toFixed(2);
+                    total_amount = parseFloat(parseFloat(total_amount)+parseFloat(itemsubprice)).toFixed(2);
 
                     console.log("itemsubprice : "+itemsubprice);
                     console.log("total_amount : "+total_amount);
@@ -778,7 +787,7 @@
             }
             calculateRowAmount(0); // Default
             
-            stringArrayConvert();   // convert the items list string into array chunks
+            //stringArrayConvert();   // convert the items list string into array chunks
 
         </script>
     {/if}
