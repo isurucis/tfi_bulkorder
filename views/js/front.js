@@ -123,7 +123,7 @@ $('#fmm_table').on('click', 'span.plus-bulkorder', function(e) {
     }
 
   }
-  if(parseInt(stock>=$input.val()) + i){
+  if(stock>=(parseInt($input.val()) + i)){
   $input.val(parseInt($input.val()) + i);
   }
   $input.change(); // Trigger change event to update case value
