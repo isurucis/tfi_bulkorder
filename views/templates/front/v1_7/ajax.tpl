@@ -100,7 +100,7 @@
                     </div>
                 </td>
                 
-                <td><div class="grid_td_column_group">{$product.category_name|escape:'htmlall':'UTF-8'}</div></td>
+                <!-- td><div class="grid_td_column_group">{$product.category_name|escape:'htmlall':'UTF-8'}</div></td -->
 
                 <td data-label="Size">
                     <div class="grid_td_column4">
