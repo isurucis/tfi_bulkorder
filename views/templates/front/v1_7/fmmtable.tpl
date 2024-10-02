@@ -505,6 +505,7 @@
                         
                     }
                 }
+                console.log("Total item list : "+itemlist_all.length);
                 calculateTotalAmount();
             }
 
