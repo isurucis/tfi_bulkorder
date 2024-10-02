@@ -128,7 +128,7 @@ $('#fmm_table').on('click', 'span.plus-bulkorder', function(e) {
   return false;
 });
 
-
+// Handle moq or case radio button change
 $('#fmm_table').on('change', 'input[name^="qty_qty_"]', function() {
   // Get the name of the selected radio button
   var radioName = $(this).attr('name');  // e.g., qty_case_1
