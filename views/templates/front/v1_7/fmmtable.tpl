@@ -678,7 +678,7 @@
                             if(stock >= itemData.qty){
                                 qtyInput.value = itemData.qty;
                             }else{
-                                qtyInput.value = 0;
+                                qtyInput.value = minValue;
                             }
                             updateCaseValue($(qtyInput));
                         }
