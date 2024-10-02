@@ -488,7 +488,8 @@
             function stringArrayConvert() {
                 let array_str_sub = "{$array_str_sub|escape:'html'}";
                 const array_str_sub1 = array_str_sub.split("||").pop();
-
+                console.log("A1 :"+array_str_sub1[0]);
+                console.log("A2 :"+array_str_sub1[parseInt(array_str_sub1.length)]);
                 if( parseInt(array_str_sub1.length) > 0 ) {
                     for( var a=0; a < parseInt(array_str_sub1.length); a++ ) {
                         let itemeach_array = [];
@@ -507,7 +508,7 @@
                     }
                 }
                 console.log("Total item list : "+itemlist_all.length);
-                calculateTotalAmount();
+                //calculateTotalAmount();
             }
 
             // Function to clear all selections and quantity values
