@@ -671,9 +671,15 @@
     
                         // Set the quantity value
                         var qtyInput = closestTr.querySelector('.input-qty');
+                        
                         if (qtyInput) {
-                            qtyInput.value = itemData.qty;
-                            
+                            var stock = parseInt(qtyInput.attr('stk'));
+                            var minValue = parseInt(qtyInput.attr('min'));
+                            if(stock >= itemData.qty){
+                                qtyInput.value = itemData.qty;
+                            }else{
+                                qtyInput.value = 0;
+                            }
                             updateCaseValue($(qtyInput));
                         }
                     }
