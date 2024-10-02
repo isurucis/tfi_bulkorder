@@ -145,7 +145,9 @@
                     
                     <th class='grid_th_column4'><div>MOQ<br />(Price)</div></th>
                     <th class='grid_th_column4'><div>Case Qty<br />(Price)</div></th>
-                    <th class='grid_th_column4'><div>Qty/<br />Box</div></th>
+                    <th class='grid_th_column4'><!--<div>Qty/<br />Box</div>-->
+                    <div>Stock</div>
+                    </th>
     
                     <!-- th class='grid_th_column5'><div>{l s='Price' mod='quickproducttable'}</div></th -->
                     <th class='grid_th_column6'><div>Qty<br />(In Cases)</div></th>
@@ -314,14 +316,14 @@
         
                         <td data-label="Qty per Box">
                             <div class="grid_td_column4">
-                                {foreach from=$product.features item=feature name=features}
+                                <!--{foreach from=$product.features item=feature name=features}
                                     {if $feature.id_feature == 8}
                                     <span>
                                     {$feature.value|escape:'htmlall':'UTF-8'}
                                     </span>
                                     {/if}
                                 {foreachelse}
-                                {/foreach}
+                                {/foreach}-->
                                 {$product.quantity}
                             </div>
                         </td>
@@ -407,7 +409,8 @@
                     
                     <th class='grid_th_column4'><div>{l s='MOQ (Price)' mod='quickproducttable'}</div></th>
                     <th class='grid_th_column4'><div>{l s='Case Qty (Price)' mod='quickproducttable'}</div></th>
-                    <th class='grid_th_column4'><div>{l s='Qty/Box' mod='quickproducttable'}</div></th>
+                    <th class='grid_th_column4'><!--<div>Qty/<br />Box</div>-->
+                        <div>Stock</div></th>
     
                     <!-- th class='grid_th_column5'><div>{l s='Price' mod='quickproducttable'}</div></th -->
                     <th class='grid_th_column6'><div>{l s='Qty (In Cases)' mod='quickproducttable'}</div></th>
