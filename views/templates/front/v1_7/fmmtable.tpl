@@ -571,7 +571,7 @@
                 var moq_price   = qtyInput.attr('moq_price');
                 var case_price  = qtyInput.attr('case_price');
                 var itemprice = (moq_case == "moq") ? moq_price : case_price;
-                console.log("itemprice : "+itemprice);
+                //console.log("itemprice : "+itemprice);
                 if ($(this).is(":checked")) {
                     $(this).closest("tr").addClass("dataTable-highlight");
                     $(this).closest(".selection-button-checkbox").addClass('selected');
@@ -749,7 +749,7 @@
 
                 $("#spn_total_amount_disp").html(currencysign+parseFloat(total_amount).toFixed(2));
             }
-
+            
             function calculateRowAmount(mode) {
                 var qtyInputs = document.querySelectorAll('.input-qty');
                 var currencysign = "{$product.default_currency_sign|escape:'htmlall':'UTF-8'}";
@@ -777,14 +777,17 @@
                 } else {
                     let row_amount      = "0.00";
                     let now_qty         = $("#quantity_"+mode).val();
+                    let now_group       = $("#group_"+mode).val();
                     let row_id          = mode; //mode.getAttribute('row_id');
                     let moq_price       = parseFloat($("#quantity_"+mode).attr('moq_price'), 10) || "0.00";          // parseFloat(mode.getAttribute('moq_price'), 10) || "0.00";
                     let case_price      = parseFloat($("#quantity_"+mode).attr('case_price'), 10) || "0.00";          // parseFloat(mode.getAttribute('case_price'), 10) || "0.00";
                     let moq_case        = $("input[name='qty_qty_" + row_id + "']:checked").val();    // moq | case
 
                     row_amount          = ( moq_case == "moq" ) ? parseFloat(parseFloat(moq_price)*now_qty, 10) || "0.00" : parseFloat(parseFloat(case_price)*now_qty, 10) || "0.00";
-                    
+                    var itemprice       = (moq_case == "moq") ? moq_price : case_price;
                     $("#price_box_amount_"+row_id).html(currencysign+parseFloat(row_amount).toFixed(2));
+
+                    toggleLocalStorage(row_id, $("#"+mode+"_"+now_group).is(":checked"), now_qty, moq_case, itemprice);
                 }
                 calculateTotalAmount();  // Calculate the Total Amount
             }
