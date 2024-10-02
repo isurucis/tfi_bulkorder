@@ -673,8 +673,8 @@
                         var qtyInput = closestTr.querySelector('.input-qty');
                         
                         if (qtyInput) {
-                            var stock = parseInt(qtyInput.attr('stk'));
-                            var minValue = parseInt(qtyInput.attr('min'));
+                            var stock = parseInt(input.getAttribute('stk'));;
+                            var minValue = parseInt(input.getAttribute('min'));
                             if(stock >= itemData.qty){
                                 qtyInput.value = itemData.qty;
                             }else{
