@@ -71,6 +71,7 @@ $('#fmm_table').on('click', 'span.minus-bulkorder', function(e) {
   var id = $input.attr('id')
   var number = id.split("_")[1];
   var minValue = parseInt($input.attr('min'));
+  var stock = parseInt($input.attr('stk'));
   let boxqty = Math.floor((minValue*20)/4);
   if($input.val()<=boxqty){
     var i = minValue < 1 ? 1 : minValue;
@@ -101,6 +102,7 @@ $('#fmm_table').on('click', 'span.plus-bulkorder', function(e) {
   var number = id.split("_")[1];
   //alert(number);
   var minValue = parseInt($input.attr('min'));
+  var stock = parseInt($input.attr('stk'));
   let boxqty = Math.floor((minValue*20)/4);
   //var i = minValue < 1 ? 1 : minValue;
 
@@ -121,8 +123,9 @@ $('#fmm_table').on('click', 'span.plus-bulkorder', function(e) {
     }
 
   }
-
+  if(parseInt(stock>=$input.val()) + i){
   $input.val(parseInt($input.val()) + i);
+  }
   $input.change(); // Trigger change event to update case value
   updateCaseValue($input); // Update case value after changing quantity
   return false;
@@ -139,6 +142,7 @@ $('#fmm_table').on('change', 'input[name^="qty_qty_"]', function() {
   var $input = $('input[id="quantity_' + number + '"]');
 
   var minValue = parseInt($input.attr('min'));
+  var stock = parseInt($input.attr('stk'));
   let boxqty = Math.floor((minValue*20)/4);
   // Call your function and pass the selected number
   //alert(minValue); // Pass the number and selected value
