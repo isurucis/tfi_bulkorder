@@ -696,10 +696,7 @@
 
                     var itemsubprice    = "0.00";
                     console.log("ID : "+strg_id+", qty : "+strg_qty+", by : "+strg_by+", price : "+strg_price);
-                    //console.log(">> moq_qnty : "+itemlist_all[adda].moq_qnty);
-                    //console.log(">> moq_price : "+itemlist_all[adda].moq_price);
-                    //console.log(">> case_price : "+itemlist_all[adda].case_qnty);
-                    //console.log(">> case_price : "+itemlist_all[adda].case_price);
+                    
                     //if( strg_by == "moq" ) {
                     //    itemsubprice = parseFloat(parseInt(strg_qty)*parseFloat(itemlist_all[adda].moq_price)).toFixed(2);
                     //    total_amount = parseFloat(parseFloat(total_amount)+parseFloat(itemsubprice)).toFixed(2);
