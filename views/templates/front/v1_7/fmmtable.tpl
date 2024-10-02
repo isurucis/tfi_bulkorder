@@ -568,9 +568,10 @@
                 var qtyInput = $(this).closest('tr').find('.input-qty');
                 var qtyValue = qtyInput.val();  // Get the quantity value
                 var moq_case = $("input[name='qty_qty_" + $(this).val() + "']:checked").val();    // moq | case
-                var moq_price   = parseInt(qtyInput.attr('moq_price'), 10) || "0.00";
-                var case_price  = parseInt(qtyInput.attr('case_price'), 10) || "0.00";
+                var moq_price   = qtyInput.attr('moq_price');
+                var case_price  = qtyInput.attr('case_price');
                 var itemprice = (moq_case == "moq") ? moq_price : case_price;
+                console.log("itemprice : "+itemprice);
                 if ($(this).is(":checked")) {
                     $(this).closest("tr").addClass("dataTable-highlight");
                     $(this).closest(".selection-button-checkbox").addClass('selected');
