@@ -39,7 +39,7 @@
         <div class="col-sm-8" style="margin-bottom: 0px; padding-bottom: 0px; text-align: right; float: right;">
             {if isset($catTree)}
                 <select  name="select_fmm_cat" id="select_fmm_cat" class="custom-select " style="width: auto;">
-                    <option value="0" selected="selected">{" (Select a Family)"|escape:'htmlall':'UTF-8'}</option>
+                    <!-- option value="0" selected="selected">{" (Select a Family)"|escape:'htmlall':'UTF-8'}</option -->
                     {foreach from=$catTree['children'] item=tree}
                         <option value="{$tree['id']|escape:'htmlall':'UTF-8'}">{$tree['name']|escape:'htmlall':'UTF-8'}{" (Select a Family)"|escape:'htmlall':'UTF-8'}</option>
                         {foreach from=$tree['children'] item=tree2}
@@ -388,17 +388,6 @@
                             </div>
                         </td>
                     </tr>
-                    {*assign var=array_str_sub value=','|explode:'{$product.id_product|escape:'htmlall':'UTF-8'},$asgn_moq_qnty,$asgn_moq_price,$asgn_case_qnty,$asgn_case_price'*}
-                    {*assign var=array_str_sub value=$array_str_sub|cat:"['"|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"', '"|cat:$asgn_moq_qnty|cat:"', '"|cat:$asgn_moq_price|cat:"', '"|cat:$asgn_case_qnty|cat:"', '"|cat:$asgn_case_price|cat:"'], "*}
-
-                    {*assign var=array_str_sub value="["|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"], "*}
-
-                    {*assign var=array_str_sub value={$product.id_product|escape:'htmlall':'UTF-8'}*}
-                    
-                    {*$array_str_test1 = $array_str_test1|cat:" Mr "*}
-                    {*$array_str_sub = $array_str_sub|cat:"['"|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"', '"|cat:$asgn_moq_qnty|cat:"', '"|cat:$asgn_moq_price|cat:"', '"|cat:$asgn_case_qnty|cat:"', '"|cat:$asgn_case_price|cat:"'], "*}
-                    {*$array_str_sub = $array_str_sub|cat:"[\\'"|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"'], "*}
-                    {*$array_str_sub = $array_str_sub|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"|,"|cat:$asgn_moq_qnty|cat:"||"*}
                     {$array_str_sub = $array_str_sub|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"|,"|cat:$asgn_moq_qnty|cat:"|,"|cat:$asgn_moq_price|cat:"|,"|cat:$asgn_case_qnty|cat:"|,"|cat:$asgn_case_price|cat:"||"}
                 {/foreach}
             </tbody>
