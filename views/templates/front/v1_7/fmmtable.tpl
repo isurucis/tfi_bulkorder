@@ -342,6 +342,7 @@
                         
                         <td data-label="Quantity">
                             <div class="col-lg-2 grid_td_column6">
+                                {if $product.quantity > $product.product_attribute_minimal_quantity}
                                 <div class="number" id="number">
                                     <span class="btn minus-bulkorder">−</span>
                                     <input class="qty_id-bulkorder form-control input-qty input-qty-disable" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
@@ -366,20 +367,24 @@
                                     </tr>
                                 </table>
                                 <!-- div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}">0 Case</div -->
-                                
+                                {else}
+                                <a class="btn btn-info" href="https://mediumturquoise-cheetah-573749.hostingersite.com/fmmquick?product_type=sale">Notify Me</a>
+                                {/if}
                             </div>
                         </td>
                         
                         <td data-label="Add to Cart">
                             <div class="grid_td_column7">
-                                <input type="hidden" name="group" id="group_{$product.id_product|escape:'htmlall':'UTF-8'}" value="{$group_count|escape:'htmlall':'UTF-8'}">
-                                {*<button class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" onclick="fmmAddCart({$product.id_product|escape:'htmlall':'UTF-8'}, {$group_count|escape:'htmlall':'UTF-8'});" >{l s='🧺' mod='quickproducttable'}</button>*}
-                                {*<input type="checkbox"  id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}">*}
-        
-                                <div class="form-group-checkbox">
-                                    <input type="checkbox" id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}">
-                                    <label for="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" class="selection-button-checkbox">&nbsp;</label>
-                                </div>
+                                {if $product.quantity > $product.product_attribute_minimal_quantity}
+                                    <input type="hidden" name="group" id="group_{$product.id_product|escape:'htmlall':'UTF-8'}" value="{$group_count|escape:'htmlall':'UTF-8'}">
+                                    {*<button class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" onclick="fmmAddCart({$product.id_product|escape:'htmlall':'UTF-8'}, {$group_count|escape:'htmlall':'UTF-8'});" >{l s='🧺' mod='quickproducttable'}</button>*}
+                                    {*<input type="checkbox"  id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}">*}
+            
+                                    <div class="form-group-checkbox">
+                                        <input type="checkbox" id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}">
+                                        <label for="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" class="selection-button-checkbox">&nbsp;</label>
+                                    </div>
+                                {/if}
                             </div>
                         </td>
                     </tr>
