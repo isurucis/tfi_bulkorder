@@ -487,7 +487,8 @@
             
             function stringArrayConvert() {
                 let array_str_sub = "{$array_str_sub|escape:'html'}";
-                const array_str_sub1 = array_str_sub.split("||");
+                const array_str_sub1 = array_str_sub.split("||").pop();
+
                 if( parseInt(array_str_sub1.length) > 0 ) {
                     for( var a=0; a < parseInt(array_str_sub1.length); a++ ) {
                         let itemeach_array = [];
