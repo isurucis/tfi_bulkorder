@@ -322,6 +322,7 @@
                                     {/if}
                                 {foreachelse}
                                 {/foreach}
+                                {$product.quantity}
                             </div>
                         </td>
         
@@ -350,6 +351,7 @@
                                     {else}
                                         case_price="{$product.price*0.8|number_format:2}"
                                     {/if}
+                                    stk="{$product.quantity}"
                                     row_id="{$product.id_product|escape:'htmlall':'UTF-8'}"
                                     readonly="readonly"/>
                                     <span class="btn plus-bulkorder">+</span>
