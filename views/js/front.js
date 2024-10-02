@@ -453,17 +453,17 @@ $( document ).ready(function() {
     $("#fmm_table_filter").append(content); 
 
    
-    /*var topbotinbuttons = '<div class="col-lg-12 col-xs-12 top_buttons" >\
+    var botinbuttons22 = '<div class="col-lg-12 col-xs-12 top_buttons" >\
                           <a class="btn btn-primary" href="'+$("#cart_url").val()+'">View Cart</a>\
                           <button class="btn btn-primary" onclick="fmmAddAllCart();" >Add To Cart</button>\
-                          </div>'*/
-    var topbotinbuttons = '<div class="col-lg-12 col-xs-12 top_buttons div_total_amount" id="div_total_amount" >\
+                          </div>'
+    var topinbuttons22 = '<div class="col-lg-12 col-xs-12 top_buttons div_total_amount" id="div_total_amount" >\
                             <span>Total </span>\
                             <span id="spn_total_amount_disp" class="spn_total_amount_disp">'+def_currency+'0.00</span>\
                             <span> (+Shipping +Tax)</span>\
                             </div>';
-    $(".topinbuttons").append(topbotinbuttons);
-    $(".botinbuttons").append(topbotinbuttons);
+    $(".topinbuttons").append(topinbuttons22);
+    $(".botinbuttons").append(botinbuttons22);
 
 
     $('.read-b2b-imagepopup').fancybox({
