@@ -321,10 +321,11 @@
                             <div class="grid_td_column4">
                                 {foreach from=$product.features item=feature name=features}
                                     {if $feature.id_feature == 8}
-                                    <span>
+                                    <div class="ml-2 price price--discounted">
                                         {intval($feature.value)/4}
                                         {$asgn_case_qnty = {intval($feature.value)/4}}
-                                    </span>
+                                        <span> x </span>
+                                    </div>
                                     {/if}
                                 {foreachelse}
                                 {/foreach}
@@ -336,6 +337,7 @@
                                     {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price*0.8|number_format:2}</span>
                                     {$asgn_case_price = {$product.price*0.8|number_format:2}}
                                 {/if}
+                                <span></span>
                                 <!-- input type="radio" id="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="case" / -->
                             </div>
                         </td>
@@ -366,59 +368,55 @@
                             </div>
                         </td -->
                         
-                        {if $product.quantity > $product.minimal_quantity}
-                            <td data-label="Quantity">
-                                <div class="col-lg-2 grid_td_column6">
-                                    
-                                    <div class="number" id="number">
-                                        <span class="btn minus-bulkorder">−</span>
-                                        <input class="qty_id-bulkorder form-control input-qty input-qty-disable" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
-                                        value="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
-                                        min="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
-                                        moq_price="{$product.price|number_format:2}"
-                                        {if $product.reduction > 0}
-                                            case_price="{$product.price|number_format:2}"
-                                        {else}
-                                            case_price="{$product.price*0.8|number_format:2}"
-                                        {/if}
-                                        stk="{$product.quantity}"
-                                        row_id="{$product.id_product|escape:'htmlall':'UTF-8'}"
-                                        readonly="readonly"/>
-                                        <span class="btn plus-bulkorder">+</span>
-                                    </div>
-                                    
-                                    <table class="row_tbl_price_box_amount" style="">
-                                        <tr style="background: none; border: none;">
-                                            <td style="border: none;"><div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}" >0 Cases</div></td>
-                                            <td style="border: none;"><div class="price_box_amount row_amount_disable" id="price_box_amount_{$product.id_product|escape:'htmlall':'UTF-8'}" >{$product.default_currency_sign|escape:'htmlall':'UTF-8'}0.00</div></td>
-                                        </tr>
-                                    </table>
-                                    <!-- div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}">0 Case</div -->
-                                    
-                                </div>
-                            </td>
-                            
-                            <td data-label="Add to Cart">
-                                <div class="grid_td_column7">
-                                    {if $product.quantity > $product.minimal_quantity}
-                                        <input type="hidden" name="group" id="group_{$product.id_product|escape:'htmlall':'UTF-8'}" value="{$group_count|escape:'htmlall':'UTF-8'}">
-                                        {*<button class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" onclick="fmmAddCart({$product.id_product|escape:'htmlall':'UTF-8'}, {$group_count|escape:'htmlall':'UTF-8'});" >{l s='🧺' mod='quickproducttable'}</button>*}
-                                        {*<input type="checkbox"  id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}">*}
-                
-                                        <div class="form-group-checkbox">
-                                            <input type="checkbox" id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}">
-                                            <label for="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" class="selection-button-checkbox">&nbsp;</label>
-                                        </div>
+                        
+                        <td data-label="Quantity">
+                            <div class="col-lg-2 grid_td_column6">
+                                {if $product.quantity > $product.minimal_quantity}
+                                <div class="number" id="number">
+                                    <span class="btn minus-bulkorder">−</span>
+                                    <input class="qty_id-bulkorder form-control input-qty input-qty-disable" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
+                                    value="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
+                                    min="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
+                                    moq_price="{$product.price|number_format:2}"
+                                    {if $product.reduction > 0}
+                                        case_price="{$product.price|number_format:2}"
+                                    {else}
+                                        case_price="{$product.price*0.8|number_format:2}"
                                     {/if}
+                                    stk="{$product.quantity}"
+                                    row_id="{$product.id_product|escape:'htmlall':'UTF-8'}"
+                                    readonly="readonly"/>
+                                    <span class="btn plus-bulkorder">+</span>
                                 </div>
-                            </td>
-                        {else}
-                            <td data-label="Quantity" colspan="2">
-                                <div class="col-lg-2 grid_td_column6" style="width: 100%; text-align: center;">
+                                
+                                <table class="row_tbl_price_box_amount" style="">
+                                    <tr style="background: none; border: none;">
+                                        <td style="border: none;"><div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}" >0 Cases</div></td>
+                                        <td style="border: none;"><div class="price_box_amount row_amount_disable" id="price_box_amount_{$product.id_product|escape:'htmlall':'UTF-8'}" >{$product.default_currency_sign|escape:'htmlall':'UTF-8'}0.00</div></td>
+                                    </tr>
+                                </table>
+                                <!-- div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}">0 Case</div -->
+                                {else}
                                     <a class="btn btn-info" href="https://mediumturquoise-cheetah-573749.hostingersite.com/fmmquick?product_type=sale">Notify Me</a>
-                                </div>
-                            </td>
-                        {/if}
+                                {/if}
+                            </div>
+                        </td>
+                        
+                        <td data-label="Add to Cart">
+                            <div class="grid_td_column7">
+                                {if $product.quantity > $product.minimal_quantity}
+                                    <input type="hidden" name="group" id="group_{$product.id_product|escape:'htmlall':'UTF-8'}" value="{$group_count|escape:'htmlall':'UTF-8'}">
+                                    {*<button class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" onclick="fmmAddCart({$product.id_product|escape:'htmlall':'UTF-8'}, {$group_count|escape:'htmlall':'UTF-8'});" >{l s='🧺' mod='quickproducttable'}</button>*}
+                                    {*<input type="checkbox"  id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}">*}
+            
+                                    <div class="form-group-checkbox">
+                                        <input type="checkbox" id="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" name="fmm_check" class="fmm_check" value="{$product.id_product|escape:'htmlall':'UTF-8'}">
+                                        <label for="{$product.id_product|escape:'htmlall':'UTF-8'}_{$group_count|escape:'htmlall':'UTF-8'}" class="selection-button-checkbox">&nbsp;</label>
+                                    </div>
+                                {/if}
+                            </div>
+                        </td>
+                        
                     </tr>
                     {$array_str_sub = $array_str_sub|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"|,"|cat:$asgn_moq_qnty|cat:"|,"|cat:$asgn_moq_price|cat:"|,"|cat:$asgn_case_qnty|cat:"|,"|cat:$asgn_case_price|cat:"||"}
                 {/foreach}
