@@ -258,9 +258,6 @@
                                             {/foreach}
                                             <div class="size-number">{$itemsizenew}</div>
                                             <div class="size-type">{$itemsizesplit[{$itemsizesplitcount-1}]}</div>
-                                    
-
-
                                         <!-- span>
                                         {*$feature.value|escape:'htmlall':'UTF-8'*}<br />{*$itemsizesplitcount*}
                                         </span -->
