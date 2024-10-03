@@ -54,6 +54,11 @@
             <select  name="select_fmm_country" id="select_fmm_country" class="custom-select " style="width: auto;">
                 <option value="0">All Country</option>
             </select>
+            <select  name="select_fmm_view" id="select_fmm_view" class="custom-select " style="width: auto;">
+                <option value="0">All</option>
+                <option value="1">Stock Available</option>
+                <option value="2">Out of Stock</option>
+            </select>
         </div>
         <div style="clear: both;"></div>
     </div>
@@ -239,8 +244,11 @@
                             <div class="grid_td_column4">
                                 {foreach from=$product.features item=feature name=features}
                                     {if $feature.id_feature == 4}
+                                    {assign var=itemsize value={$feature.value|escape:'htmlall':'UTF-8'}}
+                                    {assign var=itemsizesplit value=" "|explode:$itemsize}
+                                    {assign var=itemsizesplitcount value={$itemsizesplit|count}}
                                     <span>
-                                    {$feature.value|escape:'htmlall':'UTF-8'}
+                                    {$feature.value|escape:'htmlall':'UTF-8'}<br />{$itemsizesplitcount}
                                     </span>
                                     {/if}
                                 {foreachelse}
@@ -401,15 +409,16 @@
                     
                     <th class='grid_th_column4'><div>{l s='Size' mod='quickproducttable'}</div></th>
                     
-                    <th class='grid_th_column4'><div>{l s='MOQ (Price)' mod='quickproducttable'}</div></th>
-                    <th class='grid_th_column4'><div>{l s='Case Qty (Price)' mod='quickproducttable'}</div></th>
+                    <th class='grid_th_column4'><div>MOQ<br />(Price)</div></th>
+                    <th class='grid_th_column4'><div>Case Qty<br />(Price)</div></th>
                     <th class='grid_th_column4'><!--<div>Qty/<br />Box</div>-->
-                        <div>Stock</div></th>
+                    <div>Stock</div>
+                    </th>
     
                     <!-- th class='grid_th_column5'><div>{l s='Price' mod='quickproducttable'}</div></th -->
-                    <th class='grid_th_column6'><div>{l s='Qty (In Cases)' mod='quickproducttable'}</div></th>
-                    <th class='grid_th_column7'><!--div>{l s='' mod='quickproducttable'}
-                        <<div class="form-group-checkbox">
+                    <th class='grid_th_column6'><div>Qty<br />(In Cases)</div></th>
+                    <th class='grid_th_column7'><!--<div>{l s='' mod='quickproducttable'}
+                        <!-- div class="form-group-checkbox">
                             <input type="checkbox" id="chkal" name="fmm_check" class="fmm_check" data-toggle="toggle"  data-size="xs">
                             <label for="chkal" class="selection-button-checkbox">&nbsp;</label>
                         </div>-->
