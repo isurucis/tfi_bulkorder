@@ -252,7 +252,9 @@
                                         {assign var=itemsizenew2 value=""}
                                             {foreach $itemsizesplit as $itemsizesplit1}
                                                 {assign var=loopnum value=$loopnum+1}
+                                                {if $loopnum < $itemsizesplitcount }
                                                 {$itemsizenew = $itemsizenew|cat:$itemsizesplit1|cat:" "}
+                                                {/if}
                                             {/foreach}
                                             <div >{$itemsizenew}</div>
                                             <div >{$itemsizesplit[{$itemsizesplitcount-1}]}</div>
