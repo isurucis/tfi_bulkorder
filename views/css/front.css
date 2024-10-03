@@ -1149,3 +1149,16 @@ table.row_tbl_price_box_amount tbody td {
   font-family: Roboto;
   font-size: .8rem;
 }
+
+.size-number {
+  font-family: 'Roboto';
+  font-size: 1rem;
+  color: #000000;
+}
+
+.size-type {
+  text-transform: lowercase;
+  font-style: italic;
+  font-family: 'Roboto';
+  font-size: .8rem;
+}
