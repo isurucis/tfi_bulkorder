@@ -247,9 +247,32 @@
                                     {assign var=itemsize value={$feature.value|escape:'htmlall':'UTF-8'}}
                                     {assign var=itemsizesplit value=" "|explode:$itemsize}
                                     {assign var=itemsizesplitcount value={$itemsizesplit|count}}
-                                    <span>
-                                    {$feature.value|escape:'htmlall':'UTF-8'}<br />{$itemsizesplitcount}
-                                    </span>
+                                    {assign var=loopnum value=0}
+                                    { if $itemsizesplitcount eq 0 }
+                                        <div >{$feature.value|escape:'htmlall':'UTF-8'}</div>
+                                    { elseif $itemsizesplitcount eq 1 }
+                                        {foreach itemsizesplit as itemsizesplit1 }
+                                            {assign var=loopnum value=$loopnum+1}
+                                            {$itemsize = $itemsize|cat:$itemsizesplit1|cat:" "}
+                                        {/foreach}
+                                    { else }
+                                        {foreach itemsizesplit as itemsizesplit1 }
+                                            {if $loopnum < $itemsizesplitcount }
+                                                {$itemsize = $itemsize|cat:$itemsizesplit1|cat:" "}
+                                                {assign var=itemsizenew value=$loopnum+1}
+                                            { else }
+                                                {$itemsize = $itemsize|cat:$itemsizesplit1|cat:" "}
+                                                {assign var=loopnum value=$loopnum+1}
+                                            {/if}
+                                        {/foreach}
+                                        <div >{$loopnum}</div>
+                                        <div >{$itemsizenew}</div>
+                                    {/if}
+
+
+                                    <!-- span>
+                                    {*$feature.value|escape:'htmlall':'UTF-8'*}<br />{*$itemsizesplitcount*}
+                                    </span -->
                                     {/if}
                                 {foreachelse}
                                 {/foreach}
