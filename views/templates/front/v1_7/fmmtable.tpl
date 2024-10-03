@@ -250,6 +250,7 @@
                                         {assign var=loopnum value=0}
                                         {assign var=itemsizenew value=""}
                                         {assign var=itemsizenew2 value=""}
+                                        {if itemsizesplitcount > 1 }
                                             {foreach $itemsizesplit as $itemsizesplit1}
                                                 {assign var=loopnum value=$loopnum+1}
                                                 {if $loopnum < $itemsizesplitcount }
@@ -258,6 +259,10 @@
                                             {/foreach}
                                             <div class="size-number">{$itemsizenew}</div>
                                             <div class="size-type">{$itemsizesplit[{$itemsizesplitcount-1}]}</div>
+                                        {else}
+                                            <div class="size-number">{$itemsize}</div>
+                                            <div class="size-type"></div>
+                                        {/if}
                                         <!-- span>
                                         {*$feature.value|escape:'htmlall':'UTF-8'*}<br />{*$itemsizesplitcount*}
                                         </span -->
