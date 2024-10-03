@@ -1068,14 +1068,19 @@ table.row_tbl_price_box_amount tbody td {
   --background: #a7eaa7;
   display: flex;
   max-width: 600px;
+
+  background-image: url('https://mediumturquoise-cheetah-573749.hostingersite.com/modules/ps_imageslider/images/e5fcc8bd0153f7dc7ff0c2d1dbbc36a135c1792c_tick.png');
+  background-repeat: no-repeat;
+  background-size: 22px;
+  background-position-x: 75px;
+  background-position-y: 2px;
 }
 .moqs_cases1 > .moq_case_1 {
   flex: 1;
   display: flex; background-color: #67c28c;;
   border-radius: 15px 0 0 15px;
   cursor: pointer;
-  background-image: url('https://mediumturquoise-cheetah-573749.hostingersite.com/modules/ps_imageslider/images/e5fcc8bd0153f7dc7ff0c2d1dbbc36a135c1792c_tick.png');
-  background-repeat: no-repeat;
+  
 }
 .moqs_cases1 > .moq_case_2 {
   flex: 1;
@@ -1088,7 +1093,13 @@ table.row_tbl_price_box_amount tbody td {
 .moqs_cases2 {
   --background: #a7eaa7;
   display: flex;
-  max-width: 600px;  
+  max-width: 600px;
+  
+  background-image: url('https://mediumturquoise-cheetah-573749.hostingersite.com/modules/ps_imageslider/images/e5fcc8bd0153f7dc7ff0c2d1dbbc36a135c1792c_tick.png');
+  background-repeat: no-repeat;
+  background-size: 22px;
+  background-position-x: 10px;
+  background-position-y: 2px;
 }
 
 .moqs_cases2 > .moq_case_1 {
