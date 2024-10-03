@@ -244,35 +244,23 @@
                             <div class="grid_td_column4">
                                 {foreach from=$product.features item=feature name=features}
                                     {if $feature.id_feature == 4}
-                                    {assign var=itemsize value={$feature.value|escape:'htmlall':'UTF-8'}}
-                                    {assign var=itemsizesplit value=" "|explode:$itemsize}
-                                    {assign var=itemsizesplitcount value={$itemsizesplit|count}}
-                                    {assign var=loopnum value=0}
-                                    { if $itemsizesplitcount eq 0 }
-                                        <div >{$feature.value|escape:'htmlall':'UTF-8'}</div>
-                                    { elseif $itemsizesplitcount eq 1 }
-                                        {foreach $itemsizesplit as $itemsizesplit1 }
-                                            {assign var=loopnum value=$loopnum+1}
-                                            {$itemsize = $itemsize|cat:$itemsizesplit1|cat:" "}
-                                        {/foreach}
-                                    { else }
-                                        {foreach $itemsizesplit as $itemsizesplit1 }
-                                            {if $loopnum < $itemsizesplitcount }
-                                                {$itemsize = $itemsize|cat:$itemsizesplit1|cat:" "}
-                                                {assign var=itemsizenew value=$loopnum+1}
-                                            { else }
-                                                {$itemsize = $itemsize|cat:$itemsizesplit1|cat:" "}
+                                        {assign var=itemsize value={$feature.value|escape:'htmlall':'UTF-8'}}
+                                        {assign var=itemsizesplit value=" "|explode:$itemsize}
+                                        {assign var=itemsizesplitcount value={$itemsizesplit|count}}
+                                        {assign var=loopnum value=0}
+                                        {assign val=itemsizenew value=""}
+                                            {foreach $itemsizesplit as $itemsizesplit1}
                                                 {assign var=loopnum value=$loopnum+1}
-                                            {/if}
-                                        {/foreach}
-                                        <div >{$loopnum}</div>
-                                        <div >{$itemsizenew}</div>
-                                    {/if}
+                                                {$itemsize = $itemsize|cat:$itemsizesplit1|cat:" "}
+                                            {/foreach}
+                                            <div >{$itemsizenew}</div>
+                                            <div >{$loopnum}</div>
+                                    
 
 
-                                    <!-- span>
-                                    {*$feature.value|escape:'htmlall':'UTF-8'*}<br />{*$itemsizesplitcount*}
-                                    </span -->
+                                        <!-- span>
+                                        {*$feature.value|escape:'htmlall':'UTF-8'*}<br />{*$itemsizesplitcount*}
+                                        </span -->
                                     {/if}
                                 {/foreach}
                             </div>
