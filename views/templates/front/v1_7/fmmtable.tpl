@@ -248,7 +248,7 @@
                                         {assign var=itemsizesplit value=" "|explode:$itemsize}
                                         {assign var=itemsizesplitcount value={$itemsizesplit|count}}
                                         {assign var=loopnum value=0}
-                                        {assign val=itemsizenew value=""}
+                                        {assign var=itemsizenew value=""}
                                             {foreach $itemsizesplit as $itemsizesplit1}
                                                 {assign var=loopnum value=$loopnum+1}
                                                 {$itemsize = $itemsize|cat:$itemsizesplit1|cat:" "}
