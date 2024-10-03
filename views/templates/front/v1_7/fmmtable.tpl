@@ -274,7 +274,6 @@
                                     {*$feature.value|escape:'htmlall':'UTF-8'*}<br />{*$itemsizesplitcount*}
                                     </span -->
                                     {/if}
-                                {foreachelse}
                                 {/foreach}
                             </div>
                         </td>
