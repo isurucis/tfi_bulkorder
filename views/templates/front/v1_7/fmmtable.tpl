@@ -256,8 +256,8 @@
                                                 {$itemsizenew = $itemsizenew|cat:$itemsizesplit1|cat:" "}
                                                 {/if}
                                             {/foreach}
-                                            <div >{$itemsizenew}</div>
-                                            <div >{$itemsizesplit[{$itemsizesplitcount-1}]}</div>
+                                            <div class="size-number">{$itemsizenew}</div>
+                                            <div class="size-type">{$itemsizesplit[{$itemsizesplitcount-1}]}</div>
                                     
 
 
