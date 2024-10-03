@@ -1156,6 +1156,7 @@ table.row_tbl_price_box_amount tbody td {
   border-radius: 4px;
   display: inline-block;
   font-weight: 500;
+  min-width: 40px;
 }
 .moq-case-price {
   font-family: 'Roboto';
@@ -1164,7 +1165,7 @@ table.row_tbl_price_box_amount tbody td {
   padding: 4px 4px;
   border-radius: 4px;
   display: inline-block;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 
