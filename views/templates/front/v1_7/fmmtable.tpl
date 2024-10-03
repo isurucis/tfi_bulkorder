@@ -249,12 +249,13 @@
                                         {assign var=itemsizesplitcount value={$itemsizesplit|count}}
                                         {assign var=loopnum value=0}
                                         {assign var=itemsizenew value=""}
+                                        {assign var=itemsizenew2 value=""}
                                             {foreach $itemsizesplit as $itemsizesplit1}
                                                 {assign var=loopnum value=$loopnum+1}
-                                                {$itemsize = $itemsize|cat:$itemsizesplit1|cat:" "}
+                                                {$itemsizenew = $itemsizenew|cat:$itemsizesplit1|cat:" "}
                                             {/foreach}
                                             <div >{$itemsizenew}</div>
-                                            <div >{$loopnum}</div>
+                                            <div >{$itemsizenew2[{$itemsizesplitcount}]}</div>
                                     
 
 
