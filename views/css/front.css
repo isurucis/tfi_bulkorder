@@ -879,6 +879,15 @@ grid_td_column_group { padding: 8px !important; background-color: #cbeed9; color
   text-align: left;
 }
 
+.case-align {
+  text-align: left;
+}
+.moq-align {
+  text-align: right;
+}
+
+
+
 /*table.dataTable tbody th {
   padding: 5px 6px !important;
 }
@@ -1157,6 +1166,7 @@ table.row_tbl_price_box_amount tbody td {
   display: inline-block;
   font-weight: 500;
   min-width: 40px;
+  text-align: center;
 }
 .moq-case-price {
   font-family: 'Roboto';
@@ -1166,6 +1176,7 @@ table.row_tbl_price_box_amount tbody td {
   border-radius: 4px;
   display: inline-block;
   font-weight: 500;
+  text-align: center;
 }
 
 

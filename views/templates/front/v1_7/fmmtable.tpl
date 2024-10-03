@@ -286,7 +286,7 @@
                                 </div>
                                 <div style="clear: both;"></div>
                             </div>
-                            <div class="grid_td_column4">
+                            <div class="grid_td_column4 moq-align">
                                 <div class="moq-case-quantity">
                                     {if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}
                                         {$product.product_attribute_minimal_quantity}
@@ -322,7 +322,7 @@
                                     <div class="moq_case-box">By CASE</div>
                                 </label>
                             </div>
-                            <div class="grid_td_column4">
+                            <div class="grid_td_column4 case-align">
                                 {foreach from=$product.features item=feature name=features}
                                     {if $feature.id_feature == 8}
                                     <div class="moq-case-quantity">
