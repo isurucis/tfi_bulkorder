@@ -1067,7 +1067,7 @@ table.row_tbl_price_box_amount tbody td {
 .moqs_cases1 {
   --background: #a7eaa7;
   display: flex;
-  max-width: 600px;
+  width: 100px;
 }
 .moqs_cases1 > .moq_case_1 {
   flex: 1;
@@ -1087,7 +1087,7 @@ table.row_tbl_price_box_amount tbody td {
 .moqs_cases2 {
   --background: #a7eaa7;
   display: flex;
-  max-width: 600px;
+  width: 100px;
 }
 
 .moqs_cases2 > .moq_case_1 {
@@ -1141,9 +1141,9 @@ table.row_tbl_price_box_amount tbody td {
   background-image: url('https://mediumturquoise-cheetah-573749.hostingersite.com/modules/ps_imageslider/images/e5fcc8bd0153f7dc7ff0c2d1dbbc36a135c1792c_tick.png');
   background-repeat: no-repeat;
   background-size: 22px;
-  background-position-x: 110px;
+  background-position-x: 76px;
   background-position-y: 2px;
-  padding-left: 20px;
+  padding-right: 30px;
 }
 /*-----------------------------------------------------------------*/
 
