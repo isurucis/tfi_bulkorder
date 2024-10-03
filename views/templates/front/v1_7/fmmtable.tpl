@@ -268,15 +268,18 @@
                         
                         
                         <td data-label="MOQ (Price)">
-                            <div class="moqs_cases1">
-                                <label class="moq_case_1">
-                                    <!-- input type="radio" name="moq_case-input-001" class="moq_case-input" checked="checked" -->
-                                    <input type="radio" 
-                                    id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" 
-                                    name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" 
-                                    value="moq" class="moq_case-input" checked="checked"/>
-                                    <div class="moq_case-box">By MOQ</div>
-                                </label>
+                            <div>
+                                <div class="moqs_cases1" style="float: right;">
+                                    <label class="moq_case_1">
+                                        <!-- input type="radio" name="moq_case-input-001" class="moq_case-input" checked="checked" -->
+                                        <input type="radio" 
+                                        id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" 
+                                        name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" 
+                                        value="moq" class="moq_case-input" checked="checked"/>
+                                        <div class="moq_case-box">By MOQ</div>
+                                    </label>
+                                </div>
+                                <div style="clear: both;"></div>
                             </div>
                             <div class="grid_td_column4">
                                 {if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}
