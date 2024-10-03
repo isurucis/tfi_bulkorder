@@ -339,7 +339,7 @@
                                     {$asgn_case_price = {$product.price|number_format:2:".":","}}
                                 {else}
                                     <div class="moq-case-price">
-                                    {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price*0.8|number_format:2:".":","}</span>
+                                    {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}" type="number">{$product.price*0.8|number_format:2:".":","}</span>
                                     {$asgn_case_price = {$product.price*0.8|number_format:2:".":","}}
                                     </div>
                                 {/if}
