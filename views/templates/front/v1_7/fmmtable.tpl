@@ -298,13 +298,13 @@
                                     <span> x </span>
                                 </div>
                                 {if $product.reduction > 0}
-                                    <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2}</span></span></div>
-                                    <div class="ml-2 price price--discounted" style="">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span></div>
-                                    {$asgn_moq_price = {$product.price|number_format:2}}
+                                    <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2:".":","}</span></span></div>
+                                    <div class="ml-2 price price--discounted" style="">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2:".":","}</span></div>
+                                    {$asgn_moq_price = {$product.price|number_format:2:".":","}}
                                 {else}
                                     <div class="moq-case-price">
-                                    {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span>
-                                    {$asgn_moq_price = {$product.price|number_format:2}}
+                                    {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2:".":","}</span>
+                                    {$asgn_moq_price = {$product.price|number_format:2:".":","}}
                                     </div>
                                 {/if}
                                 <!-- input type="radio" id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="moq" checked/ -->
@@ -334,13 +334,13 @@
                                 {foreachelse}
                                 {/foreach}
                                 {if $product.reduction > 0}
-                                    <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2}</span></span></div>
-                                    <div class="ml-2 price price--discounted" style="">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span></div>
-                                    {$asgn_case_price = {$product.price|number_format:2}}
+                                    <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2:".":","}</span></span></div>
+                                    <div class="ml-2 price price--discounted" style="">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2:".":","}</span></div>
+                                    {$asgn_case_price = {$product.price|number_format:2:".":","}}
                                 {else}
                                     <div class="moq-case-price">
-                                    {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price*0.8|number_format:2}</span>
-                                    {$asgn_case_price = {$product.price*0.8|number_format:2}}
+                                    {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price*0.8|number_format:2:".":","}</span>
+                                    {$asgn_case_price = {$product.price*0.8|number_format:2:".":","}}
                                     </div>
                                 {/if}
                                 <!-- input type="radio" id="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="case" / -->
@@ -364,10 +364,10 @@
                         <!-- td data-label="Price">
                             <div class="grid_td_column5">
                                 {if $product.reduction > 0}
-                                    <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2}</span></span></div>
-                                    <div class="ml-2 price price--discounted" style="">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span></div>
+                                    <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2:".":","}</span></span></div>
+                                    <div class="ml-2 price price--discounted" style="">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2:".":","}</span></div>
                                 {else}
-                                    {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2}</span>
+                                    {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2:".":","}</span>
                                 {/if}
                                 <div id="row_price_{$product.id_product|escape:'htmlall':'UTF-8'}" style="border: dotted 1px #333333;padding: 2px; display: block;"></div>
                             </div>
@@ -382,11 +382,11 @@
                                     <input class="qty_id-bulkorder form-control input-qty input-qty-disable" id="quantity_{$product.id_product|escape:'htmlall':'UTF-8'}" type="text"
                                     value="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
                                     min="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"
-                                    moq_price="{$product.price|number_format:2}"
+                                    moq_price="{$product.price|number_format:2:".":","}"
                                     {if $product.reduction > 0}
-                                        case_price="{$product.price|number_format:2}"
+                                        case_price="{$product.price|number_format:2:".":","}"
                                     {else}
-                                        case_price="{$product.price*0.8|number_format:2}"
+                                        case_price="{$product.price*0.8|number_format:2:".":","}"
                                     {/if}
                                     stk="{$product.quantity}"
                                     row_id="{$product.id_product|escape:'htmlall':'UTF-8'}"
