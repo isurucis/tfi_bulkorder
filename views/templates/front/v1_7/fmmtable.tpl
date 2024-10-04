@@ -97,11 +97,11 @@
                 <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=new">{l s='New' mod='quickproducttable'}</a>
             </div>
         {/if}
-        {if $best_enable == 1}
-            <div class=" top_buttons" >
+        {*if $best_enable == 1*}
+            <!-- div class=" top_buttons" >
                 <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=best">{l s='Best Sellers' mod='quickproducttable'}</a>
-            </div>
-        {/if}
+            </div -->
+        {*/if*}
         
         {if $sale_enable == 1}
             <div class=" top_buttons">
@@ -109,11 +109,11 @@
             </div>
         {/if}
     
-        {if $advance_enable == 1}
-            <div class=" top_buttons">
+        {*if $advance_enable == 1*}
+            <!-- div class=" top_buttons">
                 <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=advance">{l s='Advance Search' mod='quickproducttable'}</a>
-            </div>
-        {/if}
+            </div -->
+        {*/if*}
     
         {if $csv_enable == 1}
             <div class=" top_buttons">
