@@ -284,7 +284,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
                 $feat[] = $value_fe;
             }
             $all_products[$k]['features'] = $feat;
-
+            var_dump($feat);
             unset($imagesArray);
             $id_product = $value['id_product'];
             $id_language = $this->context->language->id;
