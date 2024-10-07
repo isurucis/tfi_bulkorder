@@ -91,7 +91,14 @@
                   dataType: "json",
                   success: function(data) {
                       // Handle the response if needed
-                      
+                    if (data.status === 'success') {
+                        // Redirect to cart page or confirmation page on success
+                        console.log('data.status:', data.status);
+                        window.location.href = 'https://mediumturquoise-cheetah-573749.hostingersite.com/cart?action=show';
+                    } else {
+                        // Handle errors if the AJAX request fails (optional)
+                        console.error('Error adding product to cart:', data.message);
+                    }
                   }
               });
           });
