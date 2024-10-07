@@ -51,16 +51,14 @@
                     {/foreach}
                 </select>
             {/if}
+            
             <select  name="select_fmm_country" id="select_fmm_country" class="custom-select " style="width: auto;">
                 <option value="0">All Country</option>
-            </select>
-            <select name="country_filter" id="country_filter">
-                <option value="">Select a Country</option>
-                <!-- Populate with countries from the query -->
                 {foreach from=$countries item=country}
                     <option value="{$country.country_name}">{$country.country_name}</option>
                 {/foreach}
             </select>
+
               
             <select  name="select_fmm_view" id="select_fmm_view" class="custom-select " style="width: auto;">
                 <option value="0">All</option>
