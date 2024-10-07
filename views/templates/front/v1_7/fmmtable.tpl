@@ -57,7 +57,7 @@
             <select name="country_filter" id="country_filter">
                 <option value="">Select a Country</option>
                 <!-- Populate with countries from the query -->
-                {foreach from=$counTree item=country}
+                {foreach from=$countries item=country}
                     <option value="{$country.country_name}">{$country.country_name}</option>
                 {/foreach}
             </select>
