@@ -34,6 +34,7 @@
     <input type="hidden" name="def_currency" id="def_currency" value="$">
     {if $in_ary == true}
     <!-- h1 class="quickhead csvhead">{$head_name_{$id_lang}|escape:'htmlall':'UTF-8'}</h1 -->
+    
     <div class="csvhead">
         <h1 class="col-sm-4 quickhead " style="margin-bottom: 0px; padding-bottom: 0px; text-align: left; float: left;">{$head_name_{$id_lang}|escape:'htmlall':'UTF-8'}</h1>
         <div class="col-sm-8" style="margin-bottom: 0px; padding-bottom: 0px; text-align: right; float: right;">

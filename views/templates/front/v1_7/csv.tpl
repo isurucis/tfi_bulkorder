@@ -29,18 +29,18 @@
     <div class="csvhead">
         <h1 class="col-sm-4 quickhead " style="margin-bottom: 0px; padding-bottom: 0px; text-align: left; float: left;">{$head_name_{$id_lang}|escape:'htmlall':'UTF-8'}</h1>
         <div class="col-sm-8" style="margin-bottom: 0px; padding-bottom: 0px; text-align: right; float: right;">
-            <h6 class="csvhead">{l s='Add Products Using CSV' mod='quickproducttable'}</h6>
+            <span class="csvhead-sub">{l s='Add Products Using CSV' mod='quickproducttable'}</span>
         </div>
         <div style="clear: both;"></div>
     </div>
 
 
 
-    {if isset($count) AND $count > 0}
+    {*if isset($count) AND $count > 0*}
         <div class="alert alert-success" role="alert">
             {$count|escape:'htmlall':'UTF-8'}{l s=' Products Successfully Added' mod='quickproducttable'}
         </div>
-    {/if}
+    {*/if*}
 
 
     {if $in_ary == true}
