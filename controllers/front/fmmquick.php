@@ -279,62 +279,65 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         $feat = array();
 
         foreach ($all_products as $k => $value) {
+            $istocontinue = false;
             foreach ($value['features'] as $key_fe => $value_fe) {
+                if( $key_fe["value"] == "India" ) { $istocontinue = true; }
                 $key_fe = $key_fe;
                 $feat[] = $value_fe;
             }
-            print_r($feat);
-            $all_products[$k]['features'] = $feat;
-            unset($imagesArray);
-            $id_product = $value['id_product'];
-            $id_language = $this->context->language->id;
-            $p = new Product($value['id_product'], false, $id_language);
+            if( $istocontinue ) {
+                $all_products[$k]['features'] = $feat;
+                unset($imagesArray);
+                $id_product = $value['id_product'];
+                $id_language = $this->context->language->id;
+                $p = new Product($value['id_product'], false, $id_language);
 
-            $id_image = Product::getCover($id_product);
+                $id_image = Product::getCover($id_product);
 
-            $image = new Image($id_image['id_image']);
-            $cover = _PS_BASE_URL_ . _THEME_PROD_DIR_ . $image->getExistingImgPath() . ".jpg";
-            $all_products[$k]['cover_image_url'] = $cover;
-            $temp_images = $p->getImages((int) $this->context->language->id);
+                $image = new Image($id_image['id_image']);
+                $cover = _PS_BASE_URL_ . _THEME_PROD_DIR_ . $image->getExistingImgPath() . ".jpg";
+                $all_products[$k]['cover_image_url'] = $cover;
+                $temp_images = $p->getImages((int) $this->context->language->id);
 
-            foreach ($temp_images as $key => $we) {
-                $key = $key;
-                $image = new Image($we['id_image']);
-                $image_url = _PS_BASE_URL_ . _THEME_PROD_DIR_ . $image->getExistingImgPath() . ".jpg";
-                $imagesArray[] = $image_url;
+                foreach ($temp_images as $key => $we) {
+                    $key = $key;
+                    $image = new Image($we['id_image']);
+                    $image_url = _PS_BASE_URL_ . _THEME_PROD_DIR_ . $image->getExistingImgPath() . ".jpg";
+                    $imagesArray[] = $image_url;
+                }
+
+                $link = new Link();
+                $url = $link->getProductLink($id_product);
+                if (_PS_VERSION_ < 1.7) {
+                    $image_type = ImageType::getFormatedName('small');
+                } else {
+                    $image_type = ImageType::getFormattedName('small');
+                }
+                //$image_type = ImageType::getFormattedName('small');
+                $finalimg = $link->getImageLink(
+                    isset($p->link_rewrite) ? $p->link_rewrite : $p->name,
+                    (int) $id_image['id_image'],
+                    $image_type
+                );
+                $protocol_link = (Configuration::get('PS_SSL_ENABLED')) ? 'https://' : 'http://';
+                $all_products[$k]['cover_image_url'] = $protocol_link . $finalimg;
+
+                if (empty($imagesArray)) {
+                    $imagesArray = '';
+                }
+                $stock_status = StockAvailable::outOfStock($id_product);
+                $default_stock = Configuration::get('PS_ORDER_OUT_OF_STOCK');
+                $default_stock = $default_stock;
+                if ($stock_status == 2) {
+                    $stock_status = Configuration::get('PS_ORDER_OUT_OF_STOCK');
+                }
+                $all_products[$k]['order_status'] = $stock_status;
+                $all_products[$k]['images_link'] = $imagesArray;
+                $all_products[$k]['url'] = $url;
+                $all_products[$k]['default_currency_sign'] = $this->context->currency->sign;
+                $all_products[$k]['default_currency_iso_code'] = $this->context->currency->iso_code;
+                $all_products[$k]['default_currency_name'] = $this->context->currency->name;
             }
-
-            $link = new Link();
-            $url = $link->getProductLink($id_product);
-            if (_PS_VERSION_ < 1.7) {
-                $image_type = ImageType::getFormatedName('small');
-            } else {
-                $image_type = ImageType::getFormattedName('small');
-            }
-            //$image_type = ImageType::getFormattedName('small');
-            $finalimg = $link->getImageLink(
-                isset($p->link_rewrite) ? $p->link_rewrite : $p->name,
-                (int) $id_image['id_image'],
-                $image_type
-            );
-            $protocol_link = (Configuration::get('PS_SSL_ENABLED')) ? 'https://' : 'http://';
-            $all_products[$k]['cover_image_url'] = $protocol_link . $finalimg;
-
-            if (empty($imagesArray)) {
-                $imagesArray = '';
-            }
-            $stock_status = StockAvailable::outOfStock($id_product);
-            $default_stock = Configuration::get('PS_ORDER_OUT_OF_STOCK');
-            $default_stock = $default_stock;
-            if ($stock_status == 2) {
-                $stock_status = Configuration::get('PS_ORDER_OUT_OF_STOCK');
-            }
-            $all_products[$k]['order_status'] = $stock_status;
-            $all_products[$k]['images_link'] = $imagesArray;
-            $all_products[$k]['url'] = $url;
-            $all_products[$k]['default_currency_sign'] = $this->context->currency->sign;
-            $all_products[$k]['default_currency_iso_code'] = $this->context->currency->iso_code;
-            $all_products[$k]['default_currency_name'] = $this->context->currency->name;
         }
         return $all_products;
     }
