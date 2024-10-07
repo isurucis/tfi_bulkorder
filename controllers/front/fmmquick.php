@@ -1021,7 +1021,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         $file_tmp = $_FILES['quickcsv']['tmp_name'];
         $ext = pathinfo($path, PATHINFO_EXTENSION);
         $count = 0;
-        if (!empty($ext) && Tools::strtolower($ext) == 'csv') {
+        if (Tools::strtolower($ext) == 'csv') {
             move_uploaded_file($file_tmp, _PS_MODULE_DIR_ . "quickproducttable/csv/" . $path);
             $csvPath = _PS_MODULE_DIR_ . "quickproducttable/csv/" . $path;
             $csv = new Varien_File_Csv();
@@ -1039,10 +1039,8 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
                 if (!$qty) {
                     $qty = 1;
                 }
-                $attr = $key[2];
-                if (!$attr) {
-                    $attr = null;
-                }
+
+                $attr = isset($key[2]) ? $key[2] : null;
                 if ($id_product && $qty) {
                     $result = $this->addToCart($id_product, $qty, $attr);
                     if ($result) {
