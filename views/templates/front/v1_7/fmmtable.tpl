@@ -575,6 +575,8 @@
 
                 calculateTotalAmount();
             }*/
+
+            
             function fmmClear() {
                 checkedItems = [];
                 localStorage.removeItem('checkedItems');
@@ -582,29 +584,32 @@
                 // Get the DataTable API instance
                 var table = $('#yourTableId').DataTable();
             
-                // Iterate through all rows in the DataTable (across all pages)
-                table.rows().every(function(rowIdx, tableLoop, rowLoop) {
-                    var rowNode = this.node();  // Get the row's DOM element
+                // Use the 'rows().nodes()' API method to get all rows, including hidden ones
+                var allRows = table.rows().nodes();
             
-                    // Uncheck checkboxes in all rows (visible or not)
-                    var checkbox = $(rowNode).find('.fmm_check');
+                // Loop through all rows
+                $(allRows).each(function() {
+                    var checkbox = $(this).find('.fmm_check');  // Find checkbox in current row
+                    var qtyInput = $(this).find('.input-qty');  // Find quantity input in current row
+            
+                    // Uncheck checkbox if found
                     if (checkbox.length) {
-                        checkbox.prop('checked', false);  // Uncheck checkbox
+                        checkbox.prop('checked', false);  // Uncheck the checkbox
                     }
             
-                    // Reset quantity inputs in all rows
-                    var qtyInput = $(rowNode).find('.input-qty');
+                    // Reset quantity input if found
                     if (qtyInput.length) {
-                        qtyInput.val(qtyInput.attr('min'));  // Reset quantity to min value
+                        qtyInput.val(qtyInput.attr('min'));  // Reset the quantity to the minimum value
                     }
             
-                    // Remove highlight from all rows
-                    $(rowNode).removeClass('dataTable-highlight');
+                    // Remove row highlight (if any)
+                    $(this).removeClass('dataTable-highlight');
                 });
             
-                // Recalculate total amount after clearing selections
+                // Recalculate total amount
                 calculateTotalAmount();
-            }            
+            }
+                    
             
     
             // Function to update localStorage with both checkbox and quantity
