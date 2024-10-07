@@ -83,7 +83,6 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
                 $only_active
             );
             $all_products = Product::getProductsProperties($id_language, $all_products);
-            print_r($all_products);
         } elseif ($product_type == 'best') {
             $all_products = ProductSale::getBestSales(
                 $id_language,
