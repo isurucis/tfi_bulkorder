@@ -559,6 +559,7 @@
                 localStorage.removeItem('checkedItems');
                 //var checkboxes = document.querySelectorAll('.fmm_check');
                 const checkboxes = document.getElementById('fmm_table').querySelectorAll('input[type="checkbox"]');
+
                 let i=0
                 checkboxes.forEach(function(checkbox) {
                     checkbox.checked = false;
