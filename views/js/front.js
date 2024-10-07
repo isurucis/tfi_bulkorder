@@ -90,6 +90,7 @@
                   dataType: "json",
                   success: function(data) {
                       // Handle the response if needed
+                      location.reload();
                   }
               });
           });
