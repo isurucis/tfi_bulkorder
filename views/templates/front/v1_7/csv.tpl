@@ -80,7 +80,7 @@
 
 
     {if $in_ary == true}
-        <div class="fmmpanel22">
+        <div class="fmmpanel22" style="padding-top: 40px;">
             <input type="hidden" name="ajax_url" id="ajax_url" value="{$ajax_url|escape:'htmlall':'UTF-8'}">
             <div class="row">
                 <div class="col-md-6 col-12 mb-lg-6">
