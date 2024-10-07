@@ -141,9 +141,6 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         $this->context->smarty->assign('btn_clr', $btn_clr);
         $this->context->smarty->assign('route_name', $route_name);
 
-        $counTree = Country::getCountries($this->context->language->id, true);
-        $this->context->smarty->assign('counTree', $counTree);
-
         $quickgroupBox = Configuration::get('quickgroupBox');
         $arry = explode(',', $quickgroupBox);
         $current_grp = $this->context->customer->id_default_group;
@@ -277,6 +274,10 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         );
         $this->context->smarty->assign('catTree', $catTree);
 
+        $counTree = $this-countriesTree();
+        $this->context->smarty->assign('counTree', $counTree);
+
+
         $imagesArray = array();
         $feat = array();
 
@@ -388,6 +389,9 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
             ($category ? $category->id : null)
         );
         $this->context->smarty->assign('catTree', $catTree);
+
+        $counTree = $this-countriesTree();
+        $this->context->smarty->assign('counTree', $counTree);
 
         $imagesArray = array();
         
@@ -505,6 +509,9 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         );
 
         $this->context->smarty->assign('catTree', $catTree);
+
+        $counTree = $this-countriesTree();
+        $this->context->smarty->assign('counTree', $counTree);
 
 
         if (!Validate::isOrderBy($order_by) || !Validate::isOrderWay($order_way)) {
@@ -836,6 +843,9 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         );
         $this->context->smarty->assign('catTree', $catTree);
 
+        $counTree = $this-countriesTree();
+        $this->context->smarty->assign('counTree', $counTree);
+
         $ajax_url = $this->context->link->getModuleLink(
             'quickproducttable',
             'ajax',
@@ -938,7 +948,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         return $return;
     }
 
-    public function CountriesTree()
+    public function countriesTree()
     {
         // Retrieve the countries based on the feature ID (9)
         $sql = 'SELECT fvl.value AS country_name
