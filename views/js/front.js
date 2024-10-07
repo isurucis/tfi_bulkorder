@@ -62,6 +62,7 @@
 
 
             $.each(checkedItems, function(index, item){
+              coun = 1;
               var id_product = item.id; // Assuming each item in localStorage has 'id_product'
               var qty = item.qty; // Assuming each item has 'qty'
               var group_aray = [];
