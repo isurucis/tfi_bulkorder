@@ -557,7 +557,8 @@
             function fmmClear() {
                 checkedItems = [];
                 localStorage.removeItem('checkedItems');
-                var checkboxes = document.querySelectorAll('.fmm_check');
+                //var checkboxes = document.querySelectorAll('.fmm_check');
+                const checkboxes = document.getElementById('fmm_table').querySelectorAll('input[type="checkbox"]');
                 let i=0
                 checkboxes.forEach(function(checkbox) {
                     checkbox.checked = false;
@@ -567,7 +568,8 @@
                     }
                     i++;
                 });
-    
+                
+                console.log('Total number of checkboxes:', checkboxes.length);
                 alert(i);
                 // Clear all quantity input fields
                 var qtyInputs = document.querySelectorAll('.input-qty');
