@@ -141,7 +141,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         $this->context->smarty->assign('btn_clr', $btn_clr);
         $this->context->smarty->assign('route_name', $route_name);
 
-        $counTree = $this-CountriesTree();
+        $counTree = Country::getCountries($this->context->language->id, true);
         $this->context->smarty->assign('counTree', $counTree);
 
         $quickgroupBox = Configuration::get('quickgroupBox');
