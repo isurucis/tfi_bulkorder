@@ -80,13 +80,13 @@
 
 
     {if $in_ary == true}
-        <div class="fmmpanel">
+        <div class="fmmpanel22">
             <input type="hidden" name="ajax_url" id="ajax_url" value="{$ajax_url|escape:'htmlall':'UTF-8'}">
             <div class="row">
                 <div class="col-md-6 col-6 mb-lg-6">
                     <fieldset>
                         <legend>Option 1: Upload CSV to Purchase</legend>
-                        <div class="col-lg-12" style="margin-top: 0px;">
+                        <div class="col-lg-12" >
                             <form action="" method="POST" enctype="multipart/form-data">
                                 <div>
                                     <input type="file" name="quickcsv" class="csv_sku" />
@@ -102,9 +102,9 @@
                 <div class="col-md-6 col-6 mb-lg-6">
                     <fieldset>
                         <legend>Option 2: Enter Item Number to Purchase</legend>
-                        <div class="col-lg-12 center">
+                        <div class="col-lg-12 ">
                             <textarea id="csv_sku" class="csv_sku" placeholder="{l s='Enter multiple reference, separate by new lines' mod='quickproducttable'}" style="height: 93px;"></textarea>
-                            <p>'<span style="font-style: italic;">Format</span>: reference,qty,attribute &nbsp;&nbsp; <span style="font-style: italic;">e.g 1</span>: demo_1,2,1 &nbsp;&nbsp; <span style="font-style: italic;">e.g 2</span>: demo_10,5</p>
+                            <p style="color:#000000;"><span style="font-style: italic; color: #c7d0d7;">Format</span>: reference,qty,attribute &nbsp;&nbsp; <span style="font-style: italic; color: #c7d0d7;">e.g 1</span>: demo_1,2,1 &nbsp;&nbsp; <span style="font-style: italic; color: #c7d0d7;">e.g 2</span>: demo_10,5</p>
                             <input class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}"  onclick="textareaClick();" value="Add To Cart" type="submit"/>
                         </div>
                     </fieldset>
