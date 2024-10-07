@@ -558,15 +558,17 @@
                 checkedItems = [];
                 localStorage.removeItem('checkedItems');
                 var checkboxes = document.querySelectorAll('.fmm_check');
-                
+                let i=0
                 checkboxes.forEach(function(checkbox) {
                     checkbox.checked = false;
                     var closestTr = checkbox.closest('tr');
                     if (closestTr) {
                         closestTr.classList.remove('dataTable-highlight');
                     }
+                    i++;
                 });
     
+                alert(i);
                 // Clear all quantity input fields
                 var qtyInputs = document.querySelectorAll('.input-qty');
                 qtyInputs.forEach(function(input) {
