@@ -1021,7 +1021,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         $file_tmp = $_FILES['quickcsv']['tmp_name'];
         $ext = pathinfo($path, PATHINFO_EXTENSION);
         $count = 0;
-        if (Tools::strtolower($ext) == 'csv') {
+        if (!empty($ext) && Tools::strtolower($ext) == 'csv') {
             move_uploaded_file($file_tmp, _PS_MODULE_DIR_ . "quickproducttable/csv/" . $path);
             $csvPath = _PS_MODULE_DIR_ . "quickproducttable/csv/" . $path;
             $csv = new Varien_File_Csv();
