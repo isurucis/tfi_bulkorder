@@ -141,6 +141,9 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         $this->context->smarty->assign('btn_clr', $btn_clr);
         $this->context->smarty->assign('route_name', $route_name);
 
+        $counTree = $this-CountriesTree();
+        $this->context->smarty->assign('counTree', $counTree);
+
         $quickgroupBox = Configuration::get('quickgroupBox');
         $arry = explode(',', $quickgroupBox);
         $current_grp = $this->context->customer->id_default_group;
@@ -933,6 +936,24 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
             'children' => $childs,
         );
         return $return;
+    }
+
+    public function CountriesTree()
+    {
+        // Retrieve the countries based on the feature ID (9)
+        $sql = 'SELECT fvl.value AS country_name
+        FROM ' . _DB_PREFIX_ . 'feature_value fv
+        INNER JOIN ' . _DB_PREFIX_ . 'feature_value_lang fvl ON fv.id_feature_value = fvl.id_feature_value
+        WHERE fv.id_feature = 9
+        GROUP BY fvl.value
+        ORDER BY fvl.value';
+
+        $countries = Db::getInstance()->executeS($sql);
+
+        // Assign countries to the template
+        //$this->context->smarty->assign('countries', $countries);
+        return $countries;
+
     }
 
     public function quickcsv()
