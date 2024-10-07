@@ -88,10 +88,10 @@
                         <legend>Option 1: Upload CSV to Purchase</legend>
                         <div><p id="downloadcsvfile"><a href="{$base_url|escape:'htmlall':'UTF-8'}modules/quickproducttable/views/img/sample.csv">{l s='Download a sample CSV file' mod='quickproducttable'}</a></p></div>
 
-                        <div class="col-lg-12" style="margin-top: 40px;">
+                        <div class="col-lg-12" style="margin-top: 0px;">
                             <form action="" method="POST" enctype="multipart/form-data">
-                                <div class="csv_sku">
-                                    <input type="file" name="quickcsv" />
+                                <div>
+                                    <input type="file" name="quickcsv" class="csv_sku" />
                                 </div>
                                 <input class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" value="Submit" type="submit"/>
                             </form>
@@ -105,9 +105,8 @@
                         <legend>Option 2: Enter Item Number to Purchase</legend>
                         <div><p>{l s='Format: reference,qty,attribute' mod='quickproducttable'}</p></div>
                         <div class="col-lg-12 center">
-                            <textarea id="csv_sku" placeholder="{l s='Enter multiple reference, separate by new lines' mod='quickproducttable'}" style="height: 93px;"></textarea>
-                            <p>{l s='e.g demo_1,2,1' mod='quickproducttable'}</p>
-                            <p>{l s='e.g demo_10,5' mod='quickproducttable'}</p>
+                            <textarea id="csv_sku" class="csv_sku" placeholder="{l s='Enter multiple reference, separate by new lines' mod='quickproducttable'}" style="height: 93px;"></textarea>
+                            <p>{l s='e.g 1: demo_1,2,1' mod='quickproducttable'} &nbsp;&nbsp; {l s='e.g 2: demo_10,5' mod='quickproducttable'}</p>
                             <input class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}"  onclick="textareaClick();" value="Add To Cart" type="submit"/>
                         </div>
                     </fieldset>

@@ -371,7 +371,7 @@ color: red;font-style: normal; text-indent: -9999px; font-weight: normal; line-h
   color: #67c28c
 }
 
-#csv_sku {
+.csv_sku {
   display: block;
   /*width: 80%;
   color: #555;
@@ -405,6 +405,8 @@ color: red;font-style: normal; text-indent: -9999px; font-weight: normal; line-h
   color: #000;
   min-height: 80px;
 }
+
+
 
 #fmm_table_wrapper {
    overflow-x: auto;
