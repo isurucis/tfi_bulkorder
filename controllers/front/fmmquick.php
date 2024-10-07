@@ -555,7 +555,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         ($id_category ? ' AND c.`id_category` = ' . (int) $id_category : '') .
         ($front ? ' AND product_shop.`visibility` IN ("both", "catalog")' : '') .
         ($only_active ? ' AND product_shop.`active` = 1' : '') .
-        ' AND fp.`id_feature_value`=1066 .
+        ' AND fp.`id_feature_value`=1066 
                 ORDER BY ' . (isset($order_by_prefix) ? pSQL($order_by_prefix) . '.' : '') .
         '`' . pSQL($order_by) . '` ' . pSQL($order_way) . ', '.pSQL(' pl.`name` ASC ') .
             ($limit > 0 ? ' LIMIT ' . (int) $start . ',' . (int) $limit : '');
