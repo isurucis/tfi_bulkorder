@@ -68,6 +68,7 @@
                 <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=csv">{l s='Upload your List' mod='quickproducttable'}</a>
             </div>
         {/if}
+        <div style="clear: both;"></div>
     </div>
 
 
