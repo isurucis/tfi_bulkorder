@@ -34,13 +34,48 @@
         <div style="clear: both;"></div>
     </div>
 
+    <div class="box-border-bottom col-lg-12">
+        {if $all_enable == 1}
+            <div class=" top_buttons">
+                <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=all">{l s='All' mod='quickproducttable'}</a>
+            </div>
+        {/if}
+        {if $new_enable == 1}
+            <div class=" top_buttons" >
+                <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=new">{l s='New' mod='quickproducttable'}</a>
+            </div>
+        {/if}
+        {*if $best_enable == 1*}
+            <!-- div class=" top_buttons" >
+                <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=best">{l s='Best Sellers' mod='quickproducttable'}</a>
+            </div -->
+        {*/if*}
+        
+        {if $sale_enable == 1}
+            <div class=" top_buttons">
+                <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=sale">{l s='Specials' mod='quickproducttable'}</a>
+            </div>
+        {/if}
+    
+        {*if $advance_enable == 1*}
+            <!-- div class=" top_buttons">
+                <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=advance">{l s='Advance Search' mod='quickproducttable'}</a>
+            </div -->
+        {*/if*}
+    
+        {if $csv_enable == 1}
+            <div class=" top_buttons">
+                <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=csv">{l s='Upload your List' mod='quickproducttable'}</a>
+            </div>
+        {/if}
+    </div>
 
 
-    {*if isset($count) AND $count > 0*}
-        <div class="alert alert-success" role="alert">
+    {if isset($count) AND $count > 0}
+        <div class="alert alert-success" role="alert" style="margin-top: 20px;">
             {$count|escape:'htmlall':'UTF-8'}{l s=' Products Successfully Added' mod='quickproducttable'}
         </div>
-    {*/if*}
+    {/if}
 
 
     {if $in_ary == true}
@@ -49,74 +84,6 @@
                 <div class="col-lg-1 col-xs-12 top_buttons">
                     <p style="padding-top: 8px;font-weight: bolder;">{l s='Filters:' mod='quickproducttable'}</p>
                 </div>
-
-
-
-                {if $all_enable == 1}
-                    <div class=" top_buttons">
-                        <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=all">{l s='All' mod='quickproducttable'}</a>
-                    </div>
-                {/if}
-                {if $new_enable == 1}
-                    <div class=" top_buttons" >
-                        <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=new">{l s='New' mod='quickproducttable'}</a>
-                    </div>
-                {/if}
-                {*if $best_enable == 1*}
-                    <!-- div class=" top_buttons" >
-                        <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=best">{l s='Best Sellers' mod='quickproducttable'}</a>
-                    </div -->
-                {*/if*}
-                
-                {if $sale_enable == 1}
-                    <div class=" top_buttons">
-                        <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=sale">{l s='Specials' mod='quickproducttable'}</a>
-                    </div>
-                {/if}
-            
-                {*if $advance_enable == 1*}
-                    <!-- div class=" top_buttons">
-                        <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=advance">{l s='Advance Search' mod='quickproducttable'}</a>
-                    </div -->
-                {*/if*}
-            
-                {if $csv_enable == 1}
-                    <div class=" top_buttons">
-                        <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=csv">{l s='Upload your List' mod='quickproducttable'}</a>
-                    </div>
-                {/if}
-
-
-
-
-                <!-- 
-                {if $new_enable == 1}
-                <div class="col-lg-2 col-xs-12 top_buttons" >
-                    <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=new">{l s='New Products' mod='quickproducttable'}</a>
-                </div>
-                {/if}
-                {if $best_enable == 1}
-                <div class="col-lg-2 col-xs-12 top_buttons" >
-                    <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=best">{l s='Best Sales' mod='quickproducttable'}</a>
-                </div>
-                {/if}
-                {if $all_enable == 1}
-                <div class="col-lg-2 col-xs-12 top_buttons">
-                    <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=all">{l s='All Products' mod='quickproducttable'}</a>
-                </div>
-                {/if}
-                {if $sale_enable == 1}
-                <div class="col-lg-2 col-xs-12 top_buttons">
-                    <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=sale">{l s='Prices Drop' mod='quickproducttable'}</a>
-                </div>
-                {/if}
-
-                {if $advance_enable == 1}
-                <div class="col-lg-3 col-xs-12 top_buttons">
-                    <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=advance">{l s='Advance Search' mod='quickproducttable'}</a>
-                </div>
-                {/if}
-                -->
             </div>
 
             {if $csv_enable == 1}
