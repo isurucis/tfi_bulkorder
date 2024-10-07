@@ -284,7 +284,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
                 $feat[] = $value_fe;
             }
             $all_products[$k]['features'] = $feat;
-            var_dump($feat);
+            //var_dump($feat);
             unset($imagesArray);
             $id_product = $value['id_product'];
             $id_language = $this->context->language->id;
@@ -336,7 +336,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
             $all_products[$k]['default_currency_iso_code'] = $this->context->currency->iso_code;
             $all_products[$k]['default_currency_name'] = $this->context->currency->name;
         }
-        return $all_products;
+        return $all_products[$k]['features']; //$all_products;
     }
 
     public function getExtraFields($all_products)
