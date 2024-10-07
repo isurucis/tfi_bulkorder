@@ -554,7 +554,7 @@
             }
 
             // Function to clear all selections and quantity values
-            /*function fmmClear() {
+            function fmmClear() {
                 checkedItems = [];
                 localStorage.removeItem('checkedItems');
                 var checkboxes = document.querySelectorAll('.fmm_check');
@@ -574,10 +574,10 @@
                 });
 
                 calculateTotalAmount();
-            }*/
+            }
 
-            
-            function fmmClear() {
+
+            /*function fmmClear() {
                 checkedItems = [];
                 localStorage.removeItem('checkedItems');
             
@@ -589,6 +589,7 @@
             
                 // Loop through all rows
                 $(allRows).each(function() {
+
                     var checkbox = $(this).find('.fmm_check');  // Find checkbox in current row
                     var qtyInput = $(this).find('.input-qty');  // Find quantity input in current row
             
@@ -608,7 +609,7 @@
             
                 // Recalculate total amount
                 calculateTotalAmount();
-            }
+            }*/
                     
             
     
