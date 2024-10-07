@@ -950,6 +950,30 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
 
     public function countriesTree()
     {
+        // Fetch countries from the database (PrestaShop stores country data in the `ps_country` and `ps_country_lang` tables)
+        $sql = 'SELECT c.id_country, cl.name
+                FROM ' . _DB_PREFIX_ . 'country c
+                INNER JOIN ' . _DB_PREFIX_ . 'country_lang cl ON c.id_country = cl.id_country
+                WHERE cl.id_lang = ' . (int)$this->context->language->id . '
+                ORDER BY cl.name';
+
+        $countries = Db::getInstance()->executeS($sql);
+
+        // Build the tree structure (you can modify this logic if necessary)
+        $countryTree = [];
+        foreach ($countries as $country) {
+            $countryTree[] = [
+                'id_country' => $country['id_country'],
+                'name' => $country['name'],
+            ];
+        }
+
+        return $countryTree;
+    }
+
+    /*
+    public function countriesTree()
+    {
         // Retrieve the countries based on the feature ID (9)
         $sql = 'SELECT fvl.value AS country_name
         FROM ' . _DB_PREFIX_ . 'feature_value fv
@@ -964,7 +988,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         //$this->context->smarty->assign('countries', $countries);
         return $countries;
 
-    }
+    }*/
 
     public function quickcsv()
     {
