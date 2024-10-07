@@ -284,7 +284,6 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
                 $feat[] = $value_fe;
             }
             $all_products[$k]['features'] = $feat;
-            //var_dump($feat);
             unset($imagesArray);
             $id_product = $value['id_product'];
             $id_language = $this->context->language->id;
@@ -336,7 +335,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
             $all_products[$k]['default_currency_iso_code'] = $this->context->currency->iso_code;
             $all_products[$k]['default_currency_name'] = $this->context->currency->name;
         }
-        return $all_products[$k]['features']; //$all_products;
+        return $all_products;
     }
 
     public function getExtraFields($all_products)
@@ -514,6 +513,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         GROUP BY fvl.value
         ORDER BY fvl.value';
 
+
         $countries = Db::getInstance()->executeS($sql);
 
         // Assign countries to the template
@@ -558,7 +558,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         '`' . pSQL($order_by) . '` ' . pSQL($order_way) . ', '.pSQL(' pl.`name` ASC ') .
             ($limit > 0 ? ' LIMIT ' . (int) $start . ',' . (int) $limit : '');
         
-
+        echo $sql;
         /*
         $sql = 'SELECT p.*, product_shop.*, pl.* , m.`name` AS manufacturer_name, s.`name` AS supplier_name
                 FROM `' . _DB_PREFIX_ . 'product` p
