@@ -73,7 +73,7 @@
 <div class="clearfix"></div>
 
 <div class="col-lg-12 center">
-    <h6 class="csvhead">{l s='Add Products Using CSV 222' mod='quickproducttable'}</h6>
+    <h6 class="csvhead">{l s='Add Products Using CSV' mod='quickproducttable'}</h6>
 </div>
 <div class="col-lg-6" style="margin-top: 40px;">
 <form action="" method="POST" enctype="multipart/form-data">
