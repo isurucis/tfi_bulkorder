@@ -547,13 +547,15 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
                 LEFT JOIN `' . _DB_PREFIX_ . 'product_lang` pl ON (p.`id_product` = pl.`id_product` ' .
         Shop::addSqlRestrictionOnLang('pl') . ')
                 LEFT JOIN `' . _DB_PREFIX_ . 'manufacturer` m ON (m.`id_manufacturer` = p.`id_manufacturer`)
-                LEFT JOIN `' . _DB_PREFIX_ . 'supplier` s ON (s.`id_supplier` = p.`id_supplier`)' .
+                LEFT JOIN `' . _DB_PREFIX_ . 'supplier` s ON (s.`id_supplier` = p.`id_supplier`)
+                LEFT JOIN `' . _DB_PREFIX_ . 'feature_product` fp ON (p.`id_product` = fp.`id_product`)' .
         ($id_category ? 'LEFT JOIN `' . _DB_PREFIX_ .
             'category_product` c ON (c.`id_product` = p.`id_product`)' : '') . '
                 WHERE pl.`id_lang` = ' . (int) $id_lang .
         ($id_category ? ' AND c.`id_category` = ' . (int) $id_category : '') .
         ($front ? ' AND product_shop.`visibility` IN ("both", "catalog")' : '') .
-        ($only_active ? ' AND product_shop.`active` = 1' : '') . '
+        ($only_active ? ' AND product_shop.`active` = 1' : '') .
+        ' AND fp.`id_feature_value`=1066 .
                 ORDER BY ' . (isset($order_by_prefix) ? pSQL($order_by_prefix) . '.' : '') .
         '`' . pSQL($order_by) . '` ' . pSQL($order_way) . ', '.pSQL(' pl.`name` ASC ') .
             ($limit > 0 ? ' LIMIT ' . (int) $start . ',' . (int) $limit : '');
