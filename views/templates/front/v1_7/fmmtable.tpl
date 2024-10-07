@@ -410,6 +410,21 @@
                                 <!-- div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}">0 Case</div -->
                                 {else}
                                     <a class="btn btn-info" href="https://mediumturquoise-cheetah-573749.hostingersite.com/fmmquick?product_type=sale">Notify Me</a>
+                                    <div class="product-additional-info js-product-additional-info">
+                                        <div class="tabs">
+                                          <div class="js-mailalert text-center" data-url="//mediumturquoise-cheetah-573749.hostingersite.com/index.php?process=add&fc=module&module=ps_emailalerts&controller=actions">
+                                                                                                  <button
+                                                  data-product="{$product.id}"
+                                                  data-product-attribute="0"
+                                                  class="btn btn-primary js-mailalert-add mt-1"
+                                                  rel="nofollow">
+                                                  Notify me when available
+                                              </button>
+                                              <div class="js-mailalert-alerts"></div>
+                                              </div>
+                                      </div>
+                                      
+                                      </div>
                                 {/if}
                             </div>
                         </td>
