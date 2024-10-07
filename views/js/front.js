@@ -27,9 +27,10 @@
 */
 
  function fmmAddAllCart(){
+  let checkedItems = JSON.parse(localStorage.getItem('checkedItems')) || [];
   console.log("function : fmmAddAllCart, is called");
             var coun = 0;
-            $.each($("input[name='fmm_check']:checked"), function(){
+            /*$.each($("input[name='fmm_check']:checked"), function(){
                 var id_product = $(this).val();
                 coun = 1;
                 var qty = $("#quantity_"+id_product).val();
@@ -56,7 +57,43 @@
                         }
                     });
                 
-            });
+            });*/
+
+
+
+            $.each(checkedItems, function(index, item){
+              var id_product = item.id; // Assuming each item in localStorage has 'id_product'
+              var qty = item.qty; // Assuming each item has 'qty'
+              var group_aray = [];
+              var ajax_url = $("#ajax_url").val(); // Get the ajax URL from the page
+              var group = item.group || 0; // Assuming each item may have 'group' information, default to 0
+          
+              if (group != 0) {
+                  // If the product has groups, retrieve each group option
+                  for (var i = 1; i <= group; i++) {
+                      var group_id = item["group_option_" + i]; // Assuming group options are stored in the item
+                      group_aray.push(group_id);
+                  }
+              }
+          
+              // Perform the AJAX request to add the product to the cart
+              $.ajax({
+                  url: ajax_url,
+                  method: "post",
+                  data: {
+                    id_product: id_product,
+                    qty: qty,
+                    group_aray: group_aray,
+                    ajax: 1,
+                    action: 'productAddToCart'
+                  },
+                  dataType: "json",
+                  success: function(data) {
+                      // Handle the response if needed
+                  }
+              });
+          });
+
             if (coun == 1) {
                 $('input:checkbox').removeAttr('checked'); 
                 $.simplyToast('success', 'Products successfully added to your shopping cart');
