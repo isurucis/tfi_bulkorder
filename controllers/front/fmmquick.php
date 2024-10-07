@@ -83,6 +83,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
                 $only_active
             );
             $all_products = Product::getProductsProperties($id_language, $all_products);
+            print_r($all_products);
         } elseif ($product_type == 'best') {
             $all_products = ProductSale::getBestSales(
                 $id_language,
@@ -279,13 +280,10 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         $feat = array();
 
         foreach ($all_products as $k => $value) {
-            $istocontinue = false;
             foreach ($value['features'] as $key_fe => $value_fe) {
-                if( $key_fe["value"] == "India" ) { $istocontinue = true; }
                 $key_fe = $key_fe;
                 $feat[] = $value_fe;
             }
-            if( $istocontinue ) {
                 $all_products[$k]['features'] = $feat;
                 unset($imagesArray);
                 $id_product = $value['id_product'];
@@ -337,7 +335,6 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
                 $all_products[$k]['default_currency_sign'] = $this->context->currency->sign;
                 $all_products[$k]['default_currency_iso_code'] = $this->context->currency->iso_code;
                 $all_products[$k]['default_currency_name'] = $this->context->currency->name;
-            }
         }
         return $all_products;
     }
@@ -562,7 +559,6 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         '`' . pSQL($order_by) . '` ' . pSQL($order_way) . ', '.pSQL(' pl.`name` ASC ') .
             ($limit > 0 ? ' LIMIT ' . (int) $start . ',' . (int) $limit : '');
         
-        echo $sql;
         /*
         $sql = 'SELECT p.*, product_shop.*, pl.* , m.`name` AS manufacturer_name, s.`name` AS supplier_name
                 FROM `' . _DB_PREFIX_ . 'product` p
