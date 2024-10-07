@@ -510,8 +510,19 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
 
         $this->context->smarty->assign('catTree', $catTree);
 
-        $counTree = $this-countriesTree();
-        $this->context->smarty->assign('counTree', $counTree);
+        
+
+        $sql = 'SELECT fvl.value AS country_name
+        FROM ' . _DB_PREFIX_ . 'feature_value fv
+        INNER JOIN ' . _DB_PREFIX_ . 'feature_value_lang fvl ON fv.id_feature_value = fvl.id_feature_value
+        WHERE fv.id_feature = 9
+        GROUP BY fvl.value
+        ORDER BY fvl.value';
+
+        $countries = Db::getInstance()->executeS($sql);
+
+        // Assign countries to the template
+        $this->context->smarty->assign('countries', $countries);
 
 
         if (!Validate::isOrderBy($order_by) || !Validate::isOrderWay($order_way)) {
