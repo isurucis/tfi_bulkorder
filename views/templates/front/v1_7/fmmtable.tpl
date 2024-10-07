@@ -51,7 +51,7 @@
                     {/foreach}
                 </select>
             {/if}
-
+            
             <select  name="select_fmm_country" id="select_fmm_country" class="custom-select " style="width: auto;">
                 <option value="0">All Country</option>
                 {foreach from=$countries item=country}
@@ -575,43 +575,6 @@
 
                 calculateTotalAmount();
             }
-
-
-            /*function fmmClear() {
-                checkedItems = [];
-                localStorage.removeItem('checkedItems');
-            
-                // Get the DataTable API instance
-                var table = $('#yourTableId').DataTable();
-            
-                // Use the 'rows().nodes()' API method to get all rows, including hidden ones
-                var allRows = table.rows().nodes();
-            
-                // Loop through all rows
-                $(allRows).each(function() {
-
-                    var checkbox = $(this).find('.fmm_check');  // Find checkbox in current row
-                    var qtyInput = $(this).find('.input-qty');  // Find quantity input in current row
-            
-                    // Uncheck checkbox if found
-                    if (checkbox.length) {
-                        checkbox.prop('checked', false);  // Uncheck the checkbox
-                    }
-            
-                    // Reset quantity input if found
-                    if (qtyInput.length) {
-                        qtyInput.val(qtyInput.attr('min'));  // Reset the quantity to the minimum value
-                    }
-            
-                    // Remove row highlight (if any)
-                    $(this).removeClass('dataTable-highlight');
-                });
-            
-                // Recalculate total amount
-                calculateTotalAmount();
-            }*/
-                    
-            
     
             // Function to update localStorage with both checkbox and quantity
             function toggleLocalStorage(itemId, checked, qty, moq_case, itemprice) {
