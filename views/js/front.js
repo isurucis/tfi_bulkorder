@@ -90,10 +90,7 @@
                   dataType: "json",
                   success: function(data) {
                       // Handle the response if needed
-                      if (data.success) {
-                        // Redirect to the cart page upon success
-                        window.location.href = '/index.php?controller=cart'; // Adjust the URL if necessary
-                    }
+                      
                   }
               });
           });
