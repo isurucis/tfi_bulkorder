@@ -458,7 +458,7 @@
                     </th>
                 </tr>
             </tfoot>
-        </table>
+    </table>
 
         <!-- div class="debug-console" id="debug-console">{*$array_str_sub*}</div -->
         
