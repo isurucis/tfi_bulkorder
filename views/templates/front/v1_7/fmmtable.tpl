@@ -51,7 +51,7 @@
                     {/foreach}
                 </select>
             {/if}
-            
+
             <select  name="select_fmm_country" id="select_fmm_country" class="custom-select " style="width: auto;">
                 <option value="0">All Country</option>
                 {foreach from=$countries item=country}
@@ -554,7 +554,7 @@
             }
 
             // Function to clear all selections and quantity values
-            function fmmClear() {
+            /*function fmmClear() {
                 checkedItems = [];
                 localStorage.removeItem('checkedItems');
                 var checkboxes = document.querySelectorAll('.fmm_check');
@@ -574,7 +574,37 @@
                 });
 
                 calculateTotalAmount();
+            }*/
+            function fmmClear() {
+                checkedItems = [];
+                localStorage.removeItem('checkedItems');
+            
+                // Get the DataTable API instance
+                var table = $('#yourTableId').DataTable();
+            
+                // Iterate through all rows (including non-visible ones)
+                table.rows().every(function(rowIdx, tableLoop, rowLoop) {
+                    var checkbox = $(this.node()).find('.fmm_check');  // Find checkbox in current row
+                    var qtyInput = $(this.node()).find('.input-qty');  // Find quantity input in current row
+            
+                    // Uncheck checkbox if found
+                    if (checkbox.length) {
+                        checkbox.prop('checked', false);  // Uncheck the checkbox
+                    }
+            
+                    // Reset quantity input if found
+                    if (qtyInput.length) {
+                        qtyInput.val(qtyInput.attr('min'));  // Reset the quantity to the minimum value
+                    }
+            
+                    // Remove row highlight (if any)
+                    $(this.node()).removeClass('dataTable-highlight');
+                });
+            
+                // Recalculate total amount
+                calculateTotalAmount();
             }
+            
     
             // Function to update localStorage with both checkbox and quantity
             function toggleLocalStorage(itemId, checked, qty, moq_case, itemprice) {
