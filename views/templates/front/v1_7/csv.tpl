@@ -81,29 +81,31 @@
 
     {if $in_ary == true}
         <div class="fmmpanel">
-            
             <input type="hidden" name="ajax_url" id="ajax_url" value="{$ajax_url|escape:'htmlall':'UTF-8'}">
-
             <div class="row">
                 <div class="col-md-6 col-6 mb-lg-6">
                     <fieldset>
-                        <legend>Upload CSV to Purchase</legend>
+                        <legend>Option 1: Upload CSV to Purchase</legend>
+                        <div><p id="downloadcsvfile"><a href="{$base_url|escape:'htmlall':'UTF-8'}modules/quickproducttable/views/img/sample.csv">{l s='Download a sample CSV file' mod='quickproducttable'}</a></p></div>
+
                         <div class="col-lg-12" style="margin-top: 40px;">
                             <form action="" method="POST" enctype="multipart/form-data">
-                                <input type="file" name="quickcsv" />
+                                <div class="csv_sku">
+                                    <input type="file" name="quickcsv" />
+                                </div>
                                 <input class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" value="Submit" type="submit"/>
                             </form>
-                            <p id="downloadcsvfile"><a href="{$base_url|escape:'htmlall':'UTF-8'}modules/quickproducttable/views/img/sample.csv">{l s='Download a sample CSV file' mod='quickproducttable'}</a></p>
+                            
                         </div>
                     </fieldset>
                 </div>
 
                 <div class="col-md-6 col-6 mb-lg-6">
                     <fieldset>
-                        <legend>Enter Item Number to Purchase</legend>
+                        <legend>Option 2: Enter Item Number to Purchase</legend>
+                        <div><p>{l s='Format: reference,qty,attribute' mod='quickproducttable'}</p></div>
                         <div class="col-lg-12 center">
                             <textarea id="csv_sku" placeholder="{l s='Enter multiple reference, separate by new lines' mod='quickproducttable'}" style="height: 93px;"></textarea>
-                            <p>{l s='Format: reference,qty,attribute' mod='quickproducttable'}</p>
                             <p>{l s='e.g demo_1,2,1' mod='quickproducttable'}</p>
                             <p>{l s='e.g demo_10,5' mod='quickproducttable'}</p>
                             <input class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}"  onclick="textareaClick();" value="Add To Cart" type="submit"/>
@@ -111,11 +113,7 @@
                     </fieldset>
                 </div>
             </div>
-
-
-            
         </div>
-
     {/if}
 
 {/block}
