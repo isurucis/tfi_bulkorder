@@ -582,28 +582,29 @@
                 // Get the DataTable API instance
                 var table = $('#yourTableId').DataTable();
             
-                // Iterate through all rows (including non-visible ones)
+                // Iterate through all rows in the DataTable (across all pages)
                 table.rows().every(function(rowIdx, tableLoop, rowLoop) {
-                    var checkbox = $(this.node()).find('.fmm_check');  // Find checkbox in current row
-                    var qtyInput = $(this.node()).find('.input-qty');  // Find quantity input in current row
+                    var rowNode = this.node();  // Get the row's DOM element
             
-                    // Uncheck checkbox if found
+                    // Uncheck checkboxes in all rows (visible or not)
+                    var checkbox = $(rowNode).find('.fmm_check');
                     if (checkbox.length) {
-                        checkbox.prop('checked', false);  // Uncheck the checkbox
+                        checkbox.prop('checked', false);  // Uncheck checkbox
                     }
             
-                    // Reset quantity input if found
+                    // Reset quantity inputs in all rows
+                    var qtyInput = $(rowNode).find('.input-qty');
                     if (qtyInput.length) {
-                        qtyInput.val(qtyInput.attr('min'));  // Reset the quantity to the minimum value
+                        qtyInput.val(qtyInput.attr('min'));  // Reset quantity to min value
                     }
             
-                    // Remove row highlight (if any)
-                    $(this.node()).removeClass('dataTable-highlight');
+                    // Remove highlight from all rows
+                    $(rowNode).removeClass('dataTable-highlight');
                 });
             
-                // Recalculate total amount
+                // Recalculate total amount after clearing selections
                 calculateTotalAmount();
-            }
+            }            
             
     
             // Function to update localStorage with both checkbox and quantity
