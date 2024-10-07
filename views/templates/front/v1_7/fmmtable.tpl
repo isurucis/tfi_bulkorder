@@ -414,7 +414,7 @@
                                         <div class="tabs">
                                           <div class="js-mailalert text-center" data-url="//mediumturquoise-cheetah-573749.hostingersite.com/index.php?process=add&fc=module&module=ps_emailalerts&controller=actions">
                                                                                                   <button
-                                                  data-product="{$product.id}"
+                                                  data-product="{$product.id_product}"
                                                   data-product-attribute="0"
                                                   class="btn btn-primary js-mailalert-add mt-1"
                                                   rel="nofollow">
