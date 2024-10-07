@@ -489,7 +489,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
             ORDER BY `level_depth` ASC, ' .
             (Configuration::get('BLOCK_CATEG_SORT') ? 'cl.`name`' : 'cs.`position`') . ' ' .
             (Configuration::get('BLOCK_CATEG_SORT_WAY') ? 'DESC' : 'ASC'));
-
+        print_r($record);
         foreach ($record as &$row) {
             $parent_cat[$row['id_parent']][] = &$row;
             $id_result[$row['id_category']] = &$row;
