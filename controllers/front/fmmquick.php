@@ -40,6 +40,16 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         if (!$id_category) {
             $id_category = false;
         }
+        $id_country = Tools::getValue('id_country');
+        if (!$id_country) {
+            $id_country = 0;
+        }
+        $id_view = Tools::getValue('id_view');
+        if (!$id_view) {
+            $id_view = 0;
+        }
+
+
         $product_type = Tools::getValue('product_type');
         if (!($product_type == 'all' ||
             $product_type == 'best' ||
@@ -80,6 +90,8 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
                 $order_by,
                 $order_way,
                 $id_category,
+                $id_country,
+                $id_view,
                 $only_active
             );
             $all_products = Product::getProductsProperties($id_language, $all_products);
@@ -452,6 +464,8 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         $order_by,
         $order_way,
         $id_category = false,
+        $id_country = "0",
+        $id_view = "0",
         $only_active = false
     ) {
         $only_active = true;
@@ -506,13 +520,12 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
 
         
 
-        $sql = 'SELECT fvl.value AS country_name
+        $sql = 'SELECT fvl.value AS country_name, fvl.id_feature_value AS id_value
         FROM ' . _DB_PREFIX_ . 'feature_value fv
         INNER JOIN ' . _DB_PREFIX_ . 'feature_value_lang fvl ON fv.id_feature_value = fvl.id_feature_value
         WHERE fv.id_feature = 9
         GROUP BY fvl.value
         ORDER BY fvl.value';
-
 
         $countries = Db::getInstance()->executeS($sql);
 
@@ -547,16 +560,17 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
                 LEFT JOIN `' . _DB_PREFIX_ . 'product_lang` pl ON (p.`id_product` = pl.`id_product` ' .
         Shop::addSqlRestrictionOnLang('pl') . ')
                 LEFT JOIN `' . _DB_PREFIX_ . 'manufacturer` m ON (m.`id_manufacturer` = p.`id_manufacturer`)
-                LEFT JOIN `' . _DB_PREFIX_ . 'supplier` s ON (s.`id_supplier` = p.`id_supplier`)'.
-                //LEFT JOIN `' . _DB_PREFIX_ . 'feature_product` fp ON (p.`id_product` = fp.`id_product`)' .
+                LEFT JOIN `' . _DB_PREFIX_ . 'supplier` s ON (s.`id_supplier` = p.`id_supplier`)
+                LEFT JOIN `' . _DB_PREFIX_ . 'feature_product` fp ON (p.`id_product` = fp.`id_product`)' .
         ($id_category ? 'LEFT JOIN `' . _DB_PREFIX_ .
             'category_product` c ON (c.`id_product` = p.`id_product`)' : '') . '
                 WHERE pl.`id_lang` = ' . (int) $id_lang .
         ($id_category ? ' AND c.`id_category` = ' . (int) $id_category : '') .
         ($front ? ' AND product_shop.`visibility` IN ("both", "catalog")' : '') .
         ($only_active ? ' AND product_shop.`active` = 1' : '') .
-       // ' AND fp.`id_feature_value`=1066 
-            '    ORDER BY ' . (isset($order_by_prefix) ? pSQL($order_by_prefix) . '.' : '') .
+        ($id_country!="0" ? ' AND fp.`id_feature_value` = ' . (int) $id_country : '') .
+            ' GROUP BY p.id_product  
+            ORDER BY ' . (isset($order_by_prefix) ? pSQL($order_by_prefix) . '.' : '') .
         '`' . pSQL($order_by) . '` ' . pSQL($order_way) . ', '.pSQL(' pl.`name` ASC ') .
             ($limit > 0 ? ' LIMIT ' . (int) $start . ',' . (int) $limit : '');
         

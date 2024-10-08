@@ -56,7 +56,7 @@
             <select  name="select_fmm_country" id="select_fmm_country" class="custom-select " style="width: auto;">
                 <option value="0">All Country</option>
                 {foreach from=$countries item=country}
-                    <option value="{$country.country_name}">{$country.country_name}</option>
+                    <option value="{$country.id_value}">{$country.country_name}</option>
                 {/foreach}
             </select>
 

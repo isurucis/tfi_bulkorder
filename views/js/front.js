@@ -569,18 +569,24 @@ $( document ).ready(function() {
     }
 
     //.............................................................
-    
+    $('#select_fmm_country').on('change', function() {
+      dataTableChangeNew();
+    });
+    $('#select_fmm_view').on('change', function() {
+      dataTableChangeNew();
+    });
     $('#select_fmm_cat').on('change', function() {
-      var id_category = this.value;
-      var ajax_url = $("#ajax_url").val();
-      var product_type = $("#product_type").val();
-      console.log("id_category : "+id_category+"\n ajax_url : "+ajax_url+"\n product_type : "+product_type+"\n action : productChangeCategory");
+      //var id_category = this.value;
+      //var ajax_url = $("#ajax_url").val();
+      //var product_type = $("#product_type").val();
+      //console.log("id_category : "+id_category+"\n ajax_url : "+ajax_url+"\n product_type : "+product_type+"\n action : productChangeCategory");
       //var fmmDataTable = $('#fmm_table').DataTable();
       
       //fmmDataTable.clear();
       //fmmDataTable.destroy();
       //var fmmDataTable = $('#fmm_table').DataTable();
-      
+      dataTableChangeNew();
+      /*
       var fmmDataTableId = '#fmm_table';
 
       $.ajax({
@@ -645,9 +651,60 @@ $( document ).ready(function() {
           }
       
       });
-      
+      */
     });
     
+    var dataTableChangeNew = function() {
+      var id_category       = $('#select_fmm_cat').val(); //this.value;
+      var id_country        = $('#select_fmm_country').val();   // countryid
+      var id_view           = $('#select_fmm_view').val();  // 0=all |1=stock |2=outofstock
+
+      var ajax_url          = $("#ajax_url").val();
+      var product_type      = $("#product_type").val();   // all |new |sale |csv
+      console.log("id_category : "+id_category+"\n id_country : "+id_country+"\n id_view : "+id_view+"\n ajax_url : "+ajax_url+"\n product_type : "+product_type+"\n action : productChangeCategory");
+      //var fmmDataTable = $('#fmm_table').DataTable();
+      
+      //fmmDataTable.clear();
+      //fmmDataTable.destroy();
+      //var fmmDataTable = $('#fmm_table').DataTable();
+      
+      var fmmDataTableId = '#fmm_table';
+
+      $.ajax({
+          type: 'POST',
+          url: ajax_url,
+          data: {
+              id_category: id_category , id_country: id_country, id_view: id_view, ajax:1, product_type: product_type, action: 'productChangeCategory'
+          },
+          beforeSend: function() { },
+          success: function(response){
+            console.log(response);
+
+            // clear first
+            if(fmmDataTable!=null){
+              $(fmmDataTableId + " tbody").html('');
+            }
+            //$(fmmDataTableId + " tbody").append(response);
+            if (response != 2) {
+              console.log("Data Available");
+
+              $(fmmDataTableId + " tbody").append(response);
+
+            } else {
+                console.log("Data NOT Available");
+                $("#loader").hide();
+            }
+
+            //3rd reCreate Datatable object
+            fmmDataTable = $(fmmDataTableId).DataTable();
+          }, 
+          complete: function() {
+            //dataTableInit(3);
+            //var fmmDataTable = $('#fmm_table').DataTable();
+          }
+      
+      });
+    }
     //.............................................................
 
 
