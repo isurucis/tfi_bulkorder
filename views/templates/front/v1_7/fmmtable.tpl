@@ -885,7 +885,7 @@
 
 
         <script type="text/javascript">
-            $(document).ready(function () {
+            //$(document).ready(function () {
                 //processes when the Download CSV File button is clicked.  If the browser can handle the
                 //download archor attribute, the contents of the posting file Multi-Line field will be
                 //downloaded in a csv file, if the browser can't handle the attribute, the user will be
@@ -909,7 +909,7 @@
                         alert('This functionality is not supported by the current browser, recommend trying with Google Chrome instead.  (http://caniuse.com/#feat=download)');
                     }
                 });
-            });
+            //});
         </script>
     {/if}
     {/block}
