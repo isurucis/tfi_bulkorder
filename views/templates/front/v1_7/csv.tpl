@@ -93,8 +93,10 @@
                                 </div>
                                 <div style="padding: 5px;">
                                     <input style="float: left;" class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" value="Upload CSV File" type="submit"/>
-
-                                    <p id="downloadcsvfile" class="downloadcsvfile"><a href="{$base_url|escape:'htmlall':'UTF-8'}modules/quickproducttable/views/img/sample.csv"><span class="arrow-sign">»</span>{l s='Download a sample CSV file' mod='quickproducttable'}</a></p>
+                                    
+                                    <button id="downloadCSVFileButton" class="downloadcsvfile"><span class="arrow-sign">»</span>{l s='Download a sample CSV file' mod='quickproducttable'}</button>
+                                    
+                                    <!-- p id="downloadcsvfile" class="downloadcsvfile"><a href="{$base_url|escape:'htmlall':'UTF-8'}modules/quickproducttable/views/img/sample.csv"><span class="arrow-sign">»</span>{l s='Download a sample CSV file' mod='quickproducttable'}</a></p -->
                                     <div class="clearfix"></div>
                                 </div>
                             </form>
@@ -116,6 +118,34 @@
             </div>
         </div>
     {/if}
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //processes when the Download CSV File button is clicked.  If the browser can handle the
+        //download archor attribute, the contents of the posting file Multi-Line field will be
+        //downloaded in a csv file, if the browser can't handle the attribute, the user will be
+        //alerted and recommended to try another browser
+        $('#downloadCSVFileButton').click(function () {
+            var textFile = "{$base_url|escape:'htmlall':'UTF-8'}modules/quickproducttable/views/img/sample.csv"; //$('.postingFile textarea').val();
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(textFile));
+            element.setAttribute('download', '{$base_url|escape:'htmlall':'UTF-8'}modules/quickproducttable/views/img/sample.csv');
+            element.style.display = 'none';
+            if (typeof element.download != "undefined") {
+                //browser has support - process the download
+                document.body.appendChild(element);
+                element.click();
+                document.body.removeChild(element);
+            }
+            else {
+                //browser does not support - alert the user
+                alert('This functionality is not supported by the current browser, recommend trying with Google Chrome instead.  (http://caniuse.com/#feat=download)');
+            }
+        });
+    });
+</script>
+
 
 {/block}
 
