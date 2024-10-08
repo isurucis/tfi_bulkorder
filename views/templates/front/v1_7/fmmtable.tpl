@@ -410,21 +410,18 @@
                             <!-- div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}">0 Case</div -->
                             {else}
                                 <!--<a class="btn btn-info" href="https://mediumturquoise-cheetah-573749.hostingersite.com/fmmquick?product_type=sale">Notify Me</a>-->
-                                <div class="product-additional-info js-product-additional-info">
-                                    <div class="tabs">
-                                        <div class="js-mailalert text-center" data-url="//mediumturquoise-cheetah-573749.hostingersite.com/index.php?process=add&fc=module&module=ps_emailalerts&controller=actions">
-                                                                                                <button
-                                                data-product="{$product.id_product}"
-                                                data-product-attribute="0"
-                                                class="btn btn-primary js-mailalert-add mt-1"
-                                                rel="nofollow">
-                                                Notify me
-                                            </button>
-                                            <div class="js-mailalert-alerts"></div>
-                                            </div>
-                                    </div>
-                                    
-                                    </div>
+                            
+                                <div id="email_alert_form">
+                                    <form id="email_notification" method="post">
+                                        <input type="hidden" name="id_product" value="{$product.id_product}">
+                                        <input type="hidden" name="id_product_attribute" value="0">
+                                        <input type="email" name="customer_email" placeholder="Enter your email" required>
+                                        <button type="submit" class="btn btn-default">Notify Me</button>
+                                    </form>
+                                    <p id="email_notification_msg"></p>
+                                </div>
+                            
+                                 
                             {/if}
                         </div>
                     </td>
@@ -493,7 +490,33 @@
     
         {if $ajax_load}
         <script type="text/javascript">
-                    
+            
+            $(document).on('submit', '#email_notification', function(e) {
+                e.preventDefault();
+                var email = $(this).find('input[name="customer_email"]').val();
+                var id_product = $(this).find('input[name="id_product"]').val();
+                var id_product_attribute = $(this).find('input[name="id_product_attribute"]').val();
+            
+                $.ajax({
+                    type: 'POST',
+                    url: '/modules/ps_emailalerts/mailalerts.php',
+                    data: {
+                        email: email,
+                        id_product: id_product,
+                        id_product_attribute: id_product_attribute,
+                        action: 'add',
+                    },
+                    success: function(response) {
+                        if (response == '1') {
+                            $('#email_notification_msg').html('<p class="alert alert-success">You will be notified when the product is available!</p>');
+                        } else {
+                            $('#email_notification_msg').html('<p class="alert alert-danger">Error: Unable to subscribe for notifications.</p>');
+                        }
+                    }
+                });
+            });
+
+            
             $('#loader').on('inview', function(event, isInView) {
     
                 if (isInView) {
