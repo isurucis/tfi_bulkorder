@@ -93,7 +93,7 @@
                                 </div>
                                 <div style="padding: 5px;">
                                     <input style="float: left;" class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" value="Upload CSV File" type="submit"/>
-                                    
+
                                     <button id="downloadCSVFileButton" class="downloadcsvfile"><span class="arrow-sign">»</span>{l s='Download a sample CSV file' mod='quickproducttable'}</button>
                                     
                                     <!-- p id="downloadcsvfile" class="downloadcsvfile"><a href="{$base_url|escape:'htmlall':'UTF-8'}modules/quickproducttable/views/img/sample.csv"><span class="arrow-sign">»</span>{l s='Download a sample CSV file' mod='quickproducttable'}</a></p -->
@@ -126,7 +126,9 @@
         //download archor attribute, the contents of the posting file Multi-Line field will be
         //downloaded in a csv file, if the browser can't handle the attribute, the user will be
         //alerted and recommended to try another browser
-        $('#downloadCSVFileButton').click(function () {
+        //$('#downloadCSVFileButton').click(function () {
+        $(document).on('click', '#downloadCSVFileButton', function(e) {
+            alert("HYes"); exit;
             var textFile = "{$base_url|escape:'htmlall':'UTF-8'}modules/quickproducttable/views/img/sample.csv"; //$('.postingFile textarea').val();
             var element = document.createElement('a');
             element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(textFile));
