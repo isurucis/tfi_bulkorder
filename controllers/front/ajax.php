@@ -689,6 +689,7 @@ class QuickProductTableAjaxModuleFrontController extends ModuleFrontController
             ($limit > 0 ? ' LIMIT ' . (int) $start . ',' . (int) $limit : '');
         $rq = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
 
+        echo $sql;
 
         $category = new Category($id_category);
 
