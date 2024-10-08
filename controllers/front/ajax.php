@@ -360,6 +360,8 @@ class QuickProductTableAjaxModuleFrontController extends ModuleFrontController
         $start_no = 1;
         $limit = 999;
         $id_category = Tools::getValue('id_category');
+        $id_country = Tools::getValue('id_country');
+        $id_view = Tools::getValue('id_view');
         $only_active = true;
         $beginning = false;
         $ending = false;
@@ -383,6 +385,8 @@ class QuickProductTableAjaxModuleFrontController extends ModuleFrontController
                 $order_by,
                 $order_way,
                 $id_category,
+                $id_country,
+                $id_view,
                 $only_active
             );
             $all_products = Product::getProductsProperties($id_language, $all_products);
@@ -630,6 +634,8 @@ class QuickProductTableAjaxModuleFrontController extends ModuleFrontController
         $order_by,
         $order_way,
         $id_category = false,
+        $id_country = "0",
+        $id_view = "0",
         $only_active = false
     ) {
         $only_active = true;
@@ -668,14 +674,17 @@ class QuickProductTableAjaxModuleFrontController extends ModuleFrontController
                 LEFT JOIN `' . _DB_PREFIX_ . 'product_lang` pl ON (p.`id_product` = pl.`id_product` ' .
         Shop::addSqlRestrictionOnLang('pl') . ')
                 LEFT JOIN `' . _DB_PREFIX_ . 'manufacturer` m ON (m.`id_manufacturer` = p.`id_manufacturer`)
-                LEFT JOIN `' . _DB_PREFIX_ . 'supplier` s ON (s.`id_supplier` = p.`id_supplier`)' .
+                LEFT JOIN `' . _DB_PREFIX_ . 'supplier` s ON (s.`id_supplier` = p.`id_supplier`)
+                LEFT JOIN `' . _DB_PREFIX_ . 'feature_product` fp ON (p.`id_product` = fp.`id_product`)' .
         ($id_category ? 'LEFT JOIN `' . _DB_PREFIX_ .
             'category_product` c ON (c.`id_product` = p.`id_product`)' : '') . '
                 WHERE pl.`id_lang` = ' . (int) $id_lang .
         ($id_category ? ' AND c.`id_category` = ' . (int) $id_category : '') .
         ($front ? ' AND product_shop.`visibility` IN ("both", "catalog")' : '') .
-        ($only_active ? ' AND product_shop.`active` = 1' : '') . '
-                ORDER BY ' . (isset($order_by_prefix) ? pSQL($order_by_prefix) . '.' : '') .
+        ($only_active ? ' AND product_shop.`active` = 1' : '') .
+        ($id_country!="0" ? ' AND fp.`id_feature_value` = '. $id_country : '') . 
+            ' GROUP BY p.id_product  
+            ORDER BY ' . (isset($order_by_prefix) ? pSQL($order_by_prefix) . '.' : '') .
         '`' . pSQL($order_by) . '` ' . pSQL($order_way) .
             ($limit > 0 ? ' LIMIT ' . (int) $start . ',' . (int) $limit : '');
         $rq = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
@@ -747,7 +756,7 @@ class QuickProductTableAjaxModuleFrontController extends ModuleFrontController
             $rq[$k]['default_currency_iso_code'] = $this->context->currency->iso_code;
             $rq[$k]['default_currency_name'] = $this->context->currency->name;
         }
-        
+        $rq['sqlquery'] = $sql;
         return $rq;
     }
 
