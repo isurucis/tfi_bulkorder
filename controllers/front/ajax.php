@@ -756,7 +756,7 @@ class QuickProductTableAjaxModuleFrontController extends ModuleFrontController
             $rq[$k]['default_currency_iso_code'] = $this->context->currency->iso_code;
             $rq[$k]['default_currency_name'] = $this->context->currency->name;
         }
-        $rq['sqlquery'] = $sql;
+        //$rq['sqlquery'] = $sql;
         return $rq;
     }
 

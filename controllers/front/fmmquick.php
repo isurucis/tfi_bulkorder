@@ -664,7 +664,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
 
             
         }
-        $rq['sqlquery'] = $sql;
+        //$rq['sqlquery'] = $sql;
         return $rq;
     }
 
