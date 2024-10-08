@@ -119,7 +119,7 @@
         </div>
     {/if}
 
-    
+    {literal}
     <script type="text/javascript">
         //$(document).ready(function () {
             //processes when the Download CSV File button is clicked.  If the browser can handle the
@@ -147,5 +147,6 @@
             });
         //});
     </script>
+    {/literal}
 {/block}
 

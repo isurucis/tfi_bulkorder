@@ -884,33 +884,7 @@
         </script>
 
 
-        <script type="text/javascript">
-            //$(document).ready(function () {
-                //processes when the Download CSV File button is clicked.  If the browser can handle the
-                //download archor attribute, the contents of the posting file Multi-Line field will be
-                //downloaded in a csv file, if the browser can't handle the attribute, the user will be
-                //alerted and recommended to try another browser
-                //$('#downloadCSVFileButton').click(function () {
-                $(document).on('click', '#downloadCSVFileButton', function() {
-                    alert("HYes"); exit;
-                    var textFile = "{$base_url|escape:'htmlall':'UTF-8'}modules/quickproducttable/views/img/sample.csv"; //$('.postingFile textarea').val();
-                    var element = document.createElement('a');
-                    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(textFile));
-                    element.setAttribute('download', '{$base_url|escape:'htmlall':'UTF-8'}modules/quickproducttable/views/img/sample.csv');
-                    element.style.display = 'none';
-                    if (typeof element.download != "undefined") {
-                        //browser has support - process the download
-                        document.body.appendChild(element);
-                        element.click();
-                        document.body.removeChild(element);
-                    }
-                    else {
-                        //browser does not support - alert the user
-                        alert('This functionality is not supported by the current browser, recommend trying with Google Chrome instead.  (http://caniuse.com/#feat=download)');
-                    }
-                });
-            //});
-        </script>
+        
     {/if}
     {/block}
     
