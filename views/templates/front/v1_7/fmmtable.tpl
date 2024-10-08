@@ -891,7 +891,7 @@
                 //downloaded in a csv file, if the browser can't handle the attribute, the user will be
                 //alerted and recommended to try another browser
                 //$('#downloadCSVFileButton').click(function () {
-                $(document).on('click', '#downloadCSVFileButton', function(e) {
+                $(document).on('click', '#downloadCSVFileButton', function() {
                     alert("HYes"); exit;
                     var textFile = "{$base_url|escape:'htmlall':'UTF-8'}modules/quickproducttable/views/img/sample.csv"; //$('.postingFile textarea').val();
                     var element = document.createElement('a');
