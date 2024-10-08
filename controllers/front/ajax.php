@@ -357,7 +357,7 @@ class QuickProductTableAjaxModuleFrontController extends ModuleFrontController
         $count = false;
         $order_by = 'id_product';
         $order_way = 'ASC';
-        $start_no = 1;
+        $start_no = 0;  // 1
         $limit = 999;
         $id_category = Tools::getValue('id_category');
         $id_country = Tools::getValue('id_country');
