@@ -548,6 +548,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         Shop::addSqlRestrictionOnLang('pl') . ')
                 LEFT JOIN `' . _DB_PREFIX_ . 'manufacturer` m ON (m.`id_manufacturer` = p.`id_manufacturer`)
                 LEFT JOIN `' . _DB_PREFIX_ . 'supplier` s ON (s.`id_supplier` = p.`id_supplier`)'.
+                //LEFT JOIN `' . _DB_PREFIX_ . 'feature_product` fp ON (p.`id_product` = fp.`id_product`)' .
         ($id_category ? 'LEFT JOIN `' . _DB_PREFIX_ .
             'category_product` c ON (c.`id_product` = p.`id_product`)' : '') . '
                 WHERE pl.`id_lang` = ' . (int) $id_lang .
@@ -559,6 +560,9 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         '`' . pSQL($order_by) . '` ' . pSQL($order_way) . ', '.pSQL(' pl.`name` ASC ') .
             ($limit > 0 ? ' LIMIT ' . (int) $start . ',' . (int) $limit : '');
         
+        echo $sql;
+
+
         /*
         $sql = 'SELECT p.*, product_shop.*, pl.* , m.`name` AS manufacturer_name, s.`name` AS supplier_name
                 FROM `' . _DB_PREFIX_ . 'product` p
