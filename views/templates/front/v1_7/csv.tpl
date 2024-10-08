@@ -91,8 +91,12 @@
                                 <div>
                                     <input type="file" name="quickcsv" class="csv_sku" />
                                 </div>
-                                <p id="downloadcsvfile"><a href="{$base_url|escape:'htmlall':'UTF-8'}modules/quickproducttable/views/img/sample.csv">{l s='Download a sample CSV file' mod='quickproducttable'}</a></p>
-                                <input class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" value="Upload CSV File" type="submit"/>
+                                <div style="padding: 5px;">
+                                    <input style="float: left;" class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" value="Upload CSV File" type="submit"/>
+
+                                    <p id="downloadcsvfile" class="downloadcsvfile"><a href="{$base_url|escape:'htmlall':'UTF-8'}modules/quickproducttable/views/img/sample.csv"><span class="arrow-sign">»</span>{l s='Download a sample CSV file' mod='quickproducttable'}</a></p>
+                                    <div class="clearfix"></div>
+                                </div>
                             </form>
                             
                         </div>
@@ -104,7 +108,7 @@
                         <legend>Option 2: Enter Item Number to Purchase</legend>
                         <div class="col-lg-12 ">
                             <textarea id="csv_sku" class="csv_sku" placeholder="{l s='Enter multiple reference, separate by new lines' mod='quickproducttable'}" style="height: 93px;"></textarea>
-                            <p style="color:#000000;"><span style="font-style: italic; color: #727577;">Format</span>: reference,qty,attribute &nbsp;&nbsp; <span style="font-style: italic; color: #727577;">e.g 1</span>: demo_1,2,1 &nbsp;&nbsp; <span style="font-style: italic; color: #727577;">e.g 2</span>: demo_10,5</p>
+                            <p style="color:#000000;"><span style="font-style: italic; color: #727577;">Format</span>: reference,qty &nbsp;&nbsp; <span style="font-style: italic; color: #727577;">e.g 1</span>: 121567,30 &nbsp;&nbsp; <span style="font-style: italic; color: #727577;">e.g 2</span>: 112630,150</p>
                             <input class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}"  onclick="textareaClick();" value="Add To Cart" type="submit"/>
                         </div>
                     </fieldset>

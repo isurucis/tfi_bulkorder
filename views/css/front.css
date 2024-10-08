@@ -1204,3 +1204,20 @@ table.row_tbl_price_box_amount tbody td {
   font-family: 'Roboto';
   font-size: .8rem;
 }
+
+
+.downloadcsvfile {
+  border: solid 1px #67c28c;
+  padding: 1px 10px 3px;
+  border-radius: 6px;
+  margin-top: 5px;
+  width: fit-content;
+  float: right;
+}
+
+.arrow-sign {
+  font-size: 1.3rem;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #67c28c;
+}
