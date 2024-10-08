@@ -574,7 +574,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         '`' . pSQL($order_by) . '` ' . pSQL($order_way) . ', '.pSQL(' pl.`name` ASC ') .
             ($limit > 0 ? ' LIMIT ' . (int) $start . ',' . (int) $limit : '');
         
-        echo $sql;
+        //echo $sql;
 
 
         /*
