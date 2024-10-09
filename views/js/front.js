@@ -727,5 +727,29 @@ $( document ).ready(function() {
     //.............................................................
 
 
+    $(document).on('click', '.notify-me-btn', function () {
+        var productId = $(this).data('id-product'); // Get the product ID from data attribute
+        alert(productId);
+        // Prompt the user for their email
+        var email = prompt("Please enter your email to be notified for product ID: " + productId);
 
+        if (email) {
+            // Send an AJAX request to add the email to the notification list
+            $.ajax({
+                type: "POST",
+                url: '/modules/mailalerts/actions.php', // Email Alerts module's actions.php
+                data: {
+                    process: 'add',
+                    email: email,
+                    id_product: productId
+                },
+                success: function (response) {
+                    alert('You will be notified when product ' + productId + ' is back in stock.');
+                },
+                error: function () {
+                    alert('There was an error processing your request. Please try again.');
+                }
+            });
+        }
+    });
 });
