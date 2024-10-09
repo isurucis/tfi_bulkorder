@@ -94,7 +94,7 @@
                                 <div style="padding: 5px;">
                                     <input style="float: left;" class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" value="Upload CSV File" type="submit"/>
 
-                                    <button type="button" id="downloadCSVFileButton" class="downloadcsvfile"  onclick="downloadSampleCSV();"><span class="arrow-sign">»</span>{l s='Download a sample CSV file' mod='quickproducttable'}</button>
+                                    <button type="button" id="downloadCSVFileButton" class="downloadcsvfile"  onclick="downloadSampleCSV('{$base_url|escape:'htmlall':'UTF-8'}modules/quickproducttable/views/img/', 'sample.csv');" filename="sample.csv" filelocation="{$base_url|escape:'htmlall':'UTF-8'}modules/quickproducttable/views/img/"><span class="arrow-sign">»</span>{l s='Download a sample CSV file' mod='quickproducttable'}</button>
                                     
                                     <!-- p id="downloadcsvfile" class="downloadcsvfile"><a href="{$base_url|escape:'htmlall':'UTF-8'}modules/quickproducttable/views/img/sample.csv"><span class="arrow-sign">»</span>{l s='Download a sample CSV file' mod='quickproducttable'}</a></p -->
                                     <div class="clearfix"></div>

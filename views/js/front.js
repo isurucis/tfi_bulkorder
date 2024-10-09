@@ -379,12 +379,12 @@ function textareaClick() {
     });
 }
 
-function downloadSampleCSV() {
+function downloadSampleCSV(filelocation, filename) {
   //alert("HYes22"); exit;
-  var textFile = "/modules/quickproducttable/views/img/sample.csv"; //$('.postingFile textarea').val();
+  var textFile = filename; //$('.postingFile textarea').val();
   var element = document.createElement('a');
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(textFile));
-  element.setAttribute('download', '/modules/quickproducttable/views/img/sample.csv');
+  element.setAttribute("download", filelocation+filename);
   element.style.display = 'none';
   if (typeof element.download != "undefined") {
       //browser has support - process the download
