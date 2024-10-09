@@ -235,7 +235,10 @@
                         </table>
                         <!-- div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}">0 Case</div -->
                         {else}
-                        <a class="btn btn-info" href="https://mediumturquoise-cheetah-573749.hostingersite.com/fmmquick?product_type=sale">Notify Me</a>
+                        <!--<a class="btn btn-info" href="https://mediumturquoise-cheetah-573749.hostingersite.com/fmmquick?product_type=sale">Notify Me</a>-->
+                        <button data-product="{$product.id_product}" data-product-attribute="0" class="btn btn-primary js-mailalert-add mt-1" rel="nofollow">
+                            Notify me when available
+                        </button>
                         {/if}
                     </div>
                 </td>
