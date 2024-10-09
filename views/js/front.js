@@ -99,6 +99,7 @@
                         // Handle errors if the AJAX request fails (optional)
                         console.error('Error adding product to cart:', data.message);
                     }*/
+                    window.location.reload(true);
                     //window.location.href = 'https://mediumturquoise-cheetah-573749.hostingersite.com/cart?action=show';
                   }
               });
