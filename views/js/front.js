@@ -380,7 +380,7 @@ function textareaClick() {
 }
 
 function downloadSampleCSV() {
-  alert("HYes22"); exit;
+  //alert("HYes22"); exit;
   var textFile = "/modules/quickproducttable/views/img/sample.csv"; //$('.postingFile textarea').val();
   var element = document.createElement('a');
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(textFile));
