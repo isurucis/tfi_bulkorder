@@ -729,7 +729,7 @@ $( document ).ready(function() {
 
     $(document).on('click', '.notify-me-btn', function () {
         var productId = $(this).data('id-product'); // Get the product ID from data attribute
-        alert(productId);
+        //alert(productId);
         // Prompt the user for their email
         var email = prompt("Please enter your email to be notified for product ID: " + productId);
 
