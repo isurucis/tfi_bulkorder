@@ -705,7 +705,7 @@ $( document ).ready(function() {
                     $('<td>').text('<div class="grid_td_column6">'+item.price+'</div>'),
                     $('<td>').text('<div class="grid_td_column7">'+item.id_product+'</div>')
                   ).appendTo('#fmm_table_body');
-                  //console.log($tr.wrap('<p>').html());
+                  console.log($tr.wrap('<p>').html());
                 });
               //});
               //.........................................................
