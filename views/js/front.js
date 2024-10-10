@@ -680,7 +680,8 @@ $( document ).ready(function() {
               console.log("Data Available 123");
 
               $(fmmDataTableId + " tbody").html(response);
-              $("#fmm_table22").html(response);
+              $("#fmm_table22").html("loading data...");
+              $("#fmm_table22").append(response);
             } else {
                 console.log("Data NOT Available");
                 $("#loader").hide();
