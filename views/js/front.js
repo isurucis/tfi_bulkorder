@@ -474,7 +474,7 @@ $( document ).ready(function() {
       columnDefs: [{ visible: false, targets: groupColumn }],
       order: [[groupColumn, 'asc']],
       displayLength: 10,
-      drawCallback: function (settings) {
+      /*drawCallback: function (settings) {
         var api = this.api();
         var rows = api.rows({ page: 'current' }).nodes();
         var last = null;
@@ -494,13 +494,13 @@ $( document ).ready(function() {
                     last = group;
                 }
             });
-      },
+      },*/
       rowReorder: {
           selector: 'td:nth-child(2)'
       },
-      rowGroup: {
-        dataSrc: groupColumn
-      },
+      //rowGroup: {
+      //  dataSrc: groupColumn
+      //},
       destroy: true,
       "lengthChange": false,
       "info":     false,
@@ -563,7 +563,7 @@ $( document ).ready(function() {
         columnDefs: [{ visible: false, targets: groupColumn }],
         order: [[groupColumn, 'asc']],
         displayLength: 25,
-        drawCallback: function (settings) {
+        /*drawCallback: function (settings) {
             var api = this.api();
             var rows = api.rows({ page: 'current' }).nodes();
             var last = null;
@@ -583,16 +583,16 @@ $( document ).ready(function() {
                         last = group;
                     }
                 });
-        },
+        },*/
         rowReorder: {
             selector: 'td:nth-child(2)'
         },
         /*rowGroup: {
           dataSrc: 'group'
         },*/
-        rowGroup: {
-          dataSrc: groupColumn
-        },
+        //rowGroup: {
+        //  dataSrc: groupColumn
+        //},
         destroy: true,
         "lengthChange": false,
         "info":     false,
