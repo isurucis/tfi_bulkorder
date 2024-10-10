@@ -473,8 +473,8 @@ $( document ).ready(function() {
     var fmmDataTable = $('#fmm_table').DataTable({
       columnDefs: [{ visible: false, targets: groupColumn }],
       order: [[groupColumn, 'asc']],
-      displayLength: 25,
-      drawCallback: function (settings) {
+      displayLength: 10,
+      /*drawCallback: function (settings) {
         var api = this.api();
         var rows = api.rows({ page: 'current' }).nodes();
         var last = null;
@@ -494,7 +494,7 @@ $( document ).ready(function() {
                     last = group;
                 }
             });
-      },
+      },*/
       rowReorder: {
           selector: 'td:nth-child(2)'
       },
@@ -557,13 +557,13 @@ $( document ).ready(function() {
 
 
 
-      //var groupColumn = 3;
+      var groupColumn = 3;
       console.log("Event : DataTable - fmm_table, is called");
-      fmmDataTable = $(tableId).DataTable({
+      var fmmDataTable = $(tableId).DataTable({
         columnDefs: [{ visible: false, targets: groupColumn }],
         order: [[groupColumn, 'asc']],
         displayLength: 25,
-        drawCallback: function (settings) {
+        /*drawCallback: function (settings) {
             var api = this.api();
             var rows = api.rows({ page: 'current' }).nodes();
             var last = null;
@@ -583,7 +583,7 @@ $( document ).ready(function() {
                         last = group;
                     }
                 });
-        },
+        },*/
         rowReorder: {
             selector: 'td:nth-child(2)'
         },
