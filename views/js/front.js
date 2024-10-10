@@ -677,9 +677,9 @@ $( document ).ready(function() {
             //}
             //$(fmmDataTableId + " tbody").append(response);
             if (response != 2) {
-              console.log("Data Available");
+              console.log("Data Available 123");
 
-              $(fmmDataTableId + " tbody").append(response);
+              $(fmmDataTableId + " tbody").html(response);
 
             } else {
                 console.log("Data NOT Available");
