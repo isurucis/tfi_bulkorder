@@ -175,7 +175,7 @@
             {assign var="total_val" value="0.00"}
             {assign var="array_str_main" value=""}
             {assign var="array_str_sub" value=""}
-
+            {assign var="rownum" value="1"}
             {foreach from=$all_products item=product name=product}
                 {assign var="asgn_moq_qnty" value="0"}
                 {assign var="asgn_case_qnty" value="0"}
@@ -188,7 +188,7 @@
                             <img class="quickorder_item_image" src="{$product.cover_image_url|escape:'htmlall':'UTF-8'}">
                         </div>
                     </td>
-                    <td><div class="grid_td_column2">{$product.reference|escape:'htmlall':'UTF-8'}</div></td>
+                    <td><div class="grid_td_column2">{$rownum}<br />{$product.reference|escape:'htmlall':'UTF-8'}</div></td>
                     <td>
                         <div class="grid_td_column3">
                             <!-- div class="quickorder_itemname">
@@ -434,7 +434,7 @@
                             {/if}
                         </div>
                     </td>
-                    
+                    {$rownum=$rownum+1}
                 </tr>
                 {$array_str_sub = $array_str_sub|cat:{$product.id_product|escape:'htmlall':'UTF-8'}|cat:"|,"|cat:$asgn_moq_qnty|cat:"|,"|cat:$asgn_moq_price|cat:"|,"|cat:$asgn_case_qnty|cat:"|,"|cat:$asgn_case_price|cat:"||"}
             {/foreach}
