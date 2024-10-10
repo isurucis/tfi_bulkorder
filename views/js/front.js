@@ -690,7 +690,7 @@ $( document ).ready(function() {
               //$("#fmm_table22").html(response);
               //.........................................................
               //$(function() {
-                var response = JSON.parse(response);
+                //var response = JSON.parse(response);
                 $.each(response, function(i, item) {
                   console.log(item.name);
                   /*var $tr = $('<tr>').append(
