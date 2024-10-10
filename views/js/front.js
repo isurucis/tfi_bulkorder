@@ -667,11 +667,12 @@ $( document ).ready(function() {
             if(fmmDataTable!=null){
               console.log("IN dataTableChangeNew() fmmDataTable!=null ");
               fmmDataTable.clear();
-              //fmmDataTable.destroy();
+              fmmDataTable.destroy();
             }
 
             //2nd empty html
-            //$(fmmDataTableId + " tbody").empty();
+            $(fmmDataTableId + " tbody").empty();
+            $("#fmm_table_body").html('');
             
           },
           success: function(response){
@@ -705,7 +706,7 @@ $( document ).ready(function() {
                     $('<td>').text('<div class="grid_td_column6">'+item.price+'</div>'),
                     $('<td>').text('<div class="grid_td_column7">'+item.id_product+'</div>')
                   ).appendTo('#fmm_table_body');
-                  console.log($tr.wrap('<p>').html());
+                  //console.log($tr.wrap('<p>').html());
                 });
               //});
               //.........................................................
