@@ -508,11 +508,10 @@ $( document ).ready(function() {
       "pageLength": noofrow,
       orderCellsTop: true,
       fixedHeader: true,
-      "serverSide": true,
+      "serverSide": false,
       dom: "<'row'<'col-sm-5'p><'col-sm-4'f><'col-sm-3 topinbuttons'>>" +
           "<'row'<'col-sm-12'tr>>" +
           "<'row'<'col-sm-5'p><'col-sm-4'><'col-sm-3 botinbuttons'>>",
-
     });
 
 
