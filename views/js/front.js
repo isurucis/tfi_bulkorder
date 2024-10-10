@@ -694,6 +694,21 @@ $( document ).ready(function() {
                 //var response = JSON.parse(response);
                 $.each(response, function(i, item) {
                   //console.log(item.name);
+                  
+                  // COLUMN 10 : CHECKBOX
+                  var checkboxcol = '<td data-label="Add to Cart">\
+                                        <div class="grid_td_column7">';
+                                        if( parseInt(item.quantity) > parseInt(item.minimal_quantity)) {
+                      checkboxcol +=  '<input type="hidden" name="group" id="group_'+item.id_product+'" value="group_count">\
+                                          <div class="form-group-checkbox">\
+                                              <input type="checkbox" id="'+item.id_product+'_group_count" name="fmm_check" class="fmm_check" value="'+item.id_product+'">\
+                                              <label for="'+item.id_product+'_group_count" class="selection-button-checkbox">&nbsp;</label>\
+                                          </div>';
+                                        }
+                      checkboxcol +=  '</div>\
+                                      </td>';
+                  
+                  
                   var $tr = $('<tr class="row_tr_item_full odd" role="row">').append(
                     $('<td>').html('<div class="grid_td_column1"><img class="quickorder_item_image" src="'+item.cover_image_url+'"></div>'),
                     $('<td>').html('<div class="grid_td_column2">'+i+'<br />'+item.reference+'</div>'),
@@ -704,7 +719,7 @@ $( document ).ready(function() {
                     $('<td>').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
                     $('<td>').html('<div class="grid_td_column4">'+item.quantity+'</div>'),
                     $('<td>').html('<div class="grid_td_column6">'+item.price+'</div>'),
-                    $('<td>').html('<div class="grid_td_column7">'+item.id_product+'</div>')
+                    $('<td>').html('<div class="grid_td_column7">'+checkboxcol+'</div>')
                   ).appendTo('#fmm_table_body');
                   //console.log($tr.wrap('<p>').html());
                 });
