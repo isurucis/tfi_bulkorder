@@ -692,8 +692,8 @@ $( document ).ready(function() {
               //$(function() {
                 //var response = JSON.parse(response);
                 $.each(response, function(i, item) {
-                  console.log(item.name);
-                  /*var $tr = $('<tr>').append(
+                  //console.log(item.name);
+                  var $tr = $('<tr>').append(
                     $('<td>').text('<div class="grid_td_column1"><img class="quickorder_item_image" src="'+item.cover_image_url+'"></div>'),
                     $('<td>').text('<div class="grid_td_column2">'+i+'<br />'+item.reference+'</div>'),
                     $('<td>').text('<div class="grid_td_column3">'+item.name+'</div>'),
@@ -704,7 +704,7 @@ $( document ).ready(function() {
                     $('<td>').text('<div class="grid_td_column4">'+item.quantity+'</div>'),
                     $('<td>').text('<div class="grid_td_column6">'+item.price+'</div>'),
                     $('<td>').text('<div class="grid_td_column7">'+item.id_product+'</div>')
-                  ).appendTo('#fmm_table_body');*/
+                  ).appendTo('#fmm_table_body');
                   //console.log($tr.wrap('<p>').html());
                 });
               //});
