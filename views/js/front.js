@@ -99,7 +99,8 @@
                         // Handle errors if the AJAX request fails (optional)
                         console.error('Error adding product to cart:', data.message);
                     }*/
-                    window.location.href = 'https://mediumturquoise-cheetah-573749.hostingersite.com/cart?action=show';
+                    window.location.reload(true);
+                    //window.location.href = 'https://mediumturquoise-cheetah-573749.hostingersite.com/cart?action=show';
                   }
               });
           });
@@ -731,5 +732,29 @@ $( document ).ready(function() {
     //.............................................................
 
 
+    $(document).on('click', '.notify-me-btn', function () {
+        var productId = $(this).data('id-product'); // Get the product ID from data attribute
+        //alert(productId);
+        // Prompt the user for their email
+        var email = prompt("Please enter your email to be notified for product ID: " + productId);
 
+        if (email) {
+            // Send an AJAX request to add the email to the notification list
+            $.ajax({
+                type: "POST",
+                url: 'https://mediumturquoise-cheetah-573749.hostingersite.com/index.php?process=add&fc=module&module=ps_emailalerts&controller=actions', // Email Alerts module's actions.php
+                data: {
+                    process: 'add',
+                    email: email,
+                    id_product: productId
+                },
+                success: function (response) {
+                    alert('You will be notified when product ' + productId + ' is back in stock.');
+                },
+                error: function () {
+                    alert('There was an error processing your request. Please try again.');
+                }
+            });
+        }
+    });
 });

@@ -411,17 +411,11 @@
                             {else}
                                 <!--<a class="btn btn-info" href="https://mediumturquoise-cheetah-573749.hostingersite.com/fmmquick?product_type=sale">Notify Me</a>-->
                             
-                                <div id="email_alert_form">
-                                    <form id="email_notification" method="post">
-                                        <input type="hidden" name="id_product" value="{$product.id_product}">
-                                        <input type="hidden" name="id_product_attribute" value="0">
-                                        <input type="email" name="customer_email" placeholder="Enter your email" required>
-                                        <button type="submit" class="btn btn-default">Notify Me</button>
-                                    </form>
-                                    <p id="email_notification_msg"></p>
-                                </div>
                             
                                  
+                                <div class="product" data-id-product="{$product.id_product}">
+                                    <button class="notify-me-btn" data-id-product="{$product.id_product}">Notify me when available</button>
+                                </div>
                             {/if}
                         </div>
                     </td>
