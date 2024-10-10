@@ -749,7 +749,7 @@ $( document ).ready(function() {
             }
 
             //3rd reCreate Datatable object
-            fmmDataTable = $(fmmDataTableId).DataTable();
+            //fmmDataTable = $(fmmDataTableId).DataTable();
           }, 
           complete: function() {
             dataTableInit(3);
