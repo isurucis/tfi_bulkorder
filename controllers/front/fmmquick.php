@@ -199,7 +199,7 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         }
 
 
-
+        $this->path = __PS_BASE_URI__.'modules/quickproducttable/';
         $this->context->smarty->assign('product_type', $product_type);
         $this->context->smarty->assign('inview', $this->path . 'views/js/inview.js');
 
