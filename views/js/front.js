@@ -602,10 +602,21 @@ $( document ).ready(function() {
               "<'row'<'col-sm-12'tr>>" +
               "<'row'<'col-sm-5'p><'col-sm-4'><'col-sm-3 botinbuttons'>>",
       });
+      
       // $("#fmm_table_paginate").hide();
       var content = '<i class="material-icons srcicon" tabindex="0" role="button">search</i>';
       $("#fmm_table_filter").append(content); 
-    
+      
+      var botinbuttons22 = '<div class="col-lg-12 col-xs-12 top_buttons" >\
+                            <a class="btn btn-primary" href="'+$("#cart_url").val()+'">View Cart</a>\
+                            <button class="btn btn-primary" onclick="fmmAddAllCart();" >Add To Cart</button>\
+                            </div>'
+      var topinbuttons22 = '<div class="col-lg-12 col-xs-12 top_buttons div_total_amount" id="div_total_amount" >\
+                              <span>Product Total </span>\
+                              <span id="spn_total_amount_disp" class="spn_total_amount_disp">'+def_currency+'0.00</span>\
+                              </div>';
+      $(".topinbuttons").append(topinbuttons22);
+      $(".botinbuttons").append(botinbuttons22);
     
       $('.read-b2b-imagepopup').fancybox({
           'hideOnContentClick': false
@@ -754,7 +765,7 @@ $( document ).ready(function() {
             //fmmDataTable = $(fmmDataTableId).DataTable();
           }, 
           complete: function() {
-            dataTableInit(3, "dataTableChangeNew : complete");
+            //dataTableInit(3, "dataTableChangeNew : complete");
             //var fmmDataTable = $('#fmm_table').DataTable();
           }
       

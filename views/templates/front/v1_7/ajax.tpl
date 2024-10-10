@@ -22,8 +22,13 @@
 *  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-        {assign var="familyin" value="-" }
+        {*assign var="familyin" value="-" *}
         {foreach from=$all_products item=product name=product}
+            {assign var="asgn_moq_qnty" value="0"}
+            {assign var="asgn_case_qnty" value="0"}
+
+            {assign var="asgn_moq_price" value="0.00"}
+            {assign var="asgn_case_price" value="0.00"}
             {*if $familyin ne $product.category_name *}
                 <!-- tr>
                     <td colspan="9"><div class="grid_td_column_group">&nbsp;</div></td>
