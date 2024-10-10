@@ -658,6 +658,7 @@ $( document ).ready(function() {
       $.ajax({
           type: 'POST',
           url: ajax_url,
+          dataType: "JSON",
           data: {
               id_category: id_category , id_country: id_country, id_view: id_view, ajax:1, product_type: product_type, action: 'productChangeCategory'
           },
@@ -688,7 +689,7 @@ $( document ).ready(function() {
               //$("#fmm_table22").html("loading data...");
               //$("#fmm_table22").html(response);
               //.........................................................
-              $(function() {
+              //$(function() {
                 $.each(response, function(i, item) {
                   console.log(item.name);
                   /*var $tr = $('<tr>').append(
@@ -705,7 +706,7 @@ $( document ).ready(function() {
                   ).appendTo('#fmm_table_body');*/
                   //console.log($tr.wrap('<p>').html());
                 });
-              });
+              //});
               //.........................................................
             } else {
                 console.log("Data NOT Available");
