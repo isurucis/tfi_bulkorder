@@ -548,7 +548,7 @@ $( document ).ready(function() {
 
       //2nd empty html
       $(tableId + " tbody").empty();
-      $(tableId + " thead").empty();
+      //$(tableId + " thead").empty();
 
       //3rd reCreate Datatable object
       //tableObj= $(tableId).DataTable({
