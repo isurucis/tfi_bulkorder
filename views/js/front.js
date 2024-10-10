@@ -661,11 +661,11 @@ $( document ).ready(function() {
             if(fmmDataTable!=null){
               console.log("IN dataTableChangeNew() fmmDataTable!=null ");
               fmmDataTable.clear();
-              fmmDataTable.destroy();
+              //fmmDataTable.destroy();
             }
 
             //2nd empty html
-            $(fmmDataTableId + " tbody").empty();
+            //$(fmmDataTableId + " tbody").empty();
             
           },
           success: function(response){
@@ -680,7 +680,7 @@ $( document ).ready(function() {
               console.log("Data Available 123");
 
               $(fmmDataTableId + " tbody").html(response);
-
+              $("#fmm_table22").html(response);
             } else {
                 console.log("Data NOT Available");
                 $("#loader").hide();
