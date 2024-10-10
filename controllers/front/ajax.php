@@ -455,7 +455,13 @@ class QuickProductTableAjaxModuleFrontController extends ModuleFrontController
                 _PS_MODULE_DIR_ .'quickproducttable/views/templates/front/v1_7/ajax.tpl'
             );
         }
-        echo $output;
+        //echo $output;
+
+
+        $output = $all_products;
+        echo json_encode($output);
+        exit;
+        
 
     }
     
