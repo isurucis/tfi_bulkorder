@@ -508,7 +508,7 @@ $( document ).ready(function() {
       "pageLength": noofrow,
       orderCellsTop: true,
       fixedHeader: true,
-      "serverSide": false,
+      "serverSide": true,
       dom: "<'row'<'col-sm-5'p><'col-sm-4'f><'col-sm-3 topinbuttons'>>" +
           "<'row'<'col-sm-12'tr>>" +
           "<'row'<'col-sm-5'p><'col-sm-4'><'col-sm-3 botinbuttons'>>",
@@ -541,19 +541,19 @@ $( document ).ready(function() {
     var dataTableInit = function(groupColumn) {
       var tableId = "#fmm_table";
       // clear first
-      if(fmmDataTable!=null){
-        fmmDataTable.clear();
-        fmmDataTable.destroy();
-      }
+      //if(fmmDataTable!=null){
+      //  fmmDataTable.clear();
+      //  fmmDataTable.destroy();
+      //}
 
-      //2nd empty html
-      $(tableId + " tbody").empty();
-      //$(tableId + " thead").empty();
+      ////2nd empty html
+      //$(tableId + " tbody").empty();
+      ////$(tableId + " thead").empty();
 
-      //3rd reCreate Datatable object
-      //tableObj= $(tableId).DataTable({
-      //...
-      //});
+      ////3rd reCreate Datatable object
+      ////tableObj= $(tableId).DataTable({
+      ////...
+      ////});
 
 
 
@@ -720,14 +720,23 @@ $( document ).ready(function() {
           data: {
               id_category: id_category , id_country: id_country, id_view: id_view, ajax:1, product_type: product_type, action: 'productChangeCategory'
           },
-          beforeSend: function() { },
+          beforeSend: function() {
+            // clear first
+            if(fmmDataTable!=null){
+              fmmDataTable.clear();
+              fmmDataTable.destroy();
+            }
+
+            //2nd empty html
+            $(fmmDataTableId + " tbody").empty();
+          },
           success: function(response){
             console.log(response);
 
             // clear first
-            if(fmmDataTable!=null){
-              $(fmmDataTableId + " tbody").html('');
-            }
+            //if(fmmDataTable!=null){
+            //  $(fmmDataTableId + " tbody").html('');
+            //}
             //$(fmmDataTableId + " tbody").append(response);
             if (response != 2) {
               console.log("Data Available");
