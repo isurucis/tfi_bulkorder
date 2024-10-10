@@ -466,7 +466,7 @@
             </tr>
         </tfoot>
     </table>
-        <div id="fmm_table22" style="border: solid 1px #ff0000; max-height:150px; min-height: 50px; overflow: auto;"></div>
+        <div id="fmm_table22" style="border: solid 1px #ff0000; max-height:150px; min-height: 50px; overflow: auto; display: none;"></div>
         <!-- div class="debug-console" id="debug-console">{*$array_str_sub*}</div -->
         
         {if $ajax_load}

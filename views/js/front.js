@@ -471,11 +471,11 @@ $( document ).ready(function() {
     console.log("Event : DataTable - fmm_table, is called");
 
     var fmmDataTable = $('#fmm_table').DataTable({
-      //columnDefs: [{ visible: false, targets: groupColumn }],
-      columnDefs: [{ visible: false}],
-      //order: [[groupColumn, 'asc']],
+      columnDefs: [{ visible: false, targets: groupColumn }],
+      //columnDefs: [{ visible: false}],
+      order: [[groupColumn, 'asc']],
       displayLength: 10,
-      /*drawCallback: function (settings) {
+      drawCallback: function (settings) {
         var api = this.api();
         var rows = api.rows({ page: 'current' }).nodes();
         var last = null;
@@ -495,13 +495,13 @@ $( document ).ready(function() {
                     last = group;
                 }
             });
-      },*/
+      },
       rowReorder: {
           selector: 'td:nth-child(2)'
       },
-      //rowGroup: {
-      //  dataSrc: groupColumn
-      //},
+      rowGroup: {
+        dataSrc: groupColumn
+      },
       destroy: true,
       "lengthChange": false,
       "info":     false,
