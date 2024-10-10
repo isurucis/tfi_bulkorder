@@ -501,6 +501,7 @@ $( document ).ready(function() {
       rowGroup: {
         dataSrc: groupColumn
       },
+      destroy: true,
       "lengthChange": false,
       "info":     false,
       responsive: true,
@@ -571,6 +572,7 @@ $( document ).ready(function() {
         rowGroup: {
           dataSrc: 'group'
         },
+        destroy: true,
         "lengthChange": false,
         "info":     false,
         responsive: true,
