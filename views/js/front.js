@@ -539,9 +539,27 @@ $( document ).ready(function() {
     
 
     var dataTableInit = function(groupColumn) {
+      var tableId = "#fmm_table";
+      // clear first
+      if(fmmDataTable!=null){
+        fmmDataTable.clear();
+        fmmDataTable.destroy();
+      }
+
+      //2nd empty html
+      $(tableId + " tbody").empty();
+      $(tableId + " thead").empty();
+
+      //3rd reCreate Datatable object
+      //tableObj= $(tableId).DataTable({
+      //...
+      //});
+
+
+
       //var groupColumn = 3;
       console.log("Event : DataTable - fmm_table, is called");
-      fmmDataTable = $('#fmm_table').DataTable({
+      fmmDataTable = $(tableId).DataTable({
         columnDefs: [{ visible: false, targets: groupColumn }],
         order: [[groupColumn, 'asc']],
         displayLength: 25,
