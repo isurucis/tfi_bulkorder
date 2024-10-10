@@ -631,82 +631,7 @@ $( document ).ready(function() {
       dataTableChangeNew();
     });
     $('#select_fmm_cat').on('change', function() {
-      //var id_category = this.value;
-      //var ajax_url = $("#ajax_url").val();
-      //var product_type = $("#product_type").val();
-      //console.log("id_category : "+id_category+"\n ajax_url : "+ajax_url+"\n product_type : "+product_type+"\n action : productChangeCategory");
-      //var fmmDataTable = $('#fmm_table').DataTable();
-      
-      //fmmDataTable.clear();
-      //fmmDataTable.destroy();
-      //var fmmDataTable = $('#fmm_table').DataTable();
       dataTableChangeNew();
-      /*
-      var fmmDataTableId = '#fmm_table';
-
-      $.ajax({
-          type: 'POST',
-          url: ajax_url,
-          data: {
-              id_category: id_category ,ajax:1,product_type:product_type, action: 'productChangeCategory'
-          },
-          beforeSend: function() {
-            
-
-            //2nd empty html
-            //$(fmmDataTableId + " tbody").empty();
-            //$(fmmDataTableId + " thead").empty();
-
-            
-          },
-          success: function(response){
-            console.log(response);
-
-            // clear first
-            if(fmmDataTable!=null){
-              //fmmDataTable.clear();
-              //fmmDataTable.destroy();
-              //$(fmmDataTableId + " tbody").clear();
-              //$(fmmDataTableId + " tbody").destroy();
-              $(fmmDataTableId + " tbody").html('');
-
-            }
-            //$(fmmDataTableId + " tbody").append(response);
-            if (response != 2) {
-              console.log("Data Available");
-                //$('#fmm_table_body').html('');
-                //$('#fmm_table_body').append(response);
-                //$("#fmm_table_paginate").hide();
-
-
-                $(fmmDataTableId + " tbody").append(response);
-
-                
-                
-                //fmmDataTable.clear();
-                //fmmDataTable.add(response).draw();
-                //fmmDataTable.destroy();
-                //fmmDataTable = "";
-
-                //$('#fmm_table').DataTable({ 
-                //    "destroy": true, //use for reinitialize datatable
-                //});
-
-            } else {
-                console.log("Data NOT Available");
-                $("#loader").hide();
-            }
-
-            //3rd reCreate Datatable object
-            fmmDataTable = $(fmmDataTableId).DataTable();
-          }, 
-          complete: function() {
-            //dataTableInit(3);
-            //var fmmDataTable = $('#fmm_table').DataTable();
-          }
-      
-      });
-      */
     });
     
     var dataTableChangeNew = function() {
@@ -765,7 +690,7 @@ $( document ).ready(function() {
             //fmmDataTable = $(fmmDataTableId).DataTable();
           }, 
           complete: function() {
-            //dataTableInit(3, "dataTableChangeNew : complete");
+            dataTableInit(3, "dataTableChangeNew : complete");
             //var fmmDataTable = $('#fmm_table').DataTable();
           }
       
