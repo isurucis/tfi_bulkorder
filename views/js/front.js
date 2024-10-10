@@ -664,11 +664,11 @@ $( document ).ready(function() {
           },
           beforeSend: function() {
             // clear first
-            if(fmmDataTable!=null){
-              console.log("IN dataTableChangeNew() fmmDataTable!=null ");
-              fmmDataTable.clear();
-              fmmDataTable.destroy();
-            }
+            //if(fmmDataTable!=null){
+            //  console.log("IN dataTableChangeNew() fmmDataTable!=null ");
+            //  fmmDataTable.clear();
+            //  fmmDataTable.destroy();
+            //}
 
             //2nd empty html
             $(fmmDataTableId + " tbody").empty();
