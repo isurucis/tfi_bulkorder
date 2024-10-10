@@ -540,14 +540,14 @@ $( document ).ready(function() {
       //var groupColumn = 3;
       console.log("Event : DataTable - fmm_table, is called");
       fmmDataTable = $('#fmm_table').DataTable({
-          columnDefs: [{ visible: false, targets: groupColumn }],
-          order: [[groupColumn, 'asc']],
-          displayLength: 25,
-          drawCallback: function (settings) {
+        columnDefs: [{ visible: false, targets: groupColumn }],
+        order: [[groupColumn, 'asc']],
+        displayLength: 25,
+        drawCallback: function (settings) {
             var api = this.api();
             var rows = api.rows({ page: 'current' }).nodes();
             var last = null;
-     
+         
             api.column(groupColumn, { page: 'current' })
                 .data()
                 .each(function (group, i) {
@@ -559,23 +559,27 @@ $( document ).ready(function() {
                                     group +
                                     '</td></tr>'
                             );
-     
+         
                         last = group;
                     }
                 });
-          },
-          rowReorder: {
-              selector: 'td:nth-child(2)'
-          },
-          rowGroup: {
-            dataSrc: 'group'
-          },
-          "lengthChange": false,
-          "info":     false,
-          responsive: true,
-          "pageLength": noofrow,
-          orderCellsTop: true,
-          fixedHeader: true
+        },
+        rowReorder: {
+            selector: 'td:nth-child(2)'
+        },
+        rowGroup: {
+          dataSrc: 'group'
+        },
+        "lengthChange": false,
+        "info":     false,
+        responsive: true,
+        "pageLength": noofrow,
+        orderCellsTop: true,
+        fixedHeader: true,
+        "serverSide": false,
+        dom: "<'row'<'col-sm-5'p><'col-sm-4'f><'col-sm-3 topinbuttons'>>" +
+              "<'row'<'col-sm-12'tr>>" +
+              "<'row'<'col-sm-5'p><'col-sm-4'><'col-sm-3 botinbuttons'>>",
       });
       // $("#fmm_table_paginate").hide();
       var content = '<i class="material-icons srcicon" tabindex="0" role="button">search</i>';
@@ -718,7 +722,7 @@ $( document ).ready(function() {
             fmmDataTable = $(fmmDataTableId).DataTable();
           }, 
           complete: function() {
-            //dataTableInit(3);
+            dataTableInit(3);
             //var fmmDataTable = $('#fmm_table').DataTable();
           }
       

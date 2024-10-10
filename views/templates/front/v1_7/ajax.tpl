@@ -24,12 +24,12 @@
 *}
         {assign var="familyin" value="-" }
         {foreach from=$all_products item=product name=product}
-            {if $familyin ne $product.category_name }
-                <tr>
+            {*if $familyin ne $product.category_name *}
+                <!-- tr>
                     <td colspan="9"><div class="grid_td_column_group">&nbsp;</div></td>
-                </tr>
-                { assign var="familyin" value={$product.category_name} }
-            {/if}
+                </tr -->
+                {* assign var="familyin" value={$product.category_name} *}
+            {*/if*}
 
 
 
@@ -100,7 +100,7 @@
                     </div>
                 </td>
                 
-                <!-- td><div class="grid_td_column_group">{$product.category_name|escape:'htmlall':'UTF-8'}</div></td -->
+                <td><div class="grid_td_column_group">{$product.category_name|escape:'htmlall':'UTF-8'}</div></td>
 
                 <td data-label="Size">
                     <div class="grid_td_column4">
