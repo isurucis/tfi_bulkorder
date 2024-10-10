@@ -698,7 +698,7 @@ $( document ).ready(function() {
                     $('<td>').html('<div class="grid_td_column1"><img class="quickorder_item_image" src="'+item.cover_image_url+'"></div>'),
                     $('<td>').html('<div class="grid_td_column2">'+i+'<br />'+item.reference+'</div>'),
                     $('<td>').html('<div class="grid_td_column3">'+item.name+'</div>'),
-                    $('<td>').html('<div class="grid_td_column_group">'+item.category_name+'</div>'),
+                    //$('<td>').html('<div class="grid_td_column_group">'+item.category_name+'</div>'),
                     $('<td>').html('<div class="grid_td_column4">'+item.pack_stock_type+'</div>'),
                     $('<td>').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
                     $('<td>').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
@@ -716,7 +716,7 @@ $( document ).ready(function() {
             }
 
             //3rd reCreate Datatable object
-            //fmmDataTable = $(fmmDataTableId).DataTable();
+            fmmDataTable = $(fmmDataTableId).DataTable();
           }, 
           complete: function() {
             //dataTableInit(3, "dataTableChangeNew : complete");
