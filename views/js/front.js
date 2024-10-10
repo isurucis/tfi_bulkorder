@@ -561,8 +561,9 @@ $( document ).ready(function() {
       var groupColumn = 3;
       console.log("Event : DataTable - fmm_table, is called");
       var fmmDataTable = $(tableId).DataTable({
-        columnDefs: [{ visible: false, targets: groupColumn }],
-        order: [[groupColumn, 'asc']],
+        //columnDefs: [{ visible: false, targets: groupColumn }],
+        columnDefs: [{ visible: false }],
+        //order: [[groupColumn, 'asc']],
         displayLength: 25,
         /*drawCallback: function (settings) {
             var api = this.api();
