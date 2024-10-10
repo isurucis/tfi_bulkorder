@@ -694,17 +694,17 @@ $( document ).ready(function() {
                 //var response = JSON.parse(response);
                 $.each(response, function(i, item) {
                   //console.log(item.name);
-                  var $tr = $('<tr>').append(
-                    $('<td>').text('<div class="grid_td_column1"><img class="quickorder_item_image" src="'+item.cover_image_url+'"></div>'),
-                    $('<td>').text('<div class="grid_td_column2">'+i+'<br />'+item.reference+'</div>'),
-                    $('<td>').text('<div class="grid_td_column3">'+item.name+'</div>'),
-                    $('<td>').text('<div class="grid_td_column_group">'+item.category_name+'</div>'),
-                    $('<td>').text('<div class="grid_td_column4">'+item.pack_stock_type+'</div>'),
-                    $('<td>').text('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
-                    $('<td>').text('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
-                    $('<td>').text('<div class="grid_td_column4">'+item.quantity+'</div>'),
-                    $('<td>').text('<div class="grid_td_column6">'+item.price+'</div>'),
-                    $('<td>').text('<div class="grid_td_column7">'+item.id_product+'</div>')
+                  var $tr = $('<tr class="row_tr_item_full odd" role="row">').append(
+                    $('<td>').html('<div class="grid_td_column1"><img class="quickorder_item_image" src="'+item.cover_image_url+'"></div>'),
+                    $('<td>').html('<div class="grid_td_column2">'+i+'<br />'+item.reference+'</div>'),
+                    $('<td>').html('<div class="grid_td_column3">'+item.name+'</div>'),
+                    $('<td>').html('<div class="grid_td_column_group">'+item.category_name+'</div>'),
+                    $('<td>').html('<div class="grid_td_column4">'+item.pack_stock_type+'</div>'),
+                    $('<td>').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
+                    $('<td>').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
+                    $('<td>').html('<div class="grid_td_column4">'+item.quantity+'</div>'),
+                    $('<td>').html('<div class="grid_td_column6">'+item.price+'</div>'),
+                    $('<td>').html('<div class="grid_td_column7">'+item.id_product+'</div>')
                   ).appendTo('#fmm_table_body');
                   //console.log($tr.wrap('<p>').html());
                 });
