@@ -654,7 +654,7 @@ $( document ).ready(function() {
       //var fmmDataTable = $('#fmm_table').DataTable();
       
       var fmmDataTableId = '#fmm_table';
-
+      var group_count = "0";  // SET DEFAULT
       $.ajax({
           type: 'POST',
           url: ajax_url,
@@ -666,7 +666,7 @@ $( document ).ready(function() {
             // clear first
             //if(fmmDataTable!=null){
             //  console.log("IN dataTableChangeNew() fmmDataTable!=null ");
-            //  fmmDataTable.clear();
+              fmmDataTable.clear();
             //  fmmDataTable.destroy();
             //}
 
@@ -695,14 +695,55 @@ $( document ).ready(function() {
                 $.each(response, function(i, item) {
                   //console.log(item.name);
                   
+                  // COLUMN 9 : QUANTITY + -
+                  var quantityaddsub = '<div class="col-lg-2 grid_td_column6">';
+                                        if( parseInt(item.quantity) > parseInt(item.minimal_quantity)) {
+                      quantityaddsub +=  '<div class="number" id="number">\
+                                            <span class="btn minus-bulkorder">−</span>\
+                                            <input class="qty_id-bulkorder form-control input-qty input-qty-disable" id="quantity_'+item.id_product+'" type="text"';
+                                            if (typeof item.product_attribute_minimal_quantity !== 'undefined') {
+                      quantityaddsub      +=  ' value="'+(item.product_attribute_minimal_quantity != "") ? item.product_attribute_minimal_quantity : item.minimal_quantity +'" ';
+                      quantityaddsub      +=  ' min="'+(item.product_attribute_minimal_quantity != "") ? item.product_attribute_minimal_quantity : item.minimal_quantity +'" ';
+                                            } else {
+
+                      quantityaddsub      +=  ' value="" ';
+                      quantityaddsub      +=  ' min="" ';
+                                            }
+
+                                            //value="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"\
+                                            //min="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"\
+                      quantityaddsub      +=  ' moq_price="'+item.price+'" ';
+                                            if( parseInt(item.reduction) > 0 ) {
+                      quantityaddsub +=       'case_price="'+item.price+'" ';
+                                            } else {
+                      quantityaddsub +=       'case_price="'+(parseFloat(item.price)*0.8).toFixed(2)+'" ';
+                                            }
+                      quantityaddsub +=  'stk="'+item.quantity+'" \
+                                            row_id="'+item.id_product+'" \
+                                            readonly="readonly"/>\
+                                            <span class="btn plus-bulkorder">+</span>\
+                                        </div>\
+                                        <table class="row_tbl_price_box_amount" style="">\
+                                            <tr style="background: none; border: none;">\
+                                                <td style="border: none;"><div class="price_box_calc" id="price_box_calc_'+item.id_product+'" >0 Cases</div></td>\
+                                                <td style="border: none;"><div class="price_box_amount row_amount_disable" id="price_box_amount_'+item.id_product+'" >'+item.default_currency_sign+'0.00</div></td>\
+                                            </tr>\
+                                        </table>';
+                } else {
+                      quantityaddsub +=  '<div class="product" data-id-product="'+item.id_product+'">\
+                                            <button class="notify-me-btn" data-id-product="'+item.id_product+'">Notify me when available</button>\
+                                          </div>';
+                }
+                      quantityaddsub +=  '</div>';
+                  
                   // COLUMN 10 : CHECKBOX
                   var checkboxcol = '<td data-label="Add to Cart">\
                                         <div class="grid_td_column7">';
                                         if( parseInt(item.quantity) > parseInt(item.minimal_quantity)) {
-                      checkboxcol +=  '<input type="hidden" name="group" id="group_'+item.id_product+'" value="group_count">\
+                      checkboxcol +=  '<input type="hidden" name="group" id="group_'+item.id_product+'" value="'+group_count+'">\
                                           <div class="form-group-checkbox">\
-                                              <input type="checkbox" id="'+item.id_product+'_group_count" name="fmm_check" class="fmm_check" value="'+item.id_product+'">\
-                                              <label for="'+item.id_product+'_group_count" class="selection-button-checkbox">&nbsp;</label>\
+                                              <input type="checkbox" id="'+item.id_product+'_'+group_count+'" name="fmm_check" class="fmm_check" value="'+item.id_product+'">\
+                                              <label for="'+item.id_product+'_'+group_count+'" class="selection-button-checkbox">&nbsp;</label>\
                                           </div>';
                                         }
                       checkboxcol +=  '</div>\
@@ -714,12 +755,13 @@ $( document ).ready(function() {
                     $('<td>').html('<div class="grid_td_column2">'+i+'<br />'+item.reference+'</div>'),
                     $('<td>').html('<div class="grid_td_column3">'+item.name+'</div>'),
                     $('<td>').html('<div class="grid_td_column_group">'+item.category_name+'</div>'),
-                    $('<td>').html('<div class="grid_td_column4">'+item.pack_stock_type+'</div>'),
-                    $('<td>').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
-                    $('<td>').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
-                    $('<td>').html('<div class="grid_td_column4">'+item.quantity+'</div>'),
-                    $('<td>').html('<div class="grid_td_column6">'+item.price+'</div>'),
-                    $('<td>').html('<div class="grid_td_column7">'+checkboxcol+'</div>')
+                    $('<td data-label="Size">').html('<div class="grid_td_column4">'+item.pack_stock_type+'</div>'),
+                    $('<td data-label="MOQ (Price)">').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
+                    $('<td data-label="Case Qty (Price)">').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
+                    $('<td data-label="Qty per Box">').html('<div class="grid_td_column4">'+item.quantity+'</div>'),
+                    
+                    $('<td data-label="Quantity">').html('<div class="grid_td_column6">'+quantityaddsub+'</div>'),
+                    $('<td data-label="Add to Cart">').html('<div class="grid_td_column7">'+checkboxcol+'</div>')
                   ).appendTo('#fmm_table_body');
                   //console.log($tr.wrap('<p>').html());
                 });
