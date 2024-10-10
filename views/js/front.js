@@ -537,7 +537,8 @@ $( document ).ready(function() {
     });
     
 
-    var dataTableInit = function(groupColumn) {
+    var dataTableInit = function(groupColumn, callfrom) {
+      console.log("-------- callfrom : "+callfrom);
       var tableId = "#fmm_table";
       //// clear first
       //if(fmmDataTable!=null){
@@ -722,6 +723,7 @@ $( document ).ready(function() {
           beforeSend: function() {
             // clear first
             if(fmmDataTable!=null){
+              console.log("IN dataTableChangeNew() fmmDataTable!=null ");
               fmmDataTable.clear();
               fmmDataTable.destroy();
             }
@@ -752,7 +754,7 @@ $( document ).ready(function() {
             //fmmDataTable = $(fmmDataTableId).DataTable();
           }, 
           complete: function() {
-            dataTableInit(3);
+            dataTableInit(3, "dataTableChangeNew : complete");
             //var fmmDataTable = $('#fmm_table').DataTable();
           }
       
