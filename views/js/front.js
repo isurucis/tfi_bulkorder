@@ -681,7 +681,7 @@ $( document ).ready(function() {
 
               $(fmmDataTableId + " tbody").html(response);
               $("#fmm_table22").html("loading data...");
-              $("#fmm_table22").append(response);
+              $("#fmm_table22").html(response);
             } else {
                 console.log("Data NOT Available");
                 $("#loader").hide();
