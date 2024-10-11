@@ -693,7 +693,7 @@ $( document ).ready(function() {
               //$(function() {
                 //var response = JSON.parse(response);
                 $.each(response, function(i, item) {
-                  //console.log(item.name);
+                  console.log(item.name);
                   var quantityaddsub = checkboxcol = "";
                   // COLUMN 9 : QUANTITY + -
                       /*quantityaddsub += '<div class="col-lg-2 grid_td_column6">';
@@ -759,11 +759,10 @@ $( document ).ready(function() {
                     $('<td data-label="MOQ (Price)">').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
                     $('<td data-label="Case Qty (Price)">').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
                     $('<td data-label="Qty per Box">').html('<div class="grid_td_column4">'+item.quantity+'</div>'),
-
                     $('<td data-label="Quantity">').html('<div class="grid_td_column6">'+quantityaddsub+'</div>'),
                     $('<td data-label="Add to Cart">').html('<div class="grid_td_column7">'+checkboxcol+'</div>')
                   ).appendTo('#fmm_table_body');
-                  //console.log($tr.wrap('<p>').html());
+                  console.log($tr.wrap('<p>').html());
                 });
               //});
               //.........................................................
