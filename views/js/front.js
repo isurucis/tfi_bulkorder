@@ -694,7 +694,7 @@ $( document ).ready(function() {
                 //var response = JSON.parse(response);
                 $.each(response, function(i, item) {
                   console.log(item.name);
-                  var quantityaddsub = checkboxcol = "";
+                  //var quantityaddsub = checkboxcol = "";
                   // COLUMN 9 : QUANTITY + -
                       /*quantityaddsub += '<div class="col-lg-2 grid_td_column6">';
                                         if( parseInt(item.quantity) > parseInt(item.minimal_quantity)) {
@@ -737,7 +737,7 @@ $( document ).ready(function() {
                       quantityaddsub +=  '</div>';*/
                   
                   // COLUMN 10 : CHECKBOX
-                      checkboxcol += '<td data-label="Add to Cart">\
+                      /*checkboxcol += '<td data-label="Add to Cart">\
                                         <div class="grid_td_column7">';
                                         if( parseInt(item.quantity) > parseInt(item.minimal_quantity)) {
                       checkboxcol +=  '<input type="hidden" name="group" id="group_'+item.id_product+'" value="'+group_count+'">\
@@ -747,7 +747,7 @@ $( document ).ready(function() {
                                           </div>';
                                         }
                       checkboxcol +=  '</div>\
-                                      </td>';
+                                      </td>';*/
                   
                   
                   var $tr = $('<tr class="row_tr_item_full odd" role="row">').append(
@@ -755,16 +755,26 @@ $( document ).ready(function() {
                     $('<td>').html('<div class="grid_td_column2">'+i+'<br />'+item.reference+'</div>'),
                     $('<td>').html('<div class="grid_td_column3">'+item.name+'</div>'),
                     $('<td>').html('<div class="grid_td_column_group">'+item.category_name+'</div>'),
-                    $('<td data-label="Size">').html('<div class="grid_td_column4">'+item.pack_stock_type+'</div>'),
-                    $('<td data-label="MOQ (Price)">').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
-                    $('<td data-label="Case Qty (Price)">').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
-                    $('<td data-label="Qty per Box">').html('<div class="grid_td_column4">'+item.quantity+'</div>'),
-                    $('<td data-label="Quantity">').html('<div class="grid_td_column6">'+item.quantity+'</div>'),
-                    $('<td data-label="Add to Cart">').html('<div class="grid_td_column7">'+item.id_product+'</div>')
+                    $('<td>').html('<div class="grid_td_column4">'+item.pack_stock_type+'</div>'),
+                    $('<td>').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
+                    $('<td>').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
+                    $('<td>').html('<div class="grid_td_column4">'+item.quantity+'</div>'),
+                    $('<td>').html('<div class="grid_td_column6">'+item.quantity+'</div>'),
+                    $('<td>').html('<div class="grid_td_column7">'+item.id_product+'</div>')
                   ).appendTo('#fmm_table_body');
                   console.log($tr.wrap('<p>').html());
                 });
               //});
+
+
+              
+
+                    //$('<td data-label="Size">').html('<div class="grid_td_column4">'+item.pack_stock_type+'</div>'),
+                    //$('<td data-label="MOQ (Price)">').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
+                    //$('<td data-label="Case Qty (Price)">').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
+                    //$('<td data-label="Qty per Box">').html('<div class="grid_td_column4">'+item.quantity+'</div>'),
+                    //$('<td data-label="Quantity">').html('<div class="grid_td_column6">'+item.quantity+'</div>'),
+                    //$('<td data-label="Add to Cart">').html('<div class="grid_td_column7">'+item.id_product+'</div>')
               //.........................................................
             } else {
                 console.log("Data NOT Available");
