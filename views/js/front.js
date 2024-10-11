@@ -836,10 +836,10 @@ $( document ).ready(function() {
             }
 
             //3rd reCreate Datatable object
-            //fmmDataTable = $(fmmDataTableId).DataTable();
+            fmmDataTable = $(fmmDataTableId).DataTable();
           }, 
           complete: function() {
-            dataTableInit(3, "dataTableChangeNew : complete");
+            //dataTableInit(3, "dataTableChangeNew : complete");
             //var fmmDataTable = $('#fmm_table').DataTable();
           }
       
