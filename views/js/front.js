@@ -715,11 +715,11 @@ $( document ).ready(function() {
                                     title="'+item.name+'">'+item.name+'</a></div>\
                                     <div>\
                                       <div class="quickorder_scientificname">';
-                                            $.each(item.features, function(c, scientific) {
-                                              if( scientific.id_feature == 3 ) {
-                      itemname +=               scientific.value;
-                                              }
-                                            });
+                                        $.each(item.features, function(c, scientific) {
+                                          if( scientific.id_feature == 3 ) {
+                      itemname +=           scientific.value;
+                                          }
+                                        });
                       itemname += '   </div>\
                                       <div class="quickorder_country">';
                                         $.each(item.features, function(d, country) {
@@ -798,30 +798,30 @@ $( document ).ready(function() {
                   // COLUMN 7 : CASE QUANTITY
                       casequantity +=   '<div class="moqs_cases2">\
                                           <label class="moq_case_2">\
-                                              <input type="radio" \
-                                              id="qty_case_'+item.id_product+'" \
-                                              name="qty_qty_'+item.id_product+'" \
-                                              value="case" class="moq_case-input" />\
-                                              <div class="moq_case-box">By CASE</div>\
+                                            <input type="radio" \
+                                            id="qty_case_'+item.id_product+'" \
+                                            name="qty_qty_'+item.id_product+'" \
+                                            value="case" class="moq_case-input" />\
+                                            <div class="moq_case-box">By CASE</div>\
                                           </label>\
                                         </div>\
                                         <div class="grid_td_column4 case-align">';
-                                              $.each(item.features, function(a, featureitem) {
-                                                if( featureitem.id_feature == "0" ) {
-                      casequantity +=             '<div class="moq-case-quantity">'+parseInt($featureitem.value)/4+'<span> x </span></div>';
-                                                } 
-                                              });
+                                        $.each(item.features, function(a, featureitem) {
+                                          if( featureitem.id_feature == "0" ) {
+                      casequantity +=       '<div class="moq-case-quantity">'+parseInt($featureitem.value)/4+'<span> x </span></div>';
+                                          } 
+                                        });
 
-                                              if( parseInt(item.reduction) > 0 ) {
-                      casequantity += '           <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">'+item.default_currency_sign+'<span id="price_old_'+item.id_product+'">'+(item.price_without_reduction).toFixed(2)+'</span></span></div>\
-                                                  <div class="ml-2 price price--discounted" style="">'+item.default_currency_sign+'<span id="price_'+item.id_product+'">'+(item.price).toFixed(2)+'</span></div>';
-                                                  asgn_case_price = (item.price).toFixed(2);
-                                              } else {
-                      casequantity += '           <div class="moq-case-price">\
-                                                  '+item.default_currency_sign+'<span id="price_'+item.id_product+'" type="number">'+(parseFloat(item.price)*0.8).toFixed(2)+'</span>\
-                                                  </div>';
-                                                  asgn_case_price = (parseFloat(item.price)*0.8).toFixed(2);
-                                              }
+                                        if( parseInt(item.reduction) > 0 ) {
+                      casequantity += '   <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">'+item.default_currency_sign+'<span id="price_old_'+item.id_product+'">'+(item.price_without_reduction).toFixed(2)+'</span></span></div>\
+                                          <div class="ml-2 price price--discounted" style="">'+item.default_currency_sign+'<span id="price_'+item.id_product+'">'+(item.price).toFixed(2)+'</span></div>';
+                                          asgn_case_price = (item.price).toFixed(2);
+                                        } else {
+                      casequantity += '   <div class="moq-case-price">\
+                                            '+item.default_currency_sign+'<span id="price_'+item.id_product+'" type="number">'+(parseFloat(item.price)*0.8).toFixed(2)+'</span>\
+                                          </div>';
+                                          asgn_case_price = (parseFloat(item.price)*0.8).toFixed(2);
+                                        }
                       casequantity += '</div>';
 
 
@@ -829,23 +829,21 @@ $( document ).ready(function() {
                       quantityperbox +=  item.quantity;
 
                   // COLUMN 9 : QUANTITY + -
-                      //quantityaddsub += '<div class="col-lg-2 grid_td_column6">';
                     if( parseInt(item.quantity) > parseInt(item.minimal_quantity)) {
                       quantityaddsub +=  '<div class="number" id="number">\
                                             <span class="btn minus-bulkorder">−</span>\
                                             <input class="qty_id-bulkorder form-control input-qty input-qty-disable" id="quantity_'+item.id_product+'" type="text"';
                                             if (typeof item.product_attribute_minimal_quantity !== 'undefined') {
-                      quantityaddsub      +=  ' value="'+(item.product_attribute_minimal_quantity != "") ? item.product_attribute_minimal_quantity : item.minimal_quantity +'" ';
-                      quantityaddsub      +=  ' min="'+(item.product_attribute_minimal_quantity != "") ? item.product_attribute_minimal_quantity : item.minimal_quantity +'" ';
+                      quantityaddsub +=       ' value="'+(item.product_attribute_minimal_quantity != "") ? item.product_attribute_minimal_quantity : item.minimal_quantity +'" ';
+                      quantityaddsub +=       ' min="'+(item.product_attribute_minimal_quantity != "") ? item.product_attribute_minimal_quantity : item.minimal_quantity +'" ';
                                             } else {
 
-                      quantityaddsub      +=  ' value="" ';
-                      quantityaddsub      +=  ' min="" ';
+                      quantityaddsub +=       ' value="" ';
+                      quantityaddsub +=       ' min="" ';
                                             }
 
-                                            //value="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"\
-                                            //min="{if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}{$product.product_attribute_minimal_quantity}{else}{$product.minimal_quantity}{/if}"\
-                      quantityaddsub      +=  ' moq_price="'+item.price+'" ';
+                                            
+                      quantityaddsub +=     ' moq_price="'+item.price+'" ';
                                             if( parseInt(item.reduction) > 0 ) {
                       quantityaddsub +=       'case_price="'+item.price+'" ';
                                             } else {
@@ -867,24 +865,22 @@ $( document ).ready(function() {
                                             <button class="notify-me-btn" data-id-product="'+item.id_product+'">Notify me when available</button>\
                                           </div>';
                     }
-                      //quantityaddsub +=  '</div>';
                   
                   // COLUMN 10 : CHECKBOX
-                      
-                                        if( parseInt(item.quantity) > parseInt(item.minimal_quantity)) {
+                    if( parseInt(item.quantity) > parseInt(item.minimal_quantity)) {
                       checkboxcol +=  '<input type="hidden" name="group" id="group_'+item.id_product+'" value="'+group_count+'">\
                                           <div class="form-group-checkbox">\
                                               <input type="checkbox" id="'+item.id_product+'_'+group_count+'" name="fmm_check" class="fmm_check" value="'+item.id_product+'">\
                                               <label for="'+item.id_product+'_'+group_count+'" class="selection-button-checkbox">&nbsp;</label>\
                                           </div>';
-                                        }
+                    }
                   
                   
                   var $tr = $('<tr>').attr("role", "row").addClass("row_tr_item_full odd").append(
                     $('<td>').html('<div class="grid_td_column1">'+itemimage+'</div>'),
                     $('<td>').html('<div class="grid_td_column2">'+itemsku+'</div>'),
                     $('<td>').html('<div class="grid_td_column3">'+itemname+'</div>'),
-                    $('<td>').html('<div class="grid_td_column_group">'+itemcategory+'</div>'),
+                    //$('<td>').html('<div class="grid_td_column_group">'+itemcategory+'</div>'),
                     $('<td>').attr("data-label", "Size").html(itemsize),
                     $('<td>').attr("data-label", "MOQ (Price)").html(moqquantity),
                     $('<td>').attr("data-label", "Case Qty (Price)").html(casequantity),
