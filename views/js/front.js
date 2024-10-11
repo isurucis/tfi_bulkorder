@@ -695,11 +695,107 @@ $( document ).ready(function() {
                 $.each(response, function(i, item) {
                   console.log(item.name);
                   var quantityaddsub = "";
-                  var checkboxcol = quantityperbox = casequantity = "";
+                  var checkboxcol = quantityperbox = casequantity = moqquantity = itemsize = itemimage = itemname = itemsku = itemcategory = "";
                   var asgn_case_price = "0.00";
+                  var asgn_moq_qnty = "0.00";
                   // '+(parseFloat(item.price)*0.8).toFixed(2)+'
                   
-                  // COLUMN 8 : MOQ (Price)
+
+                  // COLUMN 1 : IMAGE
+                      itemimage += '<div class="grid_td_column1">\
+                                    <img class="quickorder_item_image" src="'+item.cover_image_url+'">\
+                                  </div>';
+
+                  // COLUMN 2 : SKU
+                      itemsku += '<div class="grid_td_column2">'+i+'<br />'+item.reference+'</div>';
+
+                  // COLUMN 3 : NAME, DESCRIPTION
+                      itemname += '<div class="grid_td_column3">\
+                                    <div class="quickorder_itemname">\
+                                    <a href="'+item.link+'" class="pdp_open_popup" \
+                                    pdp_url="'+item.link+'" \
+                                    title="'+item.name+'">'+item.name+'</a></div>\
+                                    <div>\
+                                      <div class="quickorder_scientificname">';
+                                            $.each(item.features, function(c, scientific) {
+                                              if( scientific.id_feature == 3 ) {
+                      itemname +=               scientific.value;
+                                              }
+                                            });
+                      itemname += '   </div>\
+                                      <div class="quickorder_country">';
+                                        $.each(item.features, function(d, country) {
+                                          if( country.id_feature ==9 ) {
+                      itemname += '         <div class="quickorder_country11">'+country.value+'</div>';
+                                          }
+                                        });
+                      itemname += '   </div>\
+                                      <div style="clear: both;"></div>\
+                                    </div>\
+                                  </div>';
+
+                  // COLUMN 4 : CATEGORY
+                      itemcategory += '<div class="grid_td_column_group">'+item.category_name+'</div>';
+
+                  // COLUMN 5 : SIZE
+                      itemsize_concat = "";
+                      itemsize += '<div class="grid_td_column4">';
+                            $.each(item.features, function(b, featureitem) {
+                              if( featureitem.id_feature == "4" ) {
+                                itemsize_str = (featureitem.value).split(" ");
+                                if(parseInt(itemsize_str.length) == "1") {
+                                  itemsize += '<div class="size-number">'+itemsize_str+'</div><div class="size-type"></div>'
+                                } else {
+                                  for(var aq=0; aq < parseInt(itemsize_str.length); aq++ ) {
+                                    if( (parseInt(aq)+1) < parseInt(itemsize_str.length) ) {
+                                      itemsize_concat+=itemsize_str[aq];
+                                    }
+                                  }
+                                  itemsize += '<div class="size-number">'+itemsize_concat+'</div><div class="size-type">'+itemsize_str[parseInt(itemsize_str.length)-1]+'</div>';
+                                }
+                              }
+                            });
+                      itemsize += '</div>';
+                  
+                  // COLUMN 6 : MOQ (Price)
+                      moqquantity += '<div>\
+                                          <div class="moqs_cases1" style="float: right;">\
+                                              <label class="moq_case_1">\
+                                                  <input type="radio" \
+                                                  id="qty_moq_'+item.id_product+'" \
+                                                  name="qty_qty_'+item.id_product+'" \
+                                                  value="moq" class="moq_case-input" checked="checked"/>\
+                                                  <div class="moq_case-box">By MOQ</div>\
+                                              </label>\
+                                          </div>\
+                                          <div style="clear: both;"></div>\
+                                      </div>\
+                                      <div class="grid_td_column4 moq-align">\
+                                          <div class="moq-case-quantity">';
+                                            if (typeof item.product_attribute_minimal_quantity !== 'undefined' && item.product_attribute_minimal_quantity != '') {
+                      moqquantity +=          item.product_attribute_minimal_quantity;
+                                              asgn_moq_qnty = item.product_attribute_minimal_quantity;
+                                            } else {
+                      moqquantity +=          item.minimal_quantity;
+                                              asgn_moq_qnty = item.minimal_quantity;
+                                            }
+                      moqquantity += '        <span> x </span>';
+                      moqquantity += '    </div>';
+
+                                          if(parseInt(item.reduction) > 0 ) {
+                      moqquantity += '        <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">'+item.default_currency_sign+'<span id="price_old_'+item.id_product+'">'+(item.price_without_reduction).toFixed(2)+'</span></span></div>\
+                                              <div class="ml-2 price price--discounted" style="">'+item.default_currency_sign+'<span id="price_'+item.id_product+'">'+(item.price).toFixed(2)+'</span></div>';
+                                              asgn_moq_price = (item.price).toFixed(2);
+                                          } else {
+                      moqquantity += '        <div class="moq-case-price">\
+                                              '+item.default_currency_sign+'<span id="price_'+item.id_product+'" type="number">'+(item.price).toFixed(2)+'</span>';
+                                              asgn_moq_price = (item.price).toFixed(2);
+                      moqquantity += '    </div>';
+                                          }
+                      moqquantity += '</div>';
+
+
+
 
                   // COLUMN 7 : CASE QUANTITY
                       casequantity +=   '<div class="moqs_cases2">\
@@ -731,7 +827,7 @@ $( document ).ready(function() {
                       casequantity += '</div>';
 
 
-                  // COLUMN 8 : QUANTITY PER BOX
+                  // COLUMN 8 : STOCK
                       quantityperbox +=  '<div class="grid_td_column4">'+item.quantity+'</div>';
 
                   // COLUMN 9 : QUANTITY + -
