@@ -695,7 +695,45 @@ $( document ).ready(function() {
                 $.each(response, function(i, item) {
                   console.log(item.name);
                   var quantityaddsub = "";
-                  var checkboxcol = "";
+                  var checkboxcol = quantityperbox = casequantity = "";
+                  var asgn_case_price = "0.00";
+                  // '+(parseFloat(item.price)*0.8).toFixed(2)+'
+                  
+
+
+                  // COLUMN 7 : CASE QUANTITY
+                      casequantity +=   '<div class="moqs_cases2">\
+                                          <label class="moq_case_2">\
+                                              <input type="radio" \
+                                              id="qty_case_'+item.id_product+'" \
+                                              name="qty_qty_'+item.id_product+'" \
+                                              value="case" class="moq_case-input" />\
+                                              <div class="moq_case-box">By CASE</div>\
+                                          </label>\
+                                        </div>\
+                                        <div class="grid_td_column4 case-align">';
+                                              $.each(item.features, function(a, featureitem) {
+                                                if( featureitem.id_feature == "0" ) {
+                      casequantity +=             '<div class="moq-case-quantity">'+parseInt($featureitem.value)/4+'<span> x </span></div>';
+                                                } 
+                                              });
+
+                                              if( parseInt(item.reduction) > 0 ) {
+                      casequantity += '           <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">'+item.default_currency_sign+'<span id="price_old_'+item.id_product+'">'+(item.price_without_reduction).toFixed(2)+'</span></span></div>\
+                                                  <div class="ml-2 price price--discounted" style="">'+item.default_currency_sign+'<span id="price_'+item.id_product+'">'+(item.price).toFixed(2)+'</span></div>';
+                                                  asgn_case_price = (item.price).toFixed(2);
+                                              } else {
+                      casequantity += '           <div class="moq-case-price">\
+                                                  '+item.default_currency_sign+'<span id="price_'+item.id_product+'" type="number">'+(parseFloat(item.price)*0.8).toFixed(2)+'</span>\
+                                                  </div>';
+                                                  asgn_case_price = (parseFloat(item.price)*0.8).toFixed(2);
+                                              }
+                      casequantity += '</div>';
+
+
+                  // COLUMN 8 : QUANTITY PER BOX
+                      quantityperbox +=  '<div class="grid_td_column4">'+item.quantity+'</div>';
+
                   // COLUMN 9 : QUANTITY + -
                       quantityaddsub += '<div class="col-lg-2 grid_td_column6">';
                                         if( parseInt(item.quantity) > parseInt(item.minimal_quantity)) {
@@ -759,11 +797,26 @@ $( document ).ready(function() {
                     $('<td>').attr("data-label", "Size").html('<div class="grid_td_column4">'+item.pack_stock_type+'</div>'),
                     $('<td>').attr("data-label", "MOQ (Price)").html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
                     $('<td>').attr("data-label", "Case Qty (Price)").html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
-                    $('<td>').attr("data-label", "Qty per Box").html('<div class="grid_td_column4">'+item.quantity+'</div>'),
+                    $('<td>').attr("data-label", "Qty per Box").html('<div class="grid_td_column4">'+quantityperbox+'</div>'),
                     $('<td>').attr("data-label", "Quantity").html('<div class="grid_td_column6">'+quantityaddsub+'</div>'),
                     $('<td>').attr("data-label", "Add to Cart").html('<div class="grid_td_column7">'+checkboxcol+'</div>')
                   ).appendTo('#fmm_table_body');
                   console.log($tr.wrap('<p>').html());
+
+                  /*
+                  var $tr = $('<tr>').attr("role", "row").addClass("row_tr_item_full odd").append(
+                    $('<td>').html('<div class="grid_td_column1"><img class="quickorder_item_image" src="'+item.cover_image_url+'"></div>'),
+                    $('<td>').html('<div class="grid_td_column2">'+i+'<br />'+item.reference+'</div>'),
+                    $('<td>').html('<div class="grid_td_column3">'+item.name+'</div>'),
+                    $('<td>').html('<div class="grid_td_column_group">'+item.category_name+'</div>'),
+                    $('<td>').attr("data-label", "Size").html('<div class="grid_td_column4">'+item.pack_stock_type+'</div>'),
+                    $('<td>').attr("data-label", "MOQ (Price)").html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
+                    $('<td>').attr("data-label", "Case Qty (Price)").html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
+                    $('<td>').attr("data-label", "Qty per Box").html('<div class="grid_td_column4">'+item.quantity+'</div>'),
+                    $('<td>').attr("data-label", "Quantity").html('<div class="grid_td_column6">'+item.quantity+'</div>'),
+                    $('<td>').attr("data-label", "Add to Cart").html('<div class="grid_td_column7">'+item.id_product+'</div>')
+                  ).appendTo('#fmm_table_body');
+                  console.log($tr.wrap('<p>').html());*/
                 });
               //});
 
