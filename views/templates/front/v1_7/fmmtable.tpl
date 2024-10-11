@@ -305,21 +305,13 @@
                                 <span> x </span>
                             </div>
                             {if $product.reduction > 0}
-                                {*<div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2:".":","}</span></span></div>
+                                <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2:".":","}</span></span></div>
                                 <div class="ml-2 price price--discounted" style="">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2:".":","}</span></div>
-                                {$asgn_moq_price = {$product.price|number_format:2:".":","}}*}
+                                {$asgn_moq_price = {$product.price|number_format:2:".":","}}
                             {else}
                                 <div class="moq-case-price">
-                                    {foreach from=$product.features item=feature name=features}
-                                        {if $feature.id_feature == 11}
-                                            {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}" type="number">{$feature.value|number_format:2:".":","}</span>
-                                            {$asgn_moq_price = {$product.price|number_format:2:".":","}}                      
-                                        
-                                        {/if}
-                                    {foreachelse}
-                                    {/foreach}
-                                {*{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}" type="number">{$product.price|number_format:2:".":","}</span>*}
-                                {*$asgn_moq_price = {$product.price|number_format:2:".":","}*}
+                                {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}" type="number">{$product.price|number_format:2:".":","}</span>
+                                {$asgn_moq_price = {$product.price|number_format:2:".":","}}
                                 </div>
                             {/if}
                             <!-- input type="radio" id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="moq" checked/ -->
@@ -339,15 +331,28 @@
                         </div>
                         <div class="grid_td_column4 case-align">
                             {foreach from=$product.features item=feature name=features}
-                                {if $feature.id_feature == 8}
+                                {if $feature.id_feature == 10}
                                 <div class="moq-case-quantity">
-                                    {intval($feature.value)/4}
-                                    {$asgn_case_qnty = {intval($feature.value)/4}}
+                                    {intval($feature.value)}
+                                    {$asgn_case_qnty = {intval($feature.value)}}
                                     <span> x </span>
                                 </div>
                                 {/if}
                             {foreachelse}
                             {/foreach}
+
+                            {foreach from=$product.features item=feature name=features}
+                                {if $feature.id_feature == 11}
+                                <div class="moq-case-price">
+                                    {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}" type="number">{$feature.value|number_format:2:".":","}</span>
+                                    {$asgn_case_price = {intval($feature.value)}}
+                                    
+                                </div>
+                                {/if}
+                            {foreachelse}
+                            {/foreach}
+
+                            {*
                             {if $product.reduction > 0}
                                 <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2:".":","}</span></span></div>
                                 <div class="ml-2 price price--discounted" style="">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2:".":","}</span></div>
@@ -358,6 +363,8 @@
                                 {$asgn_case_price = {$product.price*0.8|number_format:2:".":","}}
                                 </div>
                             {/if}
+                            *}
+
                             <!-- input type="radio" id="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="case" / -->
                         </div>
                     </td>
