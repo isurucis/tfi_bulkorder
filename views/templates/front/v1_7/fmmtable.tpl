@@ -176,7 +176,7 @@
             {assign var="array_str_main" value=""}
             {assign var="array_str_sub" value=""}
             {assign var="rownum" value="1"}
-            {$all_products|@dump}
+            {*$all_products|@dump*}
             {foreach from=$all_products item=product name=product}
                 {assign var="asgn_moq_qnty" value="0"}
                 {assign var="asgn_case_qnty" value="0"}
