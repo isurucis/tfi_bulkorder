@@ -694,9 +694,9 @@ $( document ).ready(function() {
                 //var response = JSON.parse(response);
                 $.each(response, function(i, item) {
                   //console.log(item.name);
-                  
+                  var quantityaddsub = checkboxcol = "";
                   // COLUMN 9 : QUANTITY + -
-                  var quantityaddsub = '<div class="col-lg-2 grid_td_column6">';
+                      /*quantityaddsub += '<div class="col-lg-2 grid_td_column6">';
                                         if( parseInt(item.quantity) > parseInt(item.minimal_quantity)) {
                       quantityaddsub +=  '<div class="number" id="number">\
                                             <span class="btn minus-bulkorder">−</span>\
@@ -734,10 +734,10 @@ $( document ).ready(function() {
                                             <button class="notify-me-btn" data-id-product="'+item.id_product+'">Notify me when available</button>\
                                           </div>';
                 }
-                      quantityaddsub +=  '</div>';
+                      quantityaddsub +=  '</div>';*/
                   
                   // COLUMN 10 : CHECKBOX
-                  var checkboxcol = '<td data-label="Add to Cart">\
+                      checkboxcol += '<td data-label="Add to Cart">\
                                         <div class="grid_td_column7">';
                                         if( parseInt(item.quantity) > parseInt(item.minimal_quantity)) {
                       checkboxcol +=  '<input type="hidden" name="group" id="group_'+item.id_product+'" value="'+group_count+'">\
@@ -759,7 +759,7 @@ $( document ).ready(function() {
                     $('<td data-label="MOQ (Price)">').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
                     $('<td data-label="Case Qty (Price)">').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
                     $('<td data-label="Qty per Box">').html('<div class="grid_td_column4">'+item.quantity+'</div>'),
-                    
+
                     $('<td data-label="Quantity">').html('<div class="grid_td_column6">'+quantityaddsub+'</div>'),
                     $('<td data-label="Add to Cart">').html('<div class="grid_td_column7">'+checkboxcol+'</div>')
                   ).appendTo('#fmm_table_body');
