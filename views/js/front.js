@@ -775,7 +775,7 @@ $( document ).ready(function() {
             //fmmDataTable = $(fmmDataTableId).DataTable();
           }, 
           complete: function() {
-            dataTableInit(3, "dataTableChangeNew : complete");
+            //dataTableInit(3, "dataTableChangeNew : complete");
             //var fmmDataTable = $('#fmm_table').DataTable();
           }
       
