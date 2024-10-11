@@ -801,7 +801,7 @@ $( document ).ready(function() {
                     $('<td>').attr("data-label", "Quantity").html('<div class="grid_td_column6">'+quantityaddsub+'</div>'),
                     $('<td>').attr("data-label", "Add to Cart").html('<div class="grid_td_column7">'+checkboxcol+'</div>')
                   ).appendTo('#fmm_table_body');
-                  console.log($tr.wrap('<p>').html());
+                  //console.log($tr.wrap('<p>').html());
 
                   /*
                   var $tr = $('<tr>').attr("role", "row").addClass("row_tr_item_full odd").append(
