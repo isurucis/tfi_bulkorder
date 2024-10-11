@@ -759,8 +759,8 @@ $( document ).ready(function() {
                     $('<td data-label="MOQ (Price)">').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
                     $('<td data-label="Case Qty (Price)">').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
                     $('<td data-label="Qty per Box">').html('<div class="grid_td_column4">'+item.quantity+'</div>'),
-                    $('<td data-label="Quantity">').html('<div class="grid_td_column6">'+quantityaddsub+'</div>'),
-                    $('<td data-label="Add to Cart">').html('<div class="grid_td_column7">'+checkboxcol+'</div>')
+                    $('<td data-label="Quantity">').html('<div class="grid_td_column6">'+item.quantity+'</div>'),
+                    $('<td data-label="Add to Cart">').html('<div class="grid_td_column7">'+item.id_product+'</div>')
                   ).appendTo('#fmm_table_body');
                   console.log($tr.wrap('<p>').html());
                 });
