@@ -702,16 +702,14 @@ $( document ).ready(function() {
                   
 
                   // COLUMN 1 : IMAGE
-                      itemimage += '<div class="grid_td_column1">\
-                                    <img class="quickorder_item_image" src="'+item.cover_image_url+'">\
-                                  </div>';
+                      itemimage += '<img class="quickorder_item_image" src="'+item.cover_image_url+'">';
 
                   // COLUMN 2 : SKU
-                      itemsku += '<div class="grid_td_column2">'+i+'<br />'+item.reference+'</div>';
+                      itemsku += i+'<br />'+item.reference;
 
                   // COLUMN 3 : NAME, DESCRIPTION
-                      itemname += '<div class="grid_td_column3">\
-                                    <div class="quickorder_itemname">\
+                      //itemname += '<div class="grid_td_column3">\
+                      itemname += ' <div class="quickorder_itemname">\
                                     <a href="'+item.link+'" class="pdp_open_popup" \
                                     pdp_url="'+item.link+'" \
                                     title="'+item.name+'">'+item.name+'</a></div>\
@@ -731,15 +729,15 @@ $( document ).ready(function() {
                                         });
                       itemname += '   </div>\
                                       <div style="clear: both;"></div>\
-                                    </div>\
-                                  </div>';
+                                    </div>';
+                                  //</div>';
 
                   // COLUMN 4 : CATEGORY
-                      itemcategory += '<div class="grid_td_column_group">'+item.category_name+'</div>';
+                      itemcategory += item.category_name;
 
                   // COLUMN 5 : SIZE
                       itemsize_concat = "";
-                      itemsize += '<div class="grid_td_column4">';
+                      //itemsize += '<div class="grid_td_column4">';
                             $.each(item.features, function(b, featureitem) {
                               if( featureitem.id_feature == "4" ) {
                                 itemsize_str = (featureitem.value).split(" ");
@@ -755,7 +753,7 @@ $( document ).ready(function() {
                                 }
                               }
                             });
-                      itemsize += '</div>';
+                      //itemsize += '</div>';
                   
                   // COLUMN 6 : MOQ (Price)
                       moqquantity += '<div>\
@@ -828,11 +826,11 @@ $( document ).ready(function() {
 
 
                   // COLUMN 8 : STOCK
-                      quantityperbox +=  '<div class="grid_td_column4">'+item.quantity+'</div>';
+                      quantityperbox +=  item.quantity;
 
                   // COLUMN 9 : QUANTITY + -
-                      quantityaddsub += '<div class="col-lg-2 grid_td_column6">';
-                                        if( parseInt(item.quantity) > parseInt(item.minimal_quantity)) {
+                      //quantityaddsub += '<div class="col-lg-2 grid_td_column6">';
+                    if( parseInt(item.quantity) > parseInt(item.minimal_quantity)) {
                       quantityaddsub +=  '<div class="number" id="number">\
                                             <span class="btn minus-bulkorder">−</span>\
                                             <input class="qty_id-bulkorder form-control input-qty input-qty-disable" id="quantity_'+item.id_product+'" type="text"';
@@ -853,7 +851,7 @@ $( document ).ready(function() {
                                             } else {
                       quantityaddsub +=       'case_price="'+(parseFloat(item.price)*0.8).toFixed(2)+'" ';
                                             }
-                      quantityaddsub +=  'stk="'+item.quantity+'" \
+                      quantityaddsub +=     'stk="'+item.quantity+'" \
                                             row_id="'+item.id_product+'" \
                                             readonly="readonly"/>\
                                             <span class="btn plus-bulkorder">+</span>\
@@ -864,16 +862,15 @@ $( document ).ready(function() {
                                                 <td style="border: none;"><div class="price_box_amount row_amount_disable" id="price_box_amount_'+item.id_product+'" >'+item.default_currency_sign+'0.00</div></td>\
                                             </tr>\
                                         </table>';
-                } else {
+                    } else {
                       quantityaddsub +=  '<div class="product" data-id-product="'+item.id_product+'">\
                                             <button class="notify-me-btn" data-id-product="'+item.id_product+'">Notify me when available</button>\
                                           </div>';
-                }
-                      quantityaddsub +=  '</div>';
+                    }
+                      //quantityaddsub +=  '</div>';
                   
                   // COLUMN 10 : CHECKBOX
-                      checkboxcol += '<td data-label="Add to Cart">\
-                                        <div class="grid_td_column7">';
+                      
                                         if( parseInt(item.quantity) > parseInt(item.minimal_quantity)) {
                       checkboxcol +=  '<input type="hidden" name="group" id="group_'+item.id_product+'" value="'+group_count+'">\
                                           <div class="form-group-checkbox">\
@@ -881,20 +878,18 @@ $( document ).ready(function() {
                                               <label for="'+item.id_product+'_'+group_count+'" class="selection-button-checkbox">&nbsp;</label>\
                                           </div>';
                                         }
-                      checkboxcol +=  '</div>\
-                                      </td>';
                   
                   
                   var $tr = $('<tr>').attr("role", "row").addClass("row_tr_item_full odd").append(
-                    $('<td>').html('<div class="grid_td_column1"><img class="quickorder_item_image" src="'+item.cover_image_url+'"></div>'),
-                    $('<td>').html('<div class="grid_td_column2">'+i+'<br />'+item.reference+'</div>'),
-                    $('<td>').html('<div class="grid_td_column3">'+item.name+'</div>'),
-                    $('<td>').html('<div class="grid_td_column_group">'+item.category_name+'</div>'),
-                    $('<td>').attr("data-label", "Size").html('<div class="grid_td_column4">'+item.pack_stock_type+'</div>'),
-                    $('<td>').attr("data-label", "MOQ (Price)").html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
-                    $('<td>').attr("data-label", "Case Qty (Price)").html('<div class="grid_td_column4 moq-align">'+casequantity+'</div>'),
+                    $('<td>').html('<div class="grid_td_column1">'+itemimage+'</div>'),
+                    $('<td>').html('<div class="grid_td_column2">'+itemsku+'</div>'),
+                    $('<td>').html('<div class="grid_td_column3">'+itemname+'</div>'),
+                    $('<td>').html('<div class="grid_td_column_group">'+itemcategory+'</div>'),
+                    $('<td>').attr("data-label", "Size").html(itemsize),
+                    $('<td>').attr("data-label", "MOQ (Price)").html(moqquantity),
+                    $('<td>').attr("data-label", "Case Qty (Price)").html(casequantity),
                     $('<td>').attr("data-label", "Qty per Box").html('<div class="grid_td_column4">'+quantityperbox+'</div>'),
-                    $('<td>').attr("data-label", "Quantity").html('<div class="grid_td_column6">'+quantityaddsub+'</div>'),
+                    $('<td>').attr("data-label", "Quantity").html('<div class="col-lg-2 grid_td_column6">'+quantityaddsub+'</div>'),
                     $('<td>').attr("data-label", "Add to Cart").html('<div class="grid_td_column7">'+checkboxcol+'</div>')
                   ).appendTo('#fmm_table_body');
                   //console.log($tr.wrap('<p>').html());
