@@ -561,15 +561,15 @@ $( document ).ready(function() {
       var groupColumn = 3;
       console.log("Event : DataTable - fmm_table, is called");
       var fmmDataTable = $(tableId).DataTable({
-        columnDefs: [{ visible: false, targets: groupColumn }],
-        //columnDefs: [{ visible: false }],
+        //columnDefs: [{ visible: false, targets: groupColumn }],
+        columnDefs: [{ visible: false }],
         //order: [[groupColumn, 'asc']],
-        displayLength: 25,
+        displayLength: 10,
         drawCallback: function (settings) {
             var api = this.api();
             var rows = api.rows({ page: 'current' }).nodes();
             var last = null;
-         
+          /*
             api.column(groupColumn, { page: 'current' })
                 .data()
                 .each(function (group, i) {
@@ -584,14 +584,14 @@ $( document ).ready(function() {
          
                         last = group;
                     }
-                });
+                });*/
         },
         rowReorder: {
             selector: 'td:nth-child(2)'
         },
-        rowGroup: {
-          dataSrc: 'group'
-        },
+        //rowGroup: {
+        //  dataSrc: 'group'
+        //},
         //rowGroup: {
         //  dataSrc: groupColumn
         //},
