@@ -176,6 +176,7 @@
             {assign var="array_str_main" value=""}
             {assign var="array_str_sub" value=""}
             {assign var="rownum" value="1"}
+            {$all_products|@dump}
             {foreach from=$all_products item=product name=product}
                 {assign var="asgn_moq_qnty" value="0"}
                 {assign var="asgn_case_qnty" value="0"}
@@ -347,7 +348,7 @@
                             {else}
                                 <div class="moq-case-price">
                                 {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}" type="number">{$product.price*0.8|number_format:2:".":","}</span>
-                                {$asgn_case_price = {$product.price*0.8|number_format:2:".":","}}
+                                {$asgn_case_price = {$product.price|number_format:2:".":","}}
                                 </div>
                             {/if}
                             <!-- input type="radio" id="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="case" / -->
