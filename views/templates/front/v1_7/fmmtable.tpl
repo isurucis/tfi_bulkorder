@@ -408,8 +408,22 @@
                                 {if $product.reduction > 0}
                                     case_price="{$product.price|number_format:2:".":","}"
                                 {else}
-                                    case_price="{$product.price*0.8|number_format:2:".":","}"
+                                    {foreach from=$product.features item=feature name=features}
+                                        {if $feature.id_feature == 11}
+                                        case_price="{$feature.value|number_format:2:".":","}"
+                                        {/if}
+                                    {foreachelse}
+                                    {/foreach}
+                                    
                                 {/if}
+                                {foreach from=$product.features item=feature name=features}
+                                    {if $feature.id_feature == 10}
+                                    case_qty="{$product.quantity}"
+                                    {/if}
+                                {foreachelse}
+                                {/foreach}
+
+                                
                                 stk="{$product.quantity}"
                                 row_id="{$product.id_product|escape:'htmlall':'UTF-8'}"
                                 readonly="readonly"/>

@@ -151,7 +151,8 @@ $('#fmm_table').on('click', 'span.plus-bulkorder', function(e) {
   //alert(number);
   var minValue = parseInt($input.attr('min'));
   var stock = parseInt($input.attr('stk'));
-  let boxqty = Math.floor((minValue*20)/4);
+  let boxqty = parseInt($input.attr('case_qty'));
+  //let boxqty = Math.floor((minValue*20)/4);
   //var i = minValue < 1 ? 1 : minValue;
 
   if($input.val()>=boxqty){
