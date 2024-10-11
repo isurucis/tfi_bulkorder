@@ -699,7 +699,7 @@ $( document ).ready(function() {
                   var asgn_case_price = "0.00";
                   // '+(parseFloat(item.price)*0.8).toFixed(2)+'
                   
-
+                  // COLUMN 8 : MOQ (Price)
 
                   // COLUMN 7 : CASE QUANTITY
                       casequantity +=   '<div class="moqs_cases2">\
@@ -796,7 +796,7 @@ $( document ).ready(function() {
                     $('<td>').html('<div class="grid_td_column_group">'+item.category_name+'</div>'),
                     $('<td>').attr("data-label", "Size").html('<div class="grid_td_column4">'+item.pack_stock_type+'</div>'),
                     $('<td>').attr("data-label", "MOQ (Price)").html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
-                    $('<td>').attr("data-label", "Case Qty (Price)").html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
+                    $('<td>').attr("data-label", "Case Qty (Price)").html('<div class="grid_td_column4 moq-align">'+casequantity+'</div>'),
                     $('<td>').attr("data-label", "Qty per Box").html('<div class="grid_td_column4">'+quantityperbox+'</div>'),
                     $('<td>').attr("data-label", "Quantity").html('<div class="grid_td_column6">'+quantityaddsub+'</div>'),
                     $('<td>').attr("data-label", "Add to Cart").html('<div class="grid_td_column7">'+checkboxcol+'</div>')
@@ -839,7 +839,7 @@ $( document ).ready(function() {
             //fmmDataTable = $(fmmDataTableId).DataTable();
           }, 
           complete: function() {
-            //dataTableInit(3, "dataTableChangeNew : complete");
+            dataTableInit(3, "dataTableChangeNew : complete");
             //var fmmDataTable = $('#fmm_table').DataTable();
           }
       
