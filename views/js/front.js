@@ -755,12 +755,12 @@ $( document ).ready(function() {
                     $('<td>').html('<div class="grid_td_column2">'+i+'<br />'+item.reference+'</div>'),
                     $('<td>').html('<div class="grid_td_column3">'+item.name+'</div>'),
                     $('<td>').html('<div class="grid_td_column_group">'+item.category_name+'</div>'),
-                    $('<td>').html('<div class="grid_td_column4">'+item.pack_stock_type+'</div>'),
-                    $('<td>').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
-                    $('<td>').html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
-                    $('<td>').html('<div class="grid_td_column4">'+item.quantity+'</div>'),
-                    $('<td>').html('<div class="grid_td_column6">'+item.quantity+'</div>'),
-                    $('<td>').html('<div class="grid_td_column7">'+item.id_product+'</div>')
+                    $('<td>').attr("data-label", "Size").html('<div class="grid_td_column4">'+item.pack_stock_type+'</div>'),
+                    $('<td>').attr("data-label", "MOQ (Price)").html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
+                    $('<td>').attr("data-label", "Case Qty (Price)").html('<div class="grid_td_column4 moq-align">'+item.price+'</div>'),
+                    $('<td>').attr("data-label", "Qty per Box").html('<div class="grid_td_column4">'+item.quantity+'</div>'),
+                    $('<td>').attr("data-label", "Quantity").html('<div class="grid_td_column6">'+item.quantity+'</div>'),
+                    $('<td>').attr("data-label", "Add to Cart").html('<div class="grid_td_column7">'+item.id_product+'</div>')
                   ).appendTo('#fmm_table_body');
                   console.log($tr.wrap('<p>').html());
                 });
