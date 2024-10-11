@@ -589,12 +589,12 @@ $( document ).ready(function() {
         rowReorder: {
             selector: 'td:nth-child(2)'
         },
-        /*rowGroup: {
-          dataSrc: 'group'
-        },*/
         rowGroup: {
-          dataSrc: groupColumn
+          dataSrc: 'group'
         },
+        //rowGroup: {
+        //  dataSrc: groupColumn
+        //},
         destroy: true,
         "lengthChange": false,
         "info":     false,
