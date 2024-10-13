@@ -214,7 +214,8 @@ $('#fmm_table').on('change', 'input[name^="qty_qty_"]', function() {
 function updateCaseValue(qtyInput) {
   let minValue = parseInt(qtyInput.attr('min'));
   let quantityValue = parseInt(qtyInput.val());
-  let numberOfCases = Math.floor(quantityValue / ((minValue*20)/4)); // Calculate number of cases
+  let numberOfCases = parseInt(qtyInput.attr('case_qty'));
+  //let numberOfCases = Math.floor(quantityValue / ((minValue*20)/4)); // Calculate number of cases
   let priceBoxCalc = $('#price_box_calc_' + qtyInput.attr('id').split('_')[1]);
 
   // Update the case value in the UI
