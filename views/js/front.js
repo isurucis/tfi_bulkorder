@@ -201,8 +201,13 @@ $('#fmm_table').on('change', 'input[name^="qty_qty_"]', function() {
     $input.val(boxqty-minValue);
     }
   }else if(selection=='case'){
-    if($input.val()<(boxqty)){
-    $input.val(boxqty);
+    if(stock<boxqty){
+      $input.val(stock);
+    }else{
+      if($input.val()<(boxqty)){
+
+        $input.val(boxqty);
+      }
     }
   }
   updateCaseValue($input);
