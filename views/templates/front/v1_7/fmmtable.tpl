@@ -418,7 +418,7 @@
                                 {/if}
                                 {foreach from=$product.features item=feature name=features}
                                     {if $feature.id_feature == 10}
-                                    case_qty="{$product.quantity}"
+                                    case_qty="{$feature.value}"
                                     {/if}
                                 {foreachelse}
                                 {/foreach}
