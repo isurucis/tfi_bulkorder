@@ -325,7 +325,17 @@
                                 <input type="radio" 
                                 id="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" 
                                 name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" 
-                                value="case" class="moq_case-input" disabled/>
+                                value="case" class="moq_case-input" 
+                                
+                                {foreach from=$product.features item=feature name=features}
+                                    {if $feature.id_feature == 10}
+                                        {if $product.quantity<intval($feature.value)}
+                                disabled
+                                        {/if}
+                                    {/if}
+                                {foreachelse}
+                                {/foreach}
+                                />
                                 <div class="moq_case-box">By CASE</div>
                             </label>
                         </div>
