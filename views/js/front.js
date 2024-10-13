@@ -212,7 +212,7 @@ $('#fmm_table').on('change', 'input[name^="qty_qty_"]', function() {
 
 // Update the case value based on quantity input
 function updateCaseValue(qtyInput) {
-  let minValue = parseInt(qtyInput.attr('min'));
+  //let minValue = parseInt(qtyInput.attr('min'));
   let quantityValue = parseInt(qtyInput.val());
   let qtyCase = parseInt(qtyInput.attr('case_qty'));
   let numberOfCases = Math.floor(quantityValue / qtyCase); // Calculate number of cases

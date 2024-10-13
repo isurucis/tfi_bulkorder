@@ -742,7 +742,7 @@
             });
     
             // Update the case value based on quantity input
-            function updateCaseValue(qtyInput) {
+            /*function updateCaseValue(qtyInput) {
                 let minValue = parseInt(qtyInput.attr('min'));
                 let quantityValue = parseInt(qtyInput.val());
                 let boxqty = Math.floor((minValue*20)/4);
@@ -757,7 +757,20 @@
                 if(numberOfCases>=1){
                     $('input[name="qty_qty_' + number + '"][value="case"]').prop('checked', true);
                 }
-            }
+            }*/
+            function updateCaseValue(qtyInput) {
+                //let minValue = parseInt(qtyInput.attr('min'));
+                let quantityValue = parseInt(qtyInput.val());
+                let qtyCase = parseInt(qtyInput.attr('case_qty'));
+                let numberOfCases = Math.floor(quantityValue / qtyCase); // Calculate number of cases
+                let priceBoxCalc = $('#price_box_calc_' + qtyInput.attr('id').split('_')[1]);
+              
+                // Update the case value in the UI
+                priceBoxCalc.text(numberOfCases + ' Case' + (numberOfCases > 1 ? 's' : ''));
+                if(numberOfCases>=1){
+                    $('input[name="qty_qty_' + number + '"][value="case"]').prop('checked', true);
+                }
+              }
     
             // Function to check checkboxes and set quantity values based on localStorage data
             function checkCheckboxes() {
