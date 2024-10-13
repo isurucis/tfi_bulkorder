@@ -120,7 +120,7 @@ $('#fmm_table').on('click', 'span.minus-bulkorder', function(e) {
   var number = id.split("_")[1];
   var minValue = parseInt($input.attr('min'));
   var stock = parseInt($input.attr('stk'));
-  let boxqty = Math.floor((minValue*20)/4);
+  let boxqty = parseInt($input.attr('case_qty'));
   if($input.val()<=boxqty){
     var i = minValue < 1 ? 1 : minValue;
     $('input[name="qty_qty_' + number + '"][value="moq"]').prop('checked', true);
