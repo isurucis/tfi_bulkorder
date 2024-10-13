@@ -325,7 +325,7 @@
                                 <input type="radio" 
                                 id="qty_case_{$product.id_product|escape:'htmlall':'UTF-8'}" 
                                 name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" 
-                                value="case" class="moq_case-input" />
+                                value="case" class="moq_case-input" disabled/>
                                 <div class="moq_case-box">By CASE</div>
                             </label>
                         </div>
