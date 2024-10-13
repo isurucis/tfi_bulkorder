@@ -192,7 +192,8 @@ $('#fmm_table').on('change', 'input[name^="qty_qty_"]', function() {
 
   var minValue = parseInt($input.attr('min'));
   var stock = parseInt($input.attr('stk'));
-  let boxqty = Math.floor((minValue*20)/4);
+  //let boxqty = Math.floor((minValue*20)/4);
+  let boxqty = parseInt($input.attr('case_qty'));
   // Call your function and pass the selected number
   //alert(minValue); // Pass the number and selected value
   if(selection=='moq'){
