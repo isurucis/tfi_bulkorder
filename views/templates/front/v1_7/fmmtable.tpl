@@ -280,50 +280,57 @@
                     
                     
                     <td data-label="MOQ (Price)">
-                        <div>
-                            <div class="moqs_cases1" style="float: right;">
-                                <label class="moq_case_1">
-                                    <!-- input type="radio" name="moq_case-input-001" class="moq_case-input" checked="checked" -->
-                                    <input type="radio" 
-                                    id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" 
-                                    name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" 
-                                    value="moq" class="moq_case-input" checked="checked"/>
-                                    <div class="moq_case-box">By MOQ</div>
-                                </label>
-                            </div>
-                            <div style="clear: both;"></div>
-                        </div>
-                        <div class="grid_td_column4 moq-align">
-                            <div class="moq-case-quantity">
-                                {if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}
-                                    {$product.product_attribute_minimal_quantity}
-                                    {$asgn_moq_qnty = {$product.product_attribute_minimal_quantity}}
-                                {else}
-                                    {$product.minimal_quantity}
-                                    {$asgn_moq_qnty = {$product.minimal_quantity}}
-                                {/if}
-                                <span> x </span>
-                            </div>
-                            <div>{$product.price}</div>
-                            {foreach from=$product.features item=feature name=features}
-                                {if $feature.id_feature == 11}
-                                    {($feature.value)}
-                                {/if}
-                            {foreachelse}
-                            {/foreach}
+                        {foreach from=$product.features item=feature name=features}
+                            {if $feature.id_feature == 11}
+                                
+                                {if floatval($feature.value) == floatval($product.price)}
 
-                            {if $product.reduction > 0}
-                                <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2:".":","}</span></span></div>
-                                <div class="ml-2 price price--discounted" style="">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2:".":","}</span></div>
-                                {$asgn_moq_price = {$product.price|number_format:2:".":","}}
-                            {else}
-                                <div class="moq-case-price">
-                                {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}" type="number">{$product.price|number_format:2:".":","}</span>
-                                {$asgn_moq_price = {$product.price|number_format:2:".":","}}
-                                </div>
+                                
+                                {else}
+                                    <div>
+                                        <div class="moqs_cases1" style="float: right;">
+                                            <label class="moq_case_1">
+                                                <!-- input type="radio" name="moq_case-input-001" class="moq_case-input" checked="checked" -->
+                                                <input type="radio" 
+                                                id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" 
+                                                name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" 
+                                                value="moq" class="moq_case-input" checked="checked"/>
+                                                <div class="moq_case-box">By MOQ</div>
+                                            </label>
+                                        </div>
+                                        <div style="clear: both;"></div>
+                                    </div>
+                                    <div class="grid_td_column4 moq-align">
+                                        <div class="moq-case-quantity">
+                                            {if isset($product.product_attribute_minimal_quantity) && $product.product_attribute_minimal_quantity != ''}
+                                                {$product.product_attribute_minimal_quantity}
+                                                {$asgn_moq_qnty = {$product.product_attribute_minimal_quantity}}
+                                            {else}
+                                                {$product.minimal_quantity}
+                                                {$asgn_moq_qnty = {$product.minimal_quantity}}
+                                            {/if}
+                                            <span> x </span>
+                                        </div>
+                                        
+                                        {if $product.reduction > 0}
+                                            <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2:".":","}</span></span></div>
+                                            <div class="ml-2 price price--discounted" style="">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2:".":","}</span></div>
+                                            {$asgn_moq_price = {$product.price|number_format:2:".":","}}
+                                        {else}
+                                            <div class="moq-case-price">
+                                            {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}" type="number">{$product.price|number_format:2:".":","}</span>
+                                            {$asgn_moq_price = {$product.price|number_format:2:".":","}}
+                                            </div>
+                                        {/if}
+                                        <!-- input type="radio" id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="moq" checked/ -->
+                                    </div>
+
+                                {/if}
                             {/if}
-                            <!-- input type="radio" id="qty_moq_{$product.id_product|escape:'htmlall':'UTF-8'}" name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" value="moq" checked/ -->
-                        </div>
+                        {foreachelse}
+                        {/foreach}
+
+                        
                     </td>
     
                     <td data-label="Case Qty (Price)">
