@@ -217,7 +217,7 @@ $('#fmm_table').on('change', 'input[name^="qty_qty_"]', function() {
 
 // Handle checkbox click events
 //$("input[type=checkbox]").click(function () {
-$('input[type=checkbox]').on('click', function() {
+$('#fmm_table').on('click', 'input[type=checkbox]', function() {
   if ($(this).closest("tr").hasClass("head")) return;
 
   var qtyInput = $(this).closest('tr').find('.input-qty');
