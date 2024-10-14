@@ -352,11 +352,16 @@
                                             {if $feature.id_feature == 11}
 
                                                 {if $product.reduction > 0}
-                                                    
+                                                    {if intval($feature.value) > $product.price}
                                                     <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2:".":","}</span></span></div>
                                                     <div class="ml-2 price price--discounted" style="">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2:".":","}</span></div>
                                                     {$asgn_case_price = {$product.price|number_format:2:".":","}}
-                                                    {$product.reduction}
+                                                    {else}
+                                                    <div class="moq-case-price">
+                                                        {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}" type="number">{$feature.value|number_format:2:".":","}</span>
+                                                        {$asgn_case_price = {intval($feature.value)}}
+                                                    </div>
+                                                    {/if}
                                                 {else}
                                                     <div class="moq-case-price">
                                                         {$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}" type="number">{$feature.value|number_format:2:".":","}</span>
