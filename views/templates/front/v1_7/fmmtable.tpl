@@ -350,7 +350,7 @@
             
                                         {foreach from=$product.features item=feature name=features}
                                             {if $feature.id_feature == 11}
-                                            
+                                            {$product.price|number_format:2:".":","}
                                                 {if $product.reduction > 0}
                                                     {if floatval($feature.value) > floatval($product.price)}
                                                         
