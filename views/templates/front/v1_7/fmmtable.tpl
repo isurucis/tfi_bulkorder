@@ -350,7 +350,8 @@
             
                                         {foreach from=$product.features item=feature name=features}
                                             {if $feature.id_feature == 11}
-                                            {$product.price|number_format:2:".":","}
+                                            {$product.price}<br/>
+                                            {$feature.value}
                                                 {if $product.reduction > 0}
                                                     {if intval($feature.value) > $product.price}
                                                         td
