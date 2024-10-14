@@ -350,8 +350,8 @@
             
                                         {foreach from=$product.features item=feature name=features}
                                             {if $feature.id_feature == 11}
-                                            {$product.price}<br/>
-                                            {$feature.value}
+                                            <div>{$product.price}</div>
+                                            <div>{$feature.value}</div>
                                                 {if $product.reduction > 0}
                                                     {if intval($feature.value) > $product.price}
                                                         td
