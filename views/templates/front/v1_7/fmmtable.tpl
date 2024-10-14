@@ -353,7 +353,7 @@
                                             <div>{$product.price}</div>
                                             <div>{$feature.value}</div>
                                                 {if $product.reduction > 0}
-                                                    {if intval($feature.value) > $product.price}
+                                                    {if floatval($feature.value) > floatval($product.price)}
                                                         td
                                                         <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2:".":","}</span></span></div>
                                                         <div class="ml-2 price price--discounted" style="">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price|number_format:2:".":","}</span></div>
