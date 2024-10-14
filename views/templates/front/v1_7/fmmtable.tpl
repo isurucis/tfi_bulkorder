@@ -350,7 +350,7 @@
             
                                         {foreach from=$product.features item=feature name=features}
                                             {if $feature.id_feature == 11}
-                                                {$product.price}
+                                            {$product.price|number_format:2:".":","}
                                                 {if $product.reduction > 0}
                                                     {if intval($feature.value) > $product.price}
                                                         <div class="ml-2 price price--regular2" style="">WAS&nbsp;<span class="price--regular">{$product.default_currency_sign|escape:'htmlall':'UTF-8'}<span id="price_old_{$product.id_product|escape:'htmlall':'UTF-8'}">{$product.price_without_reduction|number_format:2:".":","}</span></span></div>
