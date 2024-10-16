@@ -284,9 +284,10 @@
                             {if $feature.id_feature == 11}
                                 
                                 {if floatval($feature.value) == floatval($product.price)}
-
+                                    var iscase = 1;
                                 
                                 {else}
+                                    var iscase = 0;
                                     <div>
                                         <div class="moqs_cases1" style="float: right;">
                                             <label class="moq_case_1">
@@ -346,7 +347,9 @@
                                             name="qty_qty_{$product.id_product|escape:'htmlall':'UTF-8'}" 
                                             value="case" class="moq_case-input" 
                                             
-                                            
+                                            {if iscase==1}
+                                            checked="checked"
+                                            {/if}
                                             />
                                             <div class="moq_case-box">By CASE</div>
                                         </label>
