@@ -714,7 +714,7 @@
             }
     
             // Handle checkbox click events
-            $("input[type=checkbox]").click(function () {
+            /*$("input[type=checkbox]").click(function () {
                 if ($(this).closest("tr").hasClass("head")) return;
     
                 var qtyInput = $(this).closest('tr').find('.input-qty');
@@ -743,7 +743,7 @@
                 }
 
                 toggleLocalStorage($(this).val(), $(this).is(":checked"), qtyValue, moq_case, itemprice);
-            });
+            });*/
 
             
 

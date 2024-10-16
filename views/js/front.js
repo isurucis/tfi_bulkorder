@@ -215,6 +215,39 @@ $('#fmm_table').on('change', 'input[name^="qty_qty_"]', function() {
 });
 
 
+// Handle checkbox click events
+//$("input[type=checkbox]").click(function () {
+$('#fmm_table').on('click', 'input[type=checkbox]', function() {
+  if ($(this).closest("tr").hasClass("head")) return;
+
+  var qtyInput = $(this).closest('tr').find('.input-qty');
+  var qtyValue = qtyInput.val();  // Get the quantity value
+  var moq_case = $("input[name='qty_qty_" + $(this).val() + "']:checked").val();    // moq | case
+  var moq_price   = qtyInput.attr('moq_price');
+  var case_price  = qtyInput.attr('case_price');
+  var itemprice = (moq_case == "moq") ? moq_price : case_price;
+  //console.log("itemprice : "+itemprice);
+  if ($(this).is(":checked")) {
+      $(this).closest("tr").addClass("dataTable-highlight");
+      $(this).closest(".selection-button-checkbox").addClass('selected');
+      $(this).closest('tr').find('.input-qty').removeClass('input-qty-disable');
+      $(this).closest('tr').find('.input-qty').addClass('input-qty-enable');
+
+      $(this).closest('tr').find('.price_box_amount').removeClass('row_amount_disable');
+      $(this).closest('tr').find('.price_box_amount').addClass('row_amount_enable');
+  } else {
+      $(this).closest("tr").removeClass("dataTable-highlight");
+      $(this).closest(".selection-button-checkbox").removeClass('selected');
+      $(this).closest('tr').find('.input-qty').removeClass('input-qty-enable');
+      $(this).closest('tr').find('.input-qty').addClass('input-qty-disable');
+
+      $(this).closest('tr').find('.price_box_amount').removeClass('row_amount_enable');
+      $(this).closest('tr').find('.price_box_amount').addClass('row_amount_disable');
+  }
+
+  toggleLocalStorage($(this).val(), $(this).is(":checked"), qtyValue, moq_case, itemprice);
+});
+
 
 // Update the case value based on quantity input
 function updateCaseValue(qtyInput) {
