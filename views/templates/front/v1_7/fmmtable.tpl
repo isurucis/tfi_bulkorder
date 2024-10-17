@@ -288,10 +288,12 @@
                             {if $feature.id_feature == 11}
                                 
                                 {if floatval($feature.value) == floatval($product.price)}
-                                    {var iscase = 1;}
+                                   
+                                    {assign var=iscase value=1}
                                 
                                 {else}
-                                    {var iscase = 0;}
+                                    
+                                    {assign var=iscase value=0}
                                     <div>
                                         <div class="moqs_cases1" style="float: right;">
                                             <label class="moq_case_1">
