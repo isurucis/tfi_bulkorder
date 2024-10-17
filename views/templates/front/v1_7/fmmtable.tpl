@@ -498,7 +498,7 @@
                             
                                  
                                 <div class="product" data-id-product="{$product.id_product}">
-                                    <button class="btn notify-me-btn" data-id-product="{$product.id_product}">Notify me when available</button>
+                                    <button class="btn minus-bulkorder" data-id-product="{$product.id_product}">Notify me when available</button>
                                 </div>
                             {/if}
                         </div>
