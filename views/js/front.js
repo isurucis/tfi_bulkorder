@@ -986,11 +986,7 @@ $( document ).ready(function() {
             // Send an AJAX request to add the email to the notification list
             $.ajax({
                 type: "POST",
-<<<<<<< HEAD
                 url: 'index.php?process=add&fc=module&module=ps_emailalerts&controller=actions', // Email Alerts module's actions.php
-=======
-                url: 'https://shop.etropicalfish.com/index.php?process=add&fc=module&module=ps_emailalerts&controller=actions', // Email Alerts module's actions.php
->>>>>>> 1c20b9f (migration changes)
                 data: {
                     process: 'add',
                     email: email,
