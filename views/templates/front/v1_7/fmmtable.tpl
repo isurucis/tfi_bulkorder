@@ -25,7 +25,7 @@
     
     {extends file=$layout}
     {block name='content'}
-    
+    <h1>test</h1>
     <script src="{$jQuery_path|escape:'htmlall':'UTF-8'}"></script>
     <script src="{$inview|escape:'htmlall':'UTF-8'}"></script>
     <input type="hidden" id="noofrow" name="noofrow" value="{$noofrow|escape:'htmlall':'UTF-8'}">
