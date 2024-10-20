@@ -986,7 +986,7 @@ $( document ).ready(function() {
             // Send an AJAX request to add the email to the notification list
             $.ajax({
                 type: "POST",
-                url: 'https://mediumturquoise-cheetah-573749.hostingersite.com/index.php?process=add&fc=module&module=ps_emailalerts&controller=actions', // Email Alerts module's actions.php
+                url: 'index.php?process=add&fc=module&module=ps_emailalerts&controller=actions', // Email Alerts module's actions.php
                 data: {
                     process: 'add',
                     email: email,

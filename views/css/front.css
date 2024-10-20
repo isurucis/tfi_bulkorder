@@ -1127,7 +1127,7 @@ table.row_tbl_price_box_amount tbody td {
   background: var(--background);
   border-radius: 15px 0 0 15px;
 
-  background-image: url('https://mediumturquoise-cheetah-573749.hostingersite.com/modules/ps_imageslider/images/e5fcc8bd0153f7dc7ff0c2d1dbbc36a135c1792c_tick.png');
+  background-image: url('../modules/ps_imageslider/images/e5fcc8bd0153f7dc7ff0c2d1dbbc36a135c1792c_tick.png');
   background-repeat: no-repeat;
   background-size: 22px;
   background-position-x: 3px;
@@ -1139,7 +1139,7 @@ table.row_tbl_price_box_amount tbody td {
   background: var(--background);
   border-radius: 0 15px 15px 0;
 
-  background-image: url('https://mediumturquoise-cheetah-573749.hostingersite.com/modules/ps_imageslider/images/e5fcc8bd0153f7dc7ff0c2d1dbbc36a135c1792c_tick.png');
+  background-image: url('../modules/ps_imageslider/images/e5fcc8bd0153f7dc7ff0c2d1dbbc36a135c1792c_tick.png');
   background-repeat: no-repeat;
   background-size: 22px;
   background-position-x: 76px;
