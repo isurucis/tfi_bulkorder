@@ -240,7 +240,7 @@
                         </table>
                         <!-- div class="price_box_calc" id="price_box_calc_{$product.id_product|escape:'htmlall':'UTF-8'}">0 Case</div -->
                         {else}
-                        <!--<a class="btn btn-info" href="https://mediumturquoise-cheetah-573749.hostingersite.com/fmmquick?product_type=sale">Notify Me</a>-->
+                        <!--<a class="btn btn-info" href="https://shop.etropicalfish.com/fmmquick?product_type=sale">Notify Me</a>-->
                         
                         <div class="product" data-id-product="{$product.id_product}">
                             <button class="notify-me-btn" data-id-product="{$product.id_product}">Notify me when available</button>

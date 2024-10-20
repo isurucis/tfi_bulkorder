@@ -94,13 +94,13 @@
                     /*if (data.status === 'success') {
                         // Redirect to cart page or confirmation page on success
                         console.log('data.status:', data.status);
-                        window.location.href = 'https://mediumturquoise-cheetah-573749.hostingersite.com/cart?action=show';
+                        window.location.href = 'https://shop.etropicalfish.com/cart?action=show';
                     } else {
                         // Handle errors if the AJAX request fails (optional)
                         console.error('Error adding product to cart:', data.message);
                     }*/
                     window.location.reload(true);
-                    //window.location.href = 'https://mediumturquoise-cheetah-573749.hostingersite.com/cart?action=show';
+                    //window.location.href = 'https://shop.etropicalfish.com/cart?action=show';
                   }
               });
           });
@@ -986,7 +986,11 @@ $( document ).ready(function() {
             // Send an AJAX request to add the email to the notification list
             $.ajax({
                 type: "POST",
+<<<<<<< HEAD
                 url: 'index.php?process=add&fc=module&module=ps_emailalerts&controller=actions', // Email Alerts module's actions.php
+=======
+                url: 'https://shop.etropicalfish.com/index.php?process=add&fc=module&module=ps_emailalerts&controller=actions', // Email Alerts module's actions.php
+>>>>>>> 1c20b9f (migration changes)
                 data: {
                     process: 'add',
                     email: email,
