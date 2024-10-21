@@ -671,12 +671,15 @@ $( document ).ready(function() {
 
     //.............................................................
     $('#select_fmm_country').on('change', function() {
+      fmmDataTable.destroy();
       dataTableChangeNew();
     });
     $('#select_fmm_view').on('change', function() {
+      fmmDataTable.destroy();
       dataTableChangeNew();
     });
     $('#select_fmm_cat').on('change', function() {
+      fmmDataTable.destroy();
       dataTableChangeNew();
     });
     
@@ -694,7 +697,7 @@ $( document ).ready(function() {
       //fmmDataTable.destroy();
       //var fmmDataTable = $('#fmm_table').DataTable();
       
-      var fmmDataTableId = '#fmm_table';
+      var fmmDataTableId = 'fmm_table';
       var group_count = "0";  // SET DEFAULT
       $.ajax({
           type: 'POST',
@@ -707,7 +710,7 @@ $( document ).ready(function() {
             // clear first
             //if(fmmDataTable!=null){
             //  console.log("IN dataTableChangeNew() fmmDataTable!=null ");
-              fmmDataTable.clear();
+            ////  fmmDataTable.clear();
             //  fmmDataTable.destroy();
             //}
 
@@ -964,7 +967,7 @@ $( document ).ready(function() {
             }
 
             //3rd reCreate Datatable object
-            fmmDataTable = $(fmmDataTableId).DataTable();
+            fmmDataTable = $("#"+fmmDataTableId).DataTable();
           }, 
           complete: function() {
             //dataTableInit(3, "dataTableChangeNew : complete");
