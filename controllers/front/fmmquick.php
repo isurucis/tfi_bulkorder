@@ -178,6 +178,11 @@ class QuickProductTableFmmQuickModuleFrontController extends ModuleFrontControll
         $this->context->smarty->assign('csv_enable', $csv_enable);
         $id_lang = $this->context->language->id;
         $this->context->smarty->assign('id_lang', $id_lang);
+
+        $this->context->smarty->assign('id_category', $id_category);
+        $this->context->smarty->assign('id_country', $id_country);
+        $this->context->smarty->assign('id_view', $id_view);
+
         
         $jquery_array = array();
         if (_PS_VERSION_ >= '8.0') {
