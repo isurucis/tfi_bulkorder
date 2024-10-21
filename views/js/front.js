@@ -724,8 +724,7 @@ $( document ).ready(function() {
             //$("#fmm_table_body").html('');
             
           },
-          //success: function(response) {
-          complete: function(response){
+          success: function(response) {
             console.log(response);
 
             // clear first
@@ -973,12 +972,15 @@ $( document ).ready(function() {
             }
 
             //3rd reCreate Datatable object
-            fmmDataTable = $("#"+fmmDataTableId).DataTable();
-          } 
-          //complete: function() {
+            //fmmDataTable = $("#"+fmmDataTableId).DataTable();
+          }, 
+          complete: function() {
             //dataTableInit(3, "dataTableChangeNew : complete");
             //var fmmDataTable = $('#fmm_table').DataTable();
-          //}
+
+            //3rd reCreate Datatable object
+            fmmDataTable = $("#"+fmmDataTableId).DataTable();
+          }
       
       });
     }
