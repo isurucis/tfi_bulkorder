@@ -99,7 +99,7 @@
     
         {if $all_enable == 1}
             <div class=" top_buttons">
-                <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=all">{l s='All' mod='quickproducttable'}</a>
+                <a class="btn btn-{$btn_clr|escape:'htmlall':'UTF-8'}" href="{$base_url|escape:'htmlall':'UTF-8'}{$route_name|escape:'htmlall':'UTF-8'}?product_type=all&id_country=1066">{l s='All' mod='quickproducttable'}</a>
             </div>
         {/if}
         {if $new_enable == 1}
