@@ -45,11 +45,29 @@
                     <select  name="select_fmm_cat" id="select_fmm_cat" class="custom-select " style="width: auto;">
                         <!-- option value="0" selected="selected">{" (Select a Family)"|escape:'htmlall':'UTF-8'}</option -->
                         {foreach from=$catTree['children'] item=tree}
-                            <option value="{$tree['id']|escape:'htmlall':'UTF-8'}">{$tree['name']|escape:'htmlall':'UTF-8'}{" (Select a Family)"|escape:'htmlall':'UTF-8'}</option>
+                            <option value="{$tree['id']|escape:'htmlall':'UTF-8'}"
+                            {if isset($id_category)}
+                                {if $id_category|escape:'htmlall':'UTF-8' == $tree['id']|escape:'htmlall':'UTF-8'}
+                                    selected="selected" 
+                                {/if}
+                            {/if}
+                            >{$tree['name']|escape:'htmlall':'UTF-8'}{" (Select a Family)"|escape:'htmlall':'UTF-8'}</option>
                             {foreach from=$tree['children'] item=tree2}
-                                <option value="{$tree2['id']|escape:'htmlall':'UTF-8'}">{$tree['name']|escape:'htmlall':'UTF-8'}&emsp;‣&emsp;{$tree2['name']|escape:'htmlall':'UTF-8'}</option>
+                                <option value="{$tree2['id']|escape:'htmlall':'UTF-8'}"
+                                {if isset($id_category)}
+                                    {if $id_category|escape:'htmlall':'UTF-8' == $tree2['id']|escape:'htmlall':'UTF-8'}
+                                        selected="selected" 
+                                    {/if}
+                                {/if}
+                                >{$tree['name']|escape:'htmlall':'UTF-8'}&emsp;‣&emsp;{$tree2['name']|escape:'htmlall':'UTF-8'}</option>
                                 {foreach from=$tree2['children'] item=tree3}
-                                    <option value="{$tree3['id']|escape:'htmlall':'UTF-8'}">{$tree['name']|escape:'htmlall':'UTF-8'}&emsp;‣&emsp;{$tree2['name']|escape:'htmlall':'UTF-8'}&emsp;‣&emsp;&emsp;{$tree3['name']|escape:'htmlall':'UTF-8'}</option>
+                                    <option value="{$tree3['id']|escape:'htmlall':'UTF-8'}"
+                                    {if isset($id_category)}
+                                        {if $id_category|escape:'htmlall':'UTF-8' == $tree3['id']|escape:'htmlall':'UTF-8'}
+                                            selected="selected" 
+                                        {/if}
+                                    {/if}
+                                    >{$tree['name']|escape:'htmlall':'UTF-8'}&emsp;‣&emsp;{$tree2['name']|escape:'htmlall':'UTF-8'}&emsp;‣&emsp;&emsp;{$tree3['name']|escape:'htmlall':'UTF-8'}</option>
                                 {/foreach}
                             {/foreach}
                         {/foreach}
@@ -59,18 +77,22 @@
                 <select  name="select_fmm_country" id="select_fmm_country" class="custom-select " style="width: auto;">
                     <option value="0">All Country</option>
                     {foreach from=$countries item=country}
-                        <option value="{$country.id_value}"
-                        
-                        >{$country.country_name}</option>
+                        <option value="{$country.id_value}" 
+                        {if isset($id_country)}
+                            {if $id_country|escape:'htmlall':'UTF-8' == $country.id_value}
+                                 selected="selected" 
+                            {/if}
+                        {/if}
+                         >{$country.country_name}</option>
                     {/foreach}
                 </select>
     
                     
-                <select  name="select_fmm_view" id="select_fmm_view" class="custom-select " style="width: auto;">
+                <!-- select  name="select_fmm_view" id="select_fmm_view" class="custom-select " style="width: auto;">
                     <option value="0">All</option>
                     <option value="1">Stock Available</option>
                     <option value="2">Out of Stock</option>
-                </select>
+                </select -->
             </div>
 
             

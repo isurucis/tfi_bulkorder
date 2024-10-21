@@ -670,18 +670,33 @@ $( document ).ready(function() {
     }
 
     //.............................................................
+    $('#select_fmm_cat').on('change', function() {
+      //fmmDataTable.destroy();
+      //dataTableChangeNew();
+
+      var id_category = $(this).val();
+      var id_country  = $("#id_country").val();
+      //var id_view     = $("#id_view").val();
+      var querystring = "&id_category="+id_category+"&id_country="+id_country;
+
+      window.location.href = "https://shop.etropicalfish.com/fmmquick?product_type=all"+querystring;
+    });
     $('#select_fmm_country').on('change', function() {
-      fmmDataTable.destroy();
-      dataTableChangeNew();
+      //fmmDataTable.destroy();
+      //dataTableChangeNew();
+
+      var id_category = $("#id_category").val();
+      var id_country  = $(this).val();
+      //var id_view     = $("#id_view").val();
+      var querystring = "&id_category="+id_category+"&id_country="+id_country;
+
+      window.location.href = "https://shop.etropicalfish.com/fmmquick?product_type=all"+querystring;
     });
     $('#select_fmm_view').on('change', function() {
-      fmmDataTable.destroy();
-      dataTableChangeNew();
+      //fmmDataTable.destroy();
+      //dataTableChangeNew();
     });
-    $('#select_fmm_cat').on('change', function() {
-      fmmDataTable.destroy();
-      dataTableChangeNew();
-    });
+    
     
     //setInterval(function () {
     //  fmmDataTable.ajax.reload();
