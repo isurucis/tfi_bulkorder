@@ -683,6 +683,11 @@ $( document ).ready(function() {
       dataTableChangeNew();
     });
     
+    setInterval(function () {
+      fmmDataTable.ajax.reload();
+    }, 30000);
+
+
     var dataTableChangeNew = function() {
       var id_category       = $('#select_fmm_cat').val(); //this.value;
       var id_country        = $('#select_fmm_country').val();   // countryid
@@ -715,8 +720,8 @@ $( document ).ready(function() {
             //}
 
             //2nd empty html
-            $(fmmDataTableId + " tbody").empty();
-            $("#fmm_table_body").html('');
+            //$(fmmDataTableId + " tbody").empty();
+            //$("#fmm_table_body").html('');
             
           },
           success: function(response){
