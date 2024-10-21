@@ -675,7 +675,7 @@ $( document ).ready(function() {
       //dataTableChangeNew();
 
       var id_category = $(this).val();
-      var id_country  = $("#id_country").val();
+      var id_country  = $("#select_fmm_country").val();
       //var id_view     = $("#id_view").val();
       var querystring = "&id_category="+id_category+"&id_country="+id_country;
 
@@ -685,7 +685,7 @@ $( document ).ready(function() {
       //fmmDataTable.destroy();
       //dataTableChangeNew();
 
-      var id_category = $("#id_category").val();
+      var id_category = $("#select_fmm_cat").val();
       var id_country  = $(this).val();
       //var id_view     = $("#id_view").val();
       var querystring = "&id_category="+id_category+"&id_country="+id_country;
